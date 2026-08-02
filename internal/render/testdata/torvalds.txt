@@ -1,0 +1,25 @@
+
+  🏆 @torvalds
+  3 of 8 badges you can still earn, 12 tiers
+  Closest next unlock: Galaxy Brain, 0 / 2 answers to x1
+
+  On display
+  ● Pull Shark                     x2  ██████░░░░░░  72 / 128 to x3           calibrated
+  ● Starstruck                     x4  ████████████  Top tier, 252,192 stars  counted
+  ● Pair Extraordinaire            x4                Top tier                 official
+  ● Arctic Code Vault Contributor  ✓                 Since 2020
+  ● Mars 2020 Contributor          ✓                 Since 2021
+
+  Still to collect
+  ○ Galaxy Brain                       ░░░░░░░░░░░░  0 / 2 answers to x1      counted
+  ○ Quickdraw                                        Close an issue or pull request within 5 minutes of opening it
+  ○ YOLO                                             Merge a pull request without a review
+  ○ Public Sponsor                                   Sponsor someone publicly through GitHub Sponsors
+  ○ Finishing Touch                                  First tier at 1          official
+
+  The archive: 5 badges you can no longer earn (--all lists them)
+
+  Highlights: none of 6 yet
+
+  official = GitHub's own pages · calibrated = counted, checked against GitHub · counted = counted only
+
