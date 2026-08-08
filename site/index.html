@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Achievements Checker: tiers &amp; progress · gh-achievements</title>
+<meta name="description" content="See every GitHub achievement, your tier and how far you are from the next one. A free GitHub CLI extension, verified against GitHub, no token needed.">
+<link rel="canonical" href="https://gh-achievements.vercel.app/">
+
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="gh-achievements">
+<meta property="og:title" content="GitHub Achievements Checker: tiers &amp; progress · gh-achievements">
+<meta property="og:description" content="See every GitHub achievement, your tier and how far you are from the next one. A free GitHub CLI extension, verified against GitHub, no token needed.">
+<meta property="og:url" content="https://gh-achievements.vercel.app/">
+<meta property="og:image" content="https://gh-achievements.vercel.app/social.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="gh-achievements: check your GitHub achievements progress in the terminal">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
+<script src="/theme.js"></script>
+<link rel="preload" href="/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","author":{"@type":"Person","name":"nmloc","url":"https://github.com/nmloc"},"codeRepository":"https://github.com/nmloc/gh-achievements","description":"Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.","downloadUrl":"https://github.com/nmloc/gh-achievements/releases","isAccessibleForFree":true,"license":"https://opensource.org/licenses/MIT","name":"gh-achievements","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"macOS, Linux, Windows","url":"https://gh-achievements.vercel.app/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Install the GitHub CLI extension with `gh extension install nmloc/gh-achievements` and run `gh achievements`. It lists every achievement, your tier and how many more you need for the next one. Add a username to check someone else."},"name":"How do I check my GitHub achievements progress?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No. It reuses the login of the GitHub CLI (gh auth login). Without a login it still works with public data."},"name":"Does gh-achievements need a GitHub token?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"15 are known as of 2026-10-17: 8 earnable, 2 disabled, 2 retired, 3 internal. There are also 6 profile highlights such as Pro and Developer Program Member."},"name":"How many GitHub achievements are there?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Tiers and unlock dates come straight from GitHub's profile pages. Pull Shark's count is checked against the milestones GitHub names. Every number is labelled official, calibrated or counted."},"name":"How accurate is it?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Achievements can be turned off under Settings → Public profile → \"Show Achievements on my profile\". gh-achievements says when a profile hides them and shows live counts only."},"name":"Why don't my achievements show on my profile?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No. It is an independent open source project and is not affiliated with or endorsed by GitHub."},"name":"Is gh-achievements made by GitHub?"}]}</script>
+<script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/">🏆 gh-achievements</a>
+    <nav id="site-nav" aria-label="Site">
+      <a href="/check/">Check yours</a>
+      <a href="/achievements/">All achievements</a>
+      <a href="/methodology/">How it works</a>
+      <a href="https://github.com/nmloc/gh-achievements">GitHub</a>
+    </nav>
+    <a class="star" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="header"><span aria-hidden="true">★</span> Star<span class="star-long"> on GitHub</span> <span class="star-count" data-stars hidden></span></a>
+    <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
+    <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
+  </div>
+</header>
+<main>
+
+
+
+<section class="hero">
+  <h1>Your GitHub trophy case</h1>
+  <p class="lede">See every GitHub achievement, the tier you hold and how far the next one is, checked against GitHub's own data.</p>
+  
+<form action="/result" method="get" id="check-form">
+  <label for="u" class="visually-hidden">GitHub username</label>
+  <input id="u" name="u" required autocomplete="username" autocapitalize="off" spellcheck="false"
+    pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="GitHub username" value="">
+  <button type="submit" class="btn primary">Check</button>
+</form>
+
+  <p class="signin"><a href="/auth/login" data-signin>Sign in with GitHub</a> to include private work.</p>
+</section>
+
+<ul class="vitrine shelf home-shelf" aria-label="The 8 badges you can earn, at their top tier">
+<li><a class="medal" href="achievements/pull-shark/"><img class="medal-img" src="https://github.githubassets.com/assets/pull-shark-gold-90985540b385.png" width="88" height="88" alt=""><span class="medal-name">Pull Shark</span></a></li>
+<li><a class="medal" href="achievements/starstruck/"><img class="medal-img" src="https://github.githubassets.com/assets/starstruck-gold-a35e077693cc.png" width="88" height="88" alt=""><span class="medal-name">Starstruck</span></a></li>
+<li><a class="medal" href="achievements/pair-extraordinaire/"><img class="medal-img" src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="88" height="88" alt=""><span class="medal-name">Pair Extraordinaire</span></a></li>
+<li><a class="medal" href="achievements/galaxy-brain/"><img class="medal-img" src="https://github.githubassets.com/assets/galaxy-brain-gold-9c2c03fd1acf.png" width="88" height="88" alt=""><span class="medal-name">Galaxy Brain</span></a></li>
+<li><a class="medal" href="achievements/quickdraw/"><img class="medal-img" src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="88" height="88" alt=""><span class="medal-name">Quickdraw</span></a></li>
+<li><a class="medal" href="achievements/yolo/"><img class="medal-img" src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="88" height="88" alt=""><span class="medal-name">YOLO</span></a></li>
+<li><a class="medal" href="achievements/public-sponsor/"><img class="medal-img" src="https://github.githubassets.com/assets/public-sponsor-default-9fa68986b057.png" width="88" height="88" alt=""><span class="medal-name">Public Sponsor</span></a></li>
+<li><a class="medal" href="achievements/finishing-touch/"><img class="medal-img" src="https://github.githubassets.com/assets/finishing-touch-gold-e19e1fcbfee2.png" width="88" height="88" alt=""><span class="medal-name">Finishing Touch</span></a></li>
+</ul>
+<p class="meta"><a href="achievements/">See all 15 GitHub achievements</a>, including the retired ones and those GitHub switched off.</p>
+
+<h2>What it shows</h2>
+<ul class="points">
+  <li><h3>Every badge, not just yours</h3><p>All 15 known achievements (8 earnable, 2 disabled, 2 retired, 3 internal) and 6 profile highlights.</p></li>
+  <li><h3>How far to the next tier</h3><p>Your count against the next threshold, such as 72 / 128 merged pull requests for Pull Shark x3.</p></li>
+  <li><h3>Checked against GitHub</h3><p>Tiers, unlock dates and milestones come from GitHub's own badge history. <a href="methodology/">How it works</a></p></li>
+</ul>
+
+<h2>Prefer the terminal?</h2>
+<div class="install">
+  <pre><code>gh extension install nmloc/gh-achievements
+gh achievements</code></pre>
+  <button type="button" class="btn small" data-copy="gh extension install nmloc/gh-achievements">Copy</button>
+</div>
+<p class="meta">Needs the <a href="https://cli.github.com/">GitHub CLI</a> and reuses your <code>gh auth login</code>, so it counts everything your login can see. Add a username to check anyone: <code>gh achievements torvalds</code>. The web checker uses your GitHub sign-in for one check, then revokes the token.</p>
+
+<h2>FAQ</h2>
+<dl class="faq">
+<dt>How do I check my GitHub achievements progress?</dt><dd>Install the GitHub CLI extension with `gh extension install nmloc/gh-achievements` and run `gh achievements`. It lists every achievement, your tier and how many more you need for the next one. Add a username to check someone else.</dd>
+<dt>Does gh-achievements need a GitHub token?</dt><dd>No. It reuses the login of the GitHub CLI (gh auth login). Without a login it still works with public data.</dd>
+<dt>How many GitHub achievements are there?</dt><dd>15 are known as of 2026-10-17: 8 earnable, 2 disabled, 2 retired, 3 internal. There are also 6 profile highlights such as Pro and Developer Program Member.</dd>
+<dt>How accurate is it?</dt><dd>Tiers and unlock dates come straight from GitHub&#39;s profile pages. Pull Shark&#39;s count is checked against the milestones GitHub names. Every number is labelled official, calibrated or counted.</dd>
+<dt>Why don&#39;t my achievements show on my profile?</dt><dd>Achievements can be turned off under Settings → Public profile → &#34;Show Achievements on my profile&#34;. gh-achievements says when a profile hides them and shows live counts only.</dd>
+<dt>Is gh-achievements made by GitHub?</dt><dd>No. It is an independent open source project and is not affiliated with or endorsed by GitHub.</dd>
+</dl>
+
+
+<a class="star-banner" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="home">
+  <strong>Found this useful? Star gh-achievements on GitHub</strong>
+  <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars hidden></span></span>
+</a>
+
+
+</main>
+<footer>
+  <p>gh-achievements is an independent open source project (MIT) and is not affiliated with or endorsed by GitHub.
+  <a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="https://github.com/nmloc/gh-achievements">Source</a> · <a href="/achievements.json">achievements.json</a> · <a href="/llms.txt">llms.txt</a> · Badge artwork © GitHub, loaded from GitHub's CDN. · <button type="button" class="linklike" data-consent-reset>Analytics settings</button></p>
+</footer>
+<div id="consent" hidden role="dialog" aria-label="Analytics consent">
+  <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
+  <button type="button" data-consent="granted" class="btn primary">Allow</button>
+  <button type="button" data-consent="denied" class="btn">No thanks</button>
+</div>
+</body>
+</html>
