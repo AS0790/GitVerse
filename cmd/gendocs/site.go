@@ -23,8 +23,7 @@ var methodology = []para{
 		"That page lists the tier, the first unlock date and history rows naming the pull request, repository or answer behind each milestone. " +
 		"Rows in private repositories say \"inaccessible\". None of this is in GitHub's REST or GraphQL API."},
 	{"Calibration", "For Pull Shark, GitHub names which merged pull request was its 2nd, 16th, 128th and 1024th. " +
-		"GitVerse lists your merged pull requests in merge order and finds the highest milestone it can see. " +
-		"For @torvalds, GitHub's 16th is subsurface/subsurface#1506, and it is also 16th in the API's list, so the two counts agree (+0). " +
+		"GitVerse lists merged pull requests in merge order and finds the highest milestone it can see. " +
 		"Any difference is added to the live count, so pull requests the API cannot show you are still counted."},
 	{"An official tier is never contradicted", "A tier GitHub granted is never taken back, so a count below that tier's threshold is raised to it. " +
 		"A count above GitHub's tier is shown with \"count says xN\", because GitHub can lag behind the count."},
