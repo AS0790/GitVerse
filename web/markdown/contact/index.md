@@ -2,7 +2,7 @@
 
 ## Bugs and questions
 
-Open an issue at https://github.com/TheVicky1/GitVerse/issues/new/choose. There are templates for a bug, for a count that looks wrong and for an achievement the catalog is missing. A public issue lets anyone with the same problem find the answer, so it is the preferred way to get in touch.
+Open an issue at https://github.com/TheVicky1/GitVerse.git/issues/new/choose. There are templates for a bug, for a count that looks wrong and for an achievement the catalog is missing. A public issue lets anyone with the same problem find the answer, so it is the preferred way to get in touch.
 
 ## A count looks wrong
 
@@ -10,7 +10,7 @@ Use the "count looks wrong" template and include the username, the achievement a
 
 ## Security
 
-Report a vulnerability privately through GitHub's private vulnerability reporting at https://github.com/TheVicky1/GitVerse/security/advisories/new, not in a public issue. Reports cover both the CLI and the web checker, and you will get an answer within a week.
+Report a vulnerability privately through GitHub's private vulnerability reporting at https://github.com/TheVicky1/GitVerse.git/security/advisories/new, not in a public issue. Reports cover both the CLI and the web checker, and you will get an answer within a week.
 
 ## Contributions
 

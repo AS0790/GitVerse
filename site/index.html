@@ -1,75 +1,89 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GitVerse - GitHub Achievement Intelligence</title>
-<meta name="description" content="See every GitHub achievement, your tier and how far you are from the next one. Free, open source, no token required.">
-<link rel="canonical" href="https://gitverse.vercel.app/">
-
-<meta name="color-scheme" content="dark">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="GitVerse">
-<meta property="og:title" content="GitVerse - GitHub Achievement Intelligence">
-<meta property="og:description" content="See every GitHub achievement, your tier and how far you are from the next one. Free, open source, no token required.">
-<meta property="og:url" content="https://gitverse.vercel.app/">
-<meta property="og:image" content="https://gitverse.vercel.app/social.png">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="GitVerse: check your GitHub achievements progress">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/gitverse-favicon.png">
-<script src="/theme.js"></script>
-<link rel="stylesheet" href="/style.css">
-<link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","author":{"@type":"Person","name":"Vicky Patel","url":"https://github.com/TheVicky1"},"codeRepository":"https://github.com/TheVicky1/GitVerse.git","description":"Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.","isAccessibleForFree":true,"license":"https://opensource.org/licenses/MIT","name":"GitVerse","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"macOS, Linux, Windows","url":"https://gitverse.vercel.app/"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Type your GitHub username in the form above and hit Check. GitVerse fetches your public profile data, matches your badge history and shows every achievement with its tier and next-milestone count."},"name":"How do I check my GitHub achievements?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No. GitVerse reads public profile data only. If you sign in via GitHub OAuth, a temporary token is used for one calculation then immediately revoked. Nothing is stored."},"name":"Does GitVerse need a GitHub token?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"15 are known: 8 earnable, 2 disabled, 2 retired, 3 GitHub-staff only. There are also 6 profile highlights like Pro and Developer Program Member."},"name":"How many GitHub achievements are there?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Tiers and unlock dates come from GitHub's own badge history pages. Pull Shark counts are matched against GitHub's named milestones. Every figure is labelled official, calibrated or counted."},"name":"How accurate is the data?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No. GitVerse is an independent open source project. It is not made by, affiliated with, or endorsed by GitHub, Inc."},"name":"Is GitVerse made by GitHub?"}]}</script>
-<script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Achievements Checker: tiers &amp; progress · GitVerse</title>
+  <meta name="description" content="See every GitHub achievement, your tier and how far you are from the next one. A free GitVerse CLI, verified against GitHub, no token needed.">
+  
+  <link rel="canonical" href="https://gitverse.vercel.app/">
+  
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GitVerse">
+  <meta property="og:title" content="GitHub Achievements Checker: tiers &amp; progress · GitVerse">
+  <meta property="og:description" content="See every GitHub achievement, your tier and how far you are from the next one. A free GitVerse CLI, verified against GitHub, no token needed.">
+  <meta property="og:url" content="https://gitverse.vercel.app/">
+  <meta property="og:image" content="https://gitverse.vercel.app/social.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="GitVerse - GitHub Achievement Intelligence">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/gitverse-favicon.png">
+  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","author":{"@type":"Person","name":"Vicky Patel","url":"https://github.com/TheVicky1"},"codeRepository":"https://github.com/TheVicky1/GitVerse.git","description":"Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.","downloadUrl":"https://github.com/TheVicky1/GitVerse.git/releases","isAccessibleForFree":true,"license":"https://opensource.org/licenses/MIT","name":"GitVerse","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"macOS, Linux, Windows","url":"https://gitverse.vercel.app/"}</script>
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"GitVerse is an independent, open-source guide to GitHub profile achievements. It brings your badges, tiers and next milestones into one clear view."},"name":"What is GitVerse?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Enter a GitHub username on the Track page and select Check. GitVerse reads the public achievement information available for that profile and presents it in one place."},"name":"How do I use GitVerse?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No account or token is needed to explore public profiles. If you choose to sign in, GitVerse uses the GitHub authorization only for that check and does not store it."},"name":"Do I need a GitHub account or token?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Each achievement can have one or more tiers. GitVerse shows the tier GitHub has awarded and, where GitHub exposes enough information, the progress toward the next milestone."},"name":"How do achievement tiers and progress work?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"15 are known as of 2026-10-17: 8 earnable, 2 disabled, 2 retired, 3 internal. There are also 6 profile highlights such as Pro and Developer Program Member."},"name":"How many GitHub achievements are there?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Achievement tiers and unlock dates are checked against GitHub's own badge history. Each result is labelled official, calibrated or counted so the confidence behind it is clear."},"name":"How accurate is GitVerse?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No. GitVerse is an independent open-source project. It is not made by, affiliated with or endorsed by GitHub, Inc."},"name":"Is GitVerse made by GitHub?"}]}</script>
+  
+  <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
+  
 </head>
+
 <body>
-<header class="top">
-  <div class="top-in">
-    <a class="brand" href="/"><img class="brand-wordmark" src="/gitverse-wordmark-transparent.png" alt="GitVerse"></a>
-    <nav id="site-nav" aria-label="Site">
-      <a href="/check/">Track</a>
-      <a href="/achievements/">Explore</a>
-      <a href="/about/">About</a>
-      <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
-    </nav>
-    <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
-    <a href="/check/" class="nav-cta">Check Profile</a>
-    <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
-  </div>
-</header>
-<main>
-
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="/"><img class="brand-wordmark" src="/gitverse-wordmark-transparent.png"
+          alt="GitVerse"></a>
+      <nav id="site-nav" aria-label="Site">
+        <a href="/check/">Track</a>
+        <a href="/achievements/">Explore</a>
+        <a href="/methodology/">How it works</a>
+        <a href="/about/">About</a>
+        <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
+        <span class="star-count" data-stars hidden></span>
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
+      <a href="/check/" class="nav-cta">Check Profile</a>
+      <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </header>
+  <main>
+    
+    
+    
 <section class="hero">
-  <div class="hero-eyebrow">GitHub Achievement Intelligence</div>
-  <h1>Know exactly where you stand.</h1>
-  <p class="lede">Every GitHub achievement, your current tier, and the precise distance to the next one - pulled straight from GitHub's own data.</p>
+  <h1>Every Milestone Tells a Story.</h1>
+  <p class="lede">A clear, refined view of every GitHub achievement, the tier you hold and the progress toward what comes next.</p>
+  
+<form action="/result" method="get" id="check-form">
+  <label for="u" class="visually-hidden">GitHub username</label>
+  <input id="u" name="u" required autocomplete="username" autocapitalize="off" spellcheck="false"
+    pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="GitHub username" value="">
+  <button type="submit" class="btn primary">Check</button>
+</form>
 
-  <form action="/result" method="get" id="check-form">
-    <label for="u" class="visually-hidden">GitHub username</label>
-    <input id="u" name="u" required autocomplete="username" autocapitalize="off" spellcheck="false"
-      pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="Your GitHub username">
-    <button type="submit" class="btn primary">Check</button>
-  </form>
-  <p class="signin"><a href="/auth/login" data-signin>Sign in with GitHub</a> to include private repository progress.</p>
+  <p class="signin"><a href="/auth/login" data-signin>Sign in with GitHub</a> to include private work.</p>
 </section>
 
-<ul class="home-shelf" aria-label="All 8 earnable GitHub achievement badges at their top tier">
-  <li><a class="medal" href="achievements/pull-shark/"><img class="medal-img" src="https://github.githubassets.com/assets/pull-shark-gold-90985540b385.png" width="88" height="88" alt=""><span class="medal-name">Pull Shark</span></a></li>
-  <li><a class="medal" href="achievements/starstruck/"><img class="medal-img" src="https://github.githubassets.com/assets/starstruck-gold-a35e077693cc.png" width="88" height="88" alt=""><span class="medal-name">Starstruck</span></a></li>
-  <li><a class="medal" href="achievements/pair-extraordinaire/"><img class="medal-img" src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="88" height="88" alt=""><span class="medal-name">Pair Extraordinaire</span></a></li>
-  <li><a class="medal" href="achievements/galaxy-brain/"><img class="medal-img" src="https://github.githubassets.com/assets/galaxy-brain-gold-9c2c03fd1acf.png" width="88" height="88" alt=""><span class="medal-name">Galaxy Brain</span></a></li>
-  <li><a class="medal" href="achievements/quickdraw/"><img class="medal-img" src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="88" height="88" alt=""><span class="medal-name">Quickdraw</span></a></li>
-  <li><a class="medal" href="achievements/yolo/"><img class="medal-img" src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="88" height="88" alt=""><span class="medal-name">YOLO</span></a></li>
-  <li><a class="medal" href="achievements/public-sponsor/"><img class="medal-img" src="https://github.githubassets.com/assets/public-sponsor-default-9fa68986b057.png" width="88" height="88" alt=""><span class="medal-name">Public Sponsor</span></a></li>
-  <li><a class="medal" href="achievements/finishing-touch/"><img class="medal-img" src="https://github.githubassets.com/assets/finishing-touch-gold-e19e1fcbfee2.png" width="88" height="88" alt=""><span class="medal-name">Finishing Touch</span></a></li>
+<ul class="vitrine shelf home-shelf" aria-label="The 8 badges you can earn, at their top tier">
+<li><a class="medal" href="achievements/pull-shark/"><img class="medal-img" src="https://github.githubassets.com/assets/pull-shark-gold-90985540b385.png" width="88" height="88" alt=""><span class="medal-name">Pull Shark</span></a></li>
+<li><a class="medal" href="achievements/starstruck/"><img class="medal-img" src="https://github.githubassets.com/assets/starstruck-gold-a35e077693cc.png" width="88" height="88" alt=""><span class="medal-name">Starstruck</span></a></li>
+<li><a class="medal" href="achievements/pair-extraordinaire/"><img class="medal-img" src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="88" height="88" alt=""><span class="medal-name">Pair Extraordinaire</span></a></li>
+<li><a class="medal" href="achievements/galaxy-brain/"><img class="medal-img" src="https://github.githubassets.com/assets/galaxy-brain-gold-9c2c03fd1acf.png" width="88" height="88" alt=""><span class="medal-name">Galaxy Brain</span></a></li>
+<li><a class="medal" href="achievements/quickdraw/"><img class="medal-img" src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="88" height="88" alt=""><span class="medal-name">Quickdraw</span></a></li>
+<li><a class="medal" href="achievements/yolo/"><img class="medal-img" src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="88" height="88" alt=""><span class="medal-name">YOLO</span></a></li>
+<li><a class="medal" href="achievements/public-sponsor/"><img class="medal-img" src="https://github.githubassets.com/assets/public-sponsor-default-9fa68986b057.png" width="88" height="88" alt=""><span class="medal-name">Public Sponsor</span></a></li>
+<li><a class="medal" href="achievements/finishing-touch/"><img class="medal-img" src="https://github.githubassets.com/assets/finishing-touch-gold-e19e1fcbfee2.png" width="88" height="88" alt=""><span class="medal-name">Finishing Touch</span></a></li>
 </ul>
-<p class="meta"><a href="achievements/">Browse all 15 GitHub achievements</a> - including retired and disabled ones.</p>
+<p class="meta"><a href="achievements/">See all 15 GitHub achievements</a>, including the retired ones and those GitHub switched off.</p>
 
-<section class="section feature-section">
+<section class="feature-section">
   <header class="feature-intro">
     <p class="feature-eyebrow">THE GITVERSE VIEW</p>
     <h2>Everything, in context.</h2>
@@ -82,19 +96,13 @@
   </div>
 </section>
 
-<section class="section">
-  <h2>Also works in your terminal</h2>
-  <p class="lede" style="margin-bottom: 32px;">Install the GitVerse CLI and get your full achievement report in seconds.</p>
-  <div class="install-block">
-    <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
+<h2>Prefer the terminal?</h2>
+<div class="install">
+  <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
 gitverse &lt;username&gt;</code></pre>
-    <div class="install-actions">
-      <button type="button" class="btn" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy install</button>
-      <a href="/check/" class="btn primary">Try the web version</a>
-    </div>
-  </div>
-  <p class="meta" style="margin-top: 16px;">Requires Go 1.25+. Public profiles work without a token; use <code>gh auth login</code> only when you want GitVerse to include private data.</p>
-</section>
+  <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy install</button>
+</div>
+<p class="meta">Requires Go 1.25+. Public profiles work without a token; use <a href="https://cli.github.com/">GitHub CLI</a> and <code>gh auth login</code> only to include private data.</p>
 
 <section class="clarity" aria-labelledby="clarity-title">
   <header class="clarity-intro">
@@ -102,35 +110,41 @@ gitverse &lt;username&gt;</code></pre>
     <p>Everything you need to know before exploring your GitHub achievement story.</p>
   </header>
   <ol class="clarity-list">
-    <li><details class="clarity-item"><summary><span>What is GitVerse?</span></summary><div class="clarity-answer"><p>GitVerse is an independent, open-source guide to GitHub profile achievements. It brings your badges, tiers and next milestones into one clear view.</p></div></details></li>
-    <li><details class="clarity-item"><summary><span>How do I use GitVerse?</span></summary><div class="clarity-answer"><p>Enter a GitHub username on the Track page and select Check. GitVerse reads the public achievement information available for that profile and presents it in one place.</p></div></details></li>
-    <li><details class="clarity-item"><summary><span>Do I need a GitHub account or token?</span></summary><div class="clarity-answer"><p>No account or token is needed to explore public profiles. If you choose to sign in, GitVerse uses the GitHub authorization only for that check and does not store it.</p></div></details></li>
-    <li><details class="clarity-item"><summary><span>How do achievement tiers and progress work?</span></summary><div class="clarity-answer"><p>Each achievement can have one or more tiers. GitVerse shows the tier GitHub has awarded and, where GitHub exposes enough information, the progress toward the next milestone.</p></div></details></li>
-    <li><details class="clarity-item"><summary><span>How many GitHub achievements are there?</span></summary><div class="clarity-answer"><p>15 are currently known: 8 you can still earn, 2 GitHub switched off, 2 retired, and 3 that only GitHub staff could get. There are also 6 profile highlights, such as Pro and Developer Program Member.</p></div></details></li>
-    <li><details class="clarity-item"><summary><span>How accurate is GitVerse?</span></summary><div class="clarity-answer"><p>Achievement tiers and unlock dates are checked against GitHub's own badge history. Each result is labelled official, calibrated or counted so the confidence behind it is clear.</p></div></details></li>
-    <li><details class="clarity-item"><summary><span>Is GitVerse made by GitHub?</span></summary><div class="clarity-answer"><p>No. GitVerse is an independent open-source project. It is not made by, affiliated with or endorsed by GitHub, Inc.</p></div></details></li>
+  <li><details class="clarity-item"><summary><span>What is GitVerse?</span></summary><div class="clarity-answer"><p>GitVerse is an independent, open-source guide to GitHub profile achievements. It brings your badges, tiers and next milestones into one clear view.</p></div></details></li>
+  <li><details class="clarity-item"><summary><span>How do I use GitVerse?</span></summary><div class="clarity-answer"><p>Enter a GitHub username on the Track page and select Check. GitVerse reads the public achievement information available for that profile and presents it in one place.</p></div></details></li>
+  <li><details class="clarity-item"><summary><span>Do I need a GitHub account or token?</span></summary><div class="clarity-answer"><p>No account or token is needed to explore public profiles. If you choose to sign in, GitVerse uses the GitHub authorization only for that check and does not store it.</p></div></details></li>
+  <li><details class="clarity-item"><summary><span>How do achievement tiers and progress work?</span></summary><div class="clarity-answer"><p>Each achievement can have one or more tiers. GitVerse shows the tier GitHub has awarded and, where GitHub exposes enough information, the progress toward the next milestone.</p></div></details></li>
+  <li><details class="clarity-item"><summary><span>How many GitHub achievements are there?</span></summary><div class="clarity-answer"><p>15 are known as of 2026-10-17: 8 earnable, 2 disabled, 2 retired, 3 internal. There are also 6 profile highlights such as Pro and Developer Program Member.</p></div></details></li>
+  <li><details class="clarity-item"><summary><span>How accurate is GitVerse?</span></summary><div class="clarity-answer"><p>Achievement tiers and unlock dates are checked against GitHub&#39;s own badge history. Each result is labelled official, calibrated or counted so the confidence behind it is clear.</p></div></details></li>
+  <li><details class="clarity-item"><summary><span>Is GitVerse made by GitHub?</span></summary><div class="clarity-answer"><p>No. GitVerse is an independent open-source project. It is not made by, affiliated with or endorsed by GitHub, Inc.</p></div></details></li>
   </ol>
 </section>
 
+
 <a class="star-banner" href="https://github.com/TheVicky1/GitVerse.git" rel="noopener" data-star="home">
-  <strong>If GitVerse saved you time, a star on GitHub goes a long way</strong>
-  <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars>0</span></span>
+  <strong>Found this useful? Star GitVerse on GitHub</strong>
+  <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars hidden>0</span></span>
 </a>
 
-</main>
-<footer class="aurora-footer">
-  <div class="aurora-footer-top">
-    <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
-    <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
+
+  </main>
+  <footer class="aurora-footer">
+    <div class="aurora-footer-top">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <button type="button" class="footer-link-btn" data-consent-reset>Settings</button>
+      <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
+    </div>
+    <div class="aurora-footer-watermark" aria-hidden="true">
+      <span>GITVERSE</span>
+    </div>
+  </footer>
+  <div id="consent" hidden role="dialog" aria-label="Analytics consent">
+    <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
+    <button type="button" data-consent="granted" class="btn primary">Allow</button>
+    <button type="button" data-consent="denied" class="btn">No thanks</button>
   </div>
-  <div class="aurora-footer-watermark" aria-hidden="true">
-    <span>GITVERSE</span>
-  </div>
-</footer>
-<div id="consent" hidden role="dialog" aria-label="Analytics consent">
-  <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
-  <button type="button" data-consent="granted" class="btn primary">Allow</button>
-  <button type="button" data-consent="denied" class="btn">No thanks</button>
-</div>
 </body>
+
 </html>

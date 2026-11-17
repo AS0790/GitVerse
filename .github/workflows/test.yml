@@ -4,31 +4,50 @@ on:
   push:
     branches: [main]
   pull_request:
+    branches: [main]
 
 permissions:
   contents: read
 
 jobs:
   test:
+    name: test
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-      - name: gofmt
+          cache: true
+
+      - name: Verify Code Formatting (gofmt)
         run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
-      - run: go vet ./...
-      - run: go test ./...
-      - uses: actions/setup-node@v4
+
+      - name: Go Vet Static Analysis
+        run: go vet ./...
+
+      - name: Run Go Unit & Integration Tests
+        run: go test -v -race ./...
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Site scripts behave as intended
+
+      - name: Run WebUI & JavaScript Tests
         run: node --test "internal/webui/jstest/*.test.mjs"
-      - name: Generated docs and site are up to date
+
+      - name: Verify Generated Docs & Site Sync
         run: go run ./cmd/gendocs -check
-      - name: Builds for every release target
+
+      - name: Verify Release Target Compilations
         run: |
           for target in darwin/amd64 darwin/arm64 linux/amd64 linux/arm64 windows/amd64 windows/arm64; do
-            GOOS=${target%/*} GOARCH=${target#*/} go build -o /dev/null ./cmd/gitverse || exit 1
+            echo "Compiling target: $target"
+            GOOS=${target%/*} GOARCH=${target#*/} go build -trimpath -o /dev/null ./cmd/gitverse || exit 1
           done
+          echo "All release targets compiled successfully."

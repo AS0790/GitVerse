@@ -1,97 +1,97 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Track your GitHub achievements · GitVerse</title>
-<meta name="description" content="Enter a GitHub username to see every achievement, its tier and how close you are to the next one. No token needed for public profiles.">
-<link rel="canonical" href="https://gitverse.vercel.app/check/">
-<meta name="color-scheme" content="dark">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="GitVerse">
-<meta property="og:title" content="Track your GitHub achievements · GitVerse">
-<meta property="og:description" content="Enter a GitHub username to see every achievement, its tier and how close you are to the next one.">
-<meta property="og:url" content="https://gitverse.vercel.app/check/">
-<meta property="og:image" content="https://gitverse.vercel.app/social.png">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="640">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/gitverse-favicon.png">
-<script src="/theme.js"></script>
-<link rel="stylesheet" href="/style.css">
-<script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check your GitHub achievements · GitVerse</title>
+  <meta name="description" content="Sign in with GitHub or type a username to see every achievement, the tier and how far to the next one.">
+  
+  <link rel="canonical" href="https://gitverse.vercel.app/check/">
+  
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GitVerse">
+  <meta property="og:title" content="Check your GitHub achievements · GitVerse">
+  <meta property="og:description" content="Sign in with GitHub or type a username to see every achievement, the tier and how far to the next one.">
+  <meta property="og:url" content="https://gitverse.vercel.app/check/">
+  <meta property="og:image" content="https://gitverse.vercel.app/social.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="GitVerse - GitHub Achievement Intelligence">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/gitverse-favicon.png">
+  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
+  
+  <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
+  
 </head>
+
 <body>
-<header class="top">
-  <div class="top-in">
-    <a class="brand" href="/"><img class="brand-wordmark" src="/gitverse-wordmark-transparent.png" alt="GitVerse"></a>
-    <nav id="site-nav" aria-label="Site">
-      <a href="/check/" aria-current="page">Track</a>
-      <a href="/achievements/">Explore</a>
-      <a href="/about/">About</a>
-      <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="/"><img class="brand-wordmark" src="/gitverse-wordmark-transparent.png"
+          alt="GitVerse"></a>
+      <nav id="site-nav" aria-label="Site">
+        <a href="/check/">Track</a>
+        <a href="/achievements/">Explore</a>
+        <a href="/methodology/">How it works</a>
+        <a href="/about/">About</a>
+        <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
+        <span class="star-count" data-stars hidden></span>
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
+      <a href="/check/" class="nav-cta">Check Profile</a>
+      <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </header>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol><li><a
+            href="/">GitVerse</a></li><li><span aria-hidden="true">›</span> <a
+            href="/check/">Check yours</a></li></ol>
     </nav>
-    <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
-    <a href="/check/" class="nav-cta">Check Profile</a>
-    <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
-  </div>
-</header>
-<main>
+    <h1>Check your GitHub achievements</h1>
+    
 
-<section class="hero check-hero">
-  <div class="hero-eyebrow">Achievement Tracker</div>
-  <h1>Track your progress</h1>
-  <p class="lede">Enter any GitHub username to get a full breakdown - every badge, its tier, and the exact count toward what comes next.</p>
+<div class="choice">
+  <p class="lede">Every GitHub achievement, your tier, and how far you are from the next one.</p>
+  <a href="/auth/login" data-signin class="btn primary big">Sign in with GitHub</a>
+  <p class="meta">Includes private repositories. GitHub asks for repository access; the token is used for one check, then revoked. Nothing is stored.</p>
+  <p class="or">or check any public profile</p>
+  
+<form action="/result" method="get" id="check-form">
+  <label for="u" class="visually-hidden">GitHub username</label>
+  <input id="u" name="u" required autocomplete="username" autocapitalize="off" spellcheck="false"
+    pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="GitHub username" value="">
+  <button type="submit" class="btn primary">Check</button>
+</form>
 
-  <div class="choice">
-    <a href="/auth/login" data-signin class="btn primary big">Sign in with GitHub</a>
-    <p class="meta" style="margin-top: 10px; margin-bottom: 0;">Unlocks private repository data. OAuth token is used once and immediately revoked. Nothing is stored.</p>
-    <p class="or">or enter any public username</p>
-
-    <form action="/result" method="get" id="check-form">
-      <label for="u" class="visually-hidden">GitHub username</label>
-      <input id="u" name="u" required autocomplete="username" autocapitalize="off" spellcheck="false"
-        pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="your-username">
-      <button type="submit" class="btn primary">Check</button>
-    </form>
-  </div>
-</section>
-
-<section class="section">
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-num">01</div>
-      <h3>Web check</h3>
-      <p>Paste any GitHub username above. No account required for public profiles - results appear instantly.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">02</div>
-      <h3>Terminal workflow</h3>
-      <p>Install GitVerse with Go, then check any public profile with <code style="font-size:0.8rem;">gitverse &lt;username&gt;</code>. GitHub CLI is only needed for private data.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">03</div>
-      <h3>Open source</h3>
-      <p>Review the code, report an issue, or contribute to GitVerse directly on GitHub.</p>
-    </div>
-  </div>
-  <p class="meta" style="margin-top: 8px;">Prefer the command line? <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code> then <code>gitverse &lt;username&gt;</code> <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy install</button></p>
-</section>
-
-</main>
-<footer class="aurora-footer">
-  <div class="aurora-footer-top">
-    <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
-    <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
-  </div>
-  <div class="aurora-footer-watermark" aria-hidden="true">
-    <span>GITVERSE</span>
-  </div>
-</footer>
-<div id="consent" hidden role="dialog" aria-label="Analytics consent">
-  <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
-  <button type="button" data-consent="granted" class="btn primary">Allow</button>
-  <button type="button" data-consent="denied" class="btn">No thanks</button>
 </div>
+<p class="meta">Prefer the terminal? Install with <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>, then run <code>gitverse &lt;username&gt;</code>. <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button></p>
+
+  </main>
+  <footer class="aurora-footer">
+    <div class="aurora-footer-top">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <button type="button" class="footer-link-btn" data-consent-reset>Settings</button>
+      <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
+    </div>
+    <div class="aurora-footer-watermark" aria-hidden="true">
+      <span>GITVERSE</span>
+    </div>
+  </footer>
+  <div id="consent" hidden role="dialog" aria-label="Analytics consent">
+    <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
+    <button type="button" data-consent="granted" class="btn primary">Allow</button>
+    <button type="button" data-consent="denied" class="btn">No thanks</button>
+  </div>
 </body>
+
 </html>

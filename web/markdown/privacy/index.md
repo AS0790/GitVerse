@@ -18,7 +18,7 @@ Google Analytics loads only after you click Allow, and the site works the same i
 
 ## Questions
 
-Ask in a GitHub issue at https://github.com/TheVicky1/GitVerse/issues, or report a privacy or security problem privately at https://github.com/TheVicky1/GitVerse/security/advisories/new.
+Ask in a GitHub issue at https://github.com/TheVicky1/GitVerse.git/issues, or report a privacy or security problem privately at https://github.com/TheVicky1/GitVerse.git/security/advisories/new.
 
 ---
 

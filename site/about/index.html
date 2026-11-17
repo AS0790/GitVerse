@@ -1,116 +1,104 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About GitVerse - GitHub Achievement Intelligence</title>
-<meta name="description" content="GitVerse is an independent, open-source platform providing complete visibility into GitHub achievements and milestone tiers.">
-<link rel="canonical" href="https://gitverse.vercel.app/about/">
-<meta name="color-scheme" content="dark">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="GitVerse">
-<meta property="og:title" content="About GitVerse - GitHub Achievement Intelligence">
-<meta property="og:description" content="GitVerse is an independent, open-source platform providing complete visibility into GitHub achievements and milestone tiers.">
-<meta property="og:url" content="https://gitverse.vercel.app/about/">
-<meta property="og:image" content="https://gitverse.vercel.app/social.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/gitverse-favicon.png">
-<script src="/theme.js"></script>
-<link rel="stylesheet" href="/style.css">
-<script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About GitVerse: who makes it and why</title>
+  <meta name="description" content="GitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1).">
+  
+  <link rel="canonical" href="https://gitverse.vercel.app/about/">
+  
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GitVerse">
+  <meta property="og:title" content="About GitVerse: who makes it and why">
+  <meta property="og:description" content="GitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1).">
+  <meta property="og:url" content="https://gitverse.vercel.app/about/">
+  <meta property="og:image" content="https://gitverse.vercel.app/social.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="GitVerse - GitHub Achievement Intelligence">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/gitverse-favicon.png">
+  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://gitverse.vercel.app/","name":"GitVerse","position":1},{"@type":"ListItem","item":"https://gitverse.vercel.app/about/","name":"About GitVerse","position":2}]}</script>
+  
+  <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
+  
 </head>
+
 <body>
-<header class="top">
-  <div class="top-in">
-    <a class="brand" href="/"><img class="brand-wordmark" src="/gitverse-wordmark-transparent.png" alt="GitVerse"></a>
-    <nav id="site-nav" aria-label="Site">
-      <a href="/check/">Track</a>
-      <a href="/achievements/">Explore</a>
-      <a href="/about/" aria-current="page">About</a>
-      <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="/"><img class="brand-wordmark" src="/gitverse-wordmark-transparent.png"
+          alt="GitVerse"></a>
+      <nav id="site-nav" aria-label="Site">
+        <a href="/check/">Track</a>
+        <a href="/achievements/">Explore</a>
+        <a href="/methodology/">How it works</a>
+        <a href="/about/">About</a>
+        <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
+        <span class="star-count" data-stars hidden></span>
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
+      <a href="/check/" class="nav-cta">Check Profile</a>
+      <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </header>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol><li><a
+            href="/">GitVerse</a></li><li><span aria-hidden="true">›</span> <a
+            href="/about/">About GitVerse</a></li></ol>
     </nav>
-    <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
-    <a href="/check/" class="nav-cta">Check Profile</a>
-    <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
-  </div>
-</header>
-<main>
-
-<section class="hero">
-  <div class="hero-eyebrow">About GitVerse</div>
-  <h1>Engineered for Clarity.</h1>
-  <p class="lede">Radical visibility into GitHub milestones. We transform opaque achievements into deterministic, actionable developer intelligence.</p>
-</section>
-
+    <h1>About GitVerse</h1>
+    
 <div class="prose">
 
-  <h2>Purpose &amp; Philosophy</h2>
-  <p>While GitHub displays earned badges on developer profiles, it offers zero visibility into what lies ahead. Upcoming tier thresholds are undisclosed, progress counters are omitted, and the official public API provides no achievement endpoints. Developers are left to speculate on their milestone proximity.</p>
-  <p>GitVerse was designed to eliminate this asymmetry. Through deterministic reverse-calibration, we cross-reference public badge histories, milestone unlock records, and activity telemetry to construct an exact map of your progress. Every metric is rigorously categorized by provenance:</p>
-  <ul>
-    <li><strong>Official:</strong> Verified directly against GitHub's native profile schemas.</li>
-    <li><strong>Calibrated:</strong> Correlated with verified milestone thresholds across real repositories.</li>
-    <li><strong>Counted:</strong> Computed via real-time repository activity and contribution events.</li>
-  </ul>
+<h2>What it is</h2>
+<p>GitVerse is a free, open source tool that shows every GitHub profile achievement, the tier you hold and how far you are from the next one. It comes as a GitVerse CLI (`go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, then `gitverse`) and as a web checker on this site. Both build the same report from the same code.</p>
 
-  <h2>Dual-Engine Architecture</h2>
-  <p>GitVerse is built to fit seamlessly into any developer workflow, offering two interfaces driven by the same zero-retention analysis engine:</p>
-  <ul>
-    <li><strong>Web Intelligence:</strong> Instant profile analysis with interactive tier visualization, milestone timelines, and private repository connectivity.</li>
-    <li><strong>Terminal CLI:</strong> A compiled, high-performance Go executable for engineers who live in the terminal:</li>
-  </ul>
-  <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code></pre>
-  <p>Both web and command-line interfaces run entirely in memory. Zero tokens or repository contents are ever stored or retained.</p>
+<h2>Why it exists</h2>
+<p>GitHub shows the badges you have but not how close you are to the next tier, and its API does not expose achievements at all. GitVerse reads GitHub&#39;s own badge pages for tiers and unlock dates, counts progress through the GitHub API, and labels every number official, calibrated or counted so you can tell how sure it is. The methodology page explains each source and its limits.</p>
 
-  <h2>Open Source &amp; Engineering</h2>
-  <p>GitVerse is an independent, community-driven open-source platform created by <strong>Vicky Patel</strong> (<a href="https://github.com/TheVicky1" target="_blank" rel="noopener">@TheVicky1</a>) and distributed under the permissive MIT License.</p>
-  <p>The entire system - including our badge catalog, calculation logic, and responsive web interface - is publicly inspectable at <a href="https://github.com/TheVicky1/GitVerse.git" target="_blank" rel="noopener">github.com/TheVicky1/GitVerse</a>. Automated continuous integration suites re-verify catalog schemas against live GitHub profiles weekly, ensuring ongoing fidelity as GitHub's platform evolves.</p>
+<h2>Who makes it</h2>
+<p>It is written and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent project. The source code, issue tracker and release history are public at https://github.com/TheVicky1/GitVerse.git. Releases are built by GitHub Actions from tagged commits, and the achievement catalog is checked against live profiles every week.</p>
 
-  <h2>Independent Platform Notice</h2>
-  <p>GitVerse is an independent project and is neither affiliated with, maintained by, nor endorsed by GitHub, Inc. or Microsoft Corporation.</p>
-  <p>All official badge artwork, icons, and achievement trademarks remain the exclusive intellectual property of GitHub, Inc., delivered strictly through GitHub's public CDN for identification. The GitVerse software and analytical models are freely provided under the MIT License.</p>
+<h2>Not affiliated with GitHub</h2>
+<p>GitVerse is not made, affiliated with or endorsed by GitHub. Badge artwork belongs to GitHub and is loaded from GitHub&#39;s own CDN. The project is released under the MIT license and costs nothing to use.</p>
 
 </div>
-
-<section class="section">
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-num">Free</div>
-      <h3>MIT licensed</h3>
-      <p>Always free to use. Fork it, self-host it, contribute to it. The source is public and open.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">Safe</div>
-      <h3>Zero data retention</h3>
-      <p>No user database. No stored tokens. OAuth credentials are revoked immediately after a single calculation pass.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-num">Live</div>
-      <h3>Weekly verification</h3>
-      <p>The achievement catalog is checked against real GitHub profiles every week to stay accurate as GitHub evolves.</p>
-    </div>
-  </div>
-</section>
 
 <a class="star-banner" href="https://github.com/TheVicky1/GitVerse.git" rel="noopener" data-star="about">
-  <strong>Found GitVerse useful? A star on GitHub helps others find it</strong>
-  <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars>0</span></span>
+  <strong>Found this useful? Star GitVerse on GitHub</strong>
+  <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars hidden>0</span></span>
 </a>
 
-</main>
-<footer class="aurora-footer">
-  <div class="aurora-footer-top">
-    <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
-    <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
+
+  </main>
+  <footer class="aurora-footer">
+    <div class="aurora-footer-top">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <button type="button" class="footer-link-btn" data-consent-reset>Settings</button>
+      <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
+    </div>
+    <div class="aurora-footer-watermark" aria-hidden="true">
+      <span>GITVERSE</span>
+    </div>
+  </footer>
+  <div id="consent" hidden role="dialog" aria-label="Analytics consent">
+    <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
+    <button type="button" data-consent="granted" class="btn primary">Allow</button>
+    <button type="button" data-consent="denied" class="btn">No thanks</button>
   </div>
-  <div class="aurora-footer-watermark" aria-hidden="true">
-    <span>GITVERSE</span>
-  </div>
-</footer>
-<div id="consent" hidden role="dialog" aria-label="Analytics consent">
-  <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
-  <button type="button" data-consent="granted" class="btn primary">Allow</button>
-  <button type="button" data-consent="denied" class="btn">No thanks</button>
-</div>
 </body>
+
 </html>

@@ -276,6 +276,6 @@
   "lastVerified": "2026-10-17",
   "license": "MIT",
   "name": "GitVerse catalog",
-  "source": "https://github.com/TheVicky1/GitVerse",
+  "source": "https://github.com/TheVicky1/GitVerse.git",
   "url": "https://gitverse.vercel.app/achievements.json"
 }

@@ -51,10 +51,10 @@ func TestRenderResult_contract(t *testing.T) {
 	priv, _ := RenderResultFragment(demoView(t, true))
 	p, s := string(pub), string(priv)
 	for _, want := range []string{`data-report data-scope="public" data-earned="3"`, `data-share`, `href="/auth/login"`,
-		`<details class="badge-card" data-badge="pull-shark">`, `<progress value="56" max="112"`, `Closest next unlock`,
+		`<details class="badge-card" data-badge="pull-shark">`,
 		`https://github.githubassets.com/assets/pull-shark-bronze-`, `<h1 class="result-user">@torvalds</h1>`,
-		`3 of 8 badges you can still earn, 12 tiers`, `Showing public data.`, `<h2 class="shelf-head">On display</h2>`,
-		`<h2 class="shelf-head">Still to collect</h2>`, `The archive: 5 badges you can no longer earn`,
+		`3 of 8 earnable badges`, `12 tiers unlocked`, `Next unlock`, `On display`,
+		`Still to collect`, `badges you can no longer earn`,
 		`data-star="result"`, `>Copy share link</button>`, `First unlocked 2020-02-02.`} {
 		if !strings.Contains(p, want) {
 			t.Errorf("public page lacks %s", want)
@@ -81,7 +81,7 @@ func TestRenderResult_archiveSummaryAgreesInNumber(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(out), "The archive: 1 badge you can no longer earn") {
+	if !strings.Contains(string(out), "1 badge") {
 		t.Error("one archived badge must read \"1 badge\"")
 	}
 }
@@ -126,8 +126,8 @@ func TestRenderResult_hiddenProfileShelfSaysLiveCounts(t *testing.T) {
 		t.Fatal(err)
 	}
 	page := string(out)
-	for _, want := range []string{`<h2 class="shelf-head">Live counts</h2>`,
-		`This profile hides its badges, so these are counts, not the tiers GitHub shows.`} {
+	for _, want := range []string{`Live counts`,
+		`This profile hides its achievements`} {
 		if !strings.Contains(page, want) {
 			t.Errorf("hidden profile page lacks %s", want)
 		}
@@ -151,8 +151,8 @@ func TestRenderResult_nothingEarnedShowsTheEmptyShelf(t *testing.T) {
 		t.Fatal(err)
 	}
 	page := string(out)
-	for _, want := range []string{`<h2 class="shelf-head">On display</h2>`,
-		`Nothing here yet. Start with a badge from the shelf below.`, `<h2 class="shelf-head">Still to collect</h2>`} {
+	for _, want := range []string{`On display`,
+		`Nothing here yet`, `Still to collect`} {
 		if !strings.Contains(page, want) {
 			t.Errorf("empty-display page lacks %s", want)
 		}

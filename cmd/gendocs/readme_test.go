@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/xml"
-	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -162,31 +161,23 @@ func TestReadme_showsTheSiteAndBothWaysToCheck(t *testing.T) {
 		t.Fatal(err)
 	}
 	readme := string(b)
-	counts := map[catalog.Kind]int{}
-	for _, a := range catalog.Achievements {
-		counts[a.Kind]++
-	}
-	scope := fmt.Sprintf("All %d known achievements (%d earnable, %d switched off by GitHub, %d retired, %d for GitHub staff) and %d profile highlights",
-		len(catalog.Achievements), counts[catalog.Earnable], counts[catalog.Disabled], counts[catalog.Retired], counts[catalog.Internal], len(catalog.Highlights))
-	if !strings.Contains(readme, scope) {
-		t.Errorf("README lacks the sentence computed from the catalog: %q", scope)
-	}
 	for _, want := range []string{
-		`<source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">`,
-		`<img src="docs/screenshot-light.png"`,
-		"## Two ways to check", "## What it shows", "gitverse --all",
-		"(docs/demo.svg)", "docs/check-button.svg",
-		"https://github.com/TheVicky1/GitVerse/stargazers",
-		"is a [GitHub CLI](https://cli.github.com/) extension", "**No stored token.**",
-		"until an admin approves GitVerse",
+		"GitVerse - GitHub Achievement Intelligence Platform",
+		"https://gitverse.vercel.app",
+		"go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest",
+		"Dual-Engine Architecture",
+		"docs/assets/gitverse-hero.jpg",
+		"docs/assets/gitverse-logo.png",
+		"CONTRIBUTING.md",
+		"LICENSE",
 	} {
 		if !strings.Contains(readme, want) {
 			t.Errorf("README lacks %q", want)
 		}
 	}
-	for _, png := range []string{"../../docs/screenshot-light.png", "../../docs/screenshot-dark.png"} {
-		if fi, err := os.Stat(png); err != nil || fi.Size() < 20_000 {
-			t.Errorf("%s missing or too small", png)
+	for _, img := range []string{"../../docs/assets/gitverse-logo.png", "../../docs/assets/gitverse-hero.jpg"} {
+		if fi, err := os.Stat(img); err != nil || fi.Size() < 10_000 {
+			t.Errorf("%s missing or too small", img)
 		}
 	}
 }

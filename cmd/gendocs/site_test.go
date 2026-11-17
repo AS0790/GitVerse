@@ -141,7 +141,7 @@ func TestSitePages_homeIsATrophyCase(t *testing.T) {
 		t.Fatal(err)
 	}
 	home := string(pages["site/index.html"])
-	for _, want := range []string{`<h1>Your GitHub trophy case</h1>`, `<form action="/result" method="get" id="check-form">`,
+	for _, want := range []string{`<h1>Every Milestone Tells a Story.</h1>`, `<form action="/result" method="get" id="check-form">`,
 		`<a href="/auth/login" data-signin>Sign in with GitHub</a> to include private work.`,
 		`<ul class="vitrine shelf home-shelf"`, `data-star="home"`, `data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest"`,
 		`"@type":"FAQPage"`, `"@type":"SoftwareApplication"`,

@@ -51,6 +51,10 @@ jobs:
           pattern: gitverse-*
           merge-multiple: true
           path: dist
+      - name: Generate Checksums
+        run: |
+          cd dist
+          sha256sum * > SHA256SUMS
       - name: Publish release binaries
         env:
           GH_TOKEN: ${{ github.token }}

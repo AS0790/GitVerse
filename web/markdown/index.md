@@ -39,29 +39,33 @@ All 15 achievements (8 earnable, 2 disabled, 2 retired, 3 internal): https://git
 
 ## FAQ
 
-### How do I check my GitHub achievements progress?
+### What is GitVerse?
 
-Install the GitVerse CLI with `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest` and run `gitverse`. It lists every achievement, your tier and how many more you need for the next one. Add a username to check someone else.
+GitVerse is an independent, open-source guide to GitHub profile achievements. It brings your badges, tiers and next milestones into one clear view.
 
-### Does GitVerse need a GitHub token?
+### How do I use GitVerse?
 
-No. It reuses the login of the GitHub CLI (gh auth login). Without a login it still works with public data.
+Enter a GitHub username on the Track page and select Check. GitVerse reads the public achievement information available for that profile and presents it in one place.
+
+### Do I need a GitHub account or token?
+
+No account or token is needed to explore public profiles. If you choose to sign in, GitVerse uses the GitHub authorization only for that check and does not store it.
+
+### How do achievement tiers and progress work?
+
+Each achievement can have one or more tiers. GitVerse shows the tier GitHub has awarded and, where GitHub exposes enough information, the progress toward the next milestone.
 
 ### How many GitHub achievements are there?
 
 15 are known as of 2026-10-17: 8 earnable, 2 disabled, 2 retired, 3 internal. There are also 6 profile highlights such as Pro and Developer Program Member.
 
-### How accurate is it?
+### How accurate is GitVerse?
 
-Tiers and unlock dates come straight from GitHub's profile pages. Pull Shark's count is checked against the milestones GitHub names. Every number is labelled official, calibrated or counted.
-
-### Why don't my achievements show on my profile?
-
-Achievements can be turned off under Settings → Public profile → "Show Achievements on my profile". GitVerse says when a profile hides them and shows live counts only.
+Achievement tiers and unlock dates are checked against GitHub's own badge history. Each result is labelled official, calibrated or counted so the confidence behind it is clear.
 
 ### Is GitVerse made by GitHub?
 
-No. It is an independent open source project and is not affiliated with or endorsed by GitHub.
+No. GitVerse is an independent open-source project. It is not made by, affiliated with or endorsed by GitHub, Inc.
 
 ---
 
