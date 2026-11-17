@@ -197,21 +197,61 @@
       if (img.complete && img.naturalWidth === 0) fallback(img);
     });
     var form = document.getElementById("check-form");
-    if (form) {
+    if (form && form.addEventListener) {
       var input = form.querySelector('input[name="u"]');
+      var btn = form.querySelector('button[type="submit"]') || form.querySelector('button');
       // Trim as the user types: the browser validates the pattern before submit fires, so a
       // pasted " octocat " would be refused if it were only trimmed on submit.
       var trim = function () {
+        if (!input) return;
         var v = input.value.trim();
         if (v !== input.value) input.value = v;
       };
       if (input && !input.value) input.value = get(USER) || "";
-      if (input) input.addEventListener("input", trim);
+
+      var prefetchTimer = null;
+      function prefetch(user) {
+        if (!user || !LOGIN.test(user) || !window.fetch) return;
+        fetch("/result?u=" + encodeURIComponent(user), { priority: "low" }).catch(function () {});
+      }
+
+      if (input && input.addEventListener) {
+        input.addEventListener("input", function () {
+          trim();
+          clearTimeout(prefetchTimer);
+          prefetchTimer = setTimeout(function () {
+            prefetch(input.value.trim());
+          }, 350);
+        });
+      }
+
+      if (btn && btn.addEventListener) {
+        btn.addEventListener("mouseenter", function () {
+          if (input) prefetch(input.value.trim());
+        });
+      }
+
       form.addEventListener("submit", function () {
         trim();
-        if (LOGIN.test(input.value)) set(USER, input.value);
+        var val = input ? input.value.trim() : "";
+        if (LOGIN.test(val)) {
+          set(USER, val);
+          if (btn && btn.classList && !btn.classList.contains("is-loading")) {
+            btn.classList.add("is-loading");
+            btn.setAttribute("aria-busy", "true");
+            var originalWidth = btn.offsetWidth;
+            if (originalWidth > 0) btn.style.minWidth = originalWidth + "px";
+            btn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Checking…';
+          }
+        }
         track("check_start", { method: "public" });
       });
+
+      if (input && input.value && LOGIN.test(input.value)) {
+        setTimeout(function () {
+          prefetch(input.value.trim());
+        }, 1200);
+      }
     }
     reportView(document.querySelector("[data-report]"));
     loadStars();
