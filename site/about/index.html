@@ -3,26 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About GitVerse: who makes it and why</title>
-<meta name="description" content="GitVerse is an independent, MIT-licensed GitHub CLI extension and web checker for GitHub profile achievements, made by nmloc.">
+<title>About GitVerse — open source GitHub achievement tracker</title>
+<meta name="description" content="GitVerse is an independent, MIT-licensed GitHub CLI extension and web tool for tracking GitHub profile achievements. Built by nmloc.">
 <link rel="canonical" href="https://GitVerse.vercel.app/about/">
-
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GitVerse">
-<meta property="og:title" content="About GitVerse: who makes it and why">
-<meta property="og:description" content="GitVerse is an independent, MIT-licensed GitHub CLI extension and web checker for GitHub profile achievements, made by nmloc.">
+<meta property="og:title" content="About GitVerse — open source GitHub achievement tracker">
+<meta property="og:description" content="GitVerse is an independent, MIT-licensed GitHub CLI extension and web tool for tracking GitHub profile achievements.">
 <meta property="og:url" content="https://GitVerse.vercel.app/about/">
 <meta property="og:image" content="https://GitVerse.vercel.app/social.png">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="GitVerse: check your GitHub achievements progress in the terminal">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/gitverse-favicon.png">
 <script src="/theme.js"></script>
 <link rel="stylesheet" href="/style.css">
-<link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://GitVerse.vercel.app/","name":"GitVerse","position":1},{"@type":"ListItem","item":"https://GitVerse.vercel.app/about/","name":"About GitVerse","position":2}]}</script>
 <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
 </head>
 <body>
@@ -44,27 +38,50 @@
 
 <section class="hero">
   <div class="hero-eyebrow">About</div>
-  <h1>About GitVerse</h1>
+  <h1>Built in the open.<br>For developers.</h1>
+  <p class="lede">GitVerse is a free, MIT-licensed tool for anyone who wants to understand their GitHub achievement progress — not just see the badges they already have.</p>
 </section>
 
 <div class="prose">
 
-  <h2>What it is</h2>
-  <p>GitVerse is a free, open source tool that shows every GitHub profile achievement, the tier you hold and how far you are from the next one. It comes as a GitHub CLI extension (<code>gh extension install nmloc/GitVerse</code>, then <code>gh achievements</code>) and as a web checker on this site. Both build the same report from the same code.</p>
+  <h2>The problem it solves</h2>
+  <p>GitHub shows you which badges you've earned. It doesn't show you how close you are to the next tier, and its public API doesn't expose achievement data at all. GitVerse fills that gap — reading GitHub's own badge history pages for tier thresholds and unlock dates, then counting your progress through the GitHub API.</p>
 
-  <h2>Why it exists</h2>
-  <p>GitHub shows the badges you have but not how close you are to the next tier, and its API does not expose achievements at all. GitVerse reads GitHub's own badge pages for tiers and unlock dates, counts progress through the GitHub API, and labels every number official, calibrated or counted so you can tell how sure it is. The methodology page explains each source and its limits.</p>
+  <p>Every figure in the report is labelled <strong>official</strong> (read directly from GitHub), <strong>calibrated</strong> (matched against named milestones) or <strong>counted</strong> (computed from activity data) — so you always know how reliable a number is.</p>
 
-  <h2>Who makes it</h2>
-  <p>It is written and maintained by <a href="https://github.com/nmloc" rel="noopener">nmloc</a> as an independent project. The source code, issue tracker and release history are public at <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">github.com/TheVicky1/GitVerse</a>. Releases are built by GitHub Actions from tagged commits, and the achievement catalog is checked against live profiles every week.</p>
+  <h2>Two ways to use it</h2>
+  <p>GitVerse ships as a GitHub CLI extension (<code>gh extension install nmloc/GitVerse</code>) and as a web tool on this site. Both run the same logic from the same codebase. Use whichever fits your workflow.</p>
 
-  <h2>Not affiliated with GitHub</h2>
-  <p>GitVerse is not made, affiliated with or endorsed by GitHub. Badge artwork belongs to GitHub and is loaded from GitHub's own CDN. The project is released under the MIT license and costs nothing to use.</p>
+  <h2>Who built it</h2>
+  <p>GitVerse was written and is maintained by <a href="https://github.com/nmloc" rel="noopener">nmloc</a> as an independent side project. The source code is public at <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">github.com/TheVicky1/GitVerse</a>. Releases ship from GitHub Actions, and the achievement catalog is re-verified against live profiles each week.</p>
+
+  <h2>Not GitHub</h2>
+  <p>GitVerse is not affiliated with or endorsed by GitHub, Inc. Badge artwork is GitHub's property and is loaded from their CDN. The project is released under the MIT licence.</p>
 
 </div>
 
+<section class="section">
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-num">Free</div>
+      <h3>MIT licensed</h3>
+      <p>Always free to use. Fork it, self-host it, contribute to it. The source is public and open.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">Safe</div>
+      <h3>Zero data retention</h3>
+      <p>No user database. No stored tokens. OAuth credentials are revoked immediately after a single calculation pass.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">Live</div>
+      <h3>Weekly verification</h3>
+      <p>The achievement catalog is checked against real GitHub profiles every week to stay accurate as GitHub evolves.</p>
+    </div>
+  </div>
+</section>
+
 <a class="star-banner" href="https://github.com/TheVicky1/GitVerse.git" rel="noopener" data-star="about">
-  <strong>Found GitVerse useful? Star it on GitHub</strong>
+  <strong>Found GitVerse useful? A star on GitHub helps others find it</strong>
   <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars>0</span></span>
 </a>
 
