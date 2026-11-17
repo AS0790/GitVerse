@@ -1,8 +1,17 @@
-## What and why
+## Description
+Briefly describe the change, motivation, and context.
 
-## Checks
+Closes # (issue number if applicable)
 
-- [ ] `go test ./...` passes
-- [ ] `go run ./cmd/gendocs -check` passes (run `go run ./cmd/gendocs` if not)
-- [ ] A parser change comes with a fixture from a real profile
-- [ ] No number can contradict GitHub's official tier
+## Type of Change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Performance optimization
+- [ ] Documentation update
+- [ ] Refactoring / Style polish
+
+## Verification Checklist
+- [ ] Verified locally using `node scripts/serve-preview.cjs`
+- [ ] All tests pass: `node --test internal/webui/jstest/*.test.mjs`
+- [ ] Commits follow Conventional Commits specification
+- [ ] Documentation updated to reflect changes (if applicable)
