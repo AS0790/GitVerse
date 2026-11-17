@@ -28,7 +28,7 @@ func TestRender_usesTheVercelDomainAndRootPaths(t *testing.T) {
 			t.Errorf("missing %s", want)
 		}
 	}
-	if strings.Contains(html, "nmloc.github.io") || strings.Contains(html, "/GitVerse/") {
+	if strings.Contains(html, "github.io") || strings.Contains(html, "/GitVerse/") {
 		t.Error("old GitHub Pages paths remain")
 	}
 }
