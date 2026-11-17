@@ -26,10 +26,15 @@ gh achievements</code></pre>
 </div>
 <p class="meta">Needs the <a href="https://cli.github.com/">GitHub CLI</a> and reuses your <code>gh auth login</code>, so it counts everything your login can see. Add a username to check anyone: <code>gh achievements torvalds</code>. The web checker uses your GitHub sign-in for one check, then revokes the token.</p>
 
-<h2>FAQ</h2>
-<dl class="faq">
-{{range .FAQ}}<dt>{{.Q}}</dt><dd>{{.A}}</dd>
-{{end}}</dl>
+<section class="clarity" aria-labelledby="clarity-title">
+  <header class="clarity-intro">
+    <h2 id="clarity-title">A Little More Clarity</h2>
+    <p>Everything you need to know before exploring your GitHub achievement story.</p>
+  </header>
+  <ol class="clarity-list">
+  {{range .FAQ}}<li><details class="clarity-item"><summary><span>{{.Q}}</span></summary><div class="clarity-answer"><p>{{.A}}</p></div></details></li>
+  {{end}}</ol>
+</section>
 
 {{template "star-banner" "home"}}
 {{end}}

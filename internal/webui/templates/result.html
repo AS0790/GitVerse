@@ -1,58 +1,83 @@
 {{define "result"}}
 <section class="result" data-report data-scope="{{if .Private}}private{{else}}public{{end}}" data-earned="{{.Earned}}" data-user="{{.User}}">
-  <header class="result-head">
-    <img class="avatar" src="{{.Avatar}}" width="72" height="72" alt="">
-    <div>
+
+  {{/* ── Profile header ── */}}
+  <div class="result-hero">
+    <img class="result-avatar" src="{{.Avatar}}" width="80" height="80" alt="@{{.User}} GitHub avatar">
+    <div class="result-hero-info">
+      <div class="hero-eyebrow">GitHub Profile</div>
       {{if .Standalone}}<h1 class="result-user">@{{.User}}</h1>{{else}}<h2 class="result-user">@{{.User}}</h2>{{end}}
-      <p class="result-sum">{{.Earned}} of {{.EarnableTotal}} badges you can still earn, {{.TierTotal}} tiers</p>
+      <p class="result-sum">{{.Earned}} of {{.EarnableTotal}} earnable badges · {{.TierTotal}} tiers unlocked</p>
+      {{with .Closest}}<p class="result-next">Next unlock — <strong>{{.Name}}: {{.Line}}</strong></p>{{end}}
     </div>
-    {{with .Closest}}<p class="next">Closest next unlock <strong>{{.Name}}: {{.Line}}</strong></p>{{end}}
-  </header>
+  </div>
+
   {{if .Private}}
-  <p class="scope">Includes private work, so this page is not shareable. Organizations that restrict third-party apps hide their private repositories until an admin approves gh-achievements.</p>
+  <p class="result-scope notice">Includes private repositories. This report is not shareable. Organizations restricting third-party apps may hide some data.</p>
   {{else}}
-  <p class="scope">Showing public data. <a href="/auth/login" data-signin>Sign in with GitHub</a> to include private repositories.</p>
+  <p class="result-scope"><a href="/auth/login" data-signin>Sign in with GitHub</a> to include private repository progress.</p>
   {{end}}
-  {{if .Hidden}}<p class="notice">This profile hides its achievements, so there are no official tiers: live counts only.</p>{{end}}
+  {{if .Hidden}}<div class="notice">This profile hides its achievements — showing live counts only, without official tier data.</div>{{end}}
 
+  {{/* ── Earned badges ── */}}
   {{if .Display}}
-  <h2 class="shelf-head">On display</h2>
-  <p class="hint">Badges you have, with how far the next tier is.</p>
-  <div class="vitrine shelf">{{range .Display}}{{template "card" .}}{{end}}</div>
+  <div class="result-section">
+    <div class="result-section-label">On display</div>
+    <p class="result-section-sub">Badges you've earned, with progress toward the next tier.</p>
+    <div class="result-shelf">{{range .Display}}{{template "card" .}}{{end}}</div>
+  </div>
   {{else if not .Hidden}}
-  <h2 class="shelf-head">On display</h2>
-  <p class="hint">Nothing here yet. Start with a badge from the shelf below.</p>
+  <div class="result-section">
+    <div class="result-section-label">On display</div>
+    <p class="result-section-sub">Nothing here yet — start working toward the badges below.</p>
+  </div>
   {{end}}
 
+  {{/* ── Still to collect ── */}}
   {{with .Collect}}
-  {{if $.Hidden}}
-  <h2 class="shelf-head">Live counts</h2>
-  <p class="hint">This profile hides its badges, so these are counts, not the tiers GitHub shows.</p>
-  {{else}}
-  <h2 class="shelf-head">Still to collect</h2>
-  <p class="hint">Badges you can still earn. Open one to see how.</p>
-  {{end}}
-  <div class="vitrine shelf">{{range .}}{{template "card" .}}{{end}}</div>
+  <div class="result-section">
+    {{if $.Hidden}}
+    <div class="result-section-label">Live counts</div>
+    <p class="result-section-sub">Profile hides badges — showing counts without official tier data.</p>
+    {{else}}
+    <div class="result-section-label">Still to collect</div>
+    <p class="result-section-sub">Badges you can still earn. Tap any to see exactly how.</p>
+    {{end}}
+    <div class="result-shelf">{{range .}}{{template "card" .}}{{end}}</div>
+  </div>
   {{end}}
 
+  {{/* ── Archive ── */}}
   {{with .Archive}}
-  <details class="archive">
-    <summary>The archive: {{len .}} {{if eq (len .) 1}}badge{{else}}badges{{end}} you can no longer earn (switched off by GitHub, retired or staff only)</summary>
-    <div class="vitrine shelf">{{range .}}{{template "card" .}}{{end}}</div>
+  <details class="result-archive">
+    <summary>Archive — {{len .}} {{if eq (len .) 1}}badge{{else}}badges{{end}} you can no longer earn <span class="result-archive-hint">(switched off, retired or staff only)</span></summary>
+    <div class="result-shelf result-shelf--archive">{{range .}}{{template "card" .}}{{end}}</div>
   </details>
   {{end}}
 
-  <h2 class="shelf-head">Highlights</h2>
-  <ul class="highlights">{{range .Highlights}}<li class="{{if .Earned}}on{{else}}off{{end}}">{{if .Earned}}✓{{else}}·{{end}} {{.Name}}</li>{{end}}</ul>
+  {{/* ── Profile highlights ── */}}
+  <div class="result-section">
+    <div class="result-section-label">Profile highlights</div>
+    <ul class="highlights">{{range .Highlights}}<li class="{{if .Earned}}on{{else}}off{{end}}">{{if .Earned}}<span class="highlight-check">✓</span>{{else}}<span class="highlight-dot">·</span>{{end}} {{.Name}}</li>{{end}}</ul>
+  </div>
 
-  {{template "star-banner" "result"}}
+  {{/* ── Actions ── */}}
+  <div class="result-actions">
+    {{template "star-banner" "result"}}
+    <div class="actions">
+      {{if .Private}}<a href="/auth/login" data-signin class="btn">Refresh</a>
+      {{else}}<button type="button" class="btn" data-share>Copy share link</button>{{end}}
+      <a href="/check/" class="btn primary">Check another profile</a>
+    </div>
+    <p class="meta result-meta">
+      <strong>official</strong> = read from GitHub's own pages ·
+      <strong>calibrated</strong> = matched against named milestones ·
+      <strong>counted</strong> = computed from activity.
+      Want private counts? <code>gh extension install nmloc/GitVerse</code>
+      <button type="button" class="btn small" data-copy="gh extension install nmloc/GitVerse">Copy</button>
+    </p>
+  </div>
 
-  <p class="actions">
-    {{if .Private}}<a href="/auth/login" data-signin class="btn">Refresh</a>
-    {{else}}<button type="button" class="btn gold" data-share>Copy share link</button>{{end}}
-    <a href="/check/" class="btn">Check another profile</a>
-  </p>
-  <p class="meta">official = GitHub's own pages · calibrated = counted, checked against GitHub · counted = counted only. Want every private count? Use the CLI: <code>gh extension install nmloc/gh-achievements</code> <button type="button" class="btn small" data-copy="gh extension install nmloc/gh-achievements">Copy</button></p>
 </section>
 {{end}}
 
@@ -60,7 +85,7 @@
 <details class="badge-card{{if .Locked}} locked{{end}}" data-badge="{{.Slug}}">
   <summary>
     {{if .Image}}<img class="badge-img" src="{{.Image}}" width="96" height="96" alt="{{.ImageAlt}}" loading="lazy">{{else}}<span class="badge-img placeholder" aria-hidden="true">{{.Initials}}</span>{{end}}
-    <span class="badge-name">{{.Name}}{{if .TierLabel}} <span class="tier t{{.Tier}}">{{.TierLabel}}</span>{{end}}</span>
+    <span class="badge-name">{{.Name}}{{if .TierLabel}} <span class="tier-pill tier-{{if eq .Tier 4}}gold{{else if eq .Tier 3}}silver{{else if eq .Tier 2}}bronze{{else}}default{{end}}">{{.TierLabel}}</span>{{end}}</span>
     {{with .Progress}}<progress value="{{.Value}}" max="{{.Max}}" aria-label="{{.Label}}">{{.Value}} of {{.Max}}</progress>{{end}}
     <span class="badge-line">{{.Line}}</span>
   </summary>
@@ -69,7 +94,7 @@
     {{if .Source}}<p class="meta"><strong>{{.Source}}</strong>: {{.SourceMeaning}}</p>{{end}}
     {{if .Notes}}<ul>{{range .Notes}}<li>{{.}}</li>{{end}}</ul>{{end}}
     {{if .Milestones}}<ol class="milestones">{{range .Milestones}}<li>{{if .URL}}<a href="{{.URL}}">{{.Label}}</a>{{else}}{{.Label}}{{end}}</li>{{end}}</ol>{{end}}
-    {{if .BadgeURL}}<p><a href="{{.BadgeURL}}">About {{.Name}}</a></p>{{end}}
+    {{if .BadgeURL}}<p><a href="{{.BadgeURL}}" class="badge-detail-link">About {{.Name}} →</a></p>{{end}}
   </div>
 </details>
 {{end}}

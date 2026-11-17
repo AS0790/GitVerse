@@ -11,18 +11,17 @@
 {{end}}
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="gh-achievements">
+<meta property="og:site_name" content="GitVerse">
 <meta property="og:title" content="{{.P.Title}}">
 <meta property="og:description" content="{{.P.Description}}">
 <meta property="og:url" content="{{.P.URL}}">
 <meta property="og:image" content="{{.SiteURL}}social.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="gh-achievements: check your GitHub achievements progress in the terminal">
+<meta property="og:image:alt" content="GitVerse — GitHub Achievement Intelligence">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="{{.Base}}gitverse-favicon.png">
 <script src="{{.Base}}theme.js"></script>
-<link rel="preload" href="{{.Base}}fonts/playfair-display-400.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="{{.Base}}style.css">
 <link rel="alternate" type="application/json" href="{{.Base}}achievements.json" title="Achievement catalog (JSON)">
 {{range .P.JSONLD}}<script type="application/ld+json">{{.}}</script>
@@ -40,6 +39,7 @@
       <a href="{{.RepoURL}}" rel="noopener">GitHub</a>
     </nav>
     <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
+    <a href="{{.Base}}check/" class="nav-cta">Check Profile</a>
     <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
   </div>
 </header>

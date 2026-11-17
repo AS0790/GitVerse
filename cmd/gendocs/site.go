@@ -44,19 +44,21 @@ var methodology = []para{
 
 func siteFAQ() []catalog.QA {
 	return []catalog.QA{
-		{Q: "How do I check my GitHub achievements progress?",
-			A: "Install the GitHub CLI extension with `" + webui.Install + "` and run `gh achievements`. It lists every achievement, your tier and how many more you need for the next one. Add a username to check someone else."},
-		{Q: "Does gh-achievements need a GitHub token?",
-			A: "No. It reuses the login of the GitHub CLI (gh auth login). Without a login it still works with public data."},
+		{Q: "What is GitVerse?",
+			A: "GitVerse is an independent, open-source guide to GitHub profile achievements. It brings your badges, tiers and next milestones into one clear view."},
+		{Q: "How do I use GitVerse?",
+			A: "Enter a GitHub username on the Track page and select Check. GitVerse reads the public achievement information available for that profile and presents it in one place."},
+		{Q: "Do I need a GitHub account or token?",
+			A: "No account or token is needed to explore public profiles. If you choose to sign in, GitVerse uses the GitHub authorization only for that check and does not store it."},
+		{Q: "How do achievement tiers and progress work?",
+			A: "Each achievement can have one or more tiers. GitVerse shows the tier GitHub has awarded and, where GitHub exposes enough information, the progress toward the next milestone."},
 		{Q: "How many GitHub achievements are there?",
 			A: fmt.Sprintf("%d are known as of %s: %s. There are also %d profile highlights such as Pro and Developer Program Member.",
 				len(catalog.Achievements), catalog.LastVerified, kindSummary(), len(catalog.Highlights))},
-		{Q: "How accurate is it?",
-			A: "Tiers and unlock dates come straight from GitHub's profile pages. Pull Shark's count is checked against the milestones GitHub names. Every number is labelled official, calibrated or counted."},
-		{Q: "Why don't my achievements show on my profile?",
-			A: "Achievements can be turned off under Settings → Public profile → \"Show Achievements on my profile\". gh-achievements says when a profile hides them and shows live counts only."},
-		{Q: "Is gh-achievements made by GitHub?",
-			A: "No. It is an independent open source project and is not affiliated with or endorsed by GitHub."},
+		{Q: "How accurate is GitVerse?",
+			A: "Achievement tiers and unlock dates are checked against GitHub's own badge history. Each result is labelled official, calibrated or counted so the confidence behind it is clear."},
+		{Q: "Is GitVerse made by GitHub?",
+			A: "No. GitVerse is an independent open-source project. It is not made by, affiliated with or endorsed by GitHub, Inc."},
 	}
 }
 
