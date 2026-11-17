@@ -1,0 +1,18 @@
+# GitVerse Complete Documentation Directory
+
+* [Architecture](ARCHITECTURE.md)
+* [Docker Containerization](DOCKER.md)
+* [Kubernetes](KUBERNETES.md)
+* [Environment Variables](ENV_VARS.md)
+* [Rate Limits & Quotas](RATE_LIMITS.md)
+* [Performance & Benchmarks](PERFORMANCE.md)
+* [Code Style Guide](CODE_STYLE.md)
+* [CLI Reference](CLI_REFERENCE.md)
+* [Badge Mathematics](BADGES_SPEC.md)
+* [Auth Troubleshooting](TROUBLESHOOTING_AUTH.md)
+* [Internationalization](CONTRIBUTING_TRANSLATIONS.md)
+* [Accessibility (WCAG 2.1)](ACCESSIBILITY.md)
+* [Security Threat Model](SECURITY_AUDIT.md)
+* [Community](COMMUNITY.md)
+* [Governance](GOVERNANCE.md)
+* [Maintainers](MAINTAINERS.md)
