@@ -1,3 +1,10 @@
+## [1.3.2] - 2026-11-18
+### Added
+- Complete infrastructure guides (Docker, Kubernetes, Environment Variables, Rate Limits).
+- Automated GitHub Actions security scanning with `govulncheck` and Dependency Review.
+- Full WCAG 2.1 AA accessibility audit and threat model documentation.
+- Expanded developer tooling with Makefile, Docker Compose, and Windows verification scripts.
+
 # Changelog
 
 All notable changes to **GitVerse** will be documented in this file.
