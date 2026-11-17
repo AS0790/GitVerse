@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About GitVerse — open source GitHub achievement tracker</title>
-<meta name="description" content="GitVerse is an independent, MIT-licensed GitVerse CLI and web tool for tracking GitHub profile achievements. Built by nmloc.">
+<title>About GitVerse - GitHub Achievement Intelligence</title>
+<meta name="description" content="GitVerse is an independent, open-source platform providing complete visibility into GitHub achievements and milestone tiers.">
 <link rel="canonical" href="https://gitverse.vercel.app/about/">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GitVerse">
-<meta property="og:title" content="About GitVerse — open source GitHub achievement tracker">
-<meta property="og:description" content="GitVerse is an independent, MIT-licensed GitVerse CLI and web tool for tracking GitHub profile achievements.">
+<meta property="og:title" content="About GitVerse - GitHub Achievement Intelligence">
+<meta property="og:description" content="GitVerse is an independent, open-source platform providing complete visibility into GitHub achievements and milestone tiers.">
 <meta property="og:url" content="https://gitverse.vercel.app/about/">
 <meta property="og:image" content="https://gitverse.vercel.app/social.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -37,26 +37,38 @@
 <main>
 
 <section class="hero">
-  <div class="hero-eyebrow">About</div>
-  <h1>Built in the open.<br>For developers.</h1>
-  <p class="lede">GitVerse is a free, MIT-licensed tool for anyone who wants to understand their GitHub achievement progress — not just see the badges they already have.</p>
+  <div class="hero-eyebrow">About GitVerse</div>
+  <h1>Engineered for Clarity.</h1>
+  <p class="lede">Radical visibility into GitHub milestones. We transform opaque achievements into deterministic, actionable developer intelligence.</p>
 </section>
 
 <div class="prose">
 
-  <h2>The problem it solves</h2>
-  <p>GitHub shows you which badges you've earned. It doesn't show you how close you are to the next tier, and its public API doesn't expose achievement data at all. GitVerse fills that gap — reading GitHub's own badge history pages for tier thresholds and unlock dates, then counting your progress through the GitHub API.</p>
+  <h2>Purpose &amp; Philosophy</h2>
+  <p>While GitHub displays earned badges on developer profiles, it offers zero visibility into what lies ahead. Upcoming tier thresholds are undisclosed, progress counters are omitted, and the official public API provides no achievement endpoints. Developers are left to speculate on their milestone proximity.</p>
+  <p>GitVerse was designed to eliminate this asymmetry. Through deterministic reverse-calibration, we cross-reference public badge histories, milestone unlock records, and activity telemetry to construct an exact map of your progress. Every metric is rigorously categorized by provenance:</p>
+  <ul>
+    <li><strong>Official:</strong> Verified directly against GitHub's native profile schemas.</li>
+    <li><strong>Calibrated:</strong> Correlated with verified milestone thresholds across real repositories.</li>
+    <li><strong>Counted:</strong> Computed via real-time repository activity and contribution events.</li>
+  </ul>
 
-  <p>Every figure in the report is labelled <strong>official</strong> (read directly from GitHub), <strong>calibrated</strong> (matched against named milestones) or <strong>counted</strong> (computed from activity data) — so you always know how reliable a number is.</p>
+  <h2>Dual-Engine Architecture</h2>
+  <p>GitVerse is built to fit seamlessly into any developer workflow, offering two interfaces driven by the same zero-retention analysis engine:</p>
+  <ul>
+    <li><strong>Web Intelligence:</strong> Instant profile analysis with interactive tier visualization, milestone timelines, and private repository connectivity.</li>
+    <li><strong>Terminal CLI:</strong> A compiled, high-performance Go executable for engineers who live in the terminal:</li>
+  </ul>
+  <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code></pre>
+  <p>Both web and command-line interfaces run entirely in memory. Zero tokens or repository contents are ever stored or retained.</p>
 
-  <h2>Two ways to use it</h2>
-  <p>GitVerse ships as a GitVerse CLI (<code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>) and as a web tool on this site. Both run the same logic from the same codebase. Use whichever fits your workflow.</p>
+  <h2>Open Source &amp; Engineering</h2>
+  <p>GitVerse is an independent, community-driven open-source platform created by <strong>Vicky Patel</strong> (<a href="https://github.com/TheVicky1" target="_blank" rel="noopener">@TheVicky1</a>) and distributed under the permissive MIT License.</p>
+  <p>The entire system - including our badge catalog, calculation logic, and responsive web interface - is publicly inspectable at <a href="https://github.com/TheVicky1/GitVerse.git" target="_blank" rel="noopener">github.com/TheVicky1/GitVerse</a>. Automated continuous integration suites re-verify catalog schemas against live GitHub profiles weekly, ensuring ongoing fidelity as GitHub's platform evolves.</p>
 
-  <h2>Who built it</h2>
-  <p>GitVerse was written and is maintained by <a href="https://github.com/nmloc" rel="noopener">nmloc</a> as an independent side project. The source code is public at <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">github.com/TheVicky1/GitVerse</a>. Releases ship from GitHub Actions, and the achievement catalog is re-verified against live profiles each week.</p>
-
-  <h2>Not GitHub</h2>
-  <p>GitVerse is not affiliated with or endorsed by GitHub, Inc. Badge artwork is GitHub's property and is loaded from their CDN. The project is released under the MIT licence.</p>
+  <h2>Independent Platform Notice</h2>
+  <p>GitVerse is an independent project and is neither affiliated with, maintained by, nor endorsed by GitHub, Inc. or Microsoft Corporation.</p>
+  <p>All official badge artwork, icons, and achievement trademarks remain the exclusive intellectual property of GitHub, Inc., delivered strictly through GitHub's public CDN for identification. The GitVerse software and analytical models are freely provided under the MIT License.</p>
 
 </div>
 
