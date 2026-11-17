@@ -41,7 +41,7 @@
 <section class="hero check-hero">
   <div class="hero-eyebrow">Achievement Tracker</div>
   <h1>Track your progress</h1>
-  <p class="lede">Enter any GitHub username to get a full breakdown — every badge, its tier, and the exact count toward what comes next.</p>
+  <p class="lede">Enter any GitHub username to get a full breakdown - every badge, its tier, and the exact count toward what comes next.</p>
 
   <div class="choice">
     <a href="/auth/login" data-signin class="btn primary big">Sign in with GitHub</a>
@@ -51,7 +51,7 @@
     <form action="/result" method="get" id="check-form">
       <label for="u" class="visually-hidden">GitHub username</label>
       <input id="u" name="u" required autocomplete="username" autocapitalize="off" spellcheck="false"
-        pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="e.g. torvalds">
+        pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="your-username">
       <button type="submit" class="btn primary">Check</button>
     </form>
   </div>
@@ -62,12 +62,12 @@
     <div class="feature-card">
       <div class="feature-num">01</div>
       <h3>Web check</h3>
-      <p>Paste any GitHub username above. No account required for public profiles — results appear instantly.</p>
+      <p>Paste any GitHub username above. No account required for public profiles - results appear instantly.</p>
     </div>
     <div class="feature-card">
       <div class="feature-num">02</div>
       <h3>Terminal workflow</h3>
-      <p>Install GitVerse with Go, then check any public profile with <code style="font-size:0.8rem;">gitverse torvalds</code>. GitHub CLI is only needed for private data.</p>
+      <p>Install GitVerse with Go, then check any public profile with <code style="font-size:0.8rem;">gitverse &lt;username&gt;</code>. GitHub CLI is only needed for private data.</p>
     </div>
     <div class="feature-card">
       <div class="feature-num">03</div>
@@ -75,7 +75,7 @@
       <p>Review the code, report an issue, or contribute to GitVerse directly on GitHub.</p>
     </div>
   </div>
-  <p class="meta" style="margin-top: 8px;">Prefer the command line? <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code> then <code>gitverse torvalds</code> <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest&#10;gitverse torvalds">Copy commands</button></p>
+  <p class="meta" style="margin-top: 8px;">Prefer the command line? <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code> then <code>gitverse &lt;username&gt;</code> <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy install</button></p>
 </section>
 
 </main>
