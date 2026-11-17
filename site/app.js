@@ -112,11 +112,39 @@
     } catch (e) { /* blocked by policy: nothing visible happens */ }
   }
 
-  // A short brand reveal on each document load. It is deliberately independent of
-  // images or API calls, so a slow connection never leaves the visitor waiting.
+  // The brand reveal is reserved for arrivals: a new visit, a browser refresh,
+  // or a return to the home page. Normal internal navigation stays immediate.
+  function shouldRevealGitVerse() {
+    var reloaded = false;
+    try {
+      var entries = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation");
+      reloaded = !!(entries && entries[0] && entries[0].type === "reload");
+      if (!entries && window.performance && window.performance.navigation) reloaded = window.performance.navigation.type === 1;
+    } catch (e) { /* navigation timing is optional */ }
+    if (reloaded) return true;
+
+    var seen = false, storageAvailable = true;
+    try {
+      seen = sessionStorage.getItem("gitverse:arrivalSeen") === "1";
+      if (!seen) sessionStorage.setItem("gitverse:arrivalSeen", "1");
+    } catch (e) { storageAvailable = false; }
+    var path = window.location && window.location.pathname;
+    if (!storageAvailable) return path === "/" || path === "/index.html";
+    if (!seen) return true;
+
+    if (path !== "/" && path !== "/index.html") return false;
+    try {
+      var referrer = document.referrer ? new URL(document.referrer) : null;
+      return !!(referrer && referrer.origin === window.location.origin);
+    } catch (e) { return false; }
+  }
+
+  // It is deliberately independent of images or API calls, so a slow connection
+  // never leaves the visitor waiting.
   function revealGitVerse() {
     if (!document.body || !document.body.insertBefore) return;
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!shouldRevealGitVerse()) return;
 
     var loader = document.createElement("div");
     loader.className = "gv-loader";
