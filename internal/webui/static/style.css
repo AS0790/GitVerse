@@ -2114,14 +2114,6 @@ body.privacy-page {
   animation-duration: 12s;
 }
 
-.gv-loader__contours {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 42%, rgba(255,255,255,.085) 49%, transparent 56%);
-  transform: translateX(-125%);
-  animation: gv-loader-sweep 3s cubic-bezier(.55, 0, .25, 1) .08s both;
-}
-
 .gv-loader__center {
   position: relative;
   display: grid;
@@ -2167,7 +2159,6 @@ body.privacy-page {
   from { opacity: 0; transform: translateY(13px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes gv-loader-sweep { to { transform: translateX(125%); } }
 @keyframes gv-loader-track { from { transform: translateX(-120%); } to { transform: translateX(290%); } }
 @keyframes gv-loader-orbit { to { transform: rotate(360deg) scale(1.06); } }
 

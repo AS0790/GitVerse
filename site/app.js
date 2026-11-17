@@ -122,9 +122,8 @@
     loader.className = "gv-loader";
     loader.setAttribute("aria-hidden", "true");
     loader.innerHTML =
-      '<div class="gv-loader__contours"></div>' +
       '<div class="gv-loader__center">' +
-        '<span class="gv-loader__eyebrow">GITHUB ACHIEVEMENT INTELLIGENCE</span>' +
+        '<span class="gv-loader__eyebrow">A VICKY PATEL PROJECT</span>' +
         '<img class="gv-loader__wordmark" src="/gitverse-wordmark-transparent.png" alt="">' +
         '<span class="gv-loader__line"><i></i></span>' +
         '<span class="gv-loader__status">INITIALIZING</span>' +
