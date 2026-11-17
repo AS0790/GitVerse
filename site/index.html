@@ -22,7 +22,7 @@
 <script src="/theme.js"></script>
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","author":{"@type":"Person","name":"nmloc","url":"https://github.com/nmloc"},"codeRepository":"https://github.com/TheVicky1/GitVerse.git","description":"Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.","isAccessibleForFree":true,"license":"https://opensource.org/licenses/MIT","name":"GitVerse","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"macOS, Linux, Windows","url":"https://gitverse.vercel.app/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"DeveloperApplication","author":{"@type":"Person","name":"Vicky Patel","url":"https://github.com/TheVicky1"},"codeRepository":"https://github.com/TheVicky1/GitVerse.git","description":"Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.","isAccessibleForFree":true,"license":"https://opensource.org/licenses/MIT","name":"GitVerse","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"macOS, Linux, Windows","url":"https://gitverse.vercel.app/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Type your GitHub username in the form above and hit Check. GitVerse fetches your public profile data, matches your badge history and shows every achievement with its tier and next-milestone count."},"name":"How do I check my GitHub achievements?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No. GitVerse reads public profile data only. If you sign in via GitHub OAuth, a temporary token is used for one calculation then immediately revoked. Nothing is stored."},"name":"Does GitVerse need a GitHub token?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"15 are known: 8 earnable, 2 disabled, 2 retired, 3 GitHub-staff only. There are also 6 profile highlights like Pro and Developer Program Member."},"name":"How many GitHub achievements are there?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Tiers and unlock dates come from GitHub's own badge history pages. Pull Shark counts are matched against GitHub's named milestones. Every figure is labelled official, calibrated or counted."},"name":"How accurate is the data?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"No. GitVerse is an independent open source project. It is not made by, affiliated with, or endorsed by GitHub, Inc."},"name":"Is GitVerse made by GitHub?"}]}</script>
 <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
 </head>
@@ -87,9 +87,9 @@
   <p class="lede" style="margin-bottom: 32px;">Install the GitVerse CLI and get your full achievement report in seconds.</p>
   <div class="install-block">
     <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
-gitverse torvalds</code></pre>
+gitverse &lt;username&gt;</code></pre>
     <div class="install-actions">
-      <button type="button" class="btn" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest&#10;gitverse torvalds">Copy commands</button>
+      <button type="button" class="btn" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy install</button>
       <a href="/check/" class="btn primary">Try the web version</a>
     </div>
   </div>
