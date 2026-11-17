@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [v1.3.1] - 2026-11-18
+
+### Added
+- **Automated CI Security & Quality Workflows**: Added CodeQL static analysis and automated markdown link verification actions.
+- **Structured Community Templates**: Added dedicated YAML issue templates for Feature Requests and Documentation Improvements, plus a standardized PR verification template.
+- **Extended Technical Documentation Suite**: Added `docs/FAQ.md`, `docs/GLOSSARY.md`, `docs/API.md`, `docs/BENCHMARKS.md`, and `docs/ACHIEVEMENTS_GUIDE.md`.
+
+---
+
 ## [v1.3.0] - 2026-10-31
 
 ### Added
