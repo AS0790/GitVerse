@@ -9,3 +9,4 @@
 | **Calibration Floor** | The minimum threshold guaranteed by an already earned tier, ensuring progress counters never contradict official unlocks. |
 | **Dual-Engine** | The architecture unifying the compiled Go CLI and Vercel serverless web application under identical analytical algorithms. |
 | **Vitrine Shelf** | The Space Aurora visual card layout displaying badges on horizontal illuminated shelves. |
+

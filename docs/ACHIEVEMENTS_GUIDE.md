@@ -20,3 +20,4 @@ Detailed instructions and strategies for earning every active GitHub achievement
 
 ### 💖 Public Sponsor
 * **Strategy:** Sponsor an active maintainer or organization with a recurring or one-time sponsorship through GitHub Sponsors.
+

@@ -27,3 +27,4 @@ Calculates private repository achievements via single-use OAuth code exchange an
 * `400 Bad Request`: Invalid GitHub username format.
 * `404 Not Found`: Username does not exist on GitHub.
 * `504 Gateway Timeout`: Account has too many contribution records to process within serverless limits.
+

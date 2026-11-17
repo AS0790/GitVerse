@@ -17,3 +17,4 @@ Yes! Install the CLI globally:
 go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
 gitverse torvalds
 ```
+
