@@ -112,7 +112,39 @@
     } catch (e) { /* blocked by policy: nothing visible happens */ }
   }
 
+  // A short brand reveal on each document load. It is deliberately independent of
+  // images or API calls, so a slow connection never leaves the visitor waiting.
+  function revealGitVerse() {
+    if (!document.body || !document.body.insertBefore) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var loader = document.createElement("div");
+    loader.className = "gv-loader";
+    loader.setAttribute("aria-hidden", "true");
+    loader.innerHTML =
+      '<div class="gv-loader__contours"></div>' +
+      '<div class="gv-loader__center">' +
+        '<span class="gv-loader__eyebrow">GITHUB ACHIEVEMENT INTELLIGENCE</span>' +
+        '<img class="gv-loader__wordmark" src="/gitverse-wordmark-transparent.png" alt="">' +
+        '<span class="gv-loader__line"><i></i></span>' +
+        '<span class="gv-loader__status">INITIALIZING</span>' +
+      '</div>';
+    document.body.insertBefore(loader, document.body.firstChild);
+
+    // Let the first frame paint before starting the exit transition.
+    (window.requestAnimationFrame || function (fn) { return setTimeout(fn, 16); })(function () {
+      loader.classList.add("gv-loader--visible");
+    });
+    setTimeout(function () {
+      loader.classList.add("gv-loader--exit");
+      setTimeout(function () {
+        if (loader.parentNode) loader.parentNode.removeChild(loader);
+      }, 520);
+    }, 1050);
+  }
+
   function ready() {
+    revealGitVerse();
     var banner = document.getElementById("consent");
     var themeBtn = document.querySelector("[data-theme-toggle]");
     if (themeBtn) {
