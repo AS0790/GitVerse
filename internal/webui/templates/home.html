@@ -11,20 +11,26 @@
 {{end}}</ul>
 <p class="meta"><a href="achievements/">See all {{.Count}} GitHub achievements</a>, including the retired ones and those GitHub switched off.</p>
 
-<h2>What it shows</h2>
-<ul class="points">
-  <li><h3>Every badge, not just yours</h3><p>All {{.Count}} known achievements ({{.Summary}}) and {{.HighlightCount}} profile highlights.</p></li>
-  <li><h3>How far to the next tier</h3><p>Your count against the next threshold, such as 72 / 128 merged pull requests for Pull Shark x3.</p></li>
-  <li><h3>Checked against GitHub</h3><p>Tiers, unlock dates and milestones come from GitHub's own badge history. <a href="methodology/">How it works</a></p></li>
-</ul>
+<section class="feature-section">
+  <header class="feature-intro">
+    <p class="feature-eyebrow">THE GITVERSE VIEW</p>
+    <h2>Everything, in context.</h2>
+    <p>A focused way to understand the work behind your GitHub profile.</p>
+  </header>
+  <div class="feature-grid">
+    <article class="feature-card"><div class="feature-num">01</div><h3>One complete view</h3><p>Every known achievement, clearly organised without the noise.</p></article>
+    <article class="feature-card"><div class="feature-num">02</div><h3>Progress with context</h3><p>See your current tier and the distance to the milestones ahead.</p></article>
+    <article class="feature-card"><div class="feature-num">03</div><h3>Verified signals</h3><p>Built around GitHub’s own achievement history, not guesswork.</p></article>
+  </div>
+</section>
 
 <h2>Prefer the terminal?</h2>
 <div class="install">
   <pre><code>{{.Install}}
-gh achievements</code></pre>
+gitverse</code></pre>
   <button type="button" class="btn small" data-copy="{{.Install}}">Copy</button>
 </div>
-<p class="meta">Needs the <a href="https://cli.github.com/">GitHub CLI</a> and reuses your <code>gh auth login</code>, so it counts everything your login can see. Add a username to check anyone: <code>gh achievements torvalds</code>. The web checker uses your GitHub sign-in for one check, then revokes the token.</p>
+<p class="meta">Needs the <a href="https://cli.github.com/">GitHub CLI</a> and reuses your <code>gh auth login</code>, so it counts everything your login can see. Add a username to check anyone: <code>gitverse torvalds</code>. The web checker uses your GitHub sign-in for one check, then revokes the token.</p>
 
 <section class="clarity" aria-labelledby="clarity-title">
   <header class="clarity-intro">

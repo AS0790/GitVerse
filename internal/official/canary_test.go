@@ -12,7 +12,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
 )
 
 func live(t *testing.T) *Client {

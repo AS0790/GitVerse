@@ -3,7 +3,7 @@
 - Status: Earnable
 - How to earn: Have discussion answers accepted
 - Tiers: 2 · 8 · 16 · 32
-- Progress in gh-achievements: count of accepted answers
+- Progress in GitVerse: count of accepted answers
 
 Galaxy Brain counts your GitHub Discussions answers that were marked as the accepted answer. Since 2024-02-06 answers in GitHub's own Community Discussions (github.com/orgs/community) no longer count.
 
@@ -24,8 +24,8 @@ Galaxy Brain counts your GitHub Discussions answers that were marked as the acce
 
 Not since 2024-02-06, when GitHub stopped awarding achievements there to counter spam. Answers in other repositories' discussions still count.
 
-Check your progress: `gh achievements` or https://gh-achievements.vercel.app/check/
+Check your progress: `gitverse` or https://gitverse.vercel.app/check/
 
 ---
 
-[gh-achievements](https://gh-achievements.vercel.app/) · [llms.txt](https://gh-achievements.vercel.app/llms.txt) · [About](https://gh-achievements.vercel.app/about/) · [Contact](https://gh-achievements.vercel.app/contact/) · [Privacy](https://gh-achievements.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

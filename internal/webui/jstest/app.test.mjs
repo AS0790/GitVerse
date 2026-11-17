@@ -272,26 +272,26 @@ test("app.js: a star count fills [data-stars], unhides it and hides the long lab
   const { starCount, starLong } = loadApp({ session, fetch: fetchImpl });
   await settle();
   assert.equal(fetchImpl.calls.length, 1);
-  assert.equal(fetchImpl.calls[0].url, "https://api.github.com/repos/nmloc/gh-achievements");
+  assert.equal(fetchImpl.calls[0].url, "https://api.github.com/repos/TheVicky1/GitVerse");
   assert.equal(fetchImpl.calls[0].credentials, "omit");
   assert.equal(fetchImpl.calls[0].referrerPolicy, "no-referrer");
   assert.equal(starCount.textContent, "128");
   assert.equal(starCount.hidden, false);
   assert.equal(starLong.hidden, true);
-  assert.equal(session.getItem("gha:stars"), "128");
+  assert.equal(session.getItem("gitverse:stars"), "128");
 });
 
-test("app.js: a count of 0 leaves the count hidden and the long label showing", async () => {
+test("app.js: a count of 0 is displayed", async () => {
   const { starCount, starLong } = loadApp({ fetch: fakeFetch(json({ stargazers_count: 0 })) });
   await settle();
-  assert.equal(starCount.hidden, true);
-  assert.equal(starCount.textContent, "");
-  assert.equal(starLong.hidden, false);
+  assert.equal(starCount.hidden, false);
+  assert.equal(starCount.textContent, "0");
+  assert.equal(starLong.hidden, true);
 });
 
 test("app.js: a cached count is used without fetching", async () => {
   const fetchImpl = fakeFetch(json({ stargazers_count: 5 }));
-  const { starCount } = loadApp({ session: fakeStorage({ "gha:stars": "42" }), fetch: fetchImpl });
+  const { starCount } = loadApp({ session: fakeStorage({ "gitverse:stars": "42" }), fetch: fetchImpl });
   await settle();
   assert.equal(fetchImpl.calls.length, 0);
   assert.equal(starCount.textContent, "42");
@@ -310,16 +310,17 @@ for (const [name, respond] of Object.entries(failures)) {
     const page1 = loadApp({ session, fetch: first });
     await settle();
     assert.equal(first.calls.length, 1);
-    assert.equal(session.getItem("gha:stars"), "0");
-    assert.equal(page1.starCount.hidden, true);
+    assert.equal(session.getItem("gitverse:stars"), "0");
+    assert.equal(page1.starCount.hidden, false);
 
     // Next page of the same visit: fresh context, same sessionStorage.
     const second = fakeFetch(json({ stargazers_count: 999 }));
     const page2 = loadApp({ session, fetch: second });
     await settle();
     assert.equal(second.calls.length, 0);
-    assert.equal(page2.starCount.hidden, true);
-    assert.equal(page2.starLong.hidden, false);
+    assert.equal(page2.starCount.hidden, false);
+    assert.equal(page2.starCount.textContent, "0");
+    assert.equal(page2.starLong.hidden, true);
   });
 }
 
@@ -330,7 +331,7 @@ test("app.js: an error while filling does not overwrite the stored count with 0"
   const ctx = sandbox(page.doc, { local: fakeStorage(), session, fetchImpl: fakeFetch(json({ stargazers_count: 128 })) });
   vm.runInContext(APP_JS, ctx, { filename: "app.js" });
   await settle();
-  assert.equal(session.getItem("gha:stars"), "128");
+  assert.equal(session.getItem("gitverse:stars"), "128");
 });
 
 // ---- app.js: star_click ---------------------------------------------------------------

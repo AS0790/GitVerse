@@ -12,11 +12,10 @@ import (
 )
 
 const (
-	SiteURL         = "https://gh-achievements.vercel.app/"
+	SiteURL         = "https://gitverse.vercel.app/"
 	BasePath        = "/"
-	OldSiteURL      = "https://nmloc.github.io/gh-achievements/"
 	RepoURL         = "https://github.com/TheVicky1/GitVerse.git"
-	Install         = "gh extension install nmloc/gh-achievements"
+	Install         = "go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest"
 	GAMeasurementID = "G-3EEKKGL110"
 )
 

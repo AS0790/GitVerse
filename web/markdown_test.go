@@ -17,13 +17,13 @@ func serveMarkdown(method, path string) *httptest.ResponseRecorder {
 
 func TestMarkdown_servesEveryPageTwin(t *testing.T) {
 	for path, heading := range map[string]string{
-		"":                          "# gh-achievements",
+		"":                          "# GitVerse",
 		"achievements":              "# All GitHub achievements",
 		"achievements/":             "# All GitHub achievements",
 		"achievements/pull-shark/":  "# Pull Shark (GitHub achievement)",
 		"/achievements/pull-shark/": "# Pull Shark (GitHub achievement)",
-		"methodology/":              "# How accurate is gh-achievements?",
-		"about/":                    "# About gh-achievements",
+		"methodology/":              "# How accurate is GitVerse?",
+		"about/":                    "# About GitVerse",
 		"contact":                   "# Contact",
 		"privacy/":                  "# Privacy",
 	} {
@@ -52,8 +52,8 @@ func TestMarkdown_unknownPathIsA404WithAMarkdownBody(t *testing.T) {
 		if w.Code != 404 || w.Header().Get("Content-Type") != "text/markdown; charset=utf-8" || w.Header().Get("Vary") != "Accept" {
 			t.Errorf("%q: status %d, headers %v", path, w.Code, w.Header())
 		}
-		if !strings.HasPrefix(body, "# Page not found") || !strings.Contains(body, "https://gh-achievements.vercel.app/llms.txt") ||
-			!strings.Contains(body, "https://gh-achievements.vercel.app/sitemap.xml") {
+		if !strings.HasPrefix(body, "# Page not found") || !strings.Contains(body, "https://gitverse.vercel.app/llms.txt") ||
+			!strings.Contains(body, "https://gitverse.vercel.app/sitemap.xml") {
 			t.Errorf("%q: body %q", path, body)
 		}
 	}

@@ -52,10 +52,10 @@ func terminalSVG(out, _ string) []byte {
 
 	var b strings.Builder
 	fmt.Fprintf(&b, `<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" role="img" aria-labelledby="t">`+"\n", width, height, width, height)
-	b.WriteString(`<title id="t">gh achievements torvalds: terminal output</title>` + "\n")
+	b.WriteString(`<title id="t">gitverse torvalds: terminal output</title>` + "\n")
 	fmt.Fprintf(&b, `<rect width="%d" height="%d" rx="10" fill="#0d1c26"/>`+"\n", width, height)
 	b.WriteString(`<circle cx="20" cy="20" r="6" fill="#ff5f56"/><circle cx="40" cy="20" r="6" fill="#ffbd2e"/><circle cx="60" cy="20" r="6" fill="#27c93f"/>` + "\n")
-	fmt.Fprintf(&b, `<text x="%d" y="24" fill="#93a9b7" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" text-anchor="middle">gh achievements torvalds</text>`+"\n", width/2)
+	fmt.Fprintf(&b, `<text x="%d" y="24" fill="#93a9b7" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" text-anchor="middle">gitverse torvalds</text>`+"\n", width/2)
 	fmt.Fprintf(&b, `<g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="%d" fill="#eaf1f5">`+"\n", fontSize)
 	for i, line := range lines {
 		fmt.Fprintf(&b, `<text x="%d" y="%d">%s</text>`+"\n", padX, top+i*lineH, spans(line))
@@ -114,7 +114,7 @@ func socialSVG() []byte {
 	b.WriteString(`<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">` + "\n")
 	b.WriteString(`<rect width="1280" height="640" fill="#0d1c26"/>` + "\n")
 	b.WriteString(`<rect x="0" y="0" width="1280" height="8" fill="#e2b53a"/>` + "\n")
-	fmt.Fprintf(&b, `<text x="80" y="150" %s font-size="76" font-weight="700" fill="#eaf1f5">gh-achievements</text>`+"\n", sans)
+	fmt.Fprintf(&b, `<text x="80" y="150" %s font-size="76" font-weight="700" fill="#eaf1f5">GitVerse</text>`+"\n", sans)
 	fmt.Fprintf(&b, `<text x="80" y="225" %s font-size="38" fill="#eaf1f5">Check your GitHub achievements progress</text>`+"\n", sans)
 	fmt.Fprintf(&b, `<text x="80" y="280" %s font-size="28" fill="#93a9b7">Every badge · your tier · how far to the next · verified against GitHub · no token</text>`+"\n", sans)
 	b.WriteString(`<rect x="80" y="330" width="1120" height="230" rx="14" fill="#122633" stroke="#25414f"/>` + "\n")
@@ -131,7 +131,7 @@ func socialSVG() []byte {
 		fmt.Fprintf(&b, `<text x="170" y="%d" %s font-size="26" fill="%s" font-weight="700">%s</text>`+"\n", y, mono, ink, html.EscapeString(r.name))
 		fmt.Fprintf(&b, `<text x="470" y="%d" %s font-size="26" fill="%s">%s</text>`+"\n", y, mono, ink, strings.ReplaceAll(html.EscapeString(r.rest), " ", "\u00a0"))
 	}
-	fmt.Fprintf(&b, `<text x="80" y="605" %s font-size="26" fill="#e2b53a">$ gh extension install nmloc/gh-achievements</text>`+"\n", mono)
+	fmt.Fprintf(&b, `<text x="80" y="605" %s font-size="26" fill="#e2b53a">$ go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</text>`+"\n", mono)
 	b.WriteString("</svg>\n")
 	return []byte(b.String())
 }

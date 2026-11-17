@@ -7,8 +7,8 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/report"
 )
 
 // shortUnit names what a count counts, for badges whose name does not already say it.

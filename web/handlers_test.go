@@ -14,9 +14,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nmloc/gh-achievements/internal/counters"
-	"github.com/nmloc/gh-achievements/internal/fixtures"
-	"github.com/nmloc/gh-achievements/internal/official"
+	"github.com/TheVicky1/GitVerse/internal/counters"
+	"github.com/TheVicky1/GitVerse/internal/fixtures"
+	"github.com/TheVicky1/GitVerse/internal/official"
 )
 
 func testConfig(t *testing.T, gh *fakeGitHub) (*Config, *bytes.Buffer) {

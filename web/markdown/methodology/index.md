@@ -1,8 +1,8 @@
-# How accurate is gh-achievements?
+# How accurate is GitVerse?
 
 ## Three labels
 
-gh-achievements labels every number. official: read from GitHub's own profile pages. calibrated: counted through the GitHub API, then checked against a milestone GitHub itself names. counted: counted through the API with nothing public to check it against.
+GitVerse labels every number. official: read from GitHub's own profile pages. calibrated: counted through the GitHub API, then checked against a milestone GitHub itself names. counted: counted through the API with nothing public to check it against.
 
 ## GitHub's own record of each badge
 
@@ -10,7 +10,7 @@ When you open a badge on a profile, GitHub loads /users/<user>/achievements/<slu
 
 ## Calibration
 
-For Pull Shark, GitHub names which merged pull request was its 2nd, 16th, 128th and 1024th. gh-achievements lists your merged pull requests in merge order and finds the highest milestone it can see. For @torvalds, GitHub's 16th is subsurface/subsurface#1506, and it is also 16th in the API's list, so the two counts agree (+0). Any difference is added to the live count, so pull requests the API cannot show you are still counted.
+For Pull Shark, GitHub names which merged pull request was its 2nd, 16th, 128th and 1024th. GitVerse lists your merged pull requests in merge order and finds the highest milestone it can see. For @torvalds, GitHub's 16th is subsurface/subsurface#1506, and it is also 16th in the API's list, so the two counts agree (+0). Any difference is added to the live count, so pull requests the API cannot show you are still counted.
 
 ## An official tier is never contradicted
 
@@ -26,10 +26,10 @@ GitHub search lists at most 1000 pull requests, so above that Pull Shark keeps t
 
 ## No stored token
 
-The CLI uses the credentials gh already stores (or GH_TOKEN). Without them it falls back to public data. It talks only to github.com and api.github.com. The web checker runs on a gh-achievements server on Vercel: public checks use a read-only bot token, and signing in with GitHub gives a token that is used for one check and revoked at once. Nothing is stored.
+The CLI uses the credentials gh already stores (or GH_TOKEN). Without them it falls back to public data. It talks only to github.com and api.github.com. The web checker runs on a GitVerse server on Vercel: public checks use a read-only bot token, and signing in with GitHub gives a token that is used for one check and revoked at once. Nothing is stored.
 
 Last verified 2026-10-17.
 
 ---
 
-[gh-achievements](https://gh-achievements.vercel.app/) · [llms.txt](https://gh-achievements.vercel.app/llms.txt) · [About](https://gh-achievements.vercel.app/about/) · [Contact](https://gh-achievements.vercel.app/contact/) · [Privacy](https://gh-achievements.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

@@ -8,11 +8,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/fixtures"
-	"github.com/nmloc/gh-achievements/internal/render"
-	"github.com/nmloc/gh-achievements/internal/report"
-	"github.com/nmloc/gh-achievements/internal/webui"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/fixtures"
+	"github.com/TheVicky1/GitVerse/internal/render"
+	"github.com/TheVicky1/GitVerse/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/webui"
 )
 
 func TestReadmeBadges_showEveryEarnableBadgeAtItsTopTier(t *testing.T) {
@@ -72,8 +72,8 @@ func TestReadmeTable_groupsBadgesAndShowsEveryTierMedal(t *testing.T) {
 	if !strings.Contains(ps, "<th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th>") {
 		t.Errorf("pull shark tier headings: %s", ps)
 	}
-	if !strings.Contains(ps, "<sub>gh achievements: count, checked against GitHub's milestones</sub>") {
-		t.Errorf("pull shark lacks what gh achievements shows: %s", ps)
+	if !strings.Contains(ps, "<sub>gitverse: count, checked against GitHub's milestones</sub>") {
+		t.Errorf("pull shark lacks what gitverse shows: %s", ps)
 	}
 	if heart := row("heart-on-your-sleeve"); strings.Count(heart, `<td align="center">?</td>`) != 2 {
 		t.Errorf("heart on your sleeve shows unknown amounts as ?: %s", heart)
@@ -174,11 +174,11 @@ func TestReadme_showsTheSiteAndBothWaysToCheck(t *testing.T) {
 	for _, want := range []string{
 		`<source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">`,
 		`<img src="docs/screenshot-light.png"`,
-		"## Two ways to check", "## What it shows", "gh achievements --all",
+		"## Two ways to check", "## What it shows", "gitverse --all",
 		"(docs/demo.svg)", "docs/check-button.svg",
-		"https://github.com/nmloc/gh-achievements/stargazers",
+		"https://github.com/TheVicky1/GitVerse/stargazers",
 		"is a [GitHub CLI](https://cli.github.com/) extension", "**No stored token.**",
-		"until an admin approves gh-achievements",
+		"until an admin approves GitVerse",
 	} {
 		if !strings.Contains(readme, want) {
 			t.Errorf("README lacks %q", want)

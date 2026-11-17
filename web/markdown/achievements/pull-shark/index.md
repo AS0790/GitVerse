@@ -3,7 +3,7 @@
 - Status: Earnable
 - How to earn: Open pull requests that get merged
 - Tiers: 2 · 16 · 128 · 1024
-- Progress in gh-achievements: count, checked against GitHub's milestones
+- Progress in GitVerse: count, checked against GitHub's milestones
 
 Pull Shark counts pull requests you opened that were merged. GitHub's own history for the badge names the 2nd, 16th, 128th and 1024th merged pull request.
 
@@ -24,8 +24,8 @@ Pull Shark counts pull requests you opened that were merged. GitHub's own histor
 
 Yes. GitHub's Pull Shark history lists milestones in private repositories as "inaccessible", so they are counted even though visitors cannot see them.
 
-Check your progress: `gh achievements` or https://gh-achievements.vercel.app/check/
+Check your progress: `gitverse` or https://gitverse.vercel.app/check/
 
 ---
 
-[gh-achievements](https://gh-achievements.vercel.app/) · [llms.txt](https://gh-achievements.vercel.app/llms.txt) · [About](https://gh-achievements.vercel.app/about/) · [Contact](https://gh-achievements.vercel.app/contact/) · [Privacy](https://gh-achievements.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

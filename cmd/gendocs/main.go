@@ -16,11 +16,11 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/fixtures"
-	"github.com/nmloc/gh-achievements/internal/render"
-	"github.com/nmloc/gh-achievements/internal/report"
-	"github.com/nmloc/gh-achievements/internal/webui"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/fixtures"
+	"github.com/TheVicky1/GitVerse/internal/render"
+	"github.com/TheVicky1/GitVerse/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/webui"
 )
 
 const (
@@ -251,7 +251,7 @@ func readmeTable() string {
 			if img := catalog.Image(a.Slug, len(a.Tiers)); img != "" {
 				art = fmt.Sprintf(`<img src="%s" width="40" height="40" alt="%s badge">`, img, a.Name)
 			}
-			fmt.Fprintf(&b, "| %s | [%s](%sachievements/%s/) | %s<br><sub>gh achievements: %s</sub> | %s |\n",
+			fmt.Fprintf(&b, "| %s | [%s](%sachievements/%s/) | %s<br><sub>gitverse: %s</sub> | %s |\n",
 				art, a.Name, webui.SiteURL, a.Slug, a.HowToEarn, lowerFirst(progressText(a)), tierTable(a))
 		}
 		b.WriteString("\n")
@@ -294,7 +294,7 @@ var metalTitles = []string{"Default", "Bronze", "Silver", "Gold"}
 
 func catalogJSON() ([]byte, error) {
 	doc := map[string]interface{}{
-		"name":         "gh-achievements catalog",
+		"name":         "GitVerse catalog",
 		"description":  "Every known GitHub profile achievement, its tiers and whether it can be earned.",
 		"url":          webui.SiteURL + "achievements.json",
 		"source":       webui.RepoURL,
@@ -312,10 +312,10 @@ func catalogJSON() ([]byte, error) {
 
 func llmsTxt() string {
 	var b strings.Builder
-	b.WriteString("# gh-achievements\n\n")
+	b.WriteString("# GitVerse\n\n")
 	b.WriteString("> " + tagline + "\n\n")
-	b.WriteString("gh-achievements is an open source GitHub CLI extension (MIT). Install with `" + webui.Install + "`, run `gh achievements [username]`. ")
-	b.WriteString("It reads tiers, unlock dates and milestone history from GitHub's own profile pages and counts progress with the user's existing gh login, so no personal access token is created. The web checker signs in with GitHub on a gh-achievements server on Vercel, uses the token for one check and revokes it. ")
+	b.WriteString("GitVerse is an open source GitVerse CLI (MIT). Install with `" + webui.Install + "`, run `gitverse [username]`. ")
+	b.WriteString("It reads tiers, unlock dates and milestone history from GitHub's own profile pages and counts progress with the user's existing gh login, so no personal access token is created. The web checker signs in with GitHub on a GitVerse server on Vercel, uses the token for one check and revokes it. ")
 	b.WriteString("A web checker at " + webui.SiteURL + "check/ shows the same report without installing anything. ")
 	fmt.Fprintf(&b, "It knows %d achievements (%s) and %d profile highlights. Catalog last verified %s. It is not affiliated with GitHub.\n\n",
 		len(catalog.Achievements), kindSummary(), len(catalog.Highlights), catalog.LastVerified)
@@ -328,7 +328,7 @@ func llmsTxt() string {
 	b.WriteString("- [All GitHub achievements](" + webui.SiteURL + "achievements/): the full list with tiers\n")
 	b.WriteString("- [How accurate is it](" + webui.SiteURL + "methodology/): data sources, calibration, known limits\n")
 	b.WriteString("- [Check a user](" + webui.SiteURL + "check/): the web checker\n")
-	b.WriteString("- [CLI usage and flags](" + webui.RepoURL + "#readme): `gh achievements [username] [--json] [--all]`\n")
+	b.WriteString("- [CLI usage and flags](" + webui.RepoURL + "#readme): `gitverse [username] [--json] [--all]`\n")
 	b.WriteString("- [Source code](" + webui.RepoURL + ")\n")
 	for _, tp := range trustPages {
 		fmt.Fprintf(&b, "- [%s](%s%s/): %s\n", tp.Heading, webui.SiteURL, tp.Slug, lowerFirst(strings.TrimSuffix(tp.Description, ".")))
@@ -358,7 +358,7 @@ func llmsFull() string {
 			fmt.Fprintf(&b, "\nQ: %s\nA: %s\n", qa.Q, qa.A)
 		}
 	}
-	b.WriteString("\n---\n\n# How accurate is gh-achievements\n\n")
+	b.WriteString("\n---\n\n# How accurate is GitVerse\n\n")
 	for _, p := range methodology {
 		fmt.Fprintf(&b, "## %s\n\n%s\n\n", p.Heading, p.Text)
 	}

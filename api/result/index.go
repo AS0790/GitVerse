@@ -4,7 +4,7 @@ package handler
 import (
 	"net/http"
 
-	"github.com/nmloc/gh-achievements/web"
+	"github.com/TheVicky1/GitVerse/web"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) { web.Serve(w, r, (*web.Config).Result) }

@@ -5,12 +5,12 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/official"
-	"github.com/nmloc/gh-achievements/internal/progress"
-	"github.com/nmloc/gh-achievements/internal/report"
-	"github.com/nmloc/gh-achievements/internal/webui"
-	"github.com/nmloc/gh-achievements/internal/wording"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/official"
+	"github.com/TheVicky1/GitVerse/internal/progress"
+	"github.com/TheVicky1/GitVerse/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/webui"
+	"github.com/TheVicky1/GitVerse/internal/wording"
 )
 
 // Meter feeds a <progress> element: progress from the current tier's floor to the next.

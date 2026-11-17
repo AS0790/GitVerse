@@ -199,9 +199,9 @@ main {
   gap: 20px;
   max-width: 1100px;
   margin: 0 auto;
-  background: rgba(10, 10, 11, 0.75);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(10, 10, 11, 0.60);
+  backdrop-filter: blur(11px) saturate(180%);
+  -webkit-backdrop-filter: blur(11px) saturate(180%);
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
   padding: 10px 10px 10px 20px;
@@ -466,19 +466,66 @@ body { padding-top: 86px; }
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin: 40px 0;
+  gap: 12px;
+  margin: 34px 0 0;
+}
+
+.feature-section { margin-top: clamp(64px, 9vw, 112px); }
+
+.feature-intro { max-width: 650px; }
+
+.feature-eyebrow {
+  margin: 0 0 12px;
+  color: #96a3ae;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+}
+
+.feature-intro h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+  letter-spacing: -.055em;
+}
+
+.feature-intro > p:last-child {
+  margin: 14px 0 0;
+  color: var(--ink-2);
+  font-size: 1rem;
 }
 
 .feature-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 32px 28px;
-  background: var(--surface);
+  background: rgba(19, 20, 23, .76);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: 14px;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), border-color .28s ease, background-color .28s ease, box-shadow .28s ease;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background: radial-gradient(circle at 18% 0%, rgba(152, 169, 185, .14), transparent 54%);
+  transition: opacity .28s ease;
 }
 
 .feature-card:hover {
-  border-color: rgba(255,255,255,0.12);
+  transform: translateY(-7px);
+  border-color: rgba(202, 214, 225, .30);
+  background: rgba(28, 30, 34, .88);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .07);
+}
+
+.feature-card:hover::before { opacity: 1; }
+.feature-card:hover .feature-num { color: #d8e2eb; }
+.feature-card:hover h3 { color: #fff; }
 }
 
 .feature-num {
@@ -486,8 +533,9 @@ body { padding-top: 86px; }
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: #83909b;
   margin-bottom: 20px;
+  transition: color .28s ease;
 }
 
 .feature-card h3 {
@@ -955,17 +1003,31 @@ table tbody tr:hover td {
 
 /* ─── Result page — profile header ──────────────────────────── */
 .result-hero {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
   padding: 36px 0 32px;
   border-bottom: 1px solid var(--line-2);
   margin-bottom: 40px;
 }
 
+.result-hero-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.result-hero-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
+  min-width: 280px;
+}
+
 .result-avatar {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: 2px solid var(--line);
   flex-shrink: 0;
@@ -981,7 +1043,7 @@ table tbody tr:hover td {
   font-size: clamp(2rem, 5vw, 3.2rem) !important;
   font-weight: 800;
   letter-spacing: -0.04em;
-  margin: 8px 0 8px !important;
+  margin: 0 0 8px !important;
   line-height: 1 !important;
 }
 
@@ -989,6 +1051,30 @@ table tbody tr:hover td {
   font-size: 0.95rem;
   color: var(--ink-2);
   margin: 0 0 8px;
+}
+
+.result-next-box {
+  padding: 14px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  text-align: left;
+  flex-shrink: 0;
+  min-width: 240px;
+}
+
+.result-next-box-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  margin-bottom: 4px;
+}
+
+.result-next-box-val {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .result-next {
@@ -1026,6 +1112,31 @@ table tbody tr:hover td {
 /* ─── Result sections ─────────────────────────────────────── */
 .result-section {
   margin-bottom: 48px;
+}
+
+.result-shelf-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+}
+
+/* Badge card progress bar */
+.badge-progress {
+  width: 100%;
+  max-width: 130px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 6px auto 4px;
+}
+
+.badge-progress-fill {
+  height: 100%;
+  background: #e3b341;
+  border-radius: 999px;
+  transition: width 0.3s ease;
 }
 
 .result-section-label {
@@ -1113,8 +1224,8 @@ table tbody tr:hover td {
 .badge-card.earned summary { background: rgba(255,255,255,0.025); border-radius: var(--radius-sm); }
 
 .badge-img {
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   display: block;
 }
@@ -1267,25 +1378,7 @@ table tbody tr:hover td {
 
 /* Result page badge styling is defined above under "Badge card (result)" */
 
-.badge-card.earned {
-  background: rgba(255,255,255,0.025);
-}
-
-.badge-card summary { list-style: none; }
-.badge-card summary::-webkit-details-marker { display: none; }
-
-.badge-img {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-}
-
-.badge-name {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--ink-3);
-  line-height: 1.3;
-}
+/* Duplicate badge rules cleaned up */
 
 .tier-pill {
   display: inline-flex;
@@ -1805,7 +1898,7 @@ body.privacy-page {
 
 .clarity-item summary:hover,
 .clarity-item[open] summary {
-  background: rgba(255, 255, 255, .055);
+  background: rgba(255, 255, 255, .028);
   color: #ffffff;
 }
 
@@ -1834,4 +1927,17 @@ body.privacy-page {
   .clarity-intro { margin-bottom: 28px; }
   .clarity-item summary { grid-template-columns: 38px minmax(0, 1fr) 20px; gap: 10px; min-height: 70px; padding: 12px 4px; }
   .clarity-answer { grid-template-columns: 38px minmax(0, 1fr) 20px; gap: 10px; padding: 0 4px 20px; }
+}
+
+/* ─── Global topographic backdrop ────────────────────────────────────── */
+body,
+body.privacy-page {
+  background-color: #090a0c !important;
+  background-image:
+    radial-gradient(ellipse 85% 60% at 50% -10%, rgba(76, 83, 92, .10), transparent 70%),
+    url("data:image/svg+xml,%3Csvg width='1800' height='1200' viewBox='0 0 1800 1200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='s'%3E%3CfeGaussianBlur stdDeviation='1.25'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23s)' fill='none' stroke='%23919aa5' stroke-opacity='.105' stroke-width='1.4'%3E%3Cpath d='M-190 223C37 18 201 407 490 206S903-35 1128 230s400 37 844-232'/%3E%3Cpath d='M-214 310C42 94 221 505 510 292s408-239 644 27 386 31 818-244'/%3E%3Cpath d='M-223 400C57 168 243 600 540 374s407-240 644 31 378 27 788-244'/%3E%3Cpath d='M-198 773c227-281 420 96 650-82s381-377 675-101 390 76 845-244'/%3E%3Cpath d='M-180 873c245-286 416 104 664-86s380-370 674-94 382 81 814-253'/%3E%3Cpath d='M-147 977c255-290 409 107 676-91s378-363 672-86 375 86 771-258'/%3E%3Cpath d='M1277-122c-194 237 266 288 83 555s-492 80-284 387 420 205 168 500'/%3E%3Cpath d='M1390-126c-191 230 252 292 73 546s-475 83-272 381 408 205 159 498'/%3E%3Cpath d='M1501-131c-186 225 237 296 62 538s-459 86-261 375 396 206 151 495'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, 1800px 1200px;
+  background-position: center top, center top;
+  background-attachment: fixed, fixed;
 }

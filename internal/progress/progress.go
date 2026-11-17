@@ -8,7 +8,7 @@ package progress
 import (
 	"fmt"
 
-	"github.com/nmloc/gh-achievements/internal/official"
+	"github.com/TheVicky1/GitVerse/internal/official"
 )
 
 // Source says how far a number can be trusted.

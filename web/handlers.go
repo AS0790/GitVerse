@@ -15,9 +15,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/nmloc/gh-achievements/internal/counters"
-	"github.com/nmloc/gh-achievements/internal/official"
-	"github.com/nmloc/gh-achievements/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/counters"
+	"github.com/TheVicky1/GitVerse/internal/official"
+	"github.com/TheVicky1/GitVerse/internal/report"
 )
 
 // StateCookie carries the signed sign-in state between /auth/login and /api/private.
@@ -43,7 +43,7 @@ const statusClientClosed = 499
 type Config struct {
 	ClientID, ClientSecret, BotToken string
 	StateSecret                      []byte
-	BaseURL                          string // https://gh-achievements.vercel.app or http://localhost:8787
+	BaseURL                          string // https://gitverse.vercel.app or http://localhost:8787
 	GitHub                           GitHub
 	Official                         report.Official
 	NewCounts                        func(token string) (counters.Source, error)
@@ -59,7 +59,7 @@ func FromEnv() (*Config, error) {
 		BotToken: os.Getenv("GH_BOT_TOKEN"), StateSecret: []byte(os.Getenv("STATE_SECRET")),
 		BaseURL: strings.TrimSuffix(os.Getenv("BASE_URL"), "/"),
 		GitHub:  DefaultGitHub(), Official: official.NewClient(), NewCounts: counters.NewWithToken,
-		Timeout: 50 * time.Second, Now: time.Now, Log: log.New(os.Stderr, "gh-achievements ", 0),
+		Timeout: 50 * time.Second, Now: time.Now, Log: log.New(os.Stderr, "GitVerse ", 0),
 	}
 	if c.BaseURL == "" && os.Getenv("VERCEL_PROJECT_PRODUCTION_URL") != "" {
 		c.BaseURL = "https://" + os.Getenv("VERCEL_PROJECT_PRODUCTION_URL")
@@ -91,7 +91,7 @@ var (
 func Serve(w http.ResponseWriter, r *http.Request, h func(*Config, http.ResponseWriter, *http.Request)) {
 	envOnce.Do(func() { envCfg, envErr = FromEnv() })
 	if envErr != nil {
-		log.Printf("gh-achievements: %v", envErr) // names only, never values
+		log.Printf("GitVerse: %v", envErr) // names only, never values
 		setSecurityHeaders(w)
 		http.Error(w, "The site is misconfigured. Please open an issue.", http.StatusInternalServerError)
 		return
@@ -171,7 +171,7 @@ func (c *Config) Result(w http.ResponseWriter, r *http.Request) {
 		fail(http.StatusNotFound, "not_found", fmt.Sprintf("GitHub has no user called %s.", user))
 		return
 	case errors.Is(err, errTimeout):
-		fail(http.StatusGatewayTimeout, "timeout", "This account is too large to check on the web in time: use the CLI, gh extension install nmloc/gh-achievements.")
+		fail(http.StatusGatewayTimeout, "timeout", "This account is too large to check on the web in time: use the CLI, go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest.")
 		return
 	case err != nil:
 		c.Log.Printf("result: %T", err)

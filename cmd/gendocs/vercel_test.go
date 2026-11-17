@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nmloc/gh-achievements/web"
+	"github.com/TheVicky1/GitVerse/web"
 )
 
 func TestVercelJSON_matchesTheFunctionsHeadersAndRoutes(t *testing.T) {
@@ -94,7 +94,7 @@ func TestVercelJSON_callbackRulesCoverBothSpellingsAndComeAfterTheGlobalRule(t *
 func TestRedirectPages_pointEveryOldURLAtVercel(t *testing.T) {
 	pages := redirectPages()
 	page := string(pages["pages/achievements/pull-shark/index.html"])
-	want := "https://gh-achievements.vercel.app/achievements/pull-shark/"
+	want := "https://gitverse.vercel.app/achievements/pull-shark/"
 	if !strings.Contains(page, `<link rel="canonical" href="`+want+`">`) || !strings.Contains(page, `content="0; url=`+want+`"`) {
 		t.Fatalf("redirect page = %s", page)
 	}

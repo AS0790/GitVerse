@@ -4,10 +4,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/fixtures"
-	"github.com/nmloc/gh-achievements/internal/progress"
-	"github.com/nmloc/gh-achievements/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/fixtures"
+	"github.com/TheVicky1/GitVerse/internal/progress"
+	"github.com/TheVicky1/GitVerse/internal/report"
 )
 
 func TestLine_countAgainstTheNextThreshold(t *testing.T) {

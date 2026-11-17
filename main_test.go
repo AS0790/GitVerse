@@ -16,11 +16,11 @@ func TestReorder_flagsAfterTheUsername(t *testing.T) {
 }
 
 func TestStarOnce_printsOnceAndRemembers(t *testing.T) {
-	marker := filepath.Join(t.TempDir(), "gh-achievements", "star-shown")
+	marker := filepath.Join(t.TempDir(), "gitverse", "star-shown")
 	var first, second bytes.Buffer
 	starOnce(&first, false, marker)
 	starOnce(&second, false, marker)
-	if !strings.Contains(first.String(), "Star it: https://github.com/nmloc/gh-achievements") || second.Len() != 0 {
+	if !strings.Contains(first.String(), "Star it: https://github.com/TheVicky1/GitVerse") || second.Len() != 0 {
 		t.Fatalf("first %q, second %q", first.String(), second.String())
 	}
 }

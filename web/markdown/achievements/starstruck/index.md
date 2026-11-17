@@ -3,7 +3,7 @@
 - Status: Earnable
 - How to earn: Create a repository that gets stars
 - Tiers: 16 · 128 · 512 · 4096
-- Progress in gh-achievements: stars of the repository GitHub names
+- Progress in GitVerse: stars of the repository GitHub names
 
 Starstruck counts the stars of a repository you created. GitHub's history for the badge names the repository that reached each threshold.
 
@@ -24,8 +24,8 @@ One repository with 16 stars for the base badge, 128 for x2, 512 for x3 and 4096
 
 No. The thresholds apply to a single repository; GitHub's history names one repository per threshold.
 
-Check your progress: `gh achievements` or https://gh-achievements.vercel.app/check/
+Check your progress: `gitverse` or https://gitverse.vercel.app/check/
 
 ---
 
-[gh-achievements](https://gh-achievements.vercel.app/) · [llms.txt](https://gh-achievements.vercel.app/llms.txt) · [About](https://gh-achievements.vercel.app/about/) · [Contact](https://gh-achievements.vercel.app/contact/) · [Privacy](https://gh-achievements.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

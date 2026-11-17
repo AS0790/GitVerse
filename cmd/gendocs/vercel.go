@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/nmloc/gh-achievements/internal/webui"
-	"github.com/nmloc/gh-achievements/web"
+	"github.com/TheVicky1/GitVerse/internal/webui"
+	"github.com/TheVicky1/GitVerse/web"
 )
 
 func vercelJSON() ([]byte, error) {
@@ -59,10 +59,10 @@ func redirectPages() map[string][]byte {
 		file := "pages/" + p + "index.html"
 		out[file] = []byte(fmt.Sprintf(`<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<title>Moved to gh-achievements.vercel.app</title>
+<title>Moved to GitVerse.vercel.app</title>
 <link rel="canonical" href="%[1]s">
 <meta http-equiv="refresh" content="0; url=%[1]s">
-</head><body><p>gh-achievements moved to <a href="%[1]s">%[1]s</a>.</p></body></html>
+</head><body><p>GitVerse moved to <a href="%[1]s">%[1]s</a>.</p></body></html>
 `, to))
 	}
 	out["pages/404.html"] = out["pages/index.html"]

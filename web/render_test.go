@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nmloc/gh-achievements/internal/counters"
-	"github.com/nmloc/gh-achievements/internal/fixtures"
-	"github.com/nmloc/gh-achievements/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/counters"
+	"github.com/TheVicky1/GitVerse/internal/fixtures"
+	"github.com/TheVicky1/GitVerse/internal/report"
 )
 
 var update = flag.Bool("update", false, "rewrite golden files")

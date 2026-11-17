@@ -10,9 +10,9 @@ import (
 	"testing"
 	"unicode/utf8"
 
-	"github.com/nmloc/gh-achievements/internal/counters"
-	"github.com/nmloc/gh-achievements/internal/fixtures"
-	"github.com/nmloc/gh-achievements/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/counters"
+	"github.com/TheVicky1/GitVerse/internal/fixtures"
+	"github.com/TheVicky1/GitVerse/internal/report"
 )
 
 var update = flag.Bool("update", false, "rewrite golden files")
@@ -191,7 +191,7 @@ func TestText_aheadOfGitHubSaysSo(t *testing.T) {
 }
 
 func TestStarLine(t *testing.T) {
-	if got := StarLine(false); got != "  ★ Found it useful? Star it: https://github.com/nmloc/gh-achievements" {
+	if got := StarLine(false); got != "  ★ Found it useful? Star it: https://github.com/TheVicky1/GitVerse" {
 		t.Fatalf("star line = %q", got)
 	}
 }

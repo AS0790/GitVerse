@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** `gh achievements` prints the same shelves, wording and metals as the redesigned site, and the README looks like the site.
+**Goal:** `gitverse` prints the same shelves, wording and metals as the redesigned site, and the README looks like the site.
 
 **Architecture:** A new `internal/wording` package owns every badge line and the headline numbers, used by both `web/view.go` and `internal/render`. `render.Text` is rewritten around shelves with an `Options{Color, All}` argument. `main.go` gains `--all` and a once-only star line. `cmd/gendocs/svg.go` restyles the generated SVGs; the README is rewritten around a screenshot captured by a committed Node script.
 
@@ -15,7 +15,7 @@
 - Wording is identical on the web and in the CLI and comes from one place (`internal/wording`).
 - Metals: bronze x2, silver x3, gold x4. Terminal: ANSI 256 `38;5;173` bronze, `38;5;250` silver, `38;5;178` gold. SVG (site dark tokens): bronze `#d39468`, silver `#c7d0d6`, gold `#e2b53a`, ink `#eaf1f5`, muted `#93a9b7`, background `#0d1c26`, surface `#122633`. Light ink `#142430`.
 - `--json` output unchanged. `--no-color` / `NO_COLOR` unchanged.
-- Star line exactly `★ Found it useful? Star it: https://github.com/nmloc/gh-achievements`, at most once per machine (marker `<os.UserConfigDir()>/gh-achievements/star-shown`), only when stdout is a terminal and not `--json`; if the marker cannot be written, print nothing.
+- Star line exactly `★ Found it useful? Star it: https://github.com/TheVicky1/GitVerse`, at most once per machine (marker `<os.UserConfigDir()>/GitVerse/star-shown`), only when stdout is a terminal and not `--json`; if the marker cannot be written, print nothing.
 - No new Go or npm dependencies. CSP and site behaviour untouched except the regenerated README art.
 - Commits: author nmloc <nmloc312@gmail.com>, Conventional Commits, no Co-Authored-By trailer, no AI attribution. Never push.
 - Regenerate and commit generated files: `go run ./cmd/gendocs` (CI runs `-check`), `go test ./internal/render -run TestText_golden -update` and `go test ./web -run TestRenderResult_golden -update` when output changes. `gofmt -l .` empty. `node --test "internal/webui/jstest/*.test.mjs"` stays green.
@@ -88,8 +88,8 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/report"
 )
 
 // shortUnit names what a count counts, for badges whose name does not already say it.
@@ -415,7 +415,7 @@ func TestText_aheadOfGitHubSaysSo(t *testing.T) {
 }
 
 func TestStarLine(t *testing.T) {
-	if got := StarLine(false); got != "  ★ Found it useful? Star it: https://github.com/nmloc/gh-achievements" {
+	if got := StarLine(false); got != "  ★ Found it useful? Star it: https://github.com/TheVicky1/GitVerse" {
 		t.Fatalf("star line = %q", got)
 	}
 }
@@ -427,11 +427,11 @@ In `main_test.go` add:
 
 ```go
 func TestStarOnce_printsOnceAndRemembers(t *testing.T) {
-	marker := filepath.Join(t.TempDir(), "gh-achievements", "star-shown")
+	marker := filepath.Join(t.TempDir(), "GitVerse", "star-shown")
 	var first, second bytes.Buffer
 	starOnce(&first, false, marker)
 	starOnce(&second, false, marker)
-	if !strings.Contains(first.String(), "Star it: https://github.com/nmloc/gh-achievements") || second.Len() != 0 {
+	if !strings.Contains(first.String(), "Star it: https://github.com/TheVicky1/GitVerse") || second.Len() != 0 {
 		t.Fatalf("first %q, second %q", first.String(), second.String())
 	}
 }
@@ -466,10 +466,10 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/progress"
-	"github.com/nmloc/gh-achievements/internal/report"
-	"github.com/nmloc/gh-achievements/internal/wording"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/progress"
+	"github.com/TheVicky1/GitVerse/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/wording"
 )
 
 // Options picks what Text prints.
@@ -479,7 +479,7 @@ type Options struct {
 }
 
 // StarURL is where the one-time star request points.
-const StarURL = "https://github.com/nmloc/gh-achievements"
+const StarURL = "https://github.com/TheVicky1/GitVerse"
 
 const (
 	barWidth = 12
@@ -740,7 +740,7 @@ func starMarker() string {
 	if err != nil {
 		return ""
 	}
-	return filepath.Join(dir, "gh-achievements", "star-shown")
+	return filepath.Join(dir, "GitVerse", "star-shown")
 }
 ```
 
@@ -990,9 +990,9 @@ func TestReadme_showsTheSiteAndBothWaysToCheck(t *testing.T) {
 	for _, want := range []string{
 		`<source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">`,
 		`<img src="docs/screenshot-light.png"`,
-		"## Two ways to check", "## What it shows", "gh achievements --all",
+		"## Two ways to check", "## What it shows", "gitverse --all",
 		"(docs/demo.svg)", "docs/check-button.svg",
-		"https://github.com/nmloc/gh-achievements/stargazers",
+		"https://github.com/TheVicky1/GitVerse/stargazers",
 	} {
 		if !strings.Contains(readme, want) {
 			t.Errorf("README lacks %q", want)
@@ -1089,34 +1089,34 @@ rmSync(profile, { recursive: true, force: true });
 <p align="center"><strong>Your GitHub trophy case: every achievement, your tier and how far the next one is, verified against GitHub's own data.</strong></p>
 
 <p align="center">
-  <a href="https://gh-achievements.vercel.app/check/"><img src="docs/check-button.svg" width="520" alt="🏆 Check your GitHub achievements → no install; sign in with GitHub to include private work"></a>
+  <a href="https://gitverse.vercel.app/check/"><img src="docs/check-button.svg" width="520" alt="🏆 Check your GitHub achievements → no install; sign in with GitHub to include private work"></a>
 </p>
 
 <p align="center">
-  <a href="https://gh-achievements.vercel.app/check/"><strong>gh-achievements.vercel.app/check</strong></a> · no install · or use the CLI below
+  <a href="https://gitverse.vercel.app/check/"><strong>GitVerse.vercel.app/check</strong></a> · no install · or use the CLI below
 </p>
 
 <p align="center">
-  <a href="https://gh-achievements.vercel.app/result?u=torvalds">
+  <a href="https://gitverse.vercel.app/result?u=torvalds">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">
-      <img src="docs/screenshot-light.png" width="880" alt="The gh-achievements result page for @torvalds: Pull Shark x2 at 72 / 128 to x3, Starstruck and Pair Extraordinaire at their top tier, and the retired Arctic Code Vault and Mars 2020 badges on a lit shelf; Galaxy Brain, Quickdraw, YOLO, Public Sponsor and Finishing Touch still to collect">
+      <img src="docs/screenshot-light.png" width="880" alt="The GitVerse result page for @torvalds: Pull Shark x2 at 72 / 128 to x3, Starstruck and Pair Extraordinaire at their top tier, and the retired Arctic Code Vault and Mars 2020 badges on a lit shelf; Galaxy Brain, Quickdraw, YOLO, Public Sponsor and Finishing Touch still to collect">
     </picture>
   </a>
 </p>
 
-[![Release](https://img.shields.io/github/v/release/nmloc/gh-achievements)](https://github.com/nmloc/gh-achievements/releases)
-[![Tests](https://github.com/nmloc/gh-achievements/actions/workflows/test.yml/badge.svg)](https://github.com/nmloc/gh-achievements/actions/workflows/test.yml)
+[![Release](https://img.shields.io/github/v/release/TheVicky1/GitVerse)](https://github.com/TheVicky1/GitVerse/releases)
+[![Tests](https://github.com/TheVicky1/GitVerse/actions/workflows/test.yml/badge.svg)](https://github.com/TheVicky1/GitVerse/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Two ways to check
 
 | On the web | In your terminal |
 |---|---|
-| **[gh-achievements.vercel.app/check](https://gh-achievements.vercel.app/check/)** | `gh extension install nmloc/gh-achievements` then `gh achievements` |
+| **[GitVerse.vercel.app/check](https://gitverse.vercel.app/check/)** | `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest` then `gitverse` |
 | Type any username, or sign in with GitHub to include private repositories. The token is used for one check and revoked at once; nothing is stored. | Reuses your `gh auth login`, so it counts everything that login can see, including organizations that restrict third-party apps. |
 
-![Terminal output of gh achievements torvalds: on display Pull Shark x2 at 72 / 128 to x3 (calibrated), Starstruck at the top tier with 252,192 stars, Pair Extraordinaire at the top tier, the retired Arctic Code Vault and Mars 2020 badges; still to collect Galaxy Brain at 0 / 2 answers, Quickdraw, YOLO, Public Sponsor and Finishing Touch](docs/demo.svg)
+![Terminal output of gitverse torvalds: on display Pull Shark x2 at 72 / 128 to x3 (calibrated), Starstruck at the top tier with 252,192 stars, Pair Extraordinaire at the top tier, the retired Arctic Code Vault and Mars 2020 badges; still to collect Galaxy Brain at 0 / 2 answers, Quickdraw, YOLO, Public Sponsor and Finishing Touch](docs/demo.svg)
 
 ## What it shows
 
@@ -1125,12 +1125,12 @@ rmSync(profile, { recursive: true, force: true });
 - **Checked against GitHub.** Tiers, unlock dates and milestones come from GitHub's own badge history, and every number is labelled `official`, `calibrated` or `counted`.
 ```
 
-In **Usage**, add `gh achievements --all        # also the archive, every highlight and each badge's notes` after the `--json` line and keep the alignment of the `#` comments. Delete the old `## Web` section (its content is now in "Two ways to check") and the old intro paragraph + bullet list that followed the demo image (replaced by "What it shows"). Before `## Credits`, add:
+In **Usage**, add `gitverse --all        # also the archive, every highlight and each badge's notes` after the `--json` line and keep the alignment of the `#` comments. Delete the old `## Web` section (its content is now in "Two ways to check") and the old intro paragraph + bullet list that followed the demo image (replaced by "What it shows"). Before `## Credits`, add:
 
 ```markdown
 ## Like it?
 
-If gh-achievements helped you, a ⭐ helps other people find it: [star it on GitHub](https://github.com/nmloc/gh-achievements/stargazers).
+If GitVerse helped you, a ⭐ helps other people find it: [star it on GitHub](https://github.com/TheVicky1/GitVerse/stargazers).
 ```
 
 and in **FAQ** keep every question. In `CONTRIBUTING.md`, next to the site/test instructions, add one line: "README screenshots: `go run ./cmd/devserver` in one terminal, then `node scripts/readme-screenshots.mjs` (needs Google Chrome)."
@@ -1142,5 +1142,5 @@ and in **FAQ** keep every question. In `CONTRIBUTING.md`, next to the site/test 
 
 ### Task 6: Check it (controller)
 
-- [ ] `go run . torvalds` in a real terminal tab (colour) and `--no-color`, `--all`, `--json | head`; a second run shows no star line; delete the marker afterwards only if it was created by this check (`<UserConfigDir>/gh-achievements/star-shown`, ask before deleting anything else).
+- [ ] `go run . torvalds` in a real terminal tab (colour) and `--no-color`, `--all`, `--json | head`; a second run shows no star line; delete the marker afterwards only if it was created by this check (`<UserConfigDir>/GitVerse/star-shown`, ask before deleting anything else).
 - [ ] View the README on the branch on GitHub after push (light and dark), and `docs/demo.svg` as an image.

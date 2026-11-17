@@ -1,6 +1,7 @@
-/gh-achievements
-/gh-achievements.exe
+/gitverse
+/gitverse.exe
 /dist/
+/.cache/
 *.bak
 .DS_Store
 .superpowers/

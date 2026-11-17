@@ -26,7 +26,7 @@ carries its source, and nothing contradicts GitHub's official tier.
 
 | Topic | Decision |
 |---|---|
-| Hosting | Vercel Hobby, one origin: `https://gh-achievements.vercel.app`. Go serverless functions import `internal/*` |
+| Hosting | Vercel Hobby, one origin: `https://gitverse.vercel.app`. Go serverless functions import `internal/*` |
 | Analytics | GA4, loaded only after consent |
 | Private work | Included when signed in (OAuth `repo` scope) |
 | Entry flow | Always show the choice card, last username pre-filled |

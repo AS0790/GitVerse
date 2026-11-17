@@ -166,7 +166,7 @@ func (c *Client) get(path string, xhr bool) (string, bool, error) {
 	if err != nil {
 		return "", false, err
 	}
-	req.Header.Set("User-Agent", "gh-achievements (+https://github.com/nmloc/gh-achievements)")
+	req.Header.Set("User-Agent", "GitVerse (+https://github.com/TheVicky1/GitVerse)")
 	if xhr {
 		// The detail fragment answers 406 without it.
 		req.Header.Set("X-Requested-With", "XMLHttpRequest")

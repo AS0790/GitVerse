@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
 )
 
 // Every badge shows real art: the two GitHub deleted come from the pinned community copy,
@@ -37,7 +37,7 @@ func TestSitePages_checkAndCallback(t *testing.T) {
 	check := string(pages["site/check/index.html"])
 	for _, want := range []string{`href="/auth/login" data-signin`, `<form action="/result" method="get" id="check-form">`,
 		`name="u"`, `pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}"`,
-		`<button type="button" class="btn small" data-copy="gh extension install nmloc/gh-achievements">Copy</button>`} {
+		`<button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button>`} {
 		if !strings.Contains(check, want) {
 			t.Errorf("check page lacks %s", want)
 		}
@@ -143,7 +143,7 @@ func TestSitePages_homeIsATrophyCase(t *testing.T) {
 	home := string(pages["site/index.html"])
 	for _, want := range []string{`<h1>Your GitHub trophy case</h1>`, `<form action="/result" method="get" id="check-form">`,
 		`<a href="/auth/login" data-signin>Sign in with GitHub</a> to include private work.`,
-		`<ul class="vitrine shelf home-shelf"`, `data-star="home"`, `data-copy="gh extension install nmloc/gh-achievements"`,
+		`<ul class="vitrine shelf home-shelf"`, `data-star="home"`, `data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest"`,
 		`"@type":"FAQPage"`, `"@type":"SoftwareApplication"`,
 		fmt.Sprintf(`<p class="meta"><a href="achievements/">See all %d GitHub achievements</a>, including the retired ones and those GitHub switched off.</p>`, len(catalog.Achievements))} {
 		if !strings.Contains(home, want) {

@@ -3,7 +3,7 @@ package progress
 import (
 	"testing"
 
-	"github.com/nmloc/gh-achievements/internal/official"
+	"github.com/TheVicky1/GitVerse/internal/official"
 )
 
 var pullShark = []int{2, 16, 128, 1024}

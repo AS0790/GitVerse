@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/nmloc/gh-achievements/internal/counters"
-	"github.com/nmloc/gh-achievements/internal/official"
+	"github.com/TheVicky1/GitVerse/internal/counters"
+	"github.com/TheVicky1/GitVerse/internal/official"
 )
 
 // Dir is the fixture directory, found relative to this file so it works from any package.

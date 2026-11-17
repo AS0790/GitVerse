@@ -6,10 +6,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/counters"
-	"github.com/nmloc/gh-achievements/internal/official"
-	"github.com/nmloc/gh-achievements/internal/progress"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/counters"
+	"github.com/TheVicky1/GitVerse/internal/official"
+	"github.com/TheVicky1/GitVerse/internal/progress"
 )
 
 // KindNew marks a badge on the profile that the catalog does not know yet.

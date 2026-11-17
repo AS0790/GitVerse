@@ -8,7 +8,7 @@
   <dt>How to earn it</dt><dd>{{.HowToEarn}}</dd>
   <dt>Status</dt><dd>{{.Status}}</dd>
   <dt>Tiers</dt><dd>{{.TierText}}</dd>
-  <dt>Progress in gh achievements</dt><dd>{{.Progress}}</dd>
+  <dt>Progress in gitverse</dt><dd>{{.Progress}}</dd>
 </dl>
 {{if .TierRows}}
 <h2>{{.Name}} tiers</h2>
@@ -20,7 +20,7 @@
 {{if eq .Kind "earnable"}}
 <h2>Check your {{.Name}} progress</h2>
 <pre><code>{{$.Install}}
-gh achievements</code></pre>
+gitverse</code></pre>
 <p>It shows your {{.Name}} tier, when you unlocked it and, where GitHub's data allows, how many more you need for the next tier.</p>
 {{end}}
 {{if .FAQ}}

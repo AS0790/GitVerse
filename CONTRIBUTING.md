@@ -27,7 +27,7 @@ not know, or a number that disagrees with what GitHub shows. Use the issue forms
 go test ./...                        # unit tests on saved github.com pages
 node --test "internal/webui/jstest/*.test.mjs"   # behaviour tests for the site's app.js and theme.js (Node 22+)
 go run . torvalds                    # run the CLI from source
-gh extension install .               # install your checkout as `gh achievements`
+go run ./cmd/gitverse -- torvalds    # run GitVerse from your checkout
 go run ./cmd/gendocs                 # regenerate README table, site/ and docs/
 go run ./cmd/gendocs -check          # what CI runs
 ./scripts/social-png.sh              # re-render the social preview PNG (needs rsvg-convert)
@@ -72,5 +72,5 @@ needs them on previews too):
 | `STATE_SECRET` | at least 32 bytes (`openssl rand -base64 32`) |
 | `BASE_URL` | optional; defaults to `https://$VERCEL_PROJECT_PRODUCTION_URL` |
 
-The production OAuth App's redirect URI is `https://gh-achievements.vercel.app/auth/callback`.
+The production OAuth App's redirect URI is `https://gitverse.vercel.app/auth/callback`.
 Sign-in works only on the production domain; previews serve public checks only.

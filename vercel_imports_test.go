@@ -13,7 +13,7 @@ import (
 // Vercel's Go runtime compiles every .go file under api/ as its own program, under a
 // synthetic import path (handler/api/<name>). Go's internal-package rule is evaluated
 // against that path, not against this module's path, so a function importing
-// github.com/nmloc/gh-achievements/internal/... builds locally and fails on Vercel with
+// github.com/TheVicky1/GitVerse/internal/... builds locally and fails on Vercel with
 // "use of internal package ... not allowed". Shared code lives in public packages.
 func TestAPIFunctions_doNotImportInternalPackages(t *testing.T) {
 	checked := 0

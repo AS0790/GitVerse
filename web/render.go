@@ -2,7 +2,7 @@
 package web
 
 import (
-	"github.com/nmloc/gh-achievements/internal/webui"
+	"github.com/TheVicky1/GitVerse/internal/webui"
 )
 
 // RenderResultFragment is the result section alone, for /api/private.
@@ -12,7 +12,7 @@ func RenderResultFragment(v ResultView) ([]byte, error) { return webui.RenderFra
 func RenderResultPage(v ResultView) ([]byte, error) {
 	v.Standalone = true
 	return webui.Render(webui.Page{
-		Path: "result", URL: webui.SiteURL + "result", Title: "@" + v.User + "'s GitHub achievements · gh-achievements",
+		Path: "result", URL: webui.SiteURL + "result", Title: "@" + v.User + "'s GitHub achievements · GitVerse",
 		Description: "Every GitHub achievement, @" + v.User + "'s tier and how far to the next one.",
 		Content:     "result-page.html", NoIndex: true, Data: v,
 	})
@@ -28,7 +28,7 @@ type ErrorView struct {
 // RenderErrorPage renders the check form with one message.
 func RenderErrorPage(status int, reason, message, user string) ([]byte, error) {
 	return webui.Render(webui.Page{
-		Path: "result", URL: webui.SiteURL + "check/", Title: "Check your GitHub achievements · gh-achievements",
+		Path: "result", URL: webui.SiteURL + "check/", Title: "Check your GitHub achievements · GitVerse",
 		Description: message, Heading: "Check your GitHub achievements", Content: "check.html", NoIndex: true,
 		Data: ErrorView{Status: status, Reason: reason, Message: message, User: user},
 	})

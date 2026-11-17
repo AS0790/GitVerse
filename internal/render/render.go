@@ -8,10 +8,10 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/progress"
-	"github.com/nmloc/gh-achievements/internal/report"
-	"github.com/nmloc/gh-achievements/internal/wording"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/progress"
+	"github.com/TheVicky1/GitVerse/internal/report"
+	"github.com/TheVicky1/GitVerse/internal/wording"
 )
 
 // Options picks what Text prints.
@@ -21,7 +21,7 @@ type Options struct {
 }
 
 // StarURL is where the one-time star request points.
-const StarURL = "https://github.com/nmloc/gh-achievements"
+const StarURL = "https://github.com/TheVicky1/GitVerse"
 
 const (
 	barWidth = 12

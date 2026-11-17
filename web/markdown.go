@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/nmloc/gh-achievements/internal/webui"
+	"github.com/TheVicky1/GitVerse/internal/webui"
 )
 
 // markdownFS holds the Markdown twin of every static page. cmd/gendocs writes it from the

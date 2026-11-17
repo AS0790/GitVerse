@@ -1,4 +1,4 @@
-module github.com/nmloc/gh-achievements
+module github.com/TheVicky1/GitVerse
 
 go 1.25.0
 

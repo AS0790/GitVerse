@@ -102,7 +102,7 @@ var Achievements = []Achievement{
 		FAQ: []QA{
 			{"How many coauthored pull requests do you need for Pair Extraordinaire?",
 				"1 for the base badge, 10 for x2, 24 for x3 and 48 for x4."},
-			{"Why does gh-achievements show no counter for Pair Extraordinaire?",
+			{"Why does GitVerse show no counter for Pair Extraordinaire?",
 				"GitHub's counting rule is not public. On a real account, 60 merged pull requests had commits with a Co-authored-by trailer while GitHub's tier said 10 to 23, so any count from the API would be wrong. The tool shows the official tier only."},
 		},
 	},

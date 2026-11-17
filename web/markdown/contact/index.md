@@ -2,7 +2,7 @@
 
 ## Bugs and questions
 
-Open an issue at https://github.com/nmloc/gh-achievements/issues/new/choose. There are templates for a bug, for a count that looks wrong and for an achievement the catalog is missing. A public issue lets anyone with the same problem find the answer, so it is the preferred way to get in touch.
+Open an issue at https://github.com/TheVicky1/GitVerse/issues/new/choose. There are templates for a bug, for a count that looks wrong and for an achievement the catalog is missing. A public issue lets anyone with the same problem find the answer, so it is the preferred way to get in touch.
 
 ## A count looks wrong
 
@@ -10,7 +10,7 @@ Use the "count looks wrong" template and include the username, the achievement a
 
 ## Security
 
-Report a vulnerability privately through GitHub's private vulnerability reporting at https://github.com/nmloc/gh-achievements/security/advisories/new, not in a public issue. Reports cover both the CLI and the web checker, and you will get an answer within a week.
+Report a vulnerability privately through GitHub's private vulnerability reporting at https://github.com/TheVicky1/GitVerse/security/advisories/new, not in a public issue. Reports cover both the CLI and the web checker, and you will get an answer within a week.
 
 ## Contributions
 
@@ -18,4 +18,4 @@ Pull requests are welcome. CONTRIBUTING.md in the repository explains how to bui
 
 ---
 
-[gh-achievements](https://gh-achievements.vercel.app/) · [llms.txt](https://gh-achievements.vercel.app/llms.txt) · [About](https://gh-achievements.vercel.app/about/) · [Contact](https://gh-achievements.vercel.app/contact/) · [Privacy](https://gh-achievements.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

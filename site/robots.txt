@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gh-achievements.vercel.app/sitemap.xml
+Sitemap: https://gitverse.vercel.app/sitemap.xml

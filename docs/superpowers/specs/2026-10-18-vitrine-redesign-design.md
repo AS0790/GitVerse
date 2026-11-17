@@ -4,7 +4,7 @@ Date: 2026-10-18 · Status: direction and results layout approved by Loc in brai
 
 ## Goal
 
-Make gh-achievements.vercel.app simple, easy to understand and good-looking for people, not
+Make GitVerse.vercel.app simple, easy to understand and good-looking for people, not
 only for search engines and AI crawlers, with a dark mode the visitor can switch. Every SEO and
 GEO property the site has today stays: titles, meta descriptions, canonical URLs, JSON-LD,
 sitemap, llms.txt, achievements.json, the redirect tree.
@@ -90,15 +90,15 @@ gold) above the existing facts, tier table, FAQ and "Check your progress".
 
 ## Star the repo (call to action)
 
-Asked for by Loc: an eye-catching button that asks visitors to star `nmloc/gh-achievements`.
+Asked for by Loc: an eye-catching button that asks visitors to star `TheVicky1/GitVerse`.
 
 - **Header, every page:** a gold pill "★ Star on GitHub" with the live star count
-  ("★ Star 128"), linking to https://github.com/nmloc/gh-achievements. It is the only gold
+  ("★ Star 128"), linking to https://github.com/TheVicky1/GitVerse. It is the only gold
   element in the header, so it stands out without competing with the shelf.
 - **Result page, right after the shelves** (the moment people are pleased with what they see):
-  a wide gold banner "Found this useful? Star gh-achievements on GitHub" with the same count,
+  a wide gold banner "Found this useful? Star GitVerse on GitHub" with the same count,
   above the share/check-another actions. On the home page the same banner sits under the FAQ.
-- The count comes from `https://api.github.com/repos/nmloc/gh-achievements` in the visitor's
+- The count comes from `https://api.github.com/repos/TheVicky1/GitVerse` in the visitor's
   browser (CORS allowed, anonymous), cached in `sessionStorage` for the visit. If the request
   fails or is rate-limited, the button simply shows "★ Star on GitHub" without a number. The
   CSP's `connect-src` gains `https://api.github.com`.

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"html/template"
 
-	"github.com/nmloc/gh-achievements/internal/catalog"
-	"github.com/nmloc/gh-achievements/internal/webui"
+	"github.com/TheVicky1/GitVerse/internal/catalog"
+	"github.com/TheVicky1/GitVerse/internal/webui"
 )
 
 type para struct{ Heading, Text string }
@@ -16,14 +16,14 @@ const maxDescription = 155
 
 // methodology is the original research the site and llms-full.txt publish.
 var methodology = []para{
-	{"Three labels", "gh-achievements labels every number. official: read from GitHub's own profile pages. " +
+	{"Three labels", "GitVerse labels every number. official: read from GitHub's own profile pages. " +
 		"calibrated: counted through the GitHub API, then checked against a milestone GitHub itself names. " +
 		"counted: counted through the API with nothing public to check it against."},
 	{"GitHub's own record of each badge", "When you open a badge on a profile, GitHub loads /users/<user>/achievements/<slug>/detail. " +
 		"That page lists the tier, the first unlock date and history rows naming the pull request, repository or answer behind each milestone. " +
 		"Rows in private repositories say \"inaccessible\". None of this is in GitHub's REST or GraphQL API."},
 	{"Calibration", "For Pull Shark, GitHub names which merged pull request was its 2nd, 16th, 128th and 1024th. " +
-		"gh-achievements lists your merged pull requests in merge order and finds the highest milestone it can see. " +
+		"GitVerse lists your merged pull requests in merge order and finds the highest milestone it can see. " +
 		"For @torvalds, GitHub's 16th is subsurface/subsurface#1506, and it is also 16th in the API's list, so the two counts agree (+0). " +
 		"Any difference is added to the live count, so pull requests the API cannot show you are still counted."},
 	{"An official tier is never contradicted", "A tier GitHub granted is never taken back, so a count below that tier's threshold is raised to it. " +
@@ -39,7 +39,7 @@ var methodology = []para{
 		"The official pages are HTML, so a weekly canary job checks them against real profiles and opens an issue when GitHub changes them."},
 	{"No stored token", "The CLI uses the credentials gh already stores (or GH_TOKEN). Without them it falls back to public data. " +
 		"It talks only to github.com and api.github.com. " +
-		"The web checker runs on a gh-achievements server on Vercel: public checks use a read-only bot token, and signing in with GitHub gives a token that is used for one check and revoked at once. Nothing is stored."},
+		"The web checker runs on a GitVerse server on Vercel: public checks use a read-only bot token, and signing in with GitHub gives a token that is used for one check and revoked at once. Nothing is stored."},
 }
 
 func siteFAQ() []catalog.QA {
@@ -160,7 +160,7 @@ func view(a catalog.Achievement) badgeView {
 }
 
 func sitePages() (map[string][]byte, error) {
-	home := webui.Crumb{Name: "gh-achievements", URL: webui.SiteURL}
+	home := webui.Crumb{Name: "GitVerse", URL: webui.SiteURL}
 	all := webui.Crumb{Name: "All GitHub achievements", URL: webui.SiteURL + "achievements/"}
 	var views []badgeView
 	for _, a := range catalog.Achievements {
@@ -176,14 +176,14 @@ func sitePages() (map[string][]byte, error) {
 	pages := []webui.Page{
 		{
 			Path: "index.html", URL: webui.SiteURL,
-			Title:       "GitHub Achievements Checker: tiers & progress · gh-achievements",
-			Description: "See every GitHub achievement, your tier and how far you are from the next one. A free GitHub CLI extension, verified against GitHub, no token needed.",
+			Title:       "GitHub Achievements Checker: tiers & progress · GitVerse",
+			Description: "See every GitHub achievement, your tier and how far you are from the next one. A free GitVerse CLI, verified against GitHub, no token needed.",
 			Heading:     "", // the hero holds the <h1>
 			Content:     "home.html",
 			JSONLD: []template.JS{
 				ld(map[string]interface{}{
 					"@context": "https://schema.org", "@type": "SoftwareApplication",
-					"name": "gh-achievements", "description": tagline,
+					"name": "GitVerse", "description": tagline,
 					"applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Linux, Windows",
 					"url": webui.SiteURL, "downloadUrl": webui.RepoURL + "/releases", "codeRepository": webui.RepoURL,
 					"license": "https://opensource.org/licenses/MIT", "isAccessibleForFree": true,
@@ -207,22 +207,22 @@ func sitePages() (map[string][]byte, error) {
 		},
 		{
 			Path: "methodology/index.html", URL: webui.SiteURL + "methodology/",
-			Title:       "How accurate is gh-achievements? Data sources & limits",
-			Description: "Where gh-achievements gets each number: GitHub's own badge history, calibration against named milestones, and the limits of GitHub's API.",
-			Heading:     "How accurate is gh-achievements?",
+			Title:       "How accurate is GitVerse? Data sources & limits",
+			Description: "Where GitVerse gets each number: GitHub's own badge history, calibration against named milestones, and the limits of GitHub's API.",
+			Heading:     "How accurate is GitVerse?",
 			Content:     "methodology.html",
 			Crumbs:      []webui.Crumb{home, {Name: "How accurate is it", URL: webui.SiteURL + "methodology/"}},
 			Data:        map[string]interface{}{"Paras": methodology, "Verified": catalog.LastVerified},
 		},
 		{
 			Path: "check/index.html", URL: webui.SiteURL + "check/",
-			Title:       "Check your GitHub achievements · gh-achievements",
+			Title:       "Check your GitHub achievements · GitVerse",
 			Description: "Sign in with GitHub or type a username to see every achievement, the tier and how far to the next one.",
 			Heading:     "Check your GitHub achievements", Content: "check.html",
 			Crumbs: []webui.Crumb{home, {Name: "Check yours", URL: webui.SiteURL + "check/"}},
 		},
 		{
-			Path: "auth/callback/index.html", URL: webui.SiteURL + "auth/callback/", Title: "Checking… · gh-achievements",
+			Path: "auth/callback/index.html", URL: webui.SiteURL + "auth/callback/", Title: "Checking… · GitVerse",
 			Description: "Checking your GitHub achievements.", Heading: "Your GitHub achievements",
 			Content: "callback.html", NoIndex: true, NoReferrer: true, Scripts: []string{"/callback.js"},
 		},
@@ -253,7 +253,7 @@ func sitePages() (map[string][]byte, error) {
 		}
 		tail := " " + v.Status + "."
 		if v.Kind == catalog.Earnable {
-			tail = " Check your progress with gh achievements."
+			tail = " Check your progress with gitverse."
 		}
 		if len(desc)+len(tail) <= maxDescription {
 			desc += tail
@@ -274,7 +274,7 @@ func sitePages() (map[string][]byte, error) {
 		pages = append(pages, p)
 	}
 	pages = append(pages, webui.Page{
-		Path: "404.html", URL: webui.SiteURL + "404.html", Title: "Page not found · gh-achievements",
+		Path: "404.html", URL: webui.SiteURL + "404.html", Title: "Page not found · GitVerse",
 		Description: "This page does not exist.", Heading: "Page not found", NoIndex: true,
 		Content: "404.html",
 	})

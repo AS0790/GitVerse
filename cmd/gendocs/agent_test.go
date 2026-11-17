@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nmloc/gh-achievements/internal/webui"
+	"github.com/TheVicky1/GitVerse/internal/webui"
 )
 
 // Every page in the sitemap has a Markdown twin, so Accept: text/markdown never 404s on a real page.
@@ -52,18 +52,18 @@ func TestTrustPages_haveRealContentAndAreLinked(t *testing.T) {
 	}
 }
 
-// llms.txt tells an agent which jobs gh-achievements is for, and how to call it.
+// llms.txt tells an agent which jobs GitVerse is for, and how to call it.
 func TestLlmsTxt_saysWhenAndHowToUseIt(t *testing.T) {
 	txt := llmsTxt()
-	for _, want := range []string{"## When to use gh-achievements", "## How an agent should call it",
-		"gh achievements <username> --json", webui.SiteURL + "achievements.json", "Accept: text/markdown",
+	for _, want := range []string{"## When to use GitVerse", "## How an agent should call it",
+		"gitverse <username> --json", webui.SiteURL + "achievements.json", "Accept: text/markdown",
 		webui.SiteURL + "about/", webui.SiteURL + "contact/", webui.SiteURL + "privacy/"} {
 		if !strings.Contains(txt, want) {
 			t.Errorf("llms.txt lacks %q", want)
 		}
 	}
 	// llmstxt.org: an H1, then a blockquote summary, before any H2.
-	if !strings.HasPrefix(txt, "# gh-achievements\n\n> ") {
+	if !strings.HasPrefix(txt, "# GitVerse\n\n> ") {
 		t.Error("llms.txt must open with the H1 and the summary blockquote")
 	}
 }

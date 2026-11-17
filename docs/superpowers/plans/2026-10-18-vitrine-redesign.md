@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Restyle every page of gh-achievements.vercel.app as a lit trophy cabinet ("Vitrine") with a light/dark theme switch, a star-the-repo call to action and the new `count / target to xN` progress lines, without losing any SEO/GEO property.
+**Goal:** Restyle every page of GitVerse.vercel.app as a lit trophy cabinet ("Vitrine") with a light/dark theme switch, a star-the-repo call to action and the new `count / target to xN` progress lines, without losing any SEO/GEO property.
 
 **Architecture:** The site is server-rendered Go `html/template` pages: `cmd/gendocs` renders the static pages into `site/`, and `web/` renders `/result` and the signed-in result fragment with the same templates from `internal/webui`. All design lives in `internal/webui/static/style.css` plus three small scripts (`theme.js` in `<head>`, `app.js` deferred, `callback.js` on the sign-in page). Card wording comes from `web/view.go`.
 
@@ -678,7 +678,7 @@ Replace the whole `<header class="top"> … </header>` block with:
 ```html
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="{{.Base}}">🏆 gh-achievements</a>
+    <a class="brand" href="{{.Base}}">🏆 GitVerse</a>
     <nav id="site-nav" aria-label="Site">
       <a href="{{.Base}}check/">Check yours</a>
       <a href="{{.Base}}achievements/">All achievements</a>
@@ -782,7 +782,7 @@ git commit -m "feat(site): vitrine stylesheet with a light/dark theme"
 In `internal/webui/webui_test.go`, add to the `want` list of `TestRender_usesTheVercelDomainAndRootPaths`:
 
 ```go
-		`<a class="star" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="header">`,
+		`<a class="star" href="https://github.com/TheVicky1/GitVerse" rel="noopener" data-star="header">`,
 		`<span class="star-long"> on GitHub</span>`,
 		`<span class="star-count" data-stars hidden></span>`,
 		`<button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>`,
@@ -798,8 +798,8 @@ func TestStarBanner_namesItsPlaceAndTheRepo(t *testing.T) {
 		t.Fatal(err)
 	}
 	html := string(b)
-	for _, want := range []string{`<a class="star-banner" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="home">`,
-		"Found this useful? Star gh-achievements on GitHub", `data-stars hidden`} {
+	for _, want := range []string{`<a class="star-banner" href="https://github.com/TheVicky1/GitVerse" rel="noopener" data-star="home">`,
+		"Found this useful? Star GitVerse on GitHub", `data-stars hidden`} {
 		if !strings.Contains(html, want) {
 			t.Errorf("star banner lacks %s", want)
 		}
@@ -813,7 +813,7 @@ func TestAppJS_starCountAndClick(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, want := range []string{`"https://api.github.com/repos/nmloc/gh-achievements"`, `credentials: "omit"`,
+	for _, want := range []string{`"https://api.github.com/repos/TheVicky1/GitVerse"`, `credentials: "omit"`,
 		`referrerPolicy: "no-referrer"`, `sessionStorage`, `track("star_click", { place: t.dataset.star })`,
 		`fillStars: fillStars`, `[data-menu]`, `aria-expanded`} {
 		if !strings.Contains(string(js), want) {
@@ -835,7 +835,7 @@ Expected: FAIL (`missing <a class="star" …`, `template: no template "star-bann
 ```html
 {{define "star-banner"}}
 <a class="star-banner" href="{{repoURL}}" rel="noopener" data-star="{{.}}">
-  <strong>Found this useful? Star gh-achievements on GitHub</strong>
+  <strong>Found this useful? Star GitVerse on GitHub</strong>
   <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars hidden></span></span>
 </a>
 {{end}}
@@ -868,7 +868,7 @@ After the `labelTheme` function add:
 ```js
   // Star count for the repository, fetched once per visit. Anonymous and without a referrer:
   // /result URLs name a user. On any failure the buttons keep their plain label.
-  var STARS = "gha:stars", REPO_API = "https://api.github.com/repos/nmloc/gh-achievements";
+  var STARS = "gha:stars", REPO_API = "https://api.github.com/repos/TheVicky1/GitVerse";
   var stars = null;
   function fillStars() {
     if (stars === null) return;
@@ -1100,7 +1100,7 @@ In `RenderResultPage`, set the flag on a copy and drop the layout heading:
 func RenderResultPage(v ResultView) ([]byte, error) {
 	v.Standalone = true
 	return webui.Render(webui.Page{
-		Path: "result", URL: webui.SiteURL + "result", Title: "@" + v.User + "'s GitHub achievements · gh-achievements",
+		Path: "result", URL: webui.SiteURL + "result", Title: "@" + v.User + "'s GitHub achievements · GitVerse",
 		Description: "Every GitHub achievement, @" + v.User + "'s tier and how far to the next one.",
 		Content:     "result-page.html", NoIndex: true, Data: v,
 	})
@@ -1125,7 +1125,7 @@ Replace `<h1>{{.P.Heading}}</h1>` with `{{with .P.Heading}}<h1>{{.}}</h1>{{end}}
     {{with .Closest}}<p class="next">Closest next unlock <strong>{{.Name}}: {{.Line}}</strong></p>{{end}}
   </header>
   {{if .Private}}
-  <p class="scope">Includes private work, so this page is not shareable. Organizations that restrict third-party apps hide their private repositories until an admin approves gh-achievements.</p>
+  <p class="scope">Includes private work, so this page is not shareable. Organizations that restrict third-party apps hide their private repositories until an admin approves GitVerse.</p>
   {{else}}
   <p class="scope">Showing public data. <a href="/auth/login" data-signin>Sign in with GitHub</a> to include private repositories.</p>
   {{end}}
@@ -1163,7 +1163,7 @@ Replace `<h1>{{.P.Heading}}</h1>` with `{{with .P.Heading}}<h1>{{.}}</h1>{{end}}
     {{else}}<button type="button" class="btn gold" data-share>Copy share link</button>{{end}}
     <a href="/check/" class="btn">Check another profile</a>
   </p>
-  <p class="meta">official = GitHub's own pages · calibrated = counted, checked against GitHub · counted = counted only. Want every private count? Use the CLI: <code>gh extension install nmloc/gh-achievements</code> <button type="button" class="btn small" data-copy="gh extension install nmloc/gh-achievements">Copy</button></p>
+  <p class="meta">official = GitHub's own pages · calibrated = counted, checked against GitHub · counted = counted only. Want every private count? Use the CLI: <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code> <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button></p>
 </section>
 {{end}}
 
@@ -1240,7 +1240,7 @@ func TestSitePages_homeIsATrophyCase(t *testing.T) {
 	home := string(pages["site/index.html"])
 	for _, want := range []string{`<h1>Your GitHub trophy case</h1>`, `<form action="/result" method="get" id="check-form">`,
 		`<a href="/auth/login" data-signin>Sign in with GitHub</a> to include private work.`,
-		`<ul class="vitrine shelf home-shelf"`, `data-star="home"`, `data-copy="gh extension install nmloc/gh-achievements"`,
+		`<ul class="vitrine shelf home-shelf"`, `data-star="home"`, `data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest"`,
 		`"@type":"FAQPage"`, `"@type":"SoftwareApplication"`} {
 		if !strings.Contains(home, want) {
 			t.Errorf("home lacks %s", want)
@@ -1275,7 +1275,7 @@ func TestSitePages_everyPageHasOneH1(t *testing.T) {
 }
 ```
 
-Add `"github.com/nmloc/gh-achievements/internal/catalog"` to the test file's imports. (`site/demo.svg` is written by `generate()`, which reads `README.md` from the repo root and cannot run from the test's working directory; Step 6's `grep` and `gendocs -check` cover it.)
+Add `"github.com/TheVicky1/GitVerse/internal/catalog"` to the test file's imports. (`site/demo.svg` is written by `generate()`, which reads `README.md` from the repo root and cannot run from the test's working directory; Step 6's `grep` and `gendocs -check` cover it.)
 
 The home page now holds the username form, whose `placeholder="GitHub username"` attribute would trip `TestSitePages_everyBadgeHasArt`'s plain `"placeholder"` match. Make that check look for the placeholder **class** instead, in the existing loop over `site/achievements/index.html` and `site/index.html`:
 
@@ -1317,7 +1317,7 @@ Expected: FAIL (`home lacks <h1>Your GitHub trophy case</h1>`).
   <p class="or">or check any public profile</p>
   {{template "checkform" $user}}
 </div>
-<p class="meta">Prefer the terminal? <code>{{"gh extension install nmloc/gh-achievements"}}</code> <button type="button" class="btn small" data-copy="gh extension install nmloc/gh-achievements">Copy</button> counts everything your gh login can see.</p>
+<p class="meta">Prefer the terminal? <code>{{"go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest"}}</code> <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button> counts everything your gh login can see.</p>
 {{end}}
 ```
 
@@ -1346,10 +1346,10 @@ Expected: FAIL (`home lacks <h1>Your GitHub trophy case</h1>`).
 <h2>Prefer the terminal?</h2>
 <div class="install">
   <pre><code>{{.Install}}
-gh achievements</code></pre>
+gitverse</code></pre>
   <button type="button" class="btn small" data-copy="{{.Install}}">Copy</button>
 </div>
-<p class="meta">Needs the <a href="https://cli.github.com/">GitHub CLI</a> and reuses your <code>gh auth login</code>, so it counts everything your login can see. Add a username to check anyone: <code>gh achievements torvalds</code>. The web checker uses your GitHub sign-in for one check, then revokes the token.</p>
+<p class="meta">Needs the <a href="https://cli.github.com/">GitHub CLI</a> and reuses your <code>gh auth login</code>, so it counts everything your login can see. Add a username to check anyone: <code>gitverse torvalds</code>. The web checker uses your GitHub sign-in for one check, then revokes the token.</p>
 
 <h2>FAQ</h2>
 <dl class="faq">
@@ -1549,7 +1549,7 @@ In the list page entry, replace `"Badges": views,` with `"Groups": listGroups(vi
 
 <h2>Check your own progress</h2>
 <pre><code>{{.Install}}
-gh achievements</code></pre>
+gitverse</code></pre>
 <p class="meta">Verified against live profiles on <time datetime="{{.Verified}}">{{.Verified}}</time>. Also available as <a href="../achievements.json">achievements.json</a>.</p>
 {{end}}
 ```
@@ -1578,7 +1578,7 @@ and wrap `<p class="lede">{{.Details}}</p>` as `<p class="lede prose">{{.Details
 <h2>{{.Heading}}</h2>
 <p>{{.Text}}</p>
 {{end}}
-<p class="meta">Last verified <time datetime="{{.Verified}}">{{.Verified}}</time>. Found something off? <a href="https://github.com/nmloc/gh-achievements/issues/new?template=count-looks-wrong.yml">Report it</a>.</p>
+<p class="meta">Last verified <time datetime="{{.Verified}}">{{.Verified}}</time>. Found something off? <a href="https://github.com/TheVicky1/GitVerse/issues/new?template=count-looks-wrong.yml">Report it</a>.</p>
 </div>
 {{end}}
 ```
@@ -1622,7 +1622,7 @@ git commit -m "feat(site): medal grid, tier strips and a reading column"
 
 **Files:** none unless a defect is found (then fix in the owning task's files, with a test where one can fail, and commit `fix(site): …`).
 
-- [ ] **Step 1: Start the dev server** with `preview_start` (add a `.claude/launch.json` entry `{"name": "gh-achievements", "runtimeExecutable": "go", "runtimeArgs": ["run", "./cmd/devserver"], "port": 8787}` if it is missing). Pages: `/`, `/check/`, `/result?u=torvalds`, `/achievements/`, `/achievements/pull-shark/`, `/achievements/yolo/`, `/methodology/`.
+- [ ] **Step 1: Start the dev server** with `preview_start` (add a `.claude/launch.json` entry `{"name": "GitVerse", "runtimeExecutable": "go", "runtimeArgs": ["run", "./cmd/devserver"], "port": 8787}` if it is missing). Pages: `/`, `/check/`, `/result?u=torvalds`, `/achievements/`, `/achievements/pull-shark/`, `/achievements/yolo/`, `/methodology/`.
 - [ ] **Step 2: For each page, light and dark (`resize_window colorScheme`), desktop and 375px:** screenshot; `read_console_messages` shows no errors and no CSP violations; `document.documentElement.scrollWidth <= innerWidth` (no horizontal scroll).
 - [ ] **Step 3: Theme:** click the header button, reload, the choice survives; with a stored `light` and a dark system, the page paints light with no flash; the label says the theme it will switch to.
 - [ ] **Step 4: Contrast:** compute `--ink`/`--muted` on `--bg` and `--surface`, `--metal-ink` on `--gold`/`--silver`/`--bronze`, in both themes, with `getComputedStyle` + a WCAG ratio in `javascript_tool`; every text pair ≥ 4.5:1.

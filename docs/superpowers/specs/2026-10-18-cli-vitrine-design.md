@@ -7,7 +7,7 @@ Date: 2026-10-18 · Status: approved by Loc in chat ("ok, star chỉ hiện mộ
 The terminal output and the README read the way the redesigned site does: the same shelves, the
 same wording and the same metals, so a reader who knows one knows the other.
 
-## CLI output (`gh achievements torvalds`)
+## CLI output (`gitverse torvalds`)
 
 ```
   🏆 @torvalds
@@ -48,8 +48,8 @@ same wording and the same metals, so a reader who knows one knows the other.
   subsurface/subsurface#1506: GitHub counts +0 …"). Without it the notes are hidden.
 - `--json` unchanged.
 - **Star line, shown once:** the first time a report is printed to a terminal, one line follows it:
-  `★ Found it useful? Star it: https://github.com/nmloc/gh-achievements`. A marker file in the
-  user's config directory (`<UserConfigDir>/gh-achievements/star-shown`) remembers it; if the
+  `★ Found it useful? Star it: https://github.com/TheVicky1/GitVerse`. A marker file in the
+  user's config directory (`<UserConfigDir>/GitVerse/star-shown`) remembers it; if the
   marker cannot be written the line is not printed (never nag on every run). Never with `--json`
   or when stdout is not a terminal.
 
