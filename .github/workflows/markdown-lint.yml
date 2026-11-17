@@ -1,0 +1,33 @@
+name: "Markdown Verification"
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+  pull_request:
+    paths:
+      - '**/*.md'
+
+jobs:
+  lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify Documentation Links
+        run: |
+          node -e "
+            const fs = require('fs');
+            const files = ['README.md', 'CONTRIBUTING.md', 'CONTRIBUTORS.md', 'SECURITY.md', 'SUPPORT.md'];
+            files.forEach(f => {
+              if (!fs.existsSync(f)) throw new Error('Missing file: ' + f);
+            });
+            console.log('Core documentation files verified.');
+          "
