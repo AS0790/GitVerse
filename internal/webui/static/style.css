@@ -1680,8 +1680,15 @@ footer.aurora-footer,
   position: relative !important;
   left: 0 !important;
   right: 0 !important;
-  background: #060607 !important;
-  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  /* Fade from the shared contour field into the footer rather than cutting it off. */
+  background: linear-gradient(
+    180deg,
+    rgba(6, 6, 7, 0) 0%,
+    rgba(6, 6, 7, 0.62) 38%,
+    #060607 76%,
+    #060607 100%
+  ) !important;
+  border-top-color: transparent !important;
   overflow: hidden !important;
 }
 
