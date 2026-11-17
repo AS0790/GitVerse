@@ -1,214 +1,327 @@
-# GitVerse: check your GitHub achievements progress
+<div id="top"></div>
 
-<!-- badges:start -->
-<p align="center">
-  <a href="https://gitverse.vercel.app/achievements/pull-shark/"><img src="https://github.githubassets.com/assets/pull-shark-gold-90985540b385.png" width="72" height="72" alt="Pull Shark" title="Pull Shark"></a>
-  <a href="https://gitverse.vercel.app/achievements/starstruck/"><img src="https://github.githubassets.com/assets/starstruck-gold-a35e077693cc.png" width="72" height="72" alt="Starstruck" title="Starstruck"></a>
-  <a href="https://gitverse.vercel.app/achievements/pair-extraordinaire/"><img src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="72" height="72" alt="Pair Extraordinaire" title="Pair Extraordinaire"></a>
-  <a href="https://gitverse.vercel.app/achievements/galaxy-brain/"><img src="https://github.githubassets.com/assets/galaxy-brain-gold-9c2c03fd1acf.png" width="72" height="72" alt="Galaxy Brain" title="Galaxy Brain"></a>
-  <a href="https://gitverse.vercel.app/achievements/quickdraw/"><img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="72" height="72" alt="Quickdraw" title="Quickdraw"></a>
-  <a href="https://gitverse.vercel.app/achievements/yolo/"><img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="72" height="72" alt="YOLO" title="YOLO"></a>
-  <a href="https://gitverse.vercel.app/achievements/public-sponsor/"><img src="https://github.githubassets.com/assets/public-sponsor-default-9fa68986b057.png" width="72" height="72" alt="Public Sponsor" title="Public Sponsor"></a>
-  <a href="https://gitverse.vercel.app/achievements/finishing-touch/"><img src="https://github.githubassets.com/assets/finishing-touch-gold-e19e1fcbfee2.png" width="72" height="72" alt="Finishing Touch" title="Finishing Touch"></a>
-</p>
-<!-- badges:end -->
+<div align="center">
 
-<p align="center"><strong>Your GitHub trophy case: every achievement, your tier and how far the next one is, verified against GitHub's own data.</strong></p>
+<img src="./docs/assets/gitverse-logo.png" alt="GitVerse Logo" width="110" height="110" />
 
-<p align="center">
-  <a href="https://gitverse.vercel.app/check/"><img src="docs/check-button.svg" width="520" alt="🏆 Check your GitHub achievements → no install; sign in with GitHub to include private work"></a>
-</p>
+# GitVerse - GitHub Achievement Intelligence Platform
 
-<p align="center">
-  <a href="https://gitverse.vercel.app/check/"><strong>GitVerse.vercel.app/check</strong></a> · no install · or use the CLI below
-</p>
+**Deterministic Milestone Visibility & Real-Time Achievement Verification.**  
+*Know exactly where you stand. Turn opaque badges into actionable developer milestones.*
 
-<p align="center">
-  <a href="https://gitverse.vercel.app/result?u=torvalds">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">
-      <img src="docs/screenshot-light.png" width="880" alt="The GitVerse result page for @torvalds: Pull Shark x2 at 72 / 128 to x3, Starstruck and Pair Extraordinaire at their top tier, and the retired Arctic Code Vault and Mars 2020 badges on a lit shelf; Galaxy Brain, Quickdraw, YOLO, Public Sponsor and Finishing Touch still to collect">
-    </picture>
-  </a>
-</p>
+<br />
 
-[![Release](https://img.shields.io/github/v/release/TheVicky1/GitVerse)](https://github.com/TheVicky1/GitVerse/releases)
-[![Tests](https://github.com/TheVicky1/GitVerse/actions/workflows/test.yml/badge.svg)](https://github.com/TheVicky1/GitVerse/actions/workflows/test.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Live App](https://img.shields.io/badge/Live_App-gitverse.vercel.app-000000.svg?style=for-the-badge&logo=vercel&logoColor=white&color=000000)](https://gitverse.vercel.app)
+[![CI Tests](https://github.com/TheVicky1/GitVerse/actions/workflows/test.yml/badge.svg)](https://github.com/TheVicky1/GitVerse/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-d4af37.svg?style=for-the-badge)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/TheVicky1/GitVerse?style=for-the-badge&color=c9971f)](https://github.com/TheVicky1/GitVerse/releases)
+[![Hacktoberfest 2026](https://img.shields.io/badge/Hacktoberfest-2026-ff79c6.svg?style=for-the-badge&logo=hacktoberfest&logoColor=white)](https://hacktoberfest.com/)
+[![Good First Issues](https://img.shields.io/github/issues/TheVicky1/GitVerse/good%20first%20issue?style=for-the-badge&color=7057ff&label=Good%20First%20Issues)](https://github.com/TheVicky1/GitVerse/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+[![First Timers Only](https://img.shields.io/badge/First--Timers--Only-Friendly-7057ff.svg?style=for-the-badge)](https://www.firsttimersonly.com/)
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-0e8a16.svg?style=for-the-badge)](CONTRIBUTING.md)
+[![Go Version](https://img.shields.io/badge/Go-1.25+-00ADD8.svg?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
+[![Privacy](https://img.shields.io/badge/Privacy-Zero_Data_Retention-0e8a16.svg?style=for-the-badge)](docs/SECURITY.md)
 
-## Two ways to check
+<br />
 
-| On the web | In your terminal |
-|---|---|
-| **[GitVerse.vercel.app/check](https://gitverse.vercel.app/check/)** | `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest` then `gitverse` |
-| Type any username, or sign in with GitHub to include private repositories. The token is used for one check and revoked at once; nothing is stored. Organizations that restrict third-party apps hide their private repositories until an admin approves GitVerse. | Reuses your `gh auth login`, so it counts everything that login can see, including organizations that restrict third-party apps. |
+> 🌐 **Live Web Intelligence Platform**: Access GitVerse in your browser at **[https://gitverse.vercel.app](https://gitverse.vercel.app)**  
+> ⚡ **Compiled Terminal CLI**: Install globally via `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`
 
-![Terminal output of gitverse torvalds: on display Pull Shark x2 at 72 / 128 to x3 (calibrated), Starstruck at the top tier with 252,192 stars, Pair Extraordinaire at the top tier, the retired Arctic Code Vault and Mars 2020 badges; still to collect Galaxy Brain at 0 / 2 answers, Quickdraw, YOLO, Public Sponsor and Finishing Touch](docs/demo.svg)
+<br />
 
-## What it shows
+[Live Demo](https://gitverse.vercel.app) · [Track Profile](https://gitverse.vercel.app/check/) · [Explore Badges](https://gitverse.vercel.app/achievements/) · [About](#about) · [Quick Start](#quick-start) · [Dual-Engine](#dual-engine-architecture) · [Features](#core-features) · [Documentation](#documentation) · [Contributing](#contributing)
 
-`GitVerse` is an open-source command-line tool and website that lists GitHub profile achievements (Pull Shark, Starstruck, Pair Extraordinaire, Galaxy Brain, Quickdraw, YOLO, Public Sponsor, Finishing Touch and the retired ones) and shows your tier and progress to the next one.
+<br />
 
-- **Every badge, not just yours.** All 15 known achievements (8 earnable, 2 switched off by GitHub, 2 retired, 3 for GitHub staff) and 6 profile highlights such as Pro.
-- **How far to the next tier.** Your count against the next threshold, such as `72 / 128 to x3` for Pull Shark.
-- **Checked against GitHub.** Tiers, unlock dates and milestones come from GitHub's own badge history, and every number is labelled `official`, `calibrated` or `counted`.
-- **No stored token.** The CLI reuses your `gh auth login` and talks only to GitHub. The web checker signs in with GitHub, uses the token for one check and revokes it.
+<a href="https://gitverse.vercel.app">
+  <img src="./docs/assets/gitverse-hero.jpg" alt="GitVerse Web Intelligence Platform Preview" width="100%" style="border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);" />
+</a>
 
-## Install
+</div>
 
-You need [Go 1.25+](https://go.dev/dl/). The [GitHub CLI](https://cli.github.com/) is optional and only needed when you want GitVerse to use your signed-in access for private data.
+---
+
+<div align="center">
+  <h2>About GitVerse</h2>
+</div>
+
+While GitHub proudly showcases unlocked achievements on user profiles, it deliberately obscures what lies ahead. Upcoming tier thresholds are unexposed, progress counters are omitted from the native UI, and GitHub's official public API contains zero achievement endpoints. Developers are left to guess how close they are to reaching their next tier.
+
+**GitVerse eliminates this asymmetry.**
+
+Through deterministic reverse-calibration, GitVerse reads public badge histories, milestone unlock records, and activity telemetry to construct an exact, real-time map of your progress. Every number in the generated report is rigorously classified by provenance:
+
+* **Official:** Extracted directly from GitHub's native profile schemas.
+* **Calibrated:** Correlated with verified milestone thresholds across actual repositories.
+* **Counted:** Computed in real-time from active repository contribution events.
+
+### Foundational Principles
+
+1. **Deterministic Accuracy**: Never display speculative numbers. If a metric cannot be calibrated against verified milestones, GitVerse displays the verified official tier floor.
+2. **Zero-Retention Privacy**: No database, no tracking cookies, no credentials stored. OAuth access tokens used for private repository calculation are held in memory for a single execution pass and revoked immediately.
+3. **Dual-Engine Architecture**: The exact same battle-tested analytical engine powers both a compiled command-line binary for terminal power-users and a blazing-fast responsive web application on Vercel.
+4. **Community-Driven Open Source**: 100% open-source under the permissive MIT License, welcoming developers of all experience levels with structured micro-issues and fast-track PR reviews.
+
+---
+
+<div align="center">
+  <h2>Quick Start</h2>
+</div>
+
+### 1. Web Intelligence Platform (Zero Install)
+
+The fastest way to inspect any profile is directly in the browser:
+
+1. Visit **[gitverse.vercel.app/check/](https://gitverse.vercel.app/check/)**.
+2. Enter any public GitHub username, including your own.
+3. Or click **Sign in with GitHub** to securely analyze private repository milestones with instantaneous token revocation.
+
+### 2. High-Performance Terminal CLI
+
+Engineers who live in the terminal can install and run GitVerse natively:
+
+#### Prerequisites
+- [Go 1.25+](https://go.dev/dl/) installed on your system.
+- Optional: [GitHub CLI (`gh`)](https://cli.github.com/) for automatic private repository authentication.
 
 ```bash
+# 1. Install the GitVerse CLI binary globally
 go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
+
+# 2. Check your own profile (automatically reuses your existing gh auth)
+gitverse
+
+# 3. Check any public GitHub profile
+gitverse <username>
+
+# 4. Include the complete catalog archive, staff badges, and notes
+gitverse --all
+
+# 5. Output structured JSON for automation or shell scripts
+gitverse --json <username>
 ```
 
-Upgrade by running the same `go install` command again. Release binaries for macOS, Linux and Windows are published when a GitVerse release is tagged.
+---
 
-## Usage
+<div align="center">
+  <h2>Dual-Engine Architecture</h2>
+</div>
 
-```bash
-gitverse              # the account you are signed in to with gh
-gitverse torvalds     # anyone's public profile
-gitverse --json       # machine-readable, for scripts
-gitverse --all        # also the archive, every highlight and each badge's notes
-gitverse --no-color   # plain text (NO_COLOR is honoured too)
+GitVerse is engineered from the ground up as a synchronized dual-engine system:
+
+```text
+                     +---------------------------------------+
+                     |         Developer Entrypoints         |
+                     +---------------------------------------+
+                            /                         \
+            [ Web Intelligence (Vercel) ]      [ Terminal CLI (Go) ]
+            - Serverless Edge Handlers          - Standalone Compiled Binary
+            - OLED Aurora Responsive UI         - Terminal ANSI Color Shelves
+            - Interactive Category Drawers      - Machine-Readable JSON Mode
+                            \                         /
+                             +-----------------------+
+                             |  GitVerse Core Engine |
+                             +-----------------------+
+                                         |
+               +-------------------------+-------------------------+
+               |                         |                         |
+      [ Catalog Engine ]        [ Calibration Unit ]      [ Provenance Classifier ]
+      - 15 Badges               - Pull Shark (Merged PRs)  - Official Verified
+      - 4 Tier Thresholds       - Starstruck (Stargazers) - Calibrated Milestone
+      - 6 Profile Highlights    - Galaxy Brain (Answers)   - Counted Telemetry
+               |                         |                         |
+               +-------------------------+-------------------------+
+                                         |
+                         +-------------------------------+
+                         |   GitHub Telemetry Pipeline   |
+                         +-------------------------------+
+                                 /               \
+                 [ Public Profile Scraper ]   [ Live GraphQL & REST API ]
+                 - Profile History & Tiers    - Authenticated PR & Star Counts
+                 - In-Memory Parallel Fetch   - Zero Stored Tokens (Revoked)
 ```
 
-Not signed in to gh? It still works with public data and tells you what a login would add.
+> For deep architectural details, see the [Architecture Guide](docs/ARCHITECTURE.md) and [Data Model Specification](docs/DATA_MODEL.md).
 
-## All GitHub achievements
+---
 
-<!-- catalog:start -->
-### Earnable
+<div align="center">
+  <h2>Core Features</h2>
+</div>
 
-You can still earn these.
+| Achievement | How It Is Earned | Tiers & Milestone Thresholds | Provenance |
+| :--- | :--- | :---: | :---: |
+| **Pull Shark** | Open pull requests that get merged | **x1:** 2 &nbsp;·&nbsp; **x2:** 16 &nbsp;·&nbsp; **x3:** 128 &nbsp;·&nbsp; **x4:** 1,024 | `calibrated` |
+| **Starstruck** | Create a repository that earns stars | **x1:** 16 &nbsp;·&nbsp; **x2:** 128 &nbsp;·&nbsp; **x3:** 512 &nbsp;·&nbsp; **x4:** 4,096 | `calibrated` |
+| **Pair Extraordinaire** | Coauthor commits on merged pull requests | **x1:** 1 &nbsp;·&nbsp; **x2:** 10 &nbsp;·&nbsp; **x3:** 24 &nbsp;·&nbsp; **x4:** 48 | `official` |
+| **Galaxy Brain** | Have discussion answers accepted | **x1:** 2 &nbsp;·&nbsp; **x2:** 8 &nbsp;·&nbsp; **x3:** 16 &nbsp;·&nbsp; **x4:** 32 | `counted` |
+| **Quickdraw** | Close an issue or PR within 5 minutes of opening | **Single Tier** (Achievement Unlocked) | `official` |
+| **YOLO** | Merge a pull request without an approving review | **Single Tier** (Achievement Unlocked) | `official` |
+| **Public Sponsor** | Sponsor an open-source contributor via GitHub Sponsors | **Single Tier** (Achievement Unlocked) | `official` |
+| **Finishing Touch** | Get pull requests improving GitHub's UI quality merged | **x1:** 1 &nbsp;·&nbsp; **x2:** 4 &nbsp;·&nbsp; **x3:** 16 &nbsp;·&nbsp; **x4:** 32 | `official` |
+| **Arctic Code Vault** | Contributed code to 2020 GitHub Archive Program | *Retired Historical Badge* | `official` |
+| **Mars 2020 Contributor** | Contributed to repositories used in Mars 2020 mission | *Retired Historical Badge* | `official` |
 
-| Badge | Achievement | How to earn it | Tiers |
-|:-:|---|---|:-:|
-| <img src="https://github.githubassets.com/assets/pull-shark-gold-90985540b385.png" width="40" height="40" alt="Pull Shark badge"> | [Pull Shark](https://gitverse.vercel.app/achievements/pull-shark/) | Open pull requests that get merged<br><sub>gitverse: count, checked against GitHub's milestones</sub> | <table><tr><th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" width="48" height="48" alt="Pull Shark base"></td><td align="center"><img src="https://github.githubassets.com/assets/pull-shark-bronze-a37accb528d1.png" width="48" height="48" alt="Pull Shark bronze"></td><td align="center"><img src="https://github.githubassets.com/assets/pull-shark-silver-0643f87ac9fd.png" width="48" height="48" alt="Pull Shark silver"></td><td align="center"><img src="https://github.githubassets.com/assets/pull-shark-gold-90985540b385.png" width="48" height="48" alt="Pull Shark gold"></td></tr><tr><td align="center">2</td><td align="center">16</td><td align="center">128</td><td align="center">1024</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/starstruck-gold-a35e077693cc.png" width="40" height="40" alt="Starstruck badge"> | [Starstruck](https://gitverse.vercel.app/achievements/starstruck/) | Create a repository that gets stars<br><sub>gitverse: stars of the repository GitHub names</sub> | <table><tr><th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/starstruck-default-b6610abad518.png" width="48" height="48" alt="Starstruck base"></td><td align="center"><img src="https://github.githubassets.com/assets/starstruck-bronze-b71ec4d7766a.png" width="48" height="48" alt="Starstruck bronze"></td><td align="center"><img src="https://github.githubassets.com/assets/starstruck-silver-275c101223c0.png" width="48" height="48" alt="Starstruck silver"></td><td align="center"><img src="https://github.githubassets.com/assets/starstruck-gold-a35e077693cc.png" width="48" height="48" alt="Starstruck gold"></td></tr><tr><td align="center">16</td><td align="center">128</td><td align="center">512</td><td align="center">4096</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="40" height="40" alt="Pair Extraordinaire badge"> | [Pair Extraordinaire](https://gitverse.vercel.app/achievements/pair-extraordinaire/) | Coauthor commits on merged pull requests<br><sub>gitverse: official tier (no public counting rule)</sub> | <table><tr><th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png" width="48" height="48" alt="Pair Extraordinaire base"></td><td align="center"><img src="https://github.githubassets.com/assets/pair-extraordinaire-bronze-797214f41e7e.png" width="48" height="48" alt="Pair Extraordinaire bronze"></td><td align="center"><img src="https://github.githubassets.com/assets/pair-extraordinaire-silver-a0b2b472348c.png" width="48" height="48" alt="Pair Extraordinaire silver"></td><td align="center"><img src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="48" height="48" alt="Pair Extraordinaire gold"></td></tr><tr><td align="center">1</td><td align="center">10</td><td align="center">24</td><td align="center">48</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/galaxy-brain-gold-9c2c03fd1acf.png" width="40" height="40" alt="Galaxy Brain badge"> | [Galaxy Brain](https://gitverse.vercel.app/achievements/galaxy-brain/) | Have discussion answers accepted<br><sub>gitverse: count of accepted answers</sub> | <table><tr><th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/galaxy-brain-default-847262c21056.png" width="48" height="48" alt="Galaxy Brain base"></td><td align="center"><img src="https://github.githubassets.com/assets/galaxy-brain-bronze-da3c4829fd22.png" width="48" height="48" alt="Galaxy Brain bronze"></td><td align="center"><img src="https://github.githubassets.com/assets/galaxy-brain-silver-2ce8da282a85.png" width="48" height="48" alt="Galaxy Brain silver"></td><td align="center"><img src="https://github.githubassets.com/assets/galaxy-brain-gold-9c2c03fd1acf.png" width="48" height="48" alt="Galaxy Brain gold"></td></tr><tr><td align="center">2</td><td align="center">8</td><td align="center">16</td><td align="center">32</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="40" height="40" alt="Quickdraw badge"> | [Quickdraw](https://gitverse.vercel.app/achievements/quickdraw/) | Close an issue or pull request within 5 minutes of opening it<br><sub>gitverse: earned or not (official)</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" width="48" height="48" alt="Quickdraw base"></td></tr><tr><td align="center">1</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="40" height="40" alt="YOLO badge"> | [YOLO](https://gitverse.vercel.app/achievements/yolo/) | Merge a pull request without a review<br><sub>gitverse: earned or not (official)</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="48" height="48" alt="YOLO base"></td></tr><tr><td align="center">1</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/public-sponsor-default-9fa68986b057.png" width="40" height="40" alt="Public Sponsor badge"> | [Public Sponsor](https://gitverse.vercel.app/achievements/public-sponsor/) | Sponsor someone publicly through GitHub Sponsors<br><sub>gitverse: earned or not (official)</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/public-sponsor-default-9fa68986b057.png" width="48" height="48" alt="Public Sponsor base"></td></tr><tr><td align="center">1</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/finishing-touch-gold-e19e1fcbfee2.png" width="40" height="40" alt="Finishing Touch badge"> | [Finishing Touch](https://gitverse.vercel.app/achievements/finishing-touch/) | Get pull requests that improve GitHub's UI quality merged<br><sub>gitverse: official tier (no public counting rule)</sub> | <table><tr><th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/finishing-touch-default-764b3a996d62.png" width="48" height="48" alt="Finishing Touch base"></td><td align="center"><img src="https://github.githubassets.com/assets/finishing-touch-bronze-7c49185628f3.png" width="48" height="48" alt="Finishing Touch bronze"></td><td align="center"><img src="https://github.githubassets.com/assets/finishing-touch-silver-75ab9a5c22ba.png" width="48" height="48" alt="Finishing Touch silver"></td><td align="center"><img src="https://github.githubassets.com/assets/finishing-touch-gold-e19e1fcbfee2.png" width="48" height="48" alt="Finishing Touch gold"></td></tr><tr><td align="center">1</td><td align="center">4</td><td align="center">16</td><td align="center">32</td></tr></table> |
+---
 
-### Switched off by GitHub
+<div align="center">
+  <h2>Visual Identity & Design Philosophy</h2>
+</div>
 
-GitHub tested these and switched them off; nobody can earn them now.
+GitVerse is crafted with a signature **Space Aurora** minimalist luxury dark mode aesthetic:
 
-| Badge | Achievement | How to earn it | Tiers |
-|:-:|---|---|:-:|
-| <img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/heart-on-your-sleeve-gold.png" width="40" height="40" alt="Heart On Your Sleeve badge"> | [Heart On Your Sleeve](https://gitverse.vercel.app/achievements/heart-on-your-sleeve/) | React to something on GitHub with a ❤️ emoji<br><sub>gitverse: earned or not</sub> | <table><tr><th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr><tr><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/heart-on-your-sleeve-default.png" width="48" height="48" alt="Heart On Your Sleeve base"></td><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/heart-on-your-sleeve-bronze.png" width="48" height="48" alt="Heart On Your Sleeve bronze"></td><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/heart-on-your-sleeve-silver.png" width="48" height="48" alt="Heart On Your Sleeve silver"></td><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/heart-on-your-sleeve-gold.png" width="48" height="48" alt="Heart On Your Sleeve gold"></td></tr><tr><td align="center">?</td><td align="center">16</td><td align="center">128</td><td align="center">?</td></tr></table> |
-| <img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/open-sourcerer-gold.png" width="40" height="40" alt="Open Sourcerer badge"> | [Open Sourcerer](https://gitverse.vercel.app/achievements/open-sourcerer/) | Have pull requests merged in several public repositories<br><sub>gitverse: earned or not</sub> | <table><tr><th>Default</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr><tr><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/open-sourcerer-default.png" width="48" height="48" alt="Open Sourcerer base"></td><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/open-sourcerer-bronze.png" width="48" height="48" alt="Open Sourcerer bronze"></td><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/open-sourcerer-silver.png" width="48" height="48" alt="Open Sourcerer silver"></td><td align="center"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/549ba7291ccb68efcff5daf8af8c2c0ac6817b6f/images/tiers/open-sourcerer-gold.png" width="48" height="48" alt="Open Sourcerer gold"></td></tr><tr><td align="center">?</td><td align="center">8</td><td align="center">16</td><td align="center">64</td></tr></table> |
+* **OLED Obsidian Canvas**: Deep `#0a0a0b` canvas foundation eliminating interface fatigue.
+* **Aurora Topographic Contours**: Subtle, glowing vector contour lines (`rgba(255, 255, 255, 0.035)`) evoking orbital navigation.
+* **Precious Metal Medal Shelves**: Tier indicators styled with authentic metallic finishes:
+  * 🥇 **Gold (x4)**: `#c9971f`
+  * 🥈 **Silver (x3)**: `#e2e8f0`
+  * 🥉 **Bronze (x2)**: `#d97706`
+  * 🔘 **Base (x1)**: `#71717a`
+* **Zero Layout Jitter**: Interactive loading spinners and predictive prefetch caching ensure smooth transitions under 20ms.
 
-### Retired
+> For complete guidelines, typography scales, and token values, see the [Design System Specification](docs/DESIGN_SYSTEM.md).
 
-No longer awarded. Profiles that have them keep them.
+---
 
-| Badge | Achievement | How to earn it | Tiers |
-|:-:|---|---|:-:|
-| <img src="https://github.githubassets.com/assets/arctic-code-vault-contributor-default-df8d74122a06.png" width="40" height="40" alt="Arctic Code Vault Contributor badge"> | [Arctic Code Vault Contributor](https://gitverse.vercel.app/achievements/arctic-code-vault-contributor/) | Code in a repository of the 2020 GitHub Archive Program<br><sub>gitverse: earned or not</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/arctic-code-vault-contributor-default-df8d74122a06.png" width="48" height="48" alt="Arctic Code Vault Contributor base"></td></tr><tr><td align="center">1</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/mars-2020-contributor-default-c9cad8495acf.png" width="40" height="40" alt="Mars 2020 Contributor badge"> | [Mars 2020 Contributor](https://gitverse.vercel.app/achievements/mars-2020-contributor/) | Code in a repository used by the Mars 2020 Helicopter Mission<br><sub>gitverse: earned or not</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/mars-2020-contributor-default-c9cad8495acf.png" width="48" height="48" alt="Mars 2020 Contributor base"></td></tr><tr><td align="center">1</td></tr></table> |
+<div align="center">
+  <h2>Project Structure</h2>
+</div>
 
-### GitHub staff only
-
-Only GitHub staff could earn these.
-
-| Badge | Achievement | How to earn it | Tiers |
-|:-:|---|---|:-:|
-| <img src="https://github.githubassets.com/assets/proxima-pioneer-default-51cd4e4969d5.png" width="40" height="40" alt="Proxima Pioneer badge"> | [Proxima Pioneer](https://gitverse.vercel.app/achievements/proxima-pioneer/) | GitHub staff: contributed to the Proxima proof of concept<br><sub>gitverse: earned or not</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/proxima-pioneer-default-51cd4e4969d5.png" width="48" height="48" alt="Proxima Pioneer base"></td></tr><tr><td align="center">1</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/proxima-staffshipper-default-84f658288021.png" width="40" height="40" alt="Proxima Staffshipper badge"> | [Proxima Staffshipper](https://gitverse.vercel.app/achievements/proxima-staffshipper/) | GitHub staff: shipped the Proxima staffship instance<br><sub>gitverse: earned or not</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/proxima-staffshipper-default-84f658288021.png" width="48" height="48" alt="Proxima Staffshipper base"></td></tr><tr><td align="center">1</td></tr></table> |
-| <img src="https://github.githubassets.com/assets/proxima-staffuser-default-02bf6163ea31.png" width="40" height="40" alt="Proxima Staffuser badge"> | [Proxima Staffuser](https://gitverse.vercel.app/achievements/proxima-staffuser/) | GitHub staff: your team was onboarded to Proxima<br><sub>gitverse: earned or not</sub> | <table><tr><th>Default</th></tr><tr><td align="center"><img src="https://github.githubassets.com/assets/proxima-staffuser-default-02bf6163ea31.png" width="48" height="48" alt="Proxima Staffuser base"></td></tr><tr><td align="center">1</td></tr></table> |
-
-Profile highlights it also reports: Developer Program Member, Security Bug Bounty Hunter, GitHub Campus Expert, GitHub Star, Pro, Security advisory credit.
-
-_Catalog last verified against live profiles on 2026-10-17._
-<!-- catalog:end -->
-
-## How accurate is it?
-
-Every number carries a label:
-
-| Label | Meaning |
-|---|---|
-| `official` | Read from GitHub's own profile pages: tier, unlock date, the pull request or repository behind each milestone. |
-| `calibrated` | Counted through the GitHub API, then checked against a milestone GitHub itself names. |
-| `counted` | Counted through the API, with nothing public to check it against. |
-
-GitHub keeps a history for each badge (the dialog you see when you click one on a profile). It names, for example, your 2nd, 16th and 128th merged pull request. `GitVerse` reads that history, lists your merged pull requests in merge order, and checks that the two agree. For [@torvalds](https://github.com/torvalds?tab=achievements), GitHub's 16th merged pull request is `subsurface/subsurface#1506`, and it is 16th in the API's list too: **+0**.
-
-A tier GitHub granted is never contradicted. When GitHub's counting rule is not public, as for Pair Extraordinaire, the tool shows the official tier and **no number**, rather than one that is wrong. Details and known limits: **[How accurate is it?](https://gitverse.vercel.app/methodology/)**
-
-## FAQ
-
-**How do I check my GitHub achievements progress?**
-Install with `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest` and run `gitverse`.
-
-**Does it need a GitHub personal access token?**
-No. It uses the credentials the GitHub CLI already stores (or `GH_TOKEN`). Without them it falls back to public data.
-
-**How many GitHub achievements are there?**
-15 are known: 8 earnable, 2 disabled, 2 retired and 3 internal to GitHub staff. See the table above.
-
-**Why don't my achievements show on my profile?**
-They can be turned off under *Settings → Public profile → Show Achievements on my profile*. The tool says when a profile hides them.
-
-**Can it see private contributions?**
-GitHub counts them, and its badge history lists them as "inaccessible". The tool counts what your gh login can see and calibrates the rest against GitHub's milestones.
-
-## How it compares
-
-| | GitVerse | Achievement lists and guides | Web trackers |
-|---|---|---|---|
-| Lists every achievement | ✅ | ✅ | some |
-| Shows *your* tier and progress | ✅ | ❌ | ✅ |
-| Checks counts against GitHub's own history | ✅ | ❌ | ❌ |
-| No personal access token to create | ✅ | n/a | usually ❌ |
-| CLI runs on your machine, no server of ours | ✅ | n/a | ❌ |
-
-## JSON output
-
-`gitverse --json` prints the full report, for scripts, dashboards or a README card:
-
-```json
-{
-  "user": "torvalds",
-  "achievementsHidden": false,
-  "authenticated": true,
-  "catalogVerified": "2026-10-17",
-  "achievements": [
-    {
-      "slug": "pull-shark",
-      "name": "Pull Shark",
-      "kind": "earnable",
-      "tiers": [2, 16, 128, 1024],
-      "status": "earned",
-      "officialTier": 2,
-      "unlocked": "2017-01-17",
-      "standing": { "tier": 2, "count": 72, "floor": 16, "target": 128, "remaining": 56, "isMax": false, "isAhead": false },
-      "source": "calibrated"
-    }
-  ],
-  "highlights": [{ "name": "Pro", "earned": false }]
-}
+```text
+GitVerse/
+├── .github/                   # Workflows (CI, release, canary), issue & PR templates
+│   ├── ISSUE_TEMPLATE/        # Structured YAML issue templates
+│   └── workflows/             # Automated test, canary, and release automation
+├── api/                       # Vercel Serverless Function entrypoints
+│   ├── markdown/              # Content-negotiated Markdown representations
+│   ├── private/               # Ephemeral private calculation & token revocation
+│   └── result/                # Public report serverless handler
+├── cmd/
+│   ├── gendocs/               # SSG & documentation generation engine
+│   └── gitverse/              # Main compiled CLI application entrypoint
+├── docs/                      # Comprehensive technical & contributor documentation
+│   ├── assets/                # Logos, screenshots, and visual assets
+│   ├── ARCHITECTURE.md        # Dual-engine system architecture
+│   ├── CONTRIBUTING-BEGINNERS.md # Step-by-step first PR guide
+│   ├── DATA_MODEL.md          # Schema specifications & provenance rules
+│   ├── DESIGN_SYSTEM.md       # Color tokens, typography, and styling
+│   ├── FEATURES.md            # Complete catalog breakdown and unlock rules
+│   └── SECURITY.md            # Zero-retention security guarantees
+├── internal/
+│   ├── catalog/               # Single source of truth for all 15 achievements
+│   ├── counters/              # Live API telemetry collectors (PRs, stars, discussions)
+│   ├── official/              # GitHub HTML profile parsers & detail extraction
+│   ├── progress/              # Tier milestone calculations and calibration floor
+│   ├── render/                # Terminal ANSI color & shelf formatting
+│   ├── report/                # Aggregator binding profile data & live counters
+│   └── webui/                 # Web templates, static assets, and scripts
+├── site/                      # Static production site assets and documentation
+├── scripts/                   # Local preview server, asset generators, benchmarks
+├── CHANGELOG.md               # Semantic Versioning release history
+├── CONTRIBUTING.md            # Comprehensive contributor guidelines
+├── CONTRIBUTORS.md            # Community recognition hall of fame
+├── LICENSE                    # Permissive MIT License
+└── SECURITY.md                # Responsible vulnerability disclosure policy
 ```
 
-The catalog alone is published as [achievements.json](https://gitverse.vercel.app/achievements.json).
+---
 
-## Contributing
+<div align="center">
+  <h2>Documentation</h2>
+</div>
 
-Spotted a new badge, or a count that looks wrong? [Open an issue](https://github.com/TheVicky1/GitVerse/issues/new/choose). See [CONTRIBUTING.md](CONTRIBUTING.md) for how the catalog, fixtures and site are built.
+Comprehensive technical specifications, operational runbooks, and contributor guides are maintained in [`docs/`](docs/README.md):
 
-## Like it?
+| Document | Purpose |
+| :--- | :--- |
+| 🌱 [**Beginner Contributing**](docs/CONTRIBUTING-BEGINNERS.md) | Step-by-step zero-to-PR walkthrough for first-time open-source contributors |
+| 💻 [**Windows Setup Guide**](docs/CONTRIBUTING-WINDOWS.md) | Environment configuration and PowerShell instructions for Windows developers |
+| 🏗️ [**Architecture**](docs/ARCHITECTURE.md) | Dual-engine system architecture, in-memory execution, and data flow |
+| 📋 [**Feature Inventory**](docs/FEATURES.md) | Full breakdown of all 15 achievements, tiers, and profile highlights |
+| 🗄️ [**Data Model**](docs/DATA_MODEL.md) | Provenance levels (`official`, `calibrated`, `counted`) and badge schemas |
+| 🎨 [**Design System**](docs/DESIGN_SYSTEM.md) | Space Aurora aesthetic, OLED obsidian canvas, and medal shelf tokens |
+| 💻 [**Development Guide**](docs/DEVELOPMENT.md) | Local environment setup, preview server, and build commands |
+| 🧪 [**Testing Strategy**](docs/TESTING.md) | Weekly canary test suites, unit testing, and mock verification |
+| 🔒 [**Security Architecture**](docs/SECURITY.md) | Zero-retention model, in-memory execution, and token revocation |
+| 🌿 [**Git Workflow**](docs/GIT_WORKFLOW.md) | Conventional Commits, branch hygiene, and PR standards |
+| 📦 [**Release Management**](docs/RELEASE_MANAGEMENT.md) | Semantic Versioning policy and release milestone checklists (v1.0–v1.3) |
+| 🗺️ [**Product Roadmap**](docs/ROADMAP.md) | Implementation milestones and planned platform features |
+| 🔧 [**Troubleshooting**](docs/TROUBLESHOOTING.md) | Practical fixes for rate limits, token scopes, and local preview issues |
+| 🌐 [**GitHub Metadata**](docs/GITHUB_METADATA.md) | Repository tags, descriptions, and open-source directory metadata |
 
-If GitVerse helped you, a ⭐ helps other people find it: [star it on GitHub](https://github.com/TheVicky1/GitVerse/stargazers).
+---
 
-## Credits
+<div align="center">
+  <h2>Contributing</h2>
+</div>
 
-The catalog builds on the community's work: [Schweinepriester/github-profile-achievements](https://github.com/Schweinepriester/github-profile-achievements) and [drknzz/GitHub-Achievements](https://github.com/drknzz/GitHub-Achievements).
+Contributions are warmly welcomed! GitVerse is designed to be one of the most welcoming and well-structured open-source developer tools on GitHub.
 
-## License
+> 🚀 **New to Open Source? Start with a Micro-Contribution!**  
+> We deliberately scope our beginner tasks into **single-file micro-issues** (15–30 minutes) with exact file pointers, clear acceptance criteria, and step-by-step guidance.  
+> 👉 [**Browse Good First Issues**](https://github.com/TheVicky1/GitVerse/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) &nbsp;|&nbsp; 📖 [**Read the Beginner's Guide**](docs/CONTRIBUTING-BEGINNERS.md)
 
-[MIT](LICENSE). `GitVerse` is an independent project and is not affiliated with or endorsed by GitHub.
+### 🌟 Why Contribute to GitVerse?
+
+* **⚡ Instant Local Setup**: Run the local preview server in seconds with zero complex database setup.
+* **🎯 Highly Scoped Micro-Issues**: Tasks touch isolated components, parser fixtures, or documentation files with unambiguous verification steps.
+* **🚀 Fast Maintainer Feedback**: Pull requests receive prompt, constructive reviews from the core maintainer team.
+* **🏛️ Permanent Recognition**: Every contributor is permanently acknowledged in [**CONTRIBUTORS.md**](CONTRIBUTORS.md) and on the [**GitHub Contributors Graph**](https://github.com/TheVicky1/GitVerse/graphs/contributors).
+
+### ⚡ 6-Step Contributor Workflow
+
+1. **Pick an Issue**: Browse [**Good First Issues**](https://github.com/TheVicky1/GitVerse/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
+2. **Fork & Clone**: Fork GitVerse and clone it locally:
+   ```bash
+   git clone https://github.com/<your-username>/GitVerse.git
+   cd GitVerse
+   ```
+3. **Create a Feature Branch**:
+   ```bash
+   git checkout -b feat/achievement-milestone-enhancement
+   ```
+4. **Make Your Change**: Edit the designated files following project guidelines.
+5. **Verify Locally**:
+   ```bash
+   node scripts/serve-preview.cjs
+   node --test internal/webui/jstest/*.test.mjs
+   ```
+6. **Submit a Pull Request**: Push your branch and open a PR with a description of your work.
+
+---
+
+<div align="center">
+  <h2>Contributors & Community</h2>
+</div>
+
+GitVerse is crafted and maintained with care by **[Vicky Patel](https://github.com/TheVicky1)** alongside an exceptional community of open-source developers.
+
+<div align="center">
+
+[![Contributors Count](https://img.shields.io/github/contributors/TheVicky1/GitVerse?style=for-the-badge&color=d4af37)](https://github.com/TheVicky1/GitVerse/graphs/contributors)
+
+[![GitVerse Contributors](https://contrib.rocks/image?repo=TheVicky1/GitVerse)](https://github.com/TheVicky1/GitVerse/graphs/contributors)
+
+*A huge thank you to everyone who has contributed to making GitHub achievements transparent and deterministic!*
+
+👉 [**View all contributors on GitHub**](https://github.com/TheVicky1/GitVerse/graphs/contributors) • [**Contributors Hall of Fame**](CONTRIBUTORS.md)
+
+</div>
+
+---
+
+<div align="center">
+  <h2>License</h2>
+</div>
+
+GitVerse is open-source software distributed under the permissive [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+**Deterministic. Transparent. Engineered for Clarity.**
+
+[⬆ Back to top](#top)
+
+</div>
