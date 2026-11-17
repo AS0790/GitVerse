@@ -188,7 +188,7 @@ func sitePages() (map[string][]byte, error) {
 					"url": webui.SiteURL, "downloadUrl": webui.RepoURL + "/releases", "codeRepository": webui.RepoURL,
 					"license": "https://opensource.org/licenses/MIT", "isAccessibleForFree": true,
 					"offers": map[string]interface{}{"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-					"author": map[string]interface{}{"@type": "Person", "name": "nmloc", "url": "https://github.com/nmloc"},
+					"author": map[string]interface{}{"@type": "Person", "name": "Vicky Patel", "url": "https://github.com/TheVicky1"},
 				}),
 				faqLD(siteFAQ()),
 			},
