@@ -49,7 +49,7 @@ There is no API key, no account and no rate-limited public API to call; the CLI 
 - [Check a user](https://gitverse.vercel.app/check/): the web checker
 - [CLI usage and flags](https://github.com/TheVicky1/GitVerse#readme): `gitverse [username] [--json] [--all]`
 - [Source code](https://github.com/TheVicky1/GitVerse)
-- [About GitVerse](https://gitverse.vercel.app/about/): GitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, made by nmloc
+- [About GitVerse](https://gitverse.vercel.app/about/): GitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1)
 - [Contact](https://gitverse.vercel.app/contact/): how to reach the GitVerse maintainer: GitHub issues for bugs and wrong counts, private vulnerability reports for security
 - [Privacy](https://gitverse.vercel.app/privacy/): what GitVerse collects (almost nothing), what the web checker sends to GitHub, and how consent-gated analytics work
 
