@@ -14,6 +14,6 @@ body:
     id: version
     attributes:
       label: Version and OS
-      placeholder: gh-achievements v0.1.0, macOS 15, gh 2.80
+      placeholder: GitVerse v1.0.0, macOS 15, Windows 11, gh 2.80
     validations:
       required: true
