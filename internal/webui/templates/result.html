@@ -8,7 +8,7 @@
       <div class="hero-eyebrow">GitHub Profile</div>
       {{if .Standalone}}<h1 class="result-user">@{{.User}}</h1>{{else}}<h2 class="result-user">@{{.User}}</h2>{{end}}
       <p class="result-sum">{{.Earned}} of {{.EarnableTotal}} earnable badges · {{.TierTotal}} tiers unlocked</p>
-      {{with .Closest}}<p class="result-next">Next unlock — <strong>{{.Name}}: {{.Line}}</strong></p>{{end}}
+      {{with .Closest}}<p class="result-next">Next unlock - <strong>{{.Name}}: {{.Line}}</strong></p>{{end}}
     </div>
   </div>
 
@@ -17,7 +17,7 @@
   {{else}}
   <p class="result-scope"><a href="/auth/login" data-signin>Sign in with GitHub</a> to include private repository progress.</p>
   {{end}}
-  {{if .Hidden}}<div class="notice">This profile hides its achievements — showing live counts only, without official tier data.</div>{{end}}
+  {{if .Hidden}}<div class="notice">This profile hides its achievements - showing live counts only, without official tier data.</div>{{end}}
 
   {{/* ── Earned badges ── */}}
   {{if .Display}}
@@ -29,7 +29,7 @@
   {{else if not .Hidden}}
   <div class="result-section">
     <div class="result-section-label">On display</div>
-    <p class="result-section-sub">Nothing here yet — start working toward the badges below.</p>
+    <p class="result-section-sub">Nothing here yet - start working toward the badges below.</p>
   </div>
   {{end}}
 
@@ -38,7 +38,7 @@
   <div class="result-section">
     {{if $.Hidden}}
     <div class="result-section-label">Live counts</div>
-    <p class="result-section-sub">Profile hides badges — showing counts without official tier data.</p>
+    <p class="result-section-sub">Profile hides badges - showing counts without official tier data.</p>
     {{else}}
     <div class="result-section-label">Still to collect</div>
     <p class="result-section-sub">Badges you can still earn. Tap any to see exactly how.</p>
@@ -50,7 +50,7 @@
   {{/* ── Archive ── */}}
   {{with .Archive}}
   <details class="result-archive">
-    <summary>Archive — {{len .}} {{if eq (len .) 1}}badge{{else}}badges{{end}} you can no longer earn <span class="result-archive-hint">(switched off, retired or staff only)</span></summary>
+    <summary>Archive - {{len .}} {{if eq (len .) 1}}badge{{else}}badges{{end}} you can no longer earn <span class="result-archive-hint">(switched off, retired or staff only)</span></summary>
     <div class="result-shelf result-shelf--archive">{{range .}}{{template "card" .}}{{end}}</div>
   </details>
   {{end}}
@@ -73,9 +73,12 @@
       <strong>official</strong> = read from GitHub's own pages ·
       <strong>calibrated</strong> = matched against named milestones ·
       <strong>counted</strong> = computed from activity.
-      Want private counts? <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>
-      <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button>
     </p>
+    <div class="result-install-row">
+      <span>Want private counts?</span>
+      <code class="result-install-cmd">go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>
+      <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button>
+    </div>
   </div>
 
 </section>
@@ -86,7 +89,7 @@
   <summary>
     {{if .Image}}<img class="badge-img" src="{{.Image}}" width="96" height="96" alt="{{.ImageAlt}}" loading="lazy">{{else}}<span class="badge-img placeholder" aria-hidden="true">{{.Initials}}</span>{{end}}
     <span class="badge-name">{{.Name}}{{if .TierLabel}} <span class="tier-pill tier-{{if eq .Tier 4}}gold{{else if eq .Tier 3}}silver{{else if eq .Tier 2}}bronze{{else}}default{{end}}">{{.TierLabel}}</span>{{end}}</span>
-    {{with .Progress}}<progress value="{{.Value}}" max="{{.Max}}" aria-label="{{.Label}}">{{.Value}} of {{.Max}}</progress>{{end}}
+    {{with .Progress}}<progress value="{{.Value}}" max="{{.Max}}" aria-label="{{.Label}}">{{.Value}} of {{.Max}}</progress>{{else}}<div class="badge-progress-placeholder" aria-hidden="true"></div>{{end}}
     <span class="badge-line">{{.Line}}</span>
   </summary>
   <div class="badge-detail">
