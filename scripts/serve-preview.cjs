@@ -43,7 +43,8 @@ const port = 5173;
 
 // Cache to prevent GitHub rate-limiting during local testing
 const profileCache = new Map();
-const CACHE_TTL_MS = 60 * 1000; // 60 seconds
+const inFlightProfiles = new Map();
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes cache
 
 // In-memory OAuth state storage (for local dev server)
 const oauthStates = new Map();
@@ -126,9 +127,16 @@ function stripTags(html) {
   return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+const httpsAgent = new https.Agent({
+  keepAlive: true,
+  maxSockets: 32,
+  keepAliveMsecs: 60000
+});
+
 function fetchUrl(url, headers = {}) {
   return new Promise((resolve, reject) => {
     const req = https.get(url, {
+      agent: httpsAgent,
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         ...headers
@@ -151,6 +159,7 @@ function postUrl(url, postData, headers = {}) {
     const parsed = new URL(url);
     const dataStr = typeof postData === 'string' ? postData : new URLSearchParams(postData).toString();
     const req = https.request({
+      agent: httpsAgent,
       hostname: parsed.hostname,
       port: 443,
       path: parsed.pathname + parsed.search,
@@ -197,172 +206,195 @@ async function fetchUserProfile(username, token = null) {
     return cached.data;
   }
 
-  // 1. Fetch achievements tab
-  const authHeader = token ? { 'Authorization': `Bearer ${token}` } : {};
-  const tabRes = await fetchUrl(`https://github.com/${username}?tab=achievements`, authHeader);
-  let isHidden = false;
-  let tabHtml = '';
-
-  if (tabRes.status === 404) {
-    const profileRes = await fetchUrl(`https://github.com/${username}`, authHeader);
-    if (profileRes.status === 404) {
-      return { error: 'not_found', message: `GitHub has no user called ${username}.` };
-    }
-    isHidden = true;
-    tabHtml = profileRes.body;
-  } else if (tabRes.status === 200) {
-    tabHtml = tabRes.body;
-  } else {
-    return { error: 'github', message: 'GitHub did not answer. Please try again in a minute.' };
+  if (inFlightProfiles.has(cacheKey)) {
+    return inFlightProfiles.get(cacheKey);
   }
 
-  // Extract earned badge slugs
-  const earnedSlugs = [];
-  const badgeRegex = /data-hovercard-url="\/users\/[^\/"]+\/achievements\/([a-z0-9-]+)\/detail/g;
-  let m;
-  while ((m = badgeRegex.exec(tabHtml)) !== null) {
-    if (!earnedSlugs.includes(m[1])) {
-      earnedSlugs.push(m[1]);
-    }
-  }
-
-  // Extract highlights
-  const highlightsList = [
-    { name: "Developer Program Member", earned: false },
-    { name: "Security Bug Bounty Hunter", earned: false },
-    { name: "GitHub Campus Expert", earned: false },
-    { name: "GitHub Star", earned: false },
-    { name: "Pro", earned: false },
-    { name: "Security advisory credit", earned: false }
-  ];
-
-  const highlightsBlock = tabHtml.match(/>Highlights<\/h2>([\s\S]*?)<\/ul>/i);
-  if (highlightsBlock) {
-    const rawItems = highlightsBlock[1].match(/<li[^>]*>([\s\S]*?)<\/li>/gi) || [];
-    const foundText = rawItems.map(item => stripTags(item).toLowerCase());
-    highlightsList.forEach(h => {
-      const target = h.name.toLowerCase();
-      h.earned = foundText.some(item => item.includes(target) || (target === 'pro' && /\bpro\b/.test(item)));
-    });
-  }
-
-  // Fetch details for each earned badge
-  const details = {};
-  for (const slug of earnedSlugs) {
+  const worker = (async () => {
     try {
-      const detailRes = await fetchUrl(`https://github.com/users/${username}/achievements/${slug}/detail`, {
-        'X-Requested-With': 'XMLHttpRequest',
-        ...authHeader
-      });
-      if (detailRes.status === 200) {
-        const dHtml = detailRes.body;
-        const tierMatch = dHtml.match(/tier-count="(\d+)"/);
-        const tier = tierMatch ? parseInt(tierMatch[1], 10) : 1;
-        const unlockedMatch = dHtml.match(/datetime="(\d{4}-\d{2}-\d{2})/);
-        const unlocked = unlockedMatch ? unlockedMatch[1] : '';
+      // 1. Fetch achievements tab
+      const authHeader = token ? { 'Authorization': `Bearer ${token}` } : {};
+      const tabRes = await fetchUrl(`https://github.com/${username}?tab=achievements`, authHeader);
+      let isHidden = false;
+      let tabHtml = '';
 
-        // Extract milestones
-        const milestones = [];
-        const historyMatches = dHtml.matchAll(/achievement-history-tier[\s\S]*?TimelineItem-body[^>]*>([\s\S]*?)<\/div>/g);
-        for (const hm of historyMatches) {
-          const body = hm[1];
-          const prMatch = body.match(/href="\/([^\/"]+\/[^\/"]+)\/pull\/(\d+)"/);
-          const repoMatch = body.match(/href="\/([^\/"]+\/[^\/"]+)"/);
-          let link = '';
-          if (prMatch) {
-            link = `https://github.com/${prMatch[1]}/pull/${prMatch[2]}`;
-          } else if (repoMatch) {
-            link = `https://github.com/${repoMatch[1]}`;
-          }
-          milestones.push({
-            label: stripTags(body),
-            url: link
+      if (tabRes.status === 404) {
+        const profileRes = await fetchUrl(`https://github.com/${username}`, authHeader);
+        if (profileRes.status === 404) {
+          return { error: 'not_found', message: `GitHub has no user called ${username}.` };
+        }
+        isHidden = true;
+        tabHtml = profileRes.body;
+      } else if (tabRes.status === 200) {
+        tabHtml = tabRes.body;
+      } else {
+        return { error: 'github', message: 'GitHub did not answer. Please try again in a minute.' };
+      }
+
+      // Extract earned badge slugs
+      const earnedSlugs = [];
+      const badgeRegex = /data-hovercard-url="\/users\/[^\/"]+\/achievements\/([a-z0-9-]+)\/detail/g;
+      let m;
+      while ((m = badgeRegex.exec(tabHtml)) !== null) {
+        if (!earnedSlugs.includes(m[1])) {
+          earnedSlugs.push(m[1]);
+        }
+      }
+
+      // Extract highlights
+      const highlightsList = [
+        { name: "Developer Program Member", earned: false },
+        { name: "Security Bug Bounty Hunter", earned: false },
+        { name: "GitHub Campus Expert", earned: false },
+        { name: "GitHub Star", earned: false },
+        { name: "Pro", earned: false },
+        { name: "Security advisory credit", earned: false }
+      ];
+
+      const highlightsBlock = tabHtml.match(/>Highlights<\/h2>([\s\S]*?)<\/ul>/i);
+      if (highlightsBlock) {
+        const rawItems = highlightsBlock[1].match(/<li[^>]*>([\s\S]*?)<\/li>/gi) || [];
+        const foundText = rawItems.map(item => stripTags(item).toLowerCase());
+        highlightsList.forEach(h => {
+          const target = h.name.toLowerCase();
+          h.earned = foundText.some(item => item.includes(target) || (target === 'pro' && /\bpro\b/.test(item)));
+        });
+      }
+
+      // 2. Fetch all badge details AND live counters concurrently in parallel
+      const detailPromises = earnedSlugs.map(async (slug) => {
+        try {
+          const detailRes = await fetchUrl(`https://github.com/users/${username}/achievements/${slug}/detail`, {
+            'X-Requested-With': 'XMLHttpRequest',
+            ...authHeader
           });
-        }
+          if (detailRes.status === 200) {
+            const dHtml = detailRes.body;
+            const tierMatch = dHtml.match(/tier-count="(\d+)"/);
+            const tier = tierMatch ? parseInt(tierMatch[1], 10) : 1;
+            const unlockedMatch = dHtml.match(/datetime="(\d{4}-\d{2}-\d{2})/);
+            const unlocked = unlockedMatch ? unlockedMatch[1] : '';
 
-        details[slug] = {
-          tier,
-          unlocked,
-          milestones
-        };
-      }
-    } catch (e) {
-      console.error(`Error fetching detail for ${slug}:`, e.message);
-    }
-  }
+            // Extract milestones
+            const milestones = [];
+            const historyMatches = dHtml.matchAll(/achievement-history-tier[\s\S]*?TimelineItem-body[^>]*>([\s\S]*?)<\/div>/g);
+            for (const hm of historyMatches) {
+              const body = hm[1];
+              const prMatch = body.match(/href="\/([^\/"]+\/[^\/"]+)\/pull\/(\d+)"/);
+              const repoMatch = body.match(/href="\/([^\/"]+\/[^\/"]+)"/);
+              let link = '';
+              if (prMatch) {
+                link = `https://github.com/${prMatch[1]}/pull/${prMatch[2]}`;
+              } else if (repoMatch) {
+                link = `https://github.com/${repoMatch[1]}`;
+              }
+              milestones.push({
+                label: stripTags(body),
+                url: link
+              });
+            }
 
-  // Fetch live counts for Merged PRs and Stars
-  let prCount = 0;
-  let maxStars = 0;
-  let maxStarsRepo = '';
-
-  try {
-    const prUrl = `https://api.github.com/search/issues?per_page=1&q=author:${username}+is:pr+is:merged`;
-    const reposUrl = token
-      ? `https://api.github.com/user/repos?type=owner&per_page=100`
-      : `https://api.github.com/users/${username}/repos?type=owner&per_page=100`;
-
-    const [prRes, repoRes] = await Promise.all([
-      fetchUrl(prUrl, authHeader).catch(() => ({ status: 500, body: '{}' })),
-      fetchUrl(reposUrl, authHeader).catch(() => ({ status: 500, body: '[]' }))
-    ]);
-
-    if (prRes.status === 200) {
-      const pJson = JSON.parse(prRes.body);
-      prCount = pJson.total_count || 0;
-    }
-    if (repoRes.status === 200) {
-      const rJson = JSON.parse(repoRes.body);
-      if (Array.isArray(rJson)) {
-        for (const r of rJson) {
-          if (!r.fork && r.stargazers_count > maxStars) {
-            maxStars = r.stargazers_count;
-            maxStarsRepo = r.full_name;
+            return {
+              slug,
+              data: {
+                tier,
+                unlocked,
+                milestones
+              }
+            };
           }
+        } catch (e) {
+          console.error(`Error fetching detail for ${slug}:`, e.message);
+        }
+        return { slug, data: null };
+      });
+
+      const prUrl = `https://api.github.com/search/issues?per_page=1&q=author:${username}+is:pr+is:merged`;
+      const reposUrl = token
+        ? `https://api.github.com/user/repos?type=owner&per_page=100`
+        : `https://api.github.com/users/${username}/repos?type=owner&per_page=100`;
+
+      const [detailResults, prRes, repoRes] = await Promise.all([
+        Promise.all(detailPromises),
+        fetchUrl(prUrl, authHeader).catch(() => ({ status: 500, body: '{}' })),
+        fetchUrl(reposUrl, authHeader).catch(() => ({ status: 500, body: '[]' }))
+      ]);
+
+      const details = {};
+      for (const res of detailResults) {
+        if (res && res.data) {
+          details[res.slug] = res.data;
         }
       }
+
+      let prCount = 0;
+      let maxStars = 0;
+      let maxStarsRepo = '';
+
+      if (prRes.status === 200) {
+        try {
+          const pJson = JSON.parse(prRes.body);
+          prCount = pJson.total_count || 0;
+        } catch (e) {}
+      }
+      if (repoRes.status === 200) {
+        try {
+          const rJson = JSON.parse(repoRes.body);
+          if (Array.isArray(rJson)) {
+            for (const r of rJson) {
+              if (!r.fork && r.stargazers_count > maxStars) {
+                maxStars = r.stargazers_count;
+                maxStarsRepo = r.full_name;
+              }
+            }
+          }
+        } catch (e) {}
+      }
+
+      // Calibration: ensure counts never sit below earned tier floor
+      if (details['pull-shark']) {
+        const pullTier = details['pull-shark'].tier || 1;
+        const floor = [2, 16, 128, 1024][pullTier - 1] || 2;
+        if (username.toLowerCase() === 'thevicky1') {
+          prCount = Math.max(prCount, 80);
+        } else {
+          prCount = Math.max(prCount, floor);
+        }
+      }
+
+      if (details['starstruck']) {
+        const starTier = details['starstruck'].tier || 1;
+        const floor = [16, 128, 512, 4096][starTier - 1] || 16;
+        maxStars = Math.max(maxStars, floor);
+      }
+
+      const result = {
+        username,
+        isHidden,
+        earnedSlugs,
+        details,
+        highlights: highlightsList,
+        counters: {
+          prCount,
+          maxStars,
+          maxStarsRepo
+        },
+        isPrivate: Boolean(token)
+      };
+
+      profileCache.set(cacheKey, {
+        timestamp: Date.now(),
+        data: result
+      });
+
+      return result;
+    } finally {
+      inFlightProfiles.delete(cacheKey);
     }
-  } catch (err) {
-    console.error("Error fetching live counters:", err.message);
-  }
+  })();
 
-  // Calibration: ensure counts never sit below earned tier floor
-  if (details['pull-shark']) {
-    const pullTier = details['pull-shark'].tier || 1;
-    const floor = [2, 16, 128, 1024][pullTier - 1] || 2;
-    if (username.toLowerCase() === 'thevicky1') {
-      prCount = Math.max(prCount, 80);
-    } else {
-      prCount = Math.max(prCount, floor);
-    }
-  }
-
-  if (details['starstruck']) {
-    const starTier = details['starstruck'].tier || 1;
-    const floor = [16, 128, 512, 4096][starTier - 1] || 16;
-    maxStars = Math.max(maxStars, floor);
-  }
-
-  const result = {
-    username,
-    isHidden,
-    earnedSlugs,
-    details,
-    highlights: highlightsList,
-    counters: {
-      prCount,
-      maxStars,
-      maxStarsRepo
-    },
-    isPrivate: Boolean(token)
-  };
-
-  profileCache.set(cacheKey, {
-    timestamp: Date.now(),
-    data: result
-  });
-
-  return result;
+  inFlightProfiles.set(cacheKey, worker);
+  return worker;
 }
 
 function renderBadgeCard(item, counters) {
@@ -470,7 +502,7 @@ function renderBadgeCard(item, counters) {
       <summary>
         ${imgUrl ? `<img class="badge-img" src="${imgUrl}" width="96" height="96" alt="${altText}" loading="lazy">` : `<span class="badge-img placeholder" aria-hidden="true">${item.name.slice(0, 2).toUpperCase()}</span>`}
         <span class="badge-name">${item.name}${tierPill ? ` <span class="tier-pill tier-${tierCls}">${tierPill}</span>` : ''}</span>
-        ${progressBarHtml}
+        ${progressBarHtml || '<div class="badge-progress-placeholder" aria-hidden="true"></div>'}
         <span class="badge-line">${line}</span>
       </summary>
       <div class="badge-detail">
@@ -582,13 +614,13 @@ function renderResultHtml(data, isPartial = false) {
     <p class="result-section-sub" style="font-size: 0.88rem; color: var(--ink-3); margin-bottom: 18px;">Badges you have, with how far the next tier is.</p>
     ${displayItems.length > 0 ? `
       <div class="result-shelf-card">
-        <div class="result-shelf" style="grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));">
+        <div class="result-shelf">
           ${displayItems.map(item => renderBadgeCard(item, counters)).join('')}
         </div>
       </div>
     ` : `
       <div class="result-shelf-card">
-        <p style="color: var(--ink-3); margin: 0; font-size: 0.9rem;">Nothing here yet — start working toward the badges below.</p>
+        <p style="color: var(--ink-3); margin: 0; font-size: 0.9rem;">Nothing here yet - start working toward the badges below.</p>
       </div>
     `}
   </div>
@@ -599,7 +631,7 @@ function renderResultHtml(data, isPartial = false) {
     <div class="result-section-label" style="font-size: 1.15rem; font-weight: 700; text-transform: none; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 4px;">Still to collect</div>
     <p class="result-section-sub" style="font-size: 0.88rem; color: var(--ink-3); margin-bottom: 18px;">Badges you can still earn. Tap any to see exactly how.</p>
     <div class="result-shelf-card">
-      <div class="result-shelf" style="grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));">
+      <div class="result-shelf">
         ${collectItems.map(item => renderBadgeCard(item, counters)).join('')}
       </div>
     </div>
@@ -609,7 +641,7 @@ function renderResultHtml(data, isPartial = false) {
   <!-- Archive -->
   ${archiveItems.length > 0 ? `
   <details class="result-archive">
-    <summary>Archive <span class="result-archive-hint">— ${archiveItems.length} badges you can no longer earn (switched off, retired or staff only)</span></summary>
+    <summary>Archive <span class="result-archive-hint">- ${archiveItems.length} badges you can no longer earn (switched off, retired or staff only)</span></summary>
     <div class="result-shelf result-shelf--archive">
       ${archiveItems.map(item => renderBadgeCard(item, counters)).join('')}
     </div>
@@ -645,9 +677,12 @@ function renderResultHtml(data, isPartial = false) {
       <strong>official</strong> = read from GitHub's own pages ·
       <strong>calibrated</strong> = matched against named milestones ·
       <strong>counted</strong> = computed from activity.
-      Want private counts? <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>
-      <button type="button" class="btn small" onclick="navigator.clipboard.writeText('go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy',2000)">Copy</button>
     </p>
+    <div class="result-install-row">
+      <span>Want private counts?</span>
+      <code class="result-install-cmd">go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>
+      <button type="button" class="btn small" onclick="navigator.clipboard.writeText('go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy',2000)">Copy</button>
+    </div>
   </div>
 
 </section>`;
