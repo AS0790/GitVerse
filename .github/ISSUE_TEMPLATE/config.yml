@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: How accurate is it?
-    url: https://gitverse.vercel.app/about/
-    about: Where each number comes from, and the known limits.
+  - name: GitHub Discussions
+    url: https://github.com/TheVicky1/GitVerse/discussions
+    about: Ask questions, share ideas, and discuss roadmap.
+  - name: Live Platform
+    url: https://gitverse.vercel.app
+    about: Check achievements in your browser.
