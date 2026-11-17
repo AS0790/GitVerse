@@ -140,7 +140,7 @@
       setTimeout(function () {
         if (loader.parentNode) loader.parentNode.removeChild(loader);
       }, 520);
-    }, 1050);
+    }, 3100);
   }
 
   function ready() {

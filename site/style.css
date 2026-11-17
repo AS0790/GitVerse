@@ -2086,9 +2086,7 @@ body.privacy-page {
   place-items: center;
   overflow: hidden;
   isolation: isolate;
-  background:
-    radial-gradient(ellipse 48% 34% at 50% 48%, rgba(155, 170, 184, .10), transparent 72%),
-    rgba(7, 8, 10, .985);
+  background: #050506;
   opacity: 0;
   transition: opacity .38s ease, visibility .38s step-end;
 }
@@ -2121,7 +2119,7 @@ body.privacy-page {
   inset: 0;
   background: linear-gradient(110deg, transparent 42%, rgba(255,255,255,.085) 49%, transparent 56%);
   transform: translateX(-125%);
-  animation: gv-loader-sweep 1.15s cubic-bezier(.55, 0, .25, 1) .12s both;
+  animation: gv-loader-sweep 3s cubic-bezier(.55, 0, .25, 1) .08s both;
 }
 
 .gv-loader__center {
@@ -2162,7 +2160,7 @@ body.privacy-page {
   height: 100%;
   background: linear-gradient(90deg, transparent, #fff, transparent);
   box-shadow: 0 0 12px rgba(255,255,255,.75);
-  animation: gv-loader-track 1s cubic-bezier(.65, 0, .35, 1) .16s both;
+  animation: gv-loader-track 3s cubic-bezier(.65, 0, .35, 1) .08s both;
 }
 
 @keyframes gv-loader-rise {
