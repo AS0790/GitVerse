@@ -27,10 +27,10 @@
 <h2>Prefer the terminal?</h2>
 <div class="install">
   <pre><code>{{.Install}}
-gitverse</code></pre>
-  <button type="button" class="btn small" data-copy="{{.Install}}">Copy</button>
+gitverse torvalds</code></pre>
+  <button type="button" class="btn small" data-copy="{{.Install}}&#10;gitverse torvalds">Copy commands</button>
 </div>
-<p class="meta">Needs the <a href="https://cli.github.com/">GitHub CLI</a> and reuses your <code>gh auth login</code>, so it counts everything your login can see. Add a username to check anyone: <code>gitverse torvalds</code>. The web checker uses your GitHub sign-in for one check, then revokes the token.</p>
+<p class="meta">Requires Go 1.25+. Public profiles work without a token; use <a href="https://cli.github.com/">GitHub CLI</a> and <code>gh auth login</code> only to include private data.</p>
 
 <section class="clarity" aria-labelledby="clarity-title">
   <header class="clarity-intro">

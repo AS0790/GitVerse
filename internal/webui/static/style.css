@@ -575,6 +575,13 @@ body { padding-top: 86px; }
   flex: 1;
 }
 
+.install-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .install {
   margin: 20px 0;
 }

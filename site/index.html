@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GitVerse — GitHub Achievement Intelligence</title>
+<title>GitVerse - GitHub Achievement Intelligence</title>
 <meta name="description" content="See every GitHub achievement, your tier and how far you are from the next one. Free, open source, no token required.">
 <link rel="canonical" href="https://gitverse.vercel.app/">
 
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GitVerse">
-<meta property="og:title" content="GitVerse — GitHub Achievement Intelligence">
+<meta property="og:title" content="GitVerse - GitHub Achievement Intelligence">
 <meta property="og:description" content="See every GitHub achievement, your tier and how far you are from the next one. Free, open source, no token required.">
 <meta property="og:url" content="https://gitverse.vercel.app/">
 <meta property="og:image" content="https://gitverse.vercel.app/social.png">
@@ -46,7 +46,7 @@
 <section class="hero">
   <div class="hero-eyebrow">GitHub Achievement Intelligence</div>
   <h1>Know exactly where you stand.</h1>
-  <p class="lede">Every GitHub achievement, your current tier, and the precise distance to the next one — pulled straight from GitHub's own data.</p>
+  <p class="lede">Every GitHub achievement, your current tier, and the precise distance to the next one - pulled straight from GitHub's own data.</p>
 
   <form action="/result" method="get" id="check-form">
     <label for="u" class="visually-hidden">GitHub username</label>
@@ -67,7 +67,7 @@
   <li><a class="medal" href="achievements/public-sponsor/"><img class="medal-img" src="https://github.githubassets.com/assets/public-sponsor-default-9fa68986b057.png" width="88" height="88" alt=""><span class="medal-name">Public Sponsor</span></a></li>
   <li><a class="medal" href="achievements/finishing-touch/"><img class="medal-img" src="https://github.githubassets.com/assets/finishing-touch-gold-e19e1fcbfee2.png" width="88" height="88" alt=""><span class="medal-name">Finishing Touch</span></a></li>
 </ul>
-<p class="meta"><a href="achievements/">Browse all 15 GitHub achievements</a> — including retired and disabled ones.</p>
+<p class="meta"><a href="achievements/">Browse all 15 GitHub achievements</a> - including retired and disabled ones.</p>
 
 <section class="section feature-section">
   <header class="feature-intro">
@@ -87,10 +87,13 @@
   <p class="lede" style="margin-bottom: 32px;">Install the GitVerse CLI and get your full achievement report in seconds.</p>
   <div class="install-block">
     <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
-gitverse</code></pre>
-    <a href="/check/" class="btn primary">Try the web version</a>
+gitverse torvalds</code></pre>
+    <div class="install-actions">
+      <button type="button" class="btn" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest&#10;gitverse torvalds">Copy commands</button>
+      <a href="/check/" class="btn primary">Try the web version</a>
+    </div>
   </div>
-  <p class="meta" style="margin-top: 16px;">No token required for public profiles. Add a username to check anyone: <code>gitverse torvalds</code></p>
+  <p class="meta" style="margin-top: 16px;">Requires Go 1.25+. Public profiles work without a token; use <code>gh auth login</code> only when you want GitVerse to include private data.</p>
 </section>
 
 <section class="clarity" aria-labelledby="clarity-title">

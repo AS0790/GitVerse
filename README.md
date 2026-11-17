@@ -56,13 +56,13 @@
 
 ## Install
 
-You need the [GitHub CLI](https://cli.github.com/) (`brew install gh`, `winget install GitHub.cli`, or [another installer](https://github.com/cli/cli#installation)).
+You need [Go 1.25+](https://go.dev/dl/). The [GitHub CLI](https://cli.github.com/) is optional and only needed when you want GitVerse to use your signed-in access for private data.
 
 ```bash
 go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
 ```
 
-Upgrade by running the same `go install` command again. Prebuilt binaries for macOS, Linux and Windows (amd64 and arm64) are published on [Releases](https://github.com/TheVicky1/GitVerse/releases), so no Go toolchain is needed.
+Upgrade by running the same `go install` command again. Release binaries for macOS, Linux and Windows are published when a GitVerse release is tagged.
 
 ## Usage
 
