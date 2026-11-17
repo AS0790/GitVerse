@@ -8,6 +8,9 @@ This directory contains in-depth architectural specifications, development proce
 
 ## 📚 Document Index
 
+* [**Complete Technical Index**](INDEX.md) — Comprehensive directory of all 25+ guides.
+* [**Docker Container Guide**](DOCKER.md) — Multi-stage container instructions.
+
 ### 🌟 Getting Started & Contributing
 * [**Beginner's Contribution Guide**](CONTRIBUTING-BEGINNERS.md) — Step-by-step zero-to-PR walkthrough for first-time open-source contributors.
 * [**Windows Setup Guide**](CONTRIBUTING-WINDOWS.md) — Environment configuration, PowerShell commands, and tips for Windows developers.
