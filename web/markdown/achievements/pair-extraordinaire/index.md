@@ -24,8 +24,8 @@ Pair Extraordinaire is awarded for coauthored commits on merged pull requests. G
 
 GitHub's counting rule is not public. On a real account, 60 merged pull requests had commits with a Co-authored-by trailer while GitHub's tier said 10 to 23, so any count from the API would be wrong. The tool shows the official tier only.
 
-Check your progress: `gitverse` or https://gitverse.vercel.app/check/
+Check your progress: `gitverse` or https://mygitverse.vercel.app/check/
 
 ---
 
-[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Contact](https://mygitverse.vercel.app/contact/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

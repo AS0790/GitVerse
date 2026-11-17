@@ -48,7 +48,7 @@ This document outlines the evolutionary milestones and future initiatives planne
 
 ## 🚀 Future Roadmap (`v1.4.0` and Beyond)
 
-* **Dynamic Markdown & SVG Badges:** Embeddable GitHub profile README cards displaying real-time tier progress (e.g. `![GitVerse](https://gitverse.vercel.app/api/badge?u=TheVicky1)`).
+* **Dynamic Markdown & SVG Badges:** Embeddable GitHub profile README cards displaying real-time tier progress (e.g. `![GitVerse](https://mygitverse.vercel.app/api/badge?u=TheVicky1)`).
 * **Historical Milestone Timeline:** Interactive visual timeline tracking the exact chronological order of achievement unlocks across a developer's career.
 * **Organization Achievement Analytics:** Aggregate leaderboard and milestone tracking across enterprise organizations and open-source project teams.
 * **Canary Webhooks:** Automated Discord and Slack webhooks notifying maintainers immediately when GitHub alters native badge schemas.

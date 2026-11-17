@@ -6,36 +6,36 @@
 
 You can still earn these.
 
-- [Pull Shark](https://gitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024.
-- [Starstruck](https://gitverse.vercel.app/achievements/starstruck/): Create a repository that gets stars. Tiers: 16 · 128 · 512 · 4096.
-- [Pair Extraordinaire](https://gitverse.vercel.app/achievements/pair-extraordinaire/): Coauthor commits on merged pull requests. Tiers: 1 · 10 · 24 · 48.
-- [Galaxy Brain](https://gitverse.vercel.app/achievements/galaxy-brain/): Have discussion answers accepted. Tiers: 2 · 8 · 16 · 32.
-- [Quickdraw](https://gitverse.vercel.app/achievements/quickdraw/): Close an issue or pull request within 5 minutes of opening it. Tiers: one tier.
-- [YOLO](https://gitverse.vercel.app/achievements/yolo/): Merge a pull request without a review. Tiers: one tier.
-- [Public Sponsor](https://gitverse.vercel.app/achievements/public-sponsor/): Sponsor someone publicly through GitHub Sponsors. Tiers: one tier.
-- [Finishing Touch](https://gitverse.vercel.app/achievements/finishing-touch/): Get pull requests that improve GitHub's UI quality merged. Tiers: 1 · 4 · 16 · 32.
+- [Pull Shark](https://mygitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024.
+- [Starstruck](https://mygitverse.vercel.app/achievements/starstruck/): Create a repository that gets stars. Tiers: 16 · 128 · 512 · 4096.
+- [Pair Extraordinaire](https://mygitverse.vercel.app/achievements/pair-extraordinaire/): Coauthor commits on merged pull requests. Tiers: 1 · 10 · 24 · 48.
+- [Galaxy Brain](https://mygitverse.vercel.app/achievements/galaxy-brain/): Have discussion answers accepted. Tiers: 2 · 8 · 16 · 32.
+- [Quickdraw](https://mygitverse.vercel.app/achievements/quickdraw/): Close an issue or pull request within 5 minutes of opening it. Tiers: one tier.
+- [YOLO](https://mygitverse.vercel.app/achievements/yolo/): Merge a pull request without a review. Tiers: one tier.
+- [Public Sponsor](https://mygitverse.vercel.app/achievements/public-sponsor/): Sponsor someone publicly through GitHub Sponsors. Tiers: one tier.
+- [Finishing Touch](https://mygitverse.vercel.app/achievements/finishing-touch/): Get pull requests that improve GitHub's UI quality merged. Tiers: 1 · 4 · 16 · 32.
 
 ## Switched off by GitHub
 
 GitHub tested these and switched them off; nobody can earn them now.
 
-- [Heart On Your Sleeve](https://gitverse.vercel.app/achievements/heart-on-your-sleeve/): React to something on GitHub with a ❤️ emoji. Tiers: ? · 16 · 128 · ?.
-- [Open Sourcerer](https://gitverse.vercel.app/achievements/open-sourcerer/): Have pull requests merged in several public repositories. Tiers: ? · 8 · 16 · 64.
+- [Heart On Your Sleeve](https://mygitverse.vercel.app/achievements/heart-on-your-sleeve/): React to something on GitHub with a ❤️ emoji. Tiers: ? · 16 · 128 · ?.
+- [Open Sourcerer](https://mygitverse.vercel.app/achievements/open-sourcerer/): Have pull requests merged in several public repositories. Tiers: ? · 8 · 16 · 64.
 
 ## Retired
 
 No longer awarded. Profiles that have them keep them.
 
-- [Arctic Code Vault Contributor](https://gitverse.vercel.app/achievements/arctic-code-vault-contributor/): Code in a repository of the 2020 GitHub Archive Program. Tiers: one tier.
-- [Mars 2020 Contributor](https://gitverse.vercel.app/achievements/mars-2020-contributor/): Code in a repository used by the Mars 2020 Helicopter Mission. Tiers: one tier.
+- [Arctic Code Vault Contributor](https://mygitverse.vercel.app/achievements/arctic-code-vault-contributor/): Code in a repository of the 2020 GitHub Archive Program. Tiers: one tier.
+- [Mars 2020 Contributor](https://mygitverse.vercel.app/achievements/mars-2020-contributor/): Code in a repository used by the Mars 2020 Helicopter Mission. Tiers: one tier.
 
 ## GitHub staff only
 
 Only GitHub staff could earn these.
 
-- [Proxima Pioneer](https://gitverse.vercel.app/achievements/proxima-pioneer/): GitHub staff: contributed to the Proxima proof of concept. Tiers: one tier.
-- [Proxima Staffshipper](https://gitverse.vercel.app/achievements/proxima-staffshipper/): GitHub staff: shipped the Proxima staffship instance. Tiers: one tier.
-- [Proxima Staffuser](https://gitverse.vercel.app/achievements/proxima-staffuser/): GitHub staff: your team was onboarded to Proxima. Tiers: one tier.
+- [Proxima Pioneer](https://mygitverse.vercel.app/achievements/proxima-pioneer/): GitHub staff: contributed to the Proxima proof of concept. Tiers: one tier.
+- [Proxima Staffshipper](https://mygitverse.vercel.app/achievements/proxima-staffshipper/): GitHub staff: shipped the Proxima staffship instance. Tiers: one tier.
+- [Proxima Staffuser](https://mygitverse.vercel.app/achievements/proxima-staffuser/): GitHub staff: your team was onboarded to Proxima. Tiers: one tier.
 
 ## Profile highlights
 
@@ -48,4 +48,4 @@ Only GitHub staff could earn these.
 
 ---
 
-[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Contact](https://mygitverse.vercel.app/contact/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

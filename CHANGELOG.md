@@ -51,7 +51,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [v1.1.0] - 2026-09-20
 
 ### Added
-- **Vercel Web Intelligence Platform**: Cloud-deployed web checker hosted at `gitverse.vercel.app`.
+- **Vercel Web Intelligence Platform**: Cloud-deployed web checker hosted at `mygitverse.vercel.app`.
 - **Zero-Retention OAuth**: "Sign in with GitHub" integration enabling private repository milestone calculation.
 - **Instant Token Revocation**: Automatic serverless revocation of OAuth credentials upon request completion.
 - **Content Negotiation**: Support for raw Markdown responses when requesting with `Accept: text/markdown`.

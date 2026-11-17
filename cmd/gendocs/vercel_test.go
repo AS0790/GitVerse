@@ -94,7 +94,7 @@ func TestVercelJSON_callbackRulesCoverBothSpellingsAndComeAfterTheGlobalRule(t *
 func TestRedirectPages_pointEveryOldURLAtVercel(t *testing.T) {
 	pages := redirectPages()
 	page := string(pages["pages/achievements/pull-shark/index.html"])
-	want := "https://gitverse.vercel.app/achievements/pull-shark/"
+	want := "https://mygitverse.vercel.app/achievements/pull-shark/"
 	if !strings.Contains(page, `<link rel="canonical" href="`+want+`">`) || !strings.Contains(page, `content="0; url=`+want+`"`) {
 		t.Fatalf("redirect page = %s", page)
 	}

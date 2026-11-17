@@ -31,7 +31,7 @@ Flags:
   --no-color   plain text output (also honours NO_COLOR)
   --version    print the version
 
-Docs: https://gitverse.vercel.app/
+Docs: https://mygitverse.vercel.app/
 `
 
 // Run executes the GitVerse terminal command.

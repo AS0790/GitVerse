@@ -2,7 +2,7 @@
 
 > Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.
 
-GitVerse is an open source GitVerse CLI (MIT). Install with `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, run `gitverse [username]`. It reads tiers, unlock dates and milestone history from GitHub's own profile pages and counts progress with the user's existing gh login, so no personal access token is created. The web checker signs in with GitHub on a GitVerse server on Vercel, uses the token for one check and revokes it. A web checker at https://gitverse.vercel.app/check/ shows the same report without installing anything. It knows 15 achievements (8 earnable, 2 disabled, 2 retired, 3 internal) and 6 profile highlights. Catalog last verified 2026-10-17. It is not affiliated with GitHub.
+GitVerse is an open source GitVerse CLI (MIT). Install with `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, run `gitverse [username]`. It reads tiers, unlock dates and milestone history from GitHub's own profile pages and counts progress with the user's existing gh login, so no personal access token is created. The web checker signs in with GitHub on a GitVerse server on Vercel, uses the token for one check and revokes it. A web checker at https://mygitverse.vercel.app/check/ shows the same report without installing anything. It knows 15 achievements (8 earnable, 2 disabled, 2 retired, 3 internal) and 6 profile highlights. Catalog last verified 2026-10-17. It is not affiliated with GitHub.
 
 ## When to use GitVerse
 
@@ -17,43 +17,43 @@ It is not the right tool for GitHub contribution graphs, follower counts, reposi
 
 ## How an agent should call it
 
-- **Catalog facts (no user):** fetch https://gitverse.vercel.app/achievements.json (every achievement, tiers, kind, how to earn) or read a page below. Every page also answers `Accept: text/markdown` with Markdown.
+- **Catalog facts (no user):** fetch https://mygitverse.vercel.app/achievements.json (every achievement, tiers, kind, how to earn) or read a page below. Every page also answers `Accept: text/markdown` with Markdown.
 - **One user's progress, in a shell:** `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, then `gitverse <username> --json`. It uses the user's existing `gh auth login`; without it, public data only.
-- **One user's progress, no shell:** send the user to https://gitverse.vercel.app/check/ or link https://gitverse.vercel.app/result?u=<username> (public data, HTML).
-- **Accuracy questions:** cite https://gitverse.vercel.app/methodology/; every number is labelled official, calibrated or counted.
+- **One user's progress, no shell:** send the user to https://mygitverse.vercel.app/check/ or link https://mygitverse.vercel.app/result?u=<username> (public data, HTML).
+- **Accuracy questions:** cite https://mygitverse.vercel.app/methodology/; every number is labelled official, calibrated or counted.
 
 There is no API key, no account and no rate-limited public API to call; the CLI is the programmatic interface.
 
 ## Achievements
 
-- [Pull Shark](https://gitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024. Earnable.
-- [Starstruck](https://gitverse.vercel.app/achievements/starstruck/): Create a repository that gets stars. Tiers: 16 · 128 · 512 · 4096. Earnable.
-- [Pair Extraordinaire](https://gitverse.vercel.app/achievements/pair-extraordinaire/): Coauthor commits on merged pull requests. Tiers: 1 · 10 · 24 · 48. Earnable.
-- [Galaxy Brain](https://gitverse.vercel.app/achievements/galaxy-brain/): Have discussion answers accepted. Tiers: 2 · 8 · 16 · 32. Earnable.
-- [Quickdraw](https://gitverse.vercel.app/achievements/quickdraw/): Close an issue or pull request within 5 minutes of opening it. Tiers: one tier. Earnable.
-- [YOLO](https://gitverse.vercel.app/achievements/yolo/): Merge a pull request without a review. Tiers: one tier. Earnable.
-- [Public Sponsor](https://gitverse.vercel.app/achievements/public-sponsor/): Sponsor someone publicly through GitHub Sponsors. Tiers: one tier. Earnable.
-- [Finishing Touch](https://gitverse.vercel.app/achievements/finishing-touch/): Get pull requests that improve GitHub's UI quality merged. Tiers: 1 · 4 · 16 · 32. Earnable.
-- [Heart On Your Sleeve](https://gitverse.vercel.app/achievements/heart-on-your-sleeve/): React to something on GitHub with a ❤️ emoji. Tiers: ? · 16 · 128 · ?. Disabled (tested, not earnable now).
-- [Open Sourcerer](https://gitverse.vercel.app/achievements/open-sourcerer/): Have pull requests merged in several public repositories. Tiers: ? · 8 · 16 · 64. Disabled (tested, not earnable now).
-- [Arctic Code Vault Contributor](https://gitverse.vercel.app/achievements/arctic-code-vault-contributor/): Code in a repository of the 2020 GitHub Archive Program. Tiers: one tier. Retired (no longer earnable).
-- [Mars 2020 Contributor](https://gitverse.vercel.app/achievements/mars-2020-contributor/): Code in a repository used by the Mars 2020 Helicopter Mission. Tiers: one tier. Retired (no longer earnable).
-- [Proxima Pioneer](https://gitverse.vercel.app/achievements/proxima-pioneer/): GitHub staff: contributed to the Proxima proof of concept. Tiers: one tier. Internal (GitHub staff only).
-- [Proxima Staffshipper](https://gitverse.vercel.app/achievements/proxima-staffshipper/): GitHub staff: shipped the Proxima staffship instance. Tiers: one tier. Internal (GitHub staff only).
-- [Proxima Staffuser](https://gitverse.vercel.app/achievements/proxima-staffuser/): GitHub staff: your team was onboarded to Proxima. Tiers: one tier. Internal (GitHub staff only).
+- [Pull Shark](https://mygitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024. Earnable.
+- [Starstruck](https://mygitverse.vercel.app/achievements/starstruck/): Create a repository that gets stars. Tiers: 16 · 128 · 512 · 4096. Earnable.
+- [Pair Extraordinaire](https://mygitverse.vercel.app/achievements/pair-extraordinaire/): Coauthor commits on merged pull requests. Tiers: 1 · 10 · 24 · 48. Earnable.
+- [Galaxy Brain](https://mygitverse.vercel.app/achievements/galaxy-brain/): Have discussion answers accepted. Tiers: 2 · 8 · 16 · 32. Earnable.
+- [Quickdraw](https://mygitverse.vercel.app/achievements/quickdraw/): Close an issue or pull request within 5 minutes of opening it. Tiers: one tier. Earnable.
+- [YOLO](https://mygitverse.vercel.app/achievements/yolo/): Merge a pull request without a review. Tiers: one tier. Earnable.
+- [Public Sponsor](https://mygitverse.vercel.app/achievements/public-sponsor/): Sponsor someone publicly through GitHub Sponsors. Tiers: one tier. Earnable.
+- [Finishing Touch](https://mygitverse.vercel.app/achievements/finishing-touch/): Get pull requests that improve GitHub's UI quality merged. Tiers: 1 · 4 · 16 · 32. Earnable.
+- [Heart On Your Sleeve](https://mygitverse.vercel.app/achievements/heart-on-your-sleeve/): React to something on GitHub with a ❤️ emoji. Tiers: ? · 16 · 128 · ?. Disabled (tested, not earnable now).
+- [Open Sourcerer](https://mygitverse.vercel.app/achievements/open-sourcerer/): Have pull requests merged in several public repositories. Tiers: ? · 8 · 16 · 64. Disabled (tested, not earnable now).
+- [Arctic Code Vault Contributor](https://mygitverse.vercel.app/achievements/arctic-code-vault-contributor/): Code in a repository of the 2020 GitHub Archive Program. Tiers: one tier. Retired (no longer earnable).
+- [Mars 2020 Contributor](https://mygitverse.vercel.app/achievements/mars-2020-contributor/): Code in a repository used by the Mars 2020 Helicopter Mission. Tiers: one tier. Retired (no longer earnable).
+- [Proxima Pioneer](https://mygitverse.vercel.app/achievements/proxima-pioneer/): GitHub staff: contributed to the Proxima proof of concept. Tiers: one tier. Internal (GitHub staff only).
+- [Proxima Staffshipper](https://mygitverse.vercel.app/achievements/proxima-staffshipper/): GitHub staff: shipped the Proxima staffship instance. Tiers: one tier. Internal (GitHub staff only).
+- [Proxima Staffuser](https://mygitverse.vercel.app/achievements/proxima-staffuser/): GitHub staff: your team was onboarded to Proxima. Tiers: one tier. Internal (GitHub staff only).
 
 ## Docs
 
-- [All GitHub achievements](https://gitverse.vercel.app/achievements/): the full list with tiers
-- [How accurate is it](https://gitverse.vercel.app/methodology/): data sources, calibration, known limits
-- [Check a user](https://gitverse.vercel.app/check/): the web checker
+- [All GitHub achievements](https://mygitverse.vercel.app/achievements/): the full list with tiers
+- [How accurate is it](https://mygitverse.vercel.app/methodology/): data sources, calibration, known limits
+- [Check a user](https://mygitverse.vercel.app/check/): the web checker
 - [CLI usage and flags](https://github.com/TheVicky1/GitVerse.git#readme): `gitverse [username] [--json] [--all]`
 - [Source code](https://github.com/TheVicky1/GitVerse.git)
-- [About GitVerse](https://gitverse.vercel.app/about/): gitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1)
-- [Contact](https://gitverse.vercel.app/contact/): how to reach the GitVerse maintainer: GitHub issues for bugs and wrong counts, private vulnerability reports for security
-- [Privacy](https://gitverse.vercel.app/privacy/): what GitVerse collects (almost nothing), what the web checker sends to GitHub, and how consent-gated analytics work
+- [About GitVerse](https://mygitverse.vercel.app/about/): gitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1)
+- [Contact](https://mygitverse.vercel.app/contact/): how to reach the GitVerse maintainer: GitHub issues for bugs and wrong counts, private vulnerability reports for security
+- [Privacy](https://mygitverse.vercel.app/privacy/): what GitVerse collects (almost nothing), what the web checker sends to GitHub, and how consent-gated analytics work
 
 ## Optional
 
-- [achievements.json](https://gitverse.vercel.app/achievements.json): the catalog as JSON
-- [llms-full.txt](https://gitverse.vercel.app/llms-full.txt): every page as plain text
+- [achievements.json](https://mygitverse.vercel.app/achievements.json): the catalog as JSON
+- [llms-full.txt](https://mygitverse.vercel.app/llms-full.txt): every page as plain text

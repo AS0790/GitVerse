@@ -1,6 +1,6 @@
 # GitVerse System Architecture
 
-GitVerse is engineered around a **Dual-Engine Architecture**: two distinct developer interfaces—a compiled command-line binary (`gitverse`) and a serverless web platform (`gitverse.vercel.app`)—powered by the exact same core analytical algorithms.
+GitVerse is engineered around a **Dual-Engine Architecture**: two distinct developer interfaces—a compiled command-line binary (`gitverse`) and a serverless web platform (`mygitverse.vercel.app`)—powered by the exact same core analytical algorithms.
 
 ---
 

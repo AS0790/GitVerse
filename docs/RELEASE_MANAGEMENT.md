@@ -13,7 +13,7 @@ GitVerse strictly adheres to [Semantic Versioning 2.0.0](https://semver.org/) (`
 * ANSI-colored terminal report shelves and `--json` machine-readable output.
 
 ### 🏷️ `v1.1.0` - Web Platform & OAuth Integration
-* Serverless web architecture deployed to Vercel (`gitverse.vercel.app`).
+* Serverless web architecture deployed to Vercel (`mygitverse.vercel.app`).
 * Zero-retention GitHub OAuth sign-in enabling private repository milestone calculation.
 * Ephemeral token lifecycle: instant token revocation upon calculation completion.
 * Content negotiation supporting Markdown responses via `Accept: text/markdown`.

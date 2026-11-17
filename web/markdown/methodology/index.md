@@ -32,4 +32,4 @@ Last verified 2026-10-17.
 
 ---
 
-[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Contact](https://mygitverse.vercel.app/contact/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

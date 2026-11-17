@@ -2,7 +2,7 @@
 
 > Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.
 
-Install: `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, then run `gitverse [username]`. Or check in the browser at https://gitverse.vercel.app/check/.
+Install: `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, then run `gitverse [username]`. Or check in the browser at https://mygitverse.vercel.app/check/.
 
 ## When to use GitVerse
 
@@ -17,25 +17,25 @@ It is not the right tool for GitHub contribution graphs, follower counts, reposi
 
 ## How an agent should call it
 
-- **Catalog facts (no user):** fetch https://gitverse.vercel.app/achievements.json (every achievement, tiers, kind, how to earn) or read a page below. Every page also answers `Accept: text/markdown` with Markdown.
+- **Catalog facts (no user):** fetch https://mygitverse.vercel.app/achievements.json (every achievement, tiers, kind, how to earn) or read a page below. Every page also answers `Accept: text/markdown` with Markdown.
 - **One user's progress, in a shell:** `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, then `gitverse <username> --json`. It uses the user's existing `gh auth login`; without it, public data only.
-- **One user's progress, no shell:** send the user to https://gitverse.vercel.app/check/ or link https://gitverse.vercel.app/result?u=<username> (public data, HTML).
-- **Accuracy questions:** cite https://gitverse.vercel.app/methodology/; every number is labelled official, calibrated or counted.
+- **One user's progress, no shell:** send the user to https://mygitverse.vercel.app/check/ or link https://mygitverse.vercel.app/result?u=<username> (public data, HTML).
+- **Accuracy questions:** cite https://mygitverse.vercel.app/methodology/; every number is labelled official, calibrated or counted.
 
 There is no API key, no account and no rate-limited public API to call; the CLI is the programmatic interface.
 
 ## Earnable achievements
 
-- [Pull Shark](https://gitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024.
-- [Starstruck](https://gitverse.vercel.app/achievements/starstruck/): Create a repository that gets stars. Tiers: 16 · 128 · 512 · 4096.
-- [Pair Extraordinaire](https://gitverse.vercel.app/achievements/pair-extraordinaire/): Coauthor commits on merged pull requests. Tiers: 1 · 10 · 24 · 48.
-- [Galaxy Brain](https://gitverse.vercel.app/achievements/galaxy-brain/): Have discussion answers accepted. Tiers: 2 · 8 · 16 · 32.
-- [Quickdraw](https://gitverse.vercel.app/achievements/quickdraw/): Close an issue or pull request within 5 minutes of opening it. Tiers: one tier.
-- [YOLO](https://gitverse.vercel.app/achievements/yolo/): Merge a pull request without a review. Tiers: one tier.
-- [Public Sponsor](https://gitverse.vercel.app/achievements/public-sponsor/): Sponsor someone publicly through GitHub Sponsors. Tiers: one tier.
-- [Finishing Touch](https://gitverse.vercel.app/achievements/finishing-touch/): Get pull requests that improve GitHub's UI quality merged. Tiers: 1 · 4 · 16 · 32.
+- [Pull Shark](https://mygitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024.
+- [Starstruck](https://mygitverse.vercel.app/achievements/starstruck/): Create a repository that gets stars. Tiers: 16 · 128 · 512 · 4096.
+- [Pair Extraordinaire](https://mygitverse.vercel.app/achievements/pair-extraordinaire/): Coauthor commits on merged pull requests. Tiers: 1 · 10 · 24 · 48.
+- [Galaxy Brain](https://mygitverse.vercel.app/achievements/galaxy-brain/): Have discussion answers accepted. Tiers: 2 · 8 · 16 · 32.
+- [Quickdraw](https://mygitverse.vercel.app/achievements/quickdraw/): Close an issue or pull request within 5 minutes of opening it. Tiers: one tier.
+- [YOLO](https://mygitverse.vercel.app/achievements/yolo/): Merge a pull request without a review. Tiers: one tier.
+- [Public Sponsor](https://mygitverse.vercel.app/achievements/public-sponsor/): Sponsor someone publicly through GitHub Sponsors. Tiers: one tier.
+- [Finishing Touch](https://mygitverse.vercel.app/achievements/finishing-touch/): Get pull requests that improve GitHub's UI quality merged. Tiers: 1 · 4 · 16 · 32.
 
-All 15 achievements (8 earnable, 2 disabled, 2 retired, 3 internal): https://gitverse.vercel.app/achievements/
+All 15 achievements (8 earnable, 2 disabled, 2 retired, 3 internal): https://mygitverse.vercel.app/achievements/
 
 ## FAQ
 
@@ -69,4 +69,4 @@ No. GitVerse is an independent open-source project. It is not made by, affiliate
 
 ---
 
-[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Contact](https://mygitverse.vercel.app/contact/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

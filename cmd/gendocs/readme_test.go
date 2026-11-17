@@ -163,7 +163,7 @@ func TestReadme_showsTheSiteAndBothWaysToCheck(t *testing.T) {
 	readme := string(b)
 	for _, want := range []string{
 		"GitVerse - GitHub Achievement Intelligence Platform",
-		"https://gitverse.vercel.app",
+		"https://mygitverse.vercel.app",
 		"go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest",
 		"Dual-Engine Architecture",
 		"docs/assets/gitverse-hero.jpg",

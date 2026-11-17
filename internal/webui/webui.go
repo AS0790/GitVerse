@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	SiteURL         = "https://gitverse.vercel.app/"
+	SiteURL         = "https://mygitverse.vercel.app/"
 	BasePath        = "/"
 	RepoURL         = "https://github.com/TheVicky1/GitVerse.git"
 	Install         = "go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest"

@@ -52,8 +52,8 @@ func TestMarkdown_unknownPathIsA404WithAMarkdownBody(t *testing.T) {
 		if w.Code != 404 || w.Header().Get("Content-Type") != "text/markdown; charset=utf-8" || w.Header().Get("Vary") != "Accept" {
 			t.Errorf("%q: status %d, headers %v", path, w.Code, w.Header())
 		}
-		if !strings.HasPrefix(body, "# Page not found") || !strings.Contains(body, "https://gitverse.vercel.app/llms.txt") ||
-			!strings.Contains(body, "https://gitverse.vercel.app/sitemap.xml") {
+		if !strings.HasPrefix(body, "# Page not found") || !strings.Contains(body, "https://mygitverse.vercel.app/llms.txt") ||
+			!strings.Contains(body, "https://mygitverse.vercel.app/sitemap.xml") {
 			t.Errorf("%q: body %q", path, body)
 		}
 	}

@@ -24,8 +24,8 @@ One repository with 16 stars for the base badge, 128 for x2, 512 for x3 and 4096
 
 No. The thresholds apply to a single repository; GitHub's history names one repository per threshold.
 
-Check your progress: `gitverse` or https://gitverse.vercel.app/check/
+Check your progress: `gitverse` or https://mygitverse.vercel.app/check/
 
 ---
 
-[GitVerse](https://gitverse.vercel.app/) · [llms.txt](https://gitverse.vercel.app/llms.txt) · [About](https://gitverse.vercel.app/about/) · [Contact](https://gitverse.vercel.app/contact/) · [Privacy](https://gitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Contact](https://mygitverse.vercel.app/contact/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

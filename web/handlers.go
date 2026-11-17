@@ -43,7 +43,7 @@ const statusClientClosed = 499
 type Config struct {
 	ClientID, ClientSecret, BotToken string
 	StateSecret                      []byte
-	BaseURL                          string // https://gitverse.vercel.app or http://localhost:8787
+	BaseURL                          string // https://mygitverse.vercel.app or http://localhost:8787
 	GitHub                           GitHub
 	Official                         report.Official
 	NewCounts                        func(token string) (counters.Source, error)
