@@ -10,7 +10,7 @@ When you open a badge on a profile, GitHub loads /users/<user>/achievements/<slu
 
 ## Calibration
 
-For Pull Shark, GitHub names which merged pull request was its 2nd, 16th, 128th and 1024th. GitVerse lists your merged pull requests in merge order and finds the highest milestone it can see. For @torvalds, GitHub's 16th is subsurface/subsurface#1506, and it is also 16th in the API's list, so the two counts agree (+0). Any difference is added to the live count, so pull requests the API cannot show you are still counted.
+For Pull Shark, GitHub names which merged pull request was a profile's 2nd, 16th, 128th and 1024th. GitVerse lists merged pull requests in merge order and finds the highest milestone it can see. Any difference is added to the live count, so pull requests the API cannot show you are still counted.
 
 ## An official tier is never contradicted
 
