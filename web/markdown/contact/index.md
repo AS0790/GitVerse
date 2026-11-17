@@ -14,7 +14,7 @@ Report a vulnerability privately through GitHub's private vulnerability reportin
 
 ## Contributions
 
-Pull requests are welcome. CONTRIBUTING.md in the repository explains how to build, test and regenerate the site. The maintainer is nmloc on GitHub (https://github.com/nmloc).
+Pull requests are welcome. CONTRIBUTING.md in the repository explains how to build, test and regenerate the site. The maintainer is Vicky Patel on GitHub (https://github.com/TheVicky1).
 
 ---
 
