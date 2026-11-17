@@ -246,8 +246,8 @@ func TestSitePages_listLabelsTheTierColumns(t *testing.T) {
 	}
 	list := string(pages["site/achievements/index.html"])
 	for _, want := range []string{
-		`<p class="meta">Tiers x1–x4: 2 · 16 · 128 · 1024</p>`, // Pull Shark
-		`<p class="meta">Tiers x1–x4: ? · 16 · 128 · ?</p>`,    // Heart On Your Sleeve: unknown ends
+		`<p class="meta">Tiers x1-x4: 2 · 16 · 128 · 1024</p>`, // Pull Shark
+		`<p class="meta">Tiers x1-x4: ? · 16 · 128 · ?</p>`,    // Heart On Your Sleeve: unknown ends
 		`<p class="meta">One tier</p>`,
 	} {
 		if !strings.Contains(list, want) {
