@@ -43,10 +43,10 @@
       <nav id="site-nav" aria-label="Site">
         <a href="/check/">Track</a>
         <a href="/achievements/">Explore</a>
-        <a href="/methodology/">How it works</a>
         <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
         <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
-        <span class="star-count" data-stars hidden></span>
+        <button type="button" class="nav-link-btn" data-consent-reset hidden aria-hidden="true">Settings</button>
       </nav>
       <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
       <a href="/check/" class="nav-cta">Check Profile</a>
@@ -58,17 +58,18 @@
     
     
 <section class="hero">
-  <h1>Every Milestone Tells a Story.</h1>
-  <p class="lede">A clear, refined view of every GitHub achievement, the tier you hold and the progress toward what comes next.</p>
+  <div class="hero-eyebrow">GitHub Achievement Intelligence</div>
+  <h1>Know exactly<br>where you stand.</h1>
+  <p class="lede">Every GitHub achievement, your current tier, and the precise distance to the next one - pulled straight from GitHub's own data.</p>
   
 <form action="/result" method="get" id="check-form">
   <label for="u" class="visually-hidden">GitHub username</label>
   <input id="u" name="u" required autocomplete="username" autocapitalize="off" spellcheck="false"
-    pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="GitHub username" value="">
+    pattern="[A-Za-z0-9][A-Za-z0-9\-]{0,38}" placeholder="lalitadithya" value="">
   <button type="submit" class="btn primary">Check</button>
 </form>
 
-  <p class="signin"><a href="/auth/login" data-signin>Sign in with GitHub</a> to include private work.</p>
+  <p class="signin"><a href="/auth/login" data-signin>Sign in with GitHub</a> to include private repository progress.</p>
 </section>
 
 <ul class="vitrine shelf home-shelf" aria-label="The 8 badges you can earn, at their top tier">
@@ -130,10 +131,7 @@ gitverse &lt;username&gt;</code></pre>
   </main>
   <footer class="aurora-footer">
     <div class="aurora-footer-top">
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
       <a href="/privacy/">Privacy Policy</a>
-      <button type="button" class="footer-link-btn" data-consent-reset>Settings</button>
       <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
     </div>
     <div class="aurora-footer-watermark" aria-hidden="true">

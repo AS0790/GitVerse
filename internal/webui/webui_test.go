@@ -19,9 +19,9 @@ func TestRender_usesTheVercelDomainAndRootPaths(t *testing.T) {
 		`<script src="/app.js" defer data-ga="G-3EEKKGL110"></script>`,
 		`<meta name="robots" content="noindex">`,
 		`id="consent" hidden`,
-		`<span class="star-count" data-stars hidden></span>`,
+		`<a href="/about/">About</a>`,
 		`<button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>`,
-		`<a href="/methodology/">How it works</a>`,
+		`<a href="/check/">Track</a>`,
 		`gitverse-favicon.png`,
 	} {
 		if !strings.Contains(html, want) {

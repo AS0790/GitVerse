@@ -2138,6 +2138,9 @@ body.privacy-page {
   font-size: .61rem;
   font-weight: 600;
   letter-spacing: .20em;
+  margin-right: -0.20em;
+  text-align: center;
+  display: block;
 }
 
 .gv-loader__wordmark {

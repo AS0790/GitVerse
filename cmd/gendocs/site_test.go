@@ -141,8 +141,8 @@ func TestSitePages_homeIsATrophyCase(t *testing.T) {
 		t.Fatal(err)
 	}
 	home := string(pages["site/index.html"])
-	for _, want := range []string{`<h1>Every Milestone Tells a Story.</h1>`, `<form action="/result" method="get" id="check-form">`,
-		`<a href="/auth/login" data-signin>Sign in with GitHub</a> to include private work.`,
+	for _, want := range []string{`<h1>Know exactly<br>where you stand.</h1>`, `<div class="hero-eyebrow">GitHub Achievement Intelligence</div>`, `<form action="/result" method="get" id="check-form">`,
+		`<a href="/auth/login" data-signin>Sign in with GitHub</a> to include private repository progress.`,
 		`<ul class="vitrine shelf home-shelf"`, `data-star="home"`, `data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest"`,
 		`"@type":"FAQPage"`, `"@type":"SoftwareApplication"`,
 		fmt.Sprintf(`<p class="meta"><a href="achievements/">See all %d GitHub achievements</a>, including the retired ones and those GitHub switched off.</p>`, len(catalog.Achievements))} {

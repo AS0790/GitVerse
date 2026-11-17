@@ -45,15 +45,15 @@
       <a class="brand" href="{{.Base}}"><img class="brand-wordmark" src="{{.Base}}gitverse-wordmark-transparent.png"
           alt="GitVerse"></a>
       <nav id="site-nav" aria-label="Site">
-        <a href="{{.Base}}check/">Track</a>
-        <a href="{{.Base}}achievements/">Explore</a>
-        <a href="{{.Base}}methodology/">How it works</a>
-        <a href="{{.Base}}about/">About</a>
+        <a href="/check/">Track</a>
+        <a href="/achievements/">Explore</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
         <a href="{{.RepoURL}}" rel="noopener">GitHub</a>
-        <span class="star-count" data-stars hidden></span>
+        <button type="button" class="nav-link-btn" data-consent-reset hidden aria-hidden="true">Settings</button>
       </nav>
       <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
-      <a href="{{.Base}}check/" class="nav-cta">Check Profile</a>
+      <a href="/check/" class="nav-cta">Check Profile</a>
       <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
     </div>
   </header>
@@ -67,10 +67,7 @@
   </main>
   <footer class="aurora-footer">
     <div class="aurora-footer-top">
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
       <a href="/privacy/">Privacy Policy</a>
-      <button type="button" class="footer-link-btn" data-consent-reset>Settings</button>
       <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
     </div>
     <div class="aurora-footer-watermark" aria-hidden="true">
