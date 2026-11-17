@@ -9,7 +9,7 @@
 {{if .P.NoIndex}}<meta name="robots" content="noindex">
 {{else}}<link rel="canonical" href="{{.P.URL}}">
 {{end}}
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="gh-achievements">
 <meta property="og:title" content="{{.P.Title}}">
@@ -20,9 +20,9 @@
 <meta property="og:image:height" content="640">
 <meta property="og:image:alt" content="gh-achievements: check your GitHub achievements progress in the terminal">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="{{.Base}}gitverse-favicon.png">
 <script src="{{.Base}}theme.js"></script>
-<link rel="preload" href="{{.Base}}fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{.Base}}fonts/playfair-display-400.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="{{.Base}}style.css">
 <link rel="alternate" type="application/json" href="{{.Base}}achievements.json" title="Achievement catalog (JSON)">
 {{range .P.JSONLD}}<script type="application/ld+json">{{.}}</script>
@@ -32,14 +32,13 @@
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="{{.Base}}">🏆 gh-achievements</a>
+    <a class="brand" href="{{.Base}}"><img class="brand-wordmark" src="{{.Base}}gitverse-wordmark-transparent.png" alt="GitVerse"></a>
     <nav id="site-nav" aria-label="Site">
-      <a href="{{.Base}}check/">Check yours</a>
-      <a href="{{.Base}}achievements/">All achievements</a>
-      <a href="{{.Base}}methodology/">How it works</a>
-      <a href="{{.RepoURL}}">GitHub</a>
+      <a href="{{.Base}}check/">Track</a>
+      <a href="{{.Base}}achievements/">Explore</a>
+      <a href="{{.Base}}about/">About</a>
+      <a href="{{.RepoURL}}" rel="noopener">GitHub</a>
     </nav>
-    <a class="star" href="{{.RepoURL}}" rel="noopener" data-star="header"><span aria-hidden="true">★</span> Star<span class="star-long"> on GitHub</span> <span class="star-count" data-stars hidden></span></a>
     <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
     <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
   </div>
@@ -49,9 +48,14 @@
 {{with .P.Heading}}<h1>{{.}}</h1>{{end}}
 {{template "content" .P.Data}}
 </main>
-<footer>
-  <p>gh-achievements is an independent open source project (MIT) and is not affiliated with or endorsed by GitHub.
-  <a href="{{.Base}}about/">About</a> · <a href="{{.Base}}contact/">Contact</a> · <a href="{{.Base}}privacy/">Privacy</a> · <a href="{{.RepoURL}}">Source</a> · <a href="{{.Base}}achievements.json">achievements.json</a> · <a href="{{.Base}}llms.txt">llms.txt</a> · Badge artwork © GitHub, loaded from GitHub's CDN. · <button type="button" class="linklike" data-consent-reset>Analytics settings</button></p>
+<footer class="aurora-footer">
+  <div class="aurora-footer-top">
+    <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
+    <span class="footer-copyright">© 2026 GITVERSE · GITHUB ACHIEVEMENT INTELLIGENCE</span>
+  </div>
+  <div class="aurora-footer-watermark" aria-hidden="true">
+    <span>GITVERSE</span>
+  </div>
 </footer>
 <div id="consent" hidden role="dialog" aria-label="Analytics consent">
   <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>

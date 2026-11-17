@@ -232,7 +232,7 @@ func sitePages() (map[string][]byte, error) {
 			Path: tp.Slug + "/index.html", URL: url, Title: tp.Title, Description: tp.Description,
 			Heading: tp.Heading, Content: "prose.html", Crumbs: crumbs,
 			JSONLD: []template.JS{breadcrumbLD(crumbs)},
-			Data:   map[string]interface{}{"Paras": tp.Paras},
+			Data:   map[string]interface{}{"Paras": tp.Paras, "ShowStar": tp.Slug == "about"},
 		})
 	}
 	for i, v := range views {
@@ -278,7 +278,7 @@ func sitePages() (map[string][]byte, error) {
 	})
 
 	out := map[string][]byte{}
-	for _, name := range []string{"style.css", "theme.js", "app.js", "callback.js", "fonts/bricolage-grotesque.woff2", "fonts/OFL.txt"} {
+	for _, name := range []string{"style.css", "theme.js", "app.js", "callback.js", "gitverse-logo.png", "gitverse-favicon.png", "gitverse-wordmark-transparent.png", "fonts/bricolage-grotesque.woff2", "fonts/space-grotesk-400.ttf", "fonts/space-grotesk-700.ttf", "fonts/press-start-2p.ttf", "fonts/playfair-display-400.ttf", "fonts/playfair-display-700.ttf", "fonts/OFL.txt"} {
 		b, err := webui.Static(name)
 		if err != nil {
 			return nil, err

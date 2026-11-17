@@ -3,76 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy policy · gh-achievements</title>
-<meta name="description" content="What gh-achievements collects (almost nothing), what the web checker sends to GitHub, and how consent-gated analytics work.">
-<link rel="canonical" href="https://gh-achievements.vercel.app/privacy/">
+<title>Privacy Policy · GitVerse</title>
+<meta name="description" content="This Privacy Policy explains what information we collect, how we use it, and the measures we take to protect it.">
+<link rel="canonical" href="https://gitverse.vercel.app/privacy/">
 
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="gh-achievements">
-<meta property="og:title" content="Privacy policy · gh-achievements">
-<meta property="og:description" content="What gh-achievements collects (almost nothing), what the web checker sends to GitHub, and how consent-gated analytics work.">
-<meta property="og:url" content="https://gh-achievements.vercel.app/privacy/">
-<meta property="og:image" content="https://gh-achievements.vercel.app/social.png">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="gh-achievements: check your GitHub achievements progress in the terminal">
+<meta property="og:site_name" content="GitVerse">
+<meta property="og:title" content="Privacy Policy · GitVerse">
+<meta property="og:description" content="This Privacy Policy explains what information we collect, how we use it, and the measures we take to protect it.">
+<meta property="og:url" content="https://gitverse.vercel.app/privacy/">
+<meta property="og:image" content="https://gitverse.vercel.app/social.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
-<script src="/theme.js"></script>
 <link rel="preload" href="/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
-<link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://gh-achievements.vercel.app/","name":"gh-achievements","position":1},{"@type":"ListItem","item":"https://gh-achievements.vercel.app/privacy/","name":"Privacy","position":2}]}</script>
-<script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
 </head>
-<body>
-<header class="top">
-  <div class="top-in">
-    <a class="brand" href="/">🏆 gh-achievements</a>
-    <nav id="site-nav" aria-label="Site">
-      <a href="/check/">Check yours</a>
-      <a href="/achievements/">All achievements</a>
-      <a href="/methodology/">How it works</a>
-      <a href="https://github.com/nmloc/gh-achievements">GitHub</a>
-    </nav>
-    <a class="star" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="header"><span aria-hidden="true">★</span> Star<span class="star-long"> on GitHub</span> <span class="star-count" data-stars hidden></span></a>
-    <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
-    <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
+<body class="privacy-page">
+
+<main class="privacy-container">
+  <div class="privacy-header">
+    <h1>Privacy Policy</h1>
+    <div class="last-updated">Last Updated: November 2026</div>
   </div>
-</header>
-<main>
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">gh-achievements</a></li><li><span aria-hidden="true">›</span> <a href="/privacy/">Privacy</a></li></ol></nav>
-<h1>Privacy</h1>
 
-<div class="prose">
+  <div class="privacy-content">
+    <p class="intro-lede">
+      This Privacy Policy explains what information we collect, how we use it, and the measures we take to protect it. GitVerse respects your privacy and is committed to protecting the information you share while using our GitHub achievement intelligence platform.
+    </p>
 
-<h2>The CLI</h2>
-<p>The GitHub CLI extension runs on your computer. It reuses the login the GitHub CLI already stores (or GH_TOKEN) and talks only to github.com and api.github.com. It sends nothing to gh-achievements or any other server and writes no token anywhere.</p>
+    <section class="privacy-section">
+      <h2>Information We Collect</h2>
+      <p>We may collect information that you voluntarily provide when using GitVerse, including:</p>
+      <ul class="privacy-list">
+        <li><strong>Contact Information:</strong> Your name, email address, and any information submitted through our contact forms, community feedback, or GitHub issue discussions.</li>
+        <li><strong>GitHub Profile &amp; Achievement Data:</strong> Public GitHub username, profile statistics, earned badges, tier unlocks, and contribution milestones queried exclusively from GitHub's public web and API endpoints.</li>
+        <li><strong>Ephemeral OAuth Tokens:</strong> If you choose to check private repository achievement progress via "Sign in with GitHub", a temporary token is held only in memory for a single calculation pass and immediately revoked via GitHub's OAuth revocation endpoint. No token is ever written to disk or database.</li>
+        <li><strong>User Preferences:</strong> Your selected theme settings and analytics consent stored strictly in your browser's local storage.</li>
+      </ul>
+    </section>
 
-<h2>The web checker</h2>
-<p>When you check a username, the request goes to the gh-achievements server on Vercel, which reads that profile&#39;s public data from GitHub with a read-only bot token. When you sign in with GitHub, the one-time code is exchanged on the server, the token is used for a single check and revoked at once, and refresh tokens are discarded. No account is created and no report, username or token is stored. Server logs record error types only, never usernames or tokens. Vercel, the host, processes each request under its own privacy policy.</p>
+    <section class="privacy-section">
+      <h2>How We Use Your Information</h2>
+      <p>We use collected data solely to compute and visualize accurate GitHub achievement progress:</p>
+      <ul class="privacy-list">
+        <li><strong>Achievement &amp; Progress Calculation:</strong> Parsing public contribution data to compute tier requirements, distance to next milestone, and historical unlocks.</li>
+        <li><strong>Instant Credential Revocation:</strong> Immediately destroying and revoking authorization credentials after computing one-off profile reports.</li>
+        <li><strong>Platform Reliability &amp; Performance:</strong> Monitoring serverless runtime error codes without associating them with usernames or repositories.</li>
+      </ul>
+    </section>
 
-<h2>Cookies and browser storage</h2>
-<p>Signing in sets one HttpOnly cookie, gha_oauth, holding a signed sign-in state that expires after 10 minutes and is cleared as soon as the check starts.Your browser&#39;s local storage remembers your theme, your analytics choice and the last username you signed in as, so the page can greet you; session storage caches the repository&#39;s star count. None of this leaves your browser.</p>
+    <section class="privacy-section">
+      <h2>Data Storage &amp; Zero-Retention Policy</h2>
+      <p>GitVerse is built on a privacy-first, zero-retention architecture:</p>
+      <ul class="privacy-list">
+        <li><strong>No User Database:</strong> GitVerse operates without a database for personal user information. We do not store account profiles, passwords, or repository files.</li>
+        <li><strong>Ephemeral Processing:</strong> All calculations are executed on-demand in isolated serverless execution environments and wiped upon response delivery.</li>
+        <li><strong>Encrypted Transport:</strong> All network communication is enforced over HTTPS with TLS 1.3 encryption.</li>
+      </ul>
+    </section>
 
-<h2>Analytics</h2>
-<p>Google Analytics loads only after you click Allow, and the site works the same if you say no. Page addresses are sent without their query string and result-page titles are replaced, so no username or repository name reaches Google. You can change your choice at any time with &#34;Analytics settings&#34; in the footer.</p>
+    <section class="privacy-section">
+      <h2>Cookies &amp; Local Storage</h2>
+      <p>GitVerse does not use tracking cookies. We utilize standard browser local storage solely to remember your UI theme preference (dark/light) and your analytics consent choice. This information remains completely on your local device and is never transmitted to our servers.</p>
+    </section>
 
-<h2>Questions</h2>
-<p>Ask in a GitHub issue at https://github.com/nmloc/gh-achievements/issues, or report a privacy or security problem privately at https://github.com/nmloc/gh-achievements/security/advisories/new.</p>
+    <section class="privacy-section">
+      <h2>Third-Party Services</h2>
+      <p>Our service interacts with the following external providers under strict security guidelines:</p>
+      <ul class="privacy-list">
+        <li><strong>GitHub (GitHub, Inc.):</strong> Used to read badge artwork from GitHub's CDN and fetch achievement milestone metrics.</li>
+        <li><strong>Vercel (Vercel, Inc.):</strong> Hosts our serverless endpoints and static edge distribution under standard CDN security policies.</li>
+        <li><strong>Optional Analytics:</strong> Google Analytics runs only if explicitly granted via the consent banner. Page titles are sanitized so no usernames or repository identifiers are transmitted.</li>
+      </ul>
+    </section>
 
-</div>
-
+    <section class="privacy-section">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or feedback regarding this Privacy Policy or GitVerse's data handling practices, please open a discussion on our official repository:</p>
+      <p><a href="https://github.com/TheVicky1/GitVerse" target="_blank" rel="noopener" style="color: #ffffff; text-decoration: underline; font-weight: 500;">https://github.com/TheVicky1/GitVerse</a></p>
+    </section>
+  </div>
 </main>
-<footer>
-  <p>gh-achievements is an independent open source project (MIT) and is not affiliated with or endorsed by GitHub.
-  <a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="https://github.com/nmloc/gh-achievements">Source</a> · <a href="/achievements.json">achievements.json</a> · <a href="/llms.txt">llms.txt</a> · Badge artwork © GitHub, loaded from GitHub's CDN. · <button type="button" class="linklike" data-consent-reset>Analytics settings</button></p>
+
+<footer class="aurora-footer">
+  <div class="aurora-footer-top">
+    <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
+    <span class="footer-copyright">© 2026 GITVERSE · GITHUB ACHIEVEMENT INTELLIGENCE</span>
+  </div>
+  <div class="aurora-footer-watermark" aria-hidden="true">
+    <span>GITVERSE</span>
+  </div>
 </footer>
-<div id="consent" hidden role="dialog" aria-label="Analytics consent">
-  <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>
-  <button type="button" data-consent="granted" class="btn primary">Allow</button>
-  <button type="button" data-consent="denied" class="btn">No thanks</button>
-</div>
+
 </body>
 </html>

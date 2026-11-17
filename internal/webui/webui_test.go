@@ -19,11 +19,10 @@ func TestRender_usesTheVercelDomainAndRootPaths(t *testing.T) {
 		`<script src="/app.js" defer data-ga="G-3EEKKGL110"></script>`,
 		`<meta name="robots" content="noindex">`,
 		`id="consent" hidden`,
-		`<a class="star" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="header">`,
-		`<span class="star-long"> on GitHub</span>`,
 		`<span class="star-count" data-stars hidden></span>`,
 		`<button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>`,
 		`<a href="/methodology/">How it works</a>`,
+		`gitverse-favicon.png`,
 	} {
 		if !strings.Contains(html, want) {
 			t.Errorf("missing %s", want)
@@ -168,8 +167,8 @@ func TestStarBanner_namesItsPlaceAndTheRepo(t *testing.T) {
 		t.Fatal(err)
 	}
 	html := string(b)
-	for _, want := range []string{`<a class="star-banner" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="home">`,
-		"Found this useful? Star gh-achievements on GitHub", `data-stars hidden`} {
+	for _, want := range []string{`<a class="star-banner" href="https://github.com/TheVicky1/GitVerse.git" rel="noopener" data-star="home">`,
+		"Found this useful? Star GitVerse on GitHub", `data-stars hidden`} {
 		if !strings.Contains(html, want) {
 			t.Errorf("star banner lacks %s", want)
 		}
@@ -199,11 +198,11 @@ func TestAppJS_starCountAndClick(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, want := range []string{`"https://api.github.com/repos/nmloc/gh-achievements"`, `credentials: "omit"`,
+	for _, want := range []string{`"https://api.github.com/repos/TheVicky1/GitVerse"`, `"gitverse:stars"`, `credentials: "omit"`,
 		`referrerPolicy: "no-referrer"`, `sessionStorage`, `track("star_click", { place: t.dataset.star })`,
 		`fillStars: fillStars`, `[data-menu]`, `aria-expanded`,
-		// "★ Star 0" argues against starring: no count is shown until there is one.
-		`if (stars === null || stars < 1) return;`} {
+		// The GitVerse counter begins at zero and updates from the repository API.
+		`if (stars === null) return;`} {
 		if !strings.Contains(string(js), want) {
 			t.Errorf("app.js lacks %s", want)
 		}

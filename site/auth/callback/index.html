@@ -4,24 +4,24 @@
 <meta charset="utf-8">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checking… · gh-achievements</title>
+<title>Checking… · GitVerse</title>
 <meta name="description" content="Checking your GitHub achievements.">
 <meta name="robots" content="noindex">
 
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="gh-achievements">
-<meta property="og:title" content="Checking… · gh-achievements">
+<meta property="og:site_name" content="GitVerse">
+<meta property="og:title" content="Checking… · GitVerse">
 <meta property="og:description" content="Checking your GitHub achievements.">
-<meta property="og:url" content="https://gh-achievements.vercel.app/auth/callback/">
-<meta property="og:image" content="https://gh-achievements.vercel.app/social.png">
+<meta property="og:url" content="https://GitVerse.vercel.app/auth/callback/">
+<meta property="og:image" content="https://GitVerse.vercel.app/social.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="gh-achievements: check your GitHub achievements progress in the terminal">
+<meta property="og:image:alt" content="GitVerse: check your GitHub achievements progress in the terminal">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="/gitverse-favicon.png">
 <script src="/theme.js"></script>
-<link rel="preload" href="/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/playfair-display-400.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/style.css">
 <link rel="alternate" type="application/json" href="/achievements.json" title="Achievement catalog (JSON)">
 <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
@@ -30,14 +30,13 @@
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="/">🏆 gh-achievements</a>
+    <a class="brand" href="/"><img class="brand-wordmark" src="/gitverse-wordmark-transparent.png" alt="GitVerse"></a>
     <nav id="site-nav" aria-label="Site">
-      <a href="/check/">Check yours</a>
-      <a href="/achievements/">All achievements</a>
-      <a href="/methodology/">How it works</a>
-      <a href="https://github.com/nmloc/gh-achievements">GitHub</a>
+      <a href="/check/">Track</a>
+      <a href="/achievements/">Explore</a>
+      <a href="/about/">About</a>
+      <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
     </nav>
-    <a class="star" href="https://github.com/nmloc/gh-achievements" rel="noopener" data-star="header"><span aria-hidden="true">★</span> Star<span class="star-long"> on GitHub</span> <span class="star-count" data-stars hidden></span></a>
     <button type="button" class="theme-btn" data-theme-toggle hidden>Dark</button>
     <button type="button" class="menu-btn" data-menu aria-expanded="false" aria-controls="site-nav">Menu</button>
   </div>
@@ -56,15 +55,20 @@
 <div id="error-denied" class="notice error" hidden><p>You chose not to sign in. <a href="/check/">Check a public profile instead</a>.</p></div>
 <div id="error-state" class="notice error" hidden><p>Sign-in expired or was interrupted. <a href="/auth/login" data-signin>Try again</a>.</p></div>
 <div id="error-exchange" class="notice error" hidden><p>GitHub did not accept the sign-in. <a href="/auth/login" data-signin>Try again</a>.</p></div>
-<div id="error-timeout" class="notice error" hidden><p>Your account is too large to check on the web in time. Use the CLI: <code>gh extension install nmloc/gh-achievements</code>.</p></div>
+<div id="error-timeout" class="notice error" hidden><p>Your account is too large to check on the web in time. Use the CLI: <code>gh extension install nmloc/GitVerse</code>.</p></div>
 <div id="error-github" class="notice error" hidden><p>GitHub did not answer. <a href="/auth/login" data-signin>Try again</a> in a minute.</p></div>
-<div id="error-network" class="notice error" hidden><p>Could not reach gh-achievements. Check your connection and <a href="/auth/login" data-signin>try again</a>.</p></div>
-<div id="error-internal" class="notice error" hidden><p>Something broke on our side. <a href="/auth/login" data-signin>Try again</a>, or <a href="https://github.com/nmloc/gh-achievements/issues/new/choose">report it</a>.</p></div>
+<div id="error-network" class="notice error" hidden><p>Could not reach GitVerse. Check your connection and <a href="/auth/login" data-signin>try again</a>.</p></div>
+<div id="error-internal" class="notice error" hidden><p>Something broke on our side. <a href="/auth/login" data-signin>Try again</a>, or <a href="https://github.com/TheVicky1/GitVerse.git/issues/new/choose">report it</a>.</p></div>
 
 </main>
-<footer>
-  <p>gh-achievements is an independent open source project (MIT) and is not affiliated with or endorsed by GitHub.
-  <a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="https://github.com/nmloc/gh-achievements">Source</a> · <a href="/achievements.json">achievements.json</a> · <a href="/llms.txt">llms.txt</a> · Badge artwork © GitHub, loaded from GitHub's CDN. · <button type="button" class="linklike" data-consent-reset>Analytics settings</button></p>
+<footer class="aurora-footer">
+  <div class="aurora-footer-top">
+    <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
+    <span class="footer-copyright">© 2026 GITVERSE · GITHUB ACHIEVEMENT INTELLIGENCE</span>
+  </div>
+  <div class="aurora-footer-watermark" aria-hidden="true">
+    <span>GITVERSE</span>
+  </div>
 </footer>
 <div id="consent" hidden role="dialog" aria-label="Analytics consent">
   <p>May we count visits with Google Analytics? No usernames are sent. You can say no; the site works the same.</p>

@@ -1,0 +1,10 @@
+{
+  "name": "gitverse",
+  "version": "1.0.0",
+  "description": "GitHub achievement intelligence platform",
+  "scripts": {
+    "start": "node scripts/serve-preview.cjs",
+    "dev": "node scripts/serve-preview.cjs"
+  }
+}
+

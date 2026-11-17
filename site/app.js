@@ -23,10 +23,10 @@
   }
   // Star count for the repository, fetched once per visit. Anonymous and without a referrer:
   // /result URLs name a user. On any failure the buttons keep their plain label.
-  var STARS = "gha:stars", REPO_API = "https://api.github.com/repos/nmloc/gh-achievements";
+  var STARS = "gitverse:stars", REPO_API = "https://api.github.com/repos/TheVicky1/GitVerse";
   var stars = null;
   function fillStars() {
-    if (stars === null || stars < 1) return;
+    if (stars === null) return;
     var text = stars.toLocaleString("en-US");
     Array.prototype.forEach.call(document.querySelectorAll("[data-stars]"), function (el) {
       el.textContent = text;

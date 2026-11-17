@@ -15,7 +15,7 @@ const (
 	SiteURL         = "https://gh-achievements.vercel.app/"
 	BasePath        = "/"
 	OldSiteURL      = "https://nmloc.github.io/gh-achievements/"
-	RepoURL         = "https://github.com/nmloc/gh-achievements"
+	RepoURL         = "https://github.com/TheVicky1/GitVerse.git"
 	Install         = "gh extension install nmloc/gh-achievements"
 	GAMeasurementID = "G-3EEKKGL110"
 )
