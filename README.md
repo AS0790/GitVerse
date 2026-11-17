@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="./docs/assets/gitverse-logo.png" alt="GitVerse Logo" width="210" height="210" />
+<img src="./docs/assets/gitverse-logo.png" alt="GitVerse" width="600" />
 
 # GitVerse - GitHub Achievement Intelligence Platform
 
