@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  gitverse:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["/bin/gitverse", "--help"]
+    environment:
+      - PORT=8080
+    ports:
+      - "8080:8080"
