@@ -5,7 +5,7 @@
 - Tiers: ? · 8 · 16 · 64
 - Progress in GitVerse: earned or not
 
-Open Sourcerer was tested by GitHub and is switched off: nobody can earn it now. The known thresholds are 8 merged open source pull requests for x2, 16 for x3 and 64 for x4.
+Open Sourcerer rewarded developers who contributed across multiple diverse open source repositories. GitHub tested the badge during early gamification pilots and currently has it switched off for new contributions.
 
 | Tier | Needed |
 |---|---|
@@ -13,6 +13,18 @@ Open Sourcerer was tested by GitHub and is switched off: nobody can earn it now.
 | x2 · bronze | 8 merged open source pull requests |
 | x3 · silver | 16 merged open source pull requests |
 | x4 · gold | 64 merged open source pull requests |
+
+## FAQ
+
+### Can new contributors unlock Open Sourcerer today?
+
+No. Open Sourcerer is currently inactive and cannot be unlocked by new pull requests.
+
+### What were the historical thresholds for Open Sourcerer?
+
+Community documentation verified milestones at 8 merged PRs for Tier 2, 16 for Tier 3, and 64 for Tier 4.
+
+Audit profile history: [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

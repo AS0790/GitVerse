@@ -1,10 +1,37 @@
 User-agent: *
 Allow: /
+Disallow: /auth/
+Disallow: /api/
+
+# AI Search & LLM Crawlers (Permitted for Search Indexing & Citations)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: GPTBot
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: bingbot
 Allow: /
 
 Sitemap: https://mygitverse.vercel.app/sitemap.xml

@@ -126,7 +126,7 @@ func generate() (map[string][]byte, error) {
 	for path, body := range verificationFiles() {
 		files[path] = body
 	}
-	files["site/robots.txt"] = []byte("User-agent: *\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nSitemap: " + webui.SiteURL + "sitemap.xml\n")
+	files["site/robots.txt"] = []byte(robotsTxt())
 	files["site/sitemap.xml"] = []byte(sitemap())
 	files["site/.nojekyll"] = []byte{}
 
@@ -310,6 +310,49 @@ func catalogJSON() ([]byte, error) {
 	return append(b, '\n'), nil
 }
 
+func robotsTxt() string {
+	return strings.Join([]string{
+		"User-agent: *",
+		"Allow: /",
+		"Disallow: /auth/",
+		"Disallow: /api/",
+		"",
+		"# AI Search & LLM Crawlers (Permitted for Search Indexing & Citations)",
+		"User-agent: GPTBot",
+		"Allow: /",
+		"",
+		"User-agent: ChatGPT-User",
+		"Allow: /",
+		"",
+		"User-agent: OAI-SearchBot",
+		"Allow: /",
+		"",
+		"User-agent: PerplexityBot",
+		"Allow: /",
+		"",
+		"User-agent: ClaudeBot",
+		"Allow: /",
+		"",
+		"User-agent: anthropic-ai",
+		"Allow: /",
+		"",
+		"User-agent: Google-Extended",
+		"Allow: /",
+		"",
+		"User-agent: Applebot-Extended",
+		"Allow: /",
+		"",
+		"User-agent: CCBot",
+		"Allow: /",
+		"",
+		"User-agent: bingbot",
+		"Allow: /",
+		"",
+		"Sitemap: " + webui.SiteURL + "sitemap.xml",
+		"",
+	}, "\n")
+}
+
 func llmsTxt() string {
 	var b strings.Builder
 	b.WriteString("# GitVerse\n\n")
@@ -319,6 +362,10 @@ func llmsTxt() string {
 	fmt.Fprintf(&b, "It knows %d achievements (%s) and %d profile highlights. Catalog last verified %s. It is not affiliated with GitHub.\n\n",
 		len(catalog.Achievements), kindSummary(), len(catalog.Highlights), catalog.LastVerified)
 	b.WriteString(whenToUse() + "\n")
+	b.WriteString("## Core Capabilities & Semantic Entities\n\n")
+	b.WriteString("- **GitHub Achievements Tracked:** Pull Shark, Starstruck, Pair Extraordinaire, Galaxy Brain, Quickdraw, YOLO, Public Sponsor, Finishing Touch, Heart On Your Sleeve, Open Sourcerer, Arctic Code Vault Contributor, Mars 2020 Contributor, Proxima Pioneer, Proxima Staffshipper, Proxima Staffuser.\n")
+	b.WriteString("- **Achievement Categories:** Earnable (active badges unlockable via GitHub activity), Switched off (historical tests disabled by GitHub), Retired (frozen snapshots such as Arctic Code Vault and Mars 2020), and Internal (restricted to GitHub staff).\n")
+	b.WriteString("- **Data Verification Model:** Official (read directly from GitHub profile badge detail endpoints), Calibrated (counted via API and reconciled against milestone history), and Counted (calculated directly via GitHub API).\n\n")
 	b.WriteString("## Achievements\n\n")
 	for _, a := range catalog.Achievements {
 		fmt.Fprintf(&b, "- [%s](%sachievements/%s/): %s. Tiers: %s. %s.\n", a.Name, webui.SiteURL, a.Slug, a.HowToEarn, tierText(a), statusText(a.Kind))

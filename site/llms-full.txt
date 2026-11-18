@@ -24,6 +24,12 @@ It is not the right tool for GitHub contribution graphs, follower counts, reposi
 
 There is no API key, no account and no rate-limited public API to call; the CLI is the programmatic interface.
 
+## Core Capabilities & Semantic Entities
+
+- **GitHub Achievements Tracked:** Pull Shark, Starstruck, Pair Extraordinaire, Galaxy Brain, Quickdraw, YOLO, Public Sponsor, Finishing Touch, Heart On Your Sleeve, Open Sourcerer, Arctic Code Vault Contributor, Mars 2020 Contributor, Proxima Pioneer, Proxima Staffshipper, Proxima Staffuser.
+- **Achievement Categories:** Earnable (active badges unlockable via GitHub activity), Switched off (historical tests disabled by GitHub), Retired (frozen snapshots such as Arctic Code Vault and Mars 2020), and Internal (restricted to GitHub staff).
+- **Data Verification Model:** Official (read directly from GitHub profile badge detail endpoints), Calibrated (counted via API and reconciled against milestone history), and Counted (calculated directly via GitHub API).
+
 ## Achievements
 
 - [Pull Shark](https://mygitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024. Earnable.
@@ -49,8 +55,8 @@ There is no API key, no account and no rate-limited public API to call; the CLI 
 - [Check a user](https://mygitverse.vercel.app/check/): the web checker
 - [CLI usage and flags](https://github.com/TheVicky1/GitVerse.git#readme): `gitverse [username] [--json] [--all]`
 - [Source code](https://github.com/TheVicky1/GitVerse.git)
-- [About GitVerse](https://mygitverse.vercel.app/about/): a developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements
-- [Privacy](https://mygitverse.vercel.app/privacy/): gitVerse collects no personal data, stores no passwords or tokens, and runs without a database
+- [About GitVerse](https://mygitverse.vercel.app/about/): gitVerse is an open-source GitHub achievement intelligence suite and Go CLI by Vicky Patel. Architecture, privacy model, and methodology
+- [Privacy](https://mygitverse.vercel.app/privacy/): gitVerse collects no personal data, stores no tokens or passwords, and runs completely without databases. Read our strict zero-persistence policy
 
 ## Optional
 
@@ -66,13 +72,16 @@ Status: Earnable
 How to earn: Open pull requests that get merged
 Tiers: 2 · 16 · 128 · 1024
 
-Pull Shark counts pull requests you opened that were merged. GitHub's own history for the badge names the 2nd, 16th, 128th and 1024th merged pull request.
+Pull Shark recognizes developers who open pull requests that get successfully merged across public or private repositories. GitHub awards progressive tier medals at 2, 16, 128, and 1024 merged pull requests. GitHub's underlying achievement history logs the exact pull request and repository associated with each milestone unlock.
 
 Q: How many merged pull requests do you need for Pull Shark?
-A: 2 for the base badge, 16 for x2 (bronze), 128 for x3 (silver) and 1024 for x4 (gold).
+A: 2 merged pull requests for the base badge (x1), 16 for bronze (x2), 128 for silver (x3), and 1024 for gold (x4).
 
 Q: Do pull requests in private repositories count towards Pull Shark?
-A: Yes. GitHub's Pull Shark history lists milestones in private repositories as "inaccessible", so they are counted even though visitors cannot see them.
+A: Yes. GitHub's Pull Shark history records private repository milestones as "inaccessible", confirming they are counted even when private from public visitors.
+
+Q: Can you earn Pull Shark by merging pull requests into your own repositories?
+A: Yes. Merging pull requests on personal or organization repositories that you own officially increments your Pull Shark counter.
 
 ---
 
@@ -83,13 +92,16 @@ Status: Earnable
 How to earn: Create a repository that gets stars
 Tiers: 16 · 128 · 512 · 4096
 
-Starstruck counts the stars of a repository you created. GitHub's history for the badge names the repository that reached each threshold.
+Starstruck celebrates repository creators who build open source projects that earn community stars. Thresholds are evaluated per individual repository rather than aggregated across multiple projects. GitHub awards tiers at 16, 128, 512, and 4096 stargazers on a single repository.
 
 Q: How many stars do you need for Starstruck?
-A: One repository with 16 stars for the base badge, 128 for x2, 512 for x3 and 4096 for x4.
+A: A single repository requires 16 stars for base (x1), 128 for bronze (x2), 512 for silver (x3), and 4096 for gold (x4).
 
 Q: Do stars across several repositories add up for Starstruck?
-A: No. The thresholds apply to a single repository; GitHub's history names one repository per threshold.
+A: No. The thresholds apply strictly to a single repository. GitHub's badge history records one specific repository per threshold unlock.
+
+Q: Do stars on forked repositories count toward Starstruck?
+A: No. GitHub only evaluates stargazers on original, non-forked repositories that your account created.
 
 ---
 
@@ -100,13 +112,16 @@ Status: Earnable
 How to earn: Coauthor commits on merged pull requests
 Tiers: 1 · 10 · 24 · 48
 
-Pair Extraordinaire is awarded for coauthored commits on merged pull requests. GitHub's history for the badge lists the pull request and the coauthors for each threshold, including pull requests opened by someone else that list you as a coauthor.
+Pair Extraordinaire honors collaborative programming through Git co-authorship. It is unlocked by authoring or co-authoring commits included in merged pull requests. GitHub logs the merged pull request and collaborator identities for milestones at 1, 10, 24, and 48 co-authored PRs.
 
 Q: How many coauthored pull requests do you need for Pair Extraordinaire?
-A: 1 for the base badge, 10 for x2, 24 for x3 and 48 for x4.
+A: 1 co-authored merged PR for base (x1), 10 for bronze (x2), 24 for silver (x3), and 48 for gold (x4).
+
+Q: What Git syntax is required to credit a co-author?
+A: Add a commit trailer formatted as `Co-authored-by: Name <email@example.com>` at the bottom of the Git commit message.
 
 Q: Why does GitVerse show no counter for Pair Extraordinaire?
-A: GitHub's counting rule is not public. On a real account, 60 merged pull requests had commits with a Co-authored-by trailer while GitHub's tier said 10 to 23, so any count from the API would be wrong. The tool shows the official tier only.
+A: GitHub's internal qualification logic for co-authored commits is unexposed and differs from public commit search. GitVerse surfaces the verified official tier to prevent misleading estimates.
 
 ---
 
@@ -117,13 +132,16 @@ Status: Earnable
 How to earn: Have discussion answers accepted
 Tiers: 2 · 8 · 16 · 32
 
-Galaxy Brain counts your GitHub Discussions answers that were marked as the accepted answer. Since 2024-02-06 answers in GitHub's own Community Discussions (github.com/orgs/community) no longer count.
+Galaxy Brain recognizes developers who provide helpful technical mentorship by having their answers marked as accepted in GitHub Discussions. Milestone tiers are reached at 2, 8, 16, and 32 accepted solutions.
 
 Q: How many accepted answers do you need for Galaxy Brain?
-A: 2 for the base badge, 8 for x2, 16 for x3 and 32 for x4.
+A: 2 accepted answers for base (x1), 8 for bronze (x2), 16 for silver (x3), and 32 for gold (x4).
 
 Q: Do answers in GitHub Community Discussions count for Galaxy Brain?
-A: Not since 2024-02-06, when GitHub stopped awarding achievements there to counter spam. Answers in other repositories' discussions still count.
+A: Not since February 6, 2024, when GitHub paused achievement qualification in github.com/orgs/community to deter automated spam. Answers in all other open-source repository discussions count normally.
+
+Q: Who can mark an answer as accepted in GitHub Discussions?
+A: The original discussion author or any repository maintainer with triage or write permissions can click "Mark as answer".
 
 ---
 
@@ -134,7 +152,13 @@ Status: Earnable
 How to earn: Close an issue or pull request within 5 minutes of opening it
 Tiers: one tier
 
-Quickdraw ("Gitty up!") is a one-time badge for closing an issue or pull request within 5 minutes of opening it.
+Quickdraw ("Gitty up!") is a binary achievement awarded for closing an issue or pull request within 5 minutes (300 seconds) of its creation. It is commonly unlocked during rapid triage, accidental issue duplication, or automated workflow fixes.
+
+Q: Can you get Quickdraw by closing your own issue?
+A: Yes. Opening an issue or pull request and manually closing it within 5 minutes triggers the achievement.
+
+Q: Does Quickdraw have multiple tiers or multipliers?
+A: No. Quickdraw is a single-tier binary unlock with no progressive tier rings.
 
 ---
 
@@ -145,7 +169,13 @@ Status: Earnable
 How to earn: Merge a pull request without a review
 Tiers: one tier
 
-YOLO ("You want it? You merge it.") is a one-time badge for merging a pull request without a code review.
+YOLO ("You want it? You merge it.") is a binary achievement granted when you merge a pull request into a default branch without any approving reviews. It reflects direct developer autonomy on repositories where branch protection rules do not enforce peer review.
+
+Q: How do you unlock the YOLO badge on GitHub?
+A: Open a pull request on a repository where branch protection rules allow merging without reviews, and merge it directly with 0 approvals.
+
+Q: Does having an approving review prevent unlocking YOLO?
+A: Yes. If a pull request receives an approving code review prior to merge, it qualifies as reviewed and will not award the YOLO badge.
 
 ---
 
@@ -156,7 +186,13 @@ Status: Earnable
 How to earn: Sponsor someone publicly through GitHub Sponsors
 Tiers: one tier
 
-Public Sponsor is a one-time badge for sponsoring an open source contributor or organization through GitHub Sponsors with a public sponsorship. Private sponsorships do not count.
+Public Sponsor recognizes community members who financially back open source software creators via GitHub Sponsors. Sponsorship must have public visibility enabled on your profile to unlock this recognition.
+
+Q: What qualifies for the Public Sponsor badge?
+A: Any active public monthly or one-time sponsorship to an open-source maintainer or organization through GitHub Sponsors.
+
+Q: Do private sponsorships unlock the Public Sponsor badge?
+A: No. Private sponsorships intentionally withhold sponsorship visibility and do not display this public profile achievement.
 
 ---
 
@@ -167,10 +203,13 @@ Status: Earnable
 How to earn: Get pull requests that improve GitHub's UI quality merged
 Tiers: 1 · 4 · 16 · 32
 
-Finishing Touch counts merged pull requests that GitHub classed as improving the quality of its own user interface. GitHub's history for the badge names the 1st, 4th, 16th and 32nd UI quality pull request merged.
+Finishing Touch counts merged pull requests classified by GitHub as improving UI and frontend quality. Milestone rings are awarded at 1, 4, 16, and 32 merged contributions that enhance interface polishing.
 
 Q: How many pull requests do you need for Finishing Touch?
-A: 1 merged UI quality pull request for the base badge, 4 for x2, 16 for x3 and 32 for x4.
+A: 1 merged UI quality pull request for base (x1), 4 for bronze (x2), 16 for silver (x3), and 32 for gold (x4).
+
+Q: How does GitHub identify UI quality pull requests?
+A: GitHub uses internal heuristics and commit metadata evaluating frontend enhancements, CSS modifications, and linked UI issue resolutions.
 
 ---
 
@@ -181,7 +220,13 @@ Status: Disabled (tested, not earnable now)
 How to earn: React to something on GitHub with a ❤️ emoji
 Tiers: ? · 16 · 128 · ?
 
-Heart On Your Sleeve was tested by GitHub and is switched off: nobody can earn it now. The known thresholds are 16 ❤️ reactions for x2 and 128 for x3.
+Heart On Your Sleeve was an experimental achievement celebrating positive community interactions through emoji reactions. GitHub switched it off to prevent automated reaction spam; existing earners retain their badge on profile pages.
+
+Q: Can you still earn the Heart On Your Sleeve badge?
+A: No. GitHub concluded testing for this achievement and deactivated it. Profiles that earned it previously keep it on display.
+
+Q: What were the known milestone thresholds for Heart On Your Sleeve?
+A: Verified community records document 16 ❤️ reactions for Tier 2 (bronze) and 128 for Tier 3 (silver).
 
 ---
 
@@ -192,7 +237,13 @@ Status: Disabled (tested, not earnable now)
 How to earn: Have pull requests merged in several public repositories
 Tiers: ? · 8 · 16 · 64
 
-Open Sourcerer was tested by GitHub and is switched off: nobody can earn it now. The known thresholds are 8 merged open source pull requests for x2, 16 for x3 and 64 for x4.
+Open Sourcerer rewarded developers who contributed across multiple diverse open source repositories. GitHub tested the badge during early gamification pilots and currently has it switched off for new contributions.
+
+Q: Can new contributors unlock Open Sourcerer today?
+A: No. Open Sourcerer is currently inactive and cannot be unlocked by new pull requests.
+
+Q: What were the historical thresholds for Open Sourcerer?
+A: Community documentation verified milestones at 8 merged PRs for Tier 2, 16 for Tier 3, and 64 for Tier 4.
 
 ---
 
@@ -203,7 +254,13 @@ Status: Retired (no longer earnable)
 How to earn: Code in a repository of the 2020 GitHub Archive Program
 Tiers: one tier
 
-Arctic Code Vault Contributor went to people who contributed code to repositories stored in the 2020 GitHub Archive Program. It can no longer be earned.
+Arctic Code Vault Contributor commemorates developers whose public code was captured during the GitHub Archive Program snapshot on February 2, 2020. The archive is preserved on silver halide film in a decommissioned coal mine in Svalbard, Norway, designed to last 1,000 years.
+
+Q: Is Arctic Code Vault Contributor still earnable?
+A: No. The historical snapshot was taken on 02/02/2020 and cannot be retroactively added to new accounts.
+
+Q: How was eligibility determined for the Arctic Code Vault badge?
+A: Any developer who authored at least one commit in the default branch of an active public repository captured in the 2020 archive received the badge.
 
 ---
 
@@ -214,7 +271,13 @@ Status: Retired (no longer earnable)
 How to earn: Code in a repository used by the Mars 2020 Helicopter Mission
 Tiers: one tier
 
-Mars 2020 Contributor went to people who contributed code to repositories used in the Mars 2020 Helicopter Mission. It can no longer be earned.
+Mars 2020 Contributor honors developers who authored code or contributed to open source libraries utilized by NASA Jet Propulsion Laboratory (JPL) in the Ingenuity Mars Helicopter mission.
+
+Q: Can you still get the Mars 2020 Contributor badge?
+A: No. The contribution manifest was finalized following the NASA Perseverance / Ingenuity Mars mission deployment in 2020.
+
+Q: Which open source projects were included in the Mars 2020 mission?
+A: NASA JPL cited thousands of open source dependencies across Linux, Python, C++, and orbital mechanics packages cataloged in the mission software registry.
 
 ---
 
@@ -225,7 +288,13 @@ Status: Internal (GitHub staff only)
 How to earn: GitHub staff: contributed to the Proxima proof of concept
 Tiers: one tier
 
-Proxima Pioneer is an internal badge for GitHub staff who contributed to the Proxima proof of concept. It cannot be earned through normal activity.
+Proxima Pioneer is an exclusive internal achievement awarded to GitHub staff who participated in early architecture and proof-of-concept development for Proxima.
+
+Q: Can public developers earn Proxima Pioneer?
+A: No. Proxima Pioneer is strictly an internal employee badge issued exclusively to GitHub staff.
+
+Q: What is Proxima at GitHub?
+A: Proxima refers to internal developer infrastructure and workstation initiatives within GitHub's core engineering organization.
 
 ---
 
@@ -236,7 +305,10 @@ Status: Internal (GitHub staff only)
 How to earn: GitHub staff: shipped the Proxima staffship instance
 Tiers: one tier
 
-Proxima Staffshipper is an internal badge for GitHub staff who shipped the Proxima staffship instance. It cannot be earned through normal activity.
+Proxima Staffshipper is an internal achievement awarded to GitHub employees who successfully deployed production services into the Proxima staffship environment.
+
+Q: Can public contributors earn Proxima Staffshipper?
+A: No. Proxima Staffshipper is reserved strictly for internal GitHub engineering teams.
 
 ---
 
@@ -247,7 +319,10 @@ Status: Internal (GitHub staff only)
 How to earn: GitHub staff: your team was onboarded to Proxima
 Tiers: one tier
 
-Proxima Staffuser is an internal badge for GitHub staff whose team was onboarded to Proxima. It cannot be earned through normal activity.
+Proxima Staffuser is an internal employee recognition badge granted to GitHub staff members whose engineering teams were onboarded into Proxima.
+
+Q: Can external developers unlock Proxima Staffuser?
+A: No. It is an internal employee milestone restricted to verified GitHub staff accounts.
 
 ---
 

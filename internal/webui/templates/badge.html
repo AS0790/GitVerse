@@ -21,7 +21,9 @@
 <h2>Check your {{.Name}} progress</h2>
 <pre><code>{{$.Install}}
 gitverse &lt;username&gt;</code></pre>
-<p>It shows your {{.Name}} tier, when you unlocked it and, where GitHub's data allows, how many more you need for the next tier.</p>
+<p>It shows your {{.Name}} tier, when you unlocked it and, where GitHub's data allows, how many more you need for the next tier. You can also <a href="/check/">track {{.Name}} online</a> or learn how progress is verified in our <a href="/methodology/">calculation methodology</a>.</p>
+{{else}}
+<p class="prose">To check your profile or audit historical milestones, <a href="/check/">run a free check</a> on GitVerse or see how badge data is verified in our <a href="/methodology/">methodology guide</a>.</p>
 {{end}}
 {{if .FAQ}}
 <h2>FAQ</h2>

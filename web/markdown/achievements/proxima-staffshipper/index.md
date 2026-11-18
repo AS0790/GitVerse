@@ -5,7 +5,15 @@
 - Tiers: one tier
 - Progress in GitVerse: earned or not
 
-Proxima Staffshipper is an internal badge for GitHub staff who shipped the Proxima staffship instance. It cannot be earned through normal activity.
+Proxima Staffshipper is an internal achievement awarded to GitHub employees who successfully deployed production services into the Proxima staffship environment.
+
+## FAQ
+
+### Can public contributors earn Proxima Staffshipper?
+
+No. Proxima Staffshipper is reserved strictly for internal GitHub engineering teams.
+
+Audit profile history: [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

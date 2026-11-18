@@ -5,9 +5,19 @@
 - Tiers: one tier
 - Progress in GitVerse: earned or not (official)
 
-Public Sponsor is a one-time badge for sponsoring an open source contributor or organization through GitHub Sponsors with a public sponsorship. Private sponsorships do not count.
+Public Sponsor recognizes community members who financially back open source software creators via GitHub Sponsors. Sponsorship must have public visibility enabled on your profile to unlock this recognition.
 
-Check your progress: `gitverse` or https://mygitverse.vercel.app/check/
+## FAQ
+
+### What qualifies for the Public Sponsor badge?
+
+Any active public monthly or one-time sponsorship to an open-source maintainer or organization through GitHub Sponsors.
+
+### Do private sponsorships unlock the Public Sponsor badge?
+
+No. Private sponsorships intentionally withhold sponsorship visibility and do not display this public profile achievement.
+
+Check your progress: `gitverse` or [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

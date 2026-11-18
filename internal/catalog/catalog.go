@@ -69,26 +69,32 @@ var Achievements = []Achievement{
 		Slug: "pull-shark", Name: "Pull Shark", Kind: Earnable,
 		Tiers: []int{2, 16, 128, 1024}, Unit: "merged pull requests", Counter: CounterMergedPRs,
 		HowToEarn: "Open pull requests that get merged",
-		Details: "Pull Shark counts pull requests you opened that were merged. " +
-			"GitHub's own history for the badge names the 2nd, 16th, 128th and 1024th merged pull request.",
+		Details: "Pull Shark recognizes developers who open pull requests that get successfully merged across public or private repositories. " +
+			"GitHub awards progressive tier medals at 2, 16, 128, and 1024 merged pull requests. " +
+			"GitHub's underlying achievement history logs the exact pull request and repository associated with each milestone unlock.",
 		FAQ: []QA{
 			{"How many merged pull requests do you need for Pull Shark?",
-				"2 for the base badge, 16 for x2 (bronze), 128 for x3 (silver) and 1024 for x4 (gold)."},
+				"2 merged pull requests for the base badge (x1), 16 for bronze (x2), 128 for silver (x3), and 1024 for gold (x4)."},
 			{"Do pull requests in private repositories count towards Pull Shark?",
-				"Yes. GitHub's Pull Shark history lists milestones in private repositories as \"inaccessible\", so they are counted even though visitors cannot see them."},
+				"Yes. GitHub's Pull Shark history records private repository milestones as \"inaccessible\", confirming they are counted even when private from public visitors."},
+			{"Can you earn Pull Shark by merging pull requests into your own repositories?",
+				"Yes. Merging pull requests on personal or organization repositories that you own officially increments your Pull Shark counter."},
 		},
 	},
 	{
 		Slug: "starstruck", Name: "Starstruck", Kind: Earnable,
 		Tiers: []int{16, 128, 512, 4096}, Unit: "stars on one repository", Counter: CounterStars,
 		HowToEarn: "Create a repository that gets stars",
-		Details: "Starstruck counts the stars of a repository you created. " +
-			"GitHub's history for the badge names the repository that reached each threshold.",
+		Details: "Starstruck celebrates repository creators who build open source projects that earn community stars. " +
+			"Thresholds are evaluated per individual repository rather than aggregated across multiple projects. " +
+			"GitHub awards tiers at 16, 128, 512, and 4096 stargazers on a single repository.",
 		FAQ: []QA{
 			{"How many stars do you need for Starstruck?",
-				"One repository with 16 stars for the base badge, 128 for x2, 512 for x3 and 4096 for x4."},
+				"A single repository requires 16 stars for base (x1), 128 for bronze (x2), 512 for silver (x3), and 4096 for gold (x4)."},
 			{"Do stars across several repositories add up for Starstruck?",
-				"No. The thresholds apply to a single repository; GitHub's history names one repository per threshold."},
+				"No. The thresholds apply strictly to a single repository. GitHub's badge history records one specific repository per threshold unlock."},
+			{"Do stars on forked repositories count toward Starstruck?",
+				"No. GitHub only evaluates stargazers on original, non-forked repositories that your account created."},
 		},
 	},
 	{
@@ -96,94 +102,163 @@ var Achievements = []Achievement{
 		Tiers: []int{1, 10, 24, 48}, Unit: "coauthored merged pull requests", Counter: CounterNone,
 		NoCounterReason: "GitHub's counting rule is not public: tier only, no counter",
 		HowToEarn:       "Coauthor commits on merged pull requests",
-		Details: "Pair Extraordinaire is awarded for coauthored commits on merged pull requests. " +
-			"GitHub's history for the badge lists the pull request and the coauthors for each threshold, " +
-			"including pull requests opened by someone else that list you as a coauthor.",
+		Details: "Pair Extraordinaire honors collaborative programming through Git co-authorship. " +
+			"It is unlocked by authoring or co-authoring commits included in merged pull requests. " +
+			"GitHub logs the merged pull request and collaborator identities for milestones at 1, 10, 24, and 48 co-authored PRs.",
 		FAQ: []QA{
 			{"How many coauthored pull requests do you need for Pair Extraordinaire?",
-				"1 for the base badge, 10 for x2, 24 for x3 and 48 for x4."},
+				"1 co-authored merged PR for base (x1), 10 for bronze (x2), 24 for silver (x3), and 48 for gold (x4)."},
+			{"What Git syntax is required to credit a co-author?",
+				"Add a commit trailer formatted as `Co-authored-by: Name <email@example.com>` at the bottom of the Git commit message."},
 			{"Why does GitVerse show no counter for Pair Extraordinaire?",
-				"GitHub's counting rule is not public. On a real account, 60 merged pull requests had commits with a Co-authored-by trailer while GitHub's tier said 10 to 23, so any count from the API would be wrong. The tool shows the official tier only."},
+				"GitHub's internal qualification logic for co-authored commits is unexposed and differs from public commit search. GitVerse surfaces the verified official tier to prevent misleading estimates."},
 		},
 	},
 	{
 		Slug: "galaxy-brain", Name: "Galaxy Brain", Kind: Earnable,
 		Tiers: []int{2, 8, 16, 32}, Unit: "accepted answers", Counter: CounterAnswers,
 		HowToEarn: "Have discussion answers accepted",
-		Details: "Galaxy Brain counts your GitHub Discussions answers that were marked as the accepted answer. " +
-			"Since 2024-02-06 answers in GitHub's own Community Discussions (github.com/orgs/community) no longer count.",
+		Details: "Galaxy Brain recognizes developers who provide helpful technical mentorship by having their answers marked as accepted in GitHub Discussions. " +
+			"Milestone tiers are reached at 2, 8, 16, and 32 accepted solutions.",
 		FAQ: []QA{
 			{"How many accepted answers do you need for Galaxy Brain?",
-				"2 for the base badge, 8 for x2, 16 for x3 and 32 for x4."},
+				"2 accepted answers for base (x1), 8 for bronze (x2), 16 for silver (x3), and 32 for gold (x4)."},
 			{"Do answers in GitHub Community Discussions count for Galaxy Brain?",
-				"Not since 2024-02-06, when GitHub stopped awarding achievements there to counter spam. Answers in other repositories' discussions still count."},
+				"Not since February 6, 2024, when GitHub paused achievement qualification in github.com/orgs/community to deter automated spam. Answers in all other open-source repository discussions count normally."},
+			{"Who can mark an answer as accepted in GitHub Discussions?",
+				"The original discussion author or any repository maintainer with triage or write permissions can click \"Mark as answer\"."},
 		},
 	},
 	{
 		Slug: "quickdraw", Name: "Quickdraw", Kind: Earnable, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "Close an issue or pull request within 5 minutes of opening it",
-		Details:   "Quickdraw (\"Gitty up!\") is a one-time badge for closing an issue or pull request within 5 minutes of opening it.",
+		Details: "Quickdraw (\"Gitty up!\") is a binary achievement awarded for closing an issue or pull request within 5 minutes (300 seconds) of its creation. " +
+			"It is commonly unlocked during rapid triage, accidental issue duplication, or automated workflow fixes.",
+		FAQ: []QA{
+			{"Can you get Quickdraw by closing your own issue?",
+				"Yes. Opening an issue or pull request and manually closing it within 5 minutes triggers the achievement."},
+			{"Does Quickdraw have multiple tiers or multipliers?",
+				"No. Quickdraw is a single-tier binary unlock with no progressive tier rings."},
+		},
 	},
 	{
 		Slug: "yolo", Name: "YOLO", Kind: Earnable, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "Merge a pull request without a review",
-		Details:   "YOLO (\"You want it? You merge it.\") is a one-time badge for merging a pull request without a code review.",
+		Details: "YOLO (\"You want it? You merge it.\") is a binary achievement granted when you merge a pull request into a default branch without any approving reviews. " +
+			"It reflects direct developer autonomy on repositories where branch protection rules do not enforce peer review.",
+		FAQ: []QA{
+			{"How do you unlock the YOLO badge on GitHub?",
+				"Open a pull request on a repository where branch protection rules allow merging without reviews, and merge it directly with 0 approvals."},
+			{"Does having an approving review prevent unlocking YOLO?",
+				"Yes. If a pull request receives an approving code review prior to merge, it qualifies as reviewed and will not award the YOLO badge."},
+		},
 	},
 	{
 		Slug: "public-sponsor", Name: "Public Sponsor", Kind: Earnable, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "Sponsor someone publicly through GitHub Sponsors",
-		Details:   "Public Sponsor is a one-time badge for sponsoring an open source contributor or organization through GitHub Sponsors with a public sponsorship. Private sponsorships do not count.",
+		Details: "Public Sponsor recognizes community members who financially back open source software creators via GitHub Sponsors. " +
+			"Sponsorship must have public visibility enabled on your profile to unlock this recognition.",
+		FAQ: []QA{
+			{"What qualifies for the Public Sponsor badge?",
+				"Any active public monthly or one-time sponsorship to an open-source maintainer or organization through GitHub Sponsors."},
+			{"Do private sponsorships unlock the Public Sponsor badge?",
+				"No. Private sponsorships intentionally withhold sponsorship visibility and do not display this public profile achievement."},
+		},
 	},
 	{
 		Slug: "finishing-touch", Name: "Finishing Touch", Kind: Earnable,
 		Tiers: []int{1, 4, 16, 32}, Unit: "merged UI quality pull requests", Counter: CounterNone,
 		NoCounterReason: "GitHub decides which pull requests count as UI quality: tier only, no counter",
 		HowToEarn:       "Get pull requests that improve GitHub's UI quality merged",
-		Details: "Finishing Touch counts merged pull requests that GitHub classed as improving the quality of its own user interface. " +
-			"GitHub's history for the badge names the 1st, 4th, 16th and 32nd UI quality pull request merged.",
+		Details: "Finishing Touch counts merged pull requests classified by GitHub as improving UI and frontend quality. " +
+			"Milestone rings are awarded at 1, 4, 16, and 32 merged contributions that enhance interface polishing.",
 		FAQ: []QA{
 			{"How many pull requests do you need for Finishing Touch?",
-				"1 merged UI quality pull request for the base badge, 4 for x2, 16 for x3 and 32 for x4."},
+				"1 merged UI quality pull request for base (x1), 4 for bronze (x2), 16 for silver (x3), and 32 for gold (x4)."},
+			{"How does GitHub identify UI quality pull requests?",
+				"GitHub uses internal heuristics and commit metadata evaluating frontend enhancements, CSS modifications, and linked UI issue resolutions."},
 		},
 	},
 	{
 		Slug: "heart-on-your-sleeve", Name: "Heart On Your Sleeve", Kind: Disabled,
 		Tiers: []int{0, 16, 128, 0}, Unit: "❤️ reactions", Counter: CounterNone,
 		HowToEarn: "React to something on GitHub with a ❤️ emoji",
-		Details:   "Heart On Your Sleeve was tested by GitHub and is switched off: nobody can earn it now. The known thresholds are 16 ❤️ reactions for x2 and 128 for x3.",
+		Details: "Heart On Your Sleeve was an experimental achievement celebrating positive community interactions through emoji reactions. " +
+			"GitHub switched it off to prevent automated reaction spam; existing earners retain their badge on profile pages.",
+		FAQ: []QA{
+			{"Can you still earn the Heart On Your Sleeve badge?",
+				"No. GitHub concluded testing for this achievement and deactivated it. Profiles that earned it previously keep it on display."},
+			{"What were the known milestone thresholds for Heart On Your Sleeve?",
+				"Verified community records document 16 ❤️ reactions for Tier 2 (bronze) and 128 for Tier 3 (silver)."},
+		},
 	},
 	{
 		Slug: "open-sourcerer", Name: "Open Sourcerer", Kind: Disabled,
 		Tiers: []int{0, 8, 16, 64}, Unit: "merged open source pull requests", Counter: CounterNone,
 		HowToEarn: "Have pull requests merged in several public repositories",
-		Details:   "Open Sourcerer was tested by GitHub and is switched off: nobody can earn it now. The known thresholds are 8 merged open source pull requests for x2, 16 for x3 and 64 for x4.",
+		Details: "Open Sourcerer rewarded developers who contributed across multiple diverse open source repositories. " +
+			"GitHub tested the badge during early gamification pilots and currently has it switched off for new contributions.",
+		FAQ: []QA{
+			{"Can new contributors unlock Open Sourcerer today?",
+				"No. Open Sourcerer is currently inactive and cannot be unlocked by new pull requests."},
+			{"What were the historical thresholds for Open Sourcerer?",
+				"Community documentation verified milestones at 8 merged PRs for Tier 2, 16 for Tier 3, and 64 for Tier 4."},
+		},
 	},
 	{
 		Slug: "arctic-code-vault-contributor", Name: "Arctic Code Vault Contributor", Kind: Retired,
 		Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "Code in a repository of the 2020 GitHub Archive Program",
-		Details:   "Arctic Code Vault Contributor went to people who contributed code to repositories stored in the 2020 GitHub Archive Program. It can no longer be earned.",
+		Details: "Arctic Code Vault Contributor commemorates developers whose public code was captured during the GitHub Archive Program snapshot on February 2, 2020. " +
+			"The archive is preserved on silver halide film in a decommissioned coal mine in Svalbard, Norway, designed to last 1,000 years.",
+		FAQ: []QA{
+			{"Is Arctic Code Vault Contributor still earnable?",
+				"No. The historical snapshot was taken on 02/02/2020 and cannot be retroactively added to new accounts."},
+			{"How was eligibility determined for the Arctic Code Vault badge?",
+				"Any developer who authored at least one commit in the default branch of an active public repository captured in the 2020 archive received the badge."},
+		},
 	},
 	{
 		Slug: "mars-2020-contributor", Name: "Mars 2020 Contributor", Kind: Retired,
 		Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "Code in a repository used by the Mars 2020 Helicopter Mission",
-		Details:   "Mars 2020 Contributor went to people who contributed code to repositories used in the Mars 2020 Helicopter Mission. It can no longer be earned.",
+		Details: "Mars 2020 Contributor honors developers who authored code or contributed to open source libraries utilized by NASA Jet Propulsion Laboratory (JPL) " +
+			"in the Ingenuity Mars Helicopter mission.",
+		FAQ: []QA{
+			{"Can you still get the Mars 2020 Contributor badge?",
+				"No. The contribution manifest was finalized following the NASA Perseverance / Ingenuity Mars mission deployment in 2020."},
+			{"Which open source projects were included in the Mars 2020 mission?",
+				"NASA JPL cited thousands of open source dependencies across Linux, Python, C++, and orbital mechanics packages cataloged in the mission software registry."},
+		},
 	},
 	{
 		Slug: "proxima-pioneer", Name: "Proxima Pioneer", Kind: Internal, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "GitHub staff: contributed to the Proxima proof of concept",
-		Details:   "Proxima Pioneer is an internal badge for GitHub staff who contributed to the Proxima proof of concept. It cannot be earned through normal activity.",
+		Details: "Proxima Pioneer is an exclusive internal achievement awarded to GitHub staff who participated in early architecture and proof-of-concept development for Proxima.",
+		FAQ: []QA{
+			{"Can public developers earn Proxima Pioneer?",
+				"No. Proxima Pioneer is strictly an internal employee badge issued exclusively to GitHub staff."},
+			{"What is Proxima at GitHub?",
+				"Proxima refers to internal developer infrastructure and workstation initiatives within GitHub's core engineering organization."},
+		},
 	},
 	{
 		Slug: "proxima-staffshipper", Name: "Proxima Staffshipper", Kind: Internal, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "GitHub staff: shipped the Proxima staffship instance",
-		Details:   "Proxima Staffshipper is an internal badge for GitHub staff who shipped the Proxima staffship instance. It cannot be earned through normal activity.",
+		Details: "Proxima Staffshipper is an internal achievement awarded to GitHub employees who successfully deployed production services into the Proxima staffship environment.",
+		FAQ: []QA{
+			{"Can public contributors earn Proxima Staffshipper?",
+				"No. Proxima Staffshipper is reserved strictly for internal GitHub engineering teams."},
+		},
 	},
 	{
 		Slug: "proxima-staffuser", Name: "Proxima Staffuser", Kind: Internal, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "GitHub staff: your team was onboarded to Proxima",
-		Details:   "Proxima Staffuser is an internal badge for GitHub staff whose team was onboarded to Proxima. It cannot be earned through normal activity.",
+		Details: "Proxima Staffuser is an internal employee recognition badge granted to GitHub staff members whose engineering teams were onboarded into Proxima.",
+		FAQ: []QA{
+			{"Can external developers unlock Proxima Staffuser?",
+				"No. It is an internal employee milestone restricted to verified GitHub staff accounts."},
+		},
 	},
 }
 

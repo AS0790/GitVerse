@@ -5,7 +5,7 @@
 - Tiers: 16 · 128 · 512 · 4096
 - Progress in GitVerse: stars of the repository GitHub names
 
-Starstruck counts the stars of a repository you created. GitHub's history for the badge names the repository that reached each threshold.
+Starstruck celebrates repository creators who build open source projects that earn community stars. Thresholds are evaluated per individual repository rather than aggregated across multiple projects. GitHub awards tiers at 16, 128, 512, and 4096 stargazers on a single repository.
 
 | Tier | Needed |
 |---|---|
@@ -18,13 +18,17 @@ Starstruck counts the stars of a repository you created. GitHub's history for th
 
 ### How many stars do you need for Starstruck?
 
-One repository with 16 stars for the base badge, 128 for x2, 512 for x3 and 4096 for x4.
+A single repository requires 16 stars for base (x1), 128 for bronze (x2), 512 for silver (x3), and 4096 for gold (x4).
 
 ### Do stars across several repositories add up for Starstruck?
 
-No. The thresholds apply to a single repository; GitHub's history names one repository per threshold.
+No. The thresholds apply strictly to a single repository. GitHub's badge history records one specific repository per threshold unlock.
 
-Check your progress: `gitverse` or https://mygitverse.vercel.app/check/
+### Do stars on forked repositories count toward Starstruck?
+
+No. GitHub only evaluates stargazers on original, non-forked repositories that your account created.
+
+Check your progress: `gitverse` or [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

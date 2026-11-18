@@ -5,7 +5,7 @@
 - Tiers: 1 · 10 · 24 · 48
 - Progress in GitVerse: official tier (no public counting rule)
 
-Pair Extraordinaire is awarded for coauthored commits on merged pull requests. GitHub's history for the badge lists the pull request and the coauthors for each threshold, including pull requests opened by someone else that list you as a coauthor.
+Pair Extraordinaire honors collaborative programming through Git co-authorship. It is unlocked by authoring or co-authoring commits included in merged pull requests. GitHub logs the merged pull request and collaborator identities for milestones at 1, 10, 24, and 48 co-authored PRs.
 
 | Tier | Needed |
 |---|---|
@@ -18,13 +18,17 @@ Pair Extraordinaire is awarded for coauthored commits on merged pull requests. G
 
 ### How many coauthored pull requests do you need for Pair Extraordinaire?
 
-1 for the base badge, 10 for x2, 24 for x3 and 48 for x4.
+1 co-authored merged PR for base (x1), 10 for bronze (x2), 24 for silver (x3), and 48 for gold (x4).
+
+### What Git syntax is required to credit a co-author?
+
+Add a commit trailer formatted as `Co-authored-by: Name <email@example.com>` at the bottom of the Git commit message.
 
 ### Why does GitVerse show no counter for Pair Extraordinaire?
 
-GitHub's counting rule is not public. On a real account, 60 merged pull requests had commits with a Co-authored-by trailer while GitHub's tier said 10 to 23, so any count from the API would be wrong. The tool shows the official tier only.
+GitHub's internal qualification logic for co-authored commits is unexposed and differs from public commit search. GitVerse surfaces the verified official tier to prevent misleading estimates.
 
-Check your progress: `gitverse` or https://mygitverse.vercel.app/check/
+Check your progress: `gitverse` or [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

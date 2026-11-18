@@ -30,6 +30,10 @@
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://mygitverse.vercel.app/","name":"GitVerse","position":1},{"@type":"ListItem","item":"https://mygitverse.vercel.app/achievements/","name":"Explore","position":2},{"@type":"ListItem","item":"https://mygitverse.vercel.app/achievements/yolo/","name":"YOLO","position":3}]}</script>
   
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","author":{"@type":"Person","name":"Vicky Patel","url":"https://github.com/TheVicky1"},"description":"YOLO (\"You want it? You merge it.\") is a binary achievement granted when you merge a pull request into a default branch without any approving reviews. It reflects direct developer autonomy on repositories where branch protection rules do not enforce peer review.","headline":"YOLO GitHub Achievement: How to Get It, Tiers \u0026 Milestones","inLanguage":"en-US","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mygitverse.vercel.app/gitverse-logo.png"},"name":"GitVerse","url":"https://mygitverse.vercel.app/"},"url":"https://mygitverse.vercel.app/achievements/yolo/"}</script>
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Open a pull request on a repository where branch protection rules allow merging without reviews, and merge it directly with 0 approvals."},"name":"How do you unlock the YOLO badge on GitHub?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Yes. If a pull request receives an approving code review prior to merge, it qualifies as reviewed and will not award the YOLO badge."},"name":"Does having an approving review prevent unlocking YOLO?"}]}</script>
+  
   <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
   
 </head>
@@ -64,7 +68,7 @@
   <img class="badge-hero" src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" width="160" height="160" alt="YOLO GitHub achievement badge">
   
 </div>
-<p class="lede prose">YOLO (&#34;You want it? You merge it.&#34;) is a one-time badge for merging a pull request without a code review.</p>
+<p class="lede prose">YOLO (&#34;You want it? You merge it.&#34;) is a binary achievement granted when you merge a pull request into a default branch without any approving reviews. It reflects direct developer autonomy on repositories where branch protection rules do not enforce peer review.</p>
 <dl class="facts">
   <dt>How to earn it</dt><dd>Merge a pull request without a review</dd>
   <dt>Status</dt><dd>Earnable</dd>
@@ -76,8 +80,14 @@
 <h2>Check your YOLO progress</h2>
 <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
 gitverse &lt;username&gt;</code></pre>
-<p>It shows your YOLO tier, when you unlocked it and, where GitHub's data allows, how many more you need for the next tier.</p>
+<p>It shows your YOLO tier, when you unlocked it and, where GitHub's data allows, how many more you need for the next tier. You can also <a href="/check/">track YOLO online</a> or learn how progress is verified in our <a href="/methodology/">calculation methodology</a>.</p>
 
+
+<h2>FAQ</h2>
+<dl class="faq">
+<dt>How do you unlock the YOLO badge on GitHub?</dt><dd>Open a pull request on a repository where branch protection rules allow merging without reviews, and merge it directly with 0 approvals.</dd>
+<dt>Does having an approving review prevent unlocking YOLO?</dt><dd>Yes. If a pull request receives an approving code review prior to merge, it qualifies as reviewed and will not award the YOLO badge.</dd>
+</dl>
 
 <nav class="pager" aria-label="Other achievements">
   <a rel="prev" href="../quickdraw/">← Quickdraw</a>

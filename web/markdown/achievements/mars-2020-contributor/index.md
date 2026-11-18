@@ -5,7 +5,19 @@
 - Tiers: one tier
 - Progress in GitVerse: earned or not
 
-Mars 2020 Contributor went to people who contributed code to repositories used in the Mars 2020 Helicopter Mission. It can no longer be earned.
+Mars 2020 Contributor honors developers who authored code or contributed to open source libraries utilized by NASA Jet Propulsion Laboratory (JPL) in the Ingenuity Mars Helicopter mission.
+
+## FAQ
+
+### Can you still get the Mars 2020 Contributor badge?
+
+No. The contribution manifest was finalized following the NASA Perseverance / Ingenuity Mars mission deployment in 2020.
+
+### Which open source projects were included in the Mars 2020 mission?
+
+NASA JPL cited thousands of open source dependencies across Linux, Python, C++, and orbital mechanics packages cataloged in the mission software registry.
+
+Audit profile history: [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

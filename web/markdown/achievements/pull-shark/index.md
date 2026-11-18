@@ -5,7 +5,7 @@
 - Tiers: 2 · 16 · 128 · 1024
 - Progress in GitVerse: count, checked against GitHub's milestones
 
-Pull Shark counts pull requests you opened that were merged. GitHub's own history for the badge names the 2nd, 16th, 128th and 1024th merged pull request.
+Pull Shark recognizes developers who open pull requests that get successfully merged across public or private repositories. GitHub awards progressive tier medals at 2, 16, 128, and 1024 merged pull requests. GitHub's underlying achievement history logs the exact pull request and repository associated with each milestone unlock.
 
 | Tier | Needed |
 |---|---|
@@ -18,13 +18,17 @@ Pull Shark counts pull requests you opened that were merged. GitHub's own histor
 
 ### How many merged pull requests do you need for Pull Shark?
 
-2 for the base badge, 16 for x2 (bronze), 128 for x3 (silver) and 1024 for x4 (gold).
+2 merged pull requests for the base badge (x1), 16 for bronze (x2), 128 for silver (x3), and 1024 for gold (x4).
 
 ### Do pull requests in private repositories count towards Pull Shark?
 
-Yes. GitHub's Pull Shark history lists milestones in private repositories as "inaccessible", so they are counted even though visitors cannot see them.
+Yes. GitHub's Pull Shark history records private repository milestones as "inaccessible", confirming they are counted even when private from public visitors.
 
-Check your progress: `gitverse` or https://mygitverse.vercel.app/check/
+### Can you earn Pull Shark by merging pull requests into your own repositories?
+
+Yes. Merging pull requests on personal or organization repositories that you own officially increments your Pull Shark counter.
+
+Check your progress: `gitverse` or [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

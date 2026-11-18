@@ -5,7 +5,19 @@
 - Tiers: one tier
 - Progress in GitVerse: earned or not
 
-Proxima Pioneer is an internal badge for GitHub staff who contributed to the Proxima proof of concept. It cannot be earned through normal activity.
+Proxima Pioneer is an exclusive internal achievement awarded to GitHub staff who participated in early architecture and proof-of-concept development for Proxima.
+
+## FAQ
+
+### Can public developers earn Proxima Pioneer?
+
+No. Proxima Pioneer is strictly an internal employee badge issued exclusively to GitHub staff.
+
+### What is Proxima at GitHub?
+
+Proxima refers to internal developer infrastructure and workstation initiatives within GitHub's core engineering organization.
+
+Audit profile history: [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

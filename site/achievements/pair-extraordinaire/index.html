@@ -30,7 +30,9 @@
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://mygitverse.vercel.app/","name":"GitVerse","position":1},{"@type":"ListItem","item":"https://mygitverse.vercel.app/achievements/","name":"Explore","position":2},{"@type":"ListItem","item":"https://mygitverse.vercel.app/achievements/pair-extraordinaire/","name":"Pair Extraordinaire","position":3}]}</script>
   
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"1 for the base badge, 10 for x2, 24 for x3 and 48 for x4."},"name":"How many coauthored pull requests do you need for Pair Extraordinaire?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"GitHub's counting rule is not public. On a real account, 60 merged pull requests had commits with a Co-authored-by trailer while GitHub's tier said 10 to 23, so any count from the API would be wrong. The tool shows the official tier only."},"name":"Why does GitVerse show no counter for Pair Extraordinaire?"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","author":{"@type":"Person","name":"Vicky Patel","url":"https://github.com/TheVicky1"},"description":"Pair Extraordinaire honors collaborative programming through Git co-authorship. It is unlocked by authoring or co-authoring commits included in merged pull requests. GitHub logs the merged pull request and collaborator identities for milestones at 1, 10, 24, and 48 co-authored PRs.","headline":"Pair Extraordinaire GitHub Achievement: How to Get It, Tiers \u0026 Milestones","inLanguage":"en-US","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mygitverse.vercel.app/gitverse-logo.png"},"name":"GitVerse","url":"https://mygitverse.vercel.app/"},"url":"https://mygitverse.vercel.app/achievements/pair-extraordinaire/"}</script>
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"1 co-authored merged PR for base (x1), 10 for bronze (x2), 24 for silver (x3), and 48 for gold (x4)."},"name":"How many coauthored pull requests do you need for Pair Extraordinaire?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"Add a commit trailer formatted as `Co-authored-by: Name \u003cemail@example.com\u003e` at the bottom of the Git commit message."},"name":"What Git syntax is required to credit a co-author?"},{"@type":"Question","acceptedAnswer":{"@type":"Answer","text":"GitHub's internal qualification logic for co-authored commits is unexposed and differs from public commit search. GitVerse surfaces the verified official tier to prevent misleading estimates."},"name":"Why does GitVerse show no counter for Pair Extraordinaire?"}]}</script>
   
   <script src="/app.js" defer data-ga="G-3EEKKGL110"></script>
   
@@ -66,7 +68,7 @@
   <img class="badge-hero" src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="160" height="160" alt="Pair Extraordinaire GitHub achievement badge">
   <ul class="tier-strip" aria-label="Tiers"><li><img class="medal-img" src="https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png" width="64" height="64" alt="">x1 base</li><li><img class="medal-img" src="https://github.githubassets.com/assets/pair-extraordinaire-bronze-797214f41e7e.png" width="64" height="64" alt="">x2 bronze</li><li><img class="medal-img" src="https://github.githubassets.com/assets/pair-extraordinaire-silver-a0b2b472348c.png" width="64" height="64" alt="">x3 silver</li><li><img class="medal-img" src="https://github.githubassets.com/assets/pair-extraordinaire-gold-5335a3b8ae7d.png" width="64" height="64" alt="">x4 gold</li></ul>
 </div>
-<p class="lede prose">Pair Extraordinaire is awarded for coauthored commits on merged pull requests. GitHub&#39;s history for the badge lists the pull request and the coauthors for each threshold, including pull requests opened by someone else that list you as a coauthor.</p>
+<p class="lede prose">Pair Extraordinaire honors collaborative programming through Git co-authorship. It is unlocked by authoring or co-authoring commits included in merged pull requests. GitHub logs the merged pull request and collaborator identities for milestones at 1, 10, 24, and 48 co-authored PRs.</p>
 <dl class="facts">
   <dt>How to earn it</dt><dd>Coauthor commits on merged pull requests</dd>
   <dt>Status</dt><dd>Earnable</dd>
@@ -84,13 +86,14 @@
 <h2>Check your Pair Extraordinaire progress</h2>
 <pre><code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest
 gitverse &lt;username&gt;</code></pre>
-<p>It shows your Pair Extraordinaire tier, when you unlocked it and, where GitHub's data allows, how many more you need for the next tier.</p>
+<p>It shows your Pair Extraordinaire tier, when you unlocked it and, where GitHub's data allows, how many more you need for the next tier. You can also <a href="/check/">track Pair Extraordinaire online</a> or learn how progress is verified in our <a href="/methodology/">calculation methodology</a>.</p>
 
 
 <h2>FAQ</h2>
 <dl class="faq">
-<dt>How many coauthored pull requests do you need for Pair Extraordinaire?</dt><dd>1 for the base badge, 10 for x2, 24 for x3 and 48 for x4.</dd>
-<dt>Why does GitVerse show no counter for Pair Extraordinaire?</dt><dd>GitHub&#39;s counting rule is not public. On a real account, 60 merged pull requests had commits with a Co-authored-by trailer while GitHub&#39;s tier said 10 to 23, so any count from the API would be wrong. The tool shows the official tier only.</dd>
+<dt>How many coauthored pull requests do you need for Pair Extraordinaire?</dt><dd>1 co-authored merged PR for base (x1), 10 for bronze (x2), 24 for silver (x3), and 48 for gold (x4).</dd>
+<dt>What Git syntax is required to credit a co-author?</dt><dd>Add a commit trailer formatted as `Co-authored-by: Name &lt;email@example.com&gt;` at the bottom of the Git commit message.</dd>
+<dt>Why does GitVerse show no counter for Pair Extraordinaire?</dt><dd>GitHub&#39;s internal qualification logic for co-authored commits is unexposed and differs from public commit search. GitVerse surfaces the verified official tier to prevent misleading estimates.</dd>
 </dl>
 
 <nav class="pager" aria-label="Other achievements">

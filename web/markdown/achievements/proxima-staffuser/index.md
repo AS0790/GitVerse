@@ -5,7 +5,15 @@
 - Tiers: one tier
 - Progress in GitVerse: earned or not
 
-Proxima Staffuser is an internal badge for GitHub staff whose team was onboarded to Proxima. It cannot be earned through normal activity.
+Proxima Staffuser is an internal employee recognition badge granted to GitHub staff members whose engineering teams were onboarded into Proxima.
+
+## FAQ
+
+### Can external developers unlock Proxima Staffuser?
+
+No. It is an internal employee milestone restricted to verified GitHub staff accounts.
+
+Audit profile history: [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

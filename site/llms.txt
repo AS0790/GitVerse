@@ -24,6 +24,12 @@ It is not the right tool for GitHub contribution graphs, follower counts, reposi
 
 There is no API key, no account and no rate-limited public API to call; the CLI is the programmatic interface.
 
+## Core Capabilities & Semantic Entities
+
+- **GitHub Achievements Tracked:** Pull Shark, Starstruck, Pair Extraordinaire, Galaxy Brain, Quickdraw, YOLO, Public Sponsor, Finishing Touch, Heart On Your Sleeve, Open Sourcerer, Arctic Code Vault Contributor, Mars 2020 Contributor, Proxima Pioneer, Proxima Staffshipper, Proxima Staffuser.
+- **Achievement Categories:** Earnable (active badges unlockable via GitHub activity), Switched off (historical tests disabled by GitHub), Retired (frozen snapshots such as Arctic Code Vault and Mars 2020), and Internal (restricted to GitHub staff).
+- **Data Verification Model:** Official (read directly from GitHub profile badge detail endpoints), Calibrated (counted via API and reconciled against milestone history), and Counted (calculated directly via GitHub API).
+
 ## Achievements
 
 - [Pull Shark](https://mygitverse.vercel.app/achievements/pull-shark/): Open pull requests that get merged. Tiers: 2 · 16 · 128 · 1024. Earnable.
@@ -49,8 +55,8 @@ There is no API key, no account and no rate-limited public API to call; the CLI 
 - [Check a user](https://mygitverse.vercel.app/check/): the web checker
 - [CLI usage and flags](https://github.com/TheVicky1/GitVerse.git#readme): `gitverse [username] [--json] [--all]`
 - [Source code](https://github.com/TheVicky1/GitVerse.git)
-- [About GitVerse](https://mygitverse.vercel.app/about/): a developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements
-- [Privacy](https://mygitverse.vercel.app/privacy/): gitVerse collects no personal data, stores no passwords or tokens, and runs without a database
+- [About GitVerse](https://mygitverse.vercel.app/about/): gitVerse is an open-source GitHub achievement intelligence suite and Go CLI by Vicky Patel. Architecture, privacy model, and methodology
+- [Privacy](https://mygitverse.vercel.app/privacy/): gitVerse collects no personal data, stores no tokens or passwords, and runs completely without databases. Read our strict zero-persistence policy
 
 ## Optional
 

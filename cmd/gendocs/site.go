@@ -72,6 +72,84 @@ func ld(v interface{}) template.JS {
 	return template.JS(b)
 }
 
+func websiteLD() template.JS {
+	return ld(map[string]interface{}{
+		"@context":      "https://schema.org",
+		"@type":         "WebSite",
+		"name":          "GitVerse",
+		"alternateName": "GitVerse GitHub Achievements Tracker",
+		"url":           webui.SiteURL,
+		"description":   tagline,
+		"potentialAction": map[string]interface{}{
+			"@type": "SearchAction",
+			"target": map[string]interface{}{
+				"@type":       "EntryPoint",
+				"urlTemplate": webui.SiteURL + "result?u={search_term_string}",
+			},
+			"query-input": "required name=search_term_string",
+		},
+	})
+}
+
+func organizationLD() template.JS {
+	return ld(map[string]interface{}{
+		"@context": "https://schema.org",
+		"@type":    "Organization",
+		"name":     "GitVerse",
+		"url":      webui.SiteURL,
+		"logo":     webui.SiteURL + "gitverse-logo.png",
+		"sameAs": []string{
+			webui.RepoURL,
+			"https://github.com/TheVicky1",
+		},
+		"founder": map[string]interface{}{
+			"@type": "Person",
+			"name":  "Vicky Patel",
+			"url":   "https://github.com/TheVicky1",
+		},
+	})
+}
+
+func collectionPageLD(url string) template.JS {
+	return ld(map[string]interface{}{
+		"@context":    "https://schema.org",
+		"@type":       "CollectionPage",
+		"name":        "GitHub Achievements Directory",
+		"description": "Complete directory of GitHub profile achievements, tier requirements, and badge criteria.",
+		"url":         url,
+		"isPartOf": map[string]interface{}{
+			"@type": "WebSite",
+			"name":  "GitVerse",
+			"url":   webui.SiteURL,
+		},
+	})
+}
+
+func techArticleLD(title, description, url string) template.JS {
+	return ld(map[string]interface{}{
+		"@context":    "https://schema.org",
+		"@type":       "TechArticle",
+		"headline":    title,
+		"description": description,
+		"url":         url,
+		"inLanguage":  "en-US",
+		"author": map[string]interface{}{
+			"@type": "Person",
+			"name":  "Vicky Patel",
+			"url":   "https://github.com/TheVicky1",
+		},
+		"publisher": map[string]interface{}{
+			"@type": "Organization",
+			"name":  "GitVerse",
+			"url":   webui.SiteURL,
+			"logo": map[string]interface{}{
+				"@type": "ImageObject",
+				"url":   webui.SiteURL + "gitverse-logo.png",
+			},
+		},
+	})
+}
+
 func faqLD(qas []catalog.QA) template.JS {
 	items := make([]map[string]interface{}, len(qas))
 	for i, qa := range qas {
@@ -195,6 +273,8 @@ func sitePages() (map[string][]byte, error) {
 					"offers": map[string]interface{}{"@type": "Offer", "price": "0", "priceCurrency": "USD"},
 					"author": map[string]interface{}{"@type": "Person", "name": "Vicky Patel", "url": "https://github.com/TheVicky1"},
 				}),
+				websiteLD(),
+				organizationLD(),
 				faqLD(siteFAQ()),
 			},
 			Data: map[string]interface{}{"Earnable": earnable, "FAQ": siteFAQ(), "Install": webui.Install,
@@ -202,29 +282,52 @@ func sitePages() (map[string][]byte, error) {
 		},
 		{
 			Path: "achievements/index.html", URL: all.URL,
-			Title:       fmt.Sprintf("Explore All %d GitHub Achievements: list, tiers & how to get them", len(catalog.Achievements)),
-			Description: "The complete directory of GitHub profile achievements, tier milestones, and badge requirements.",
+			Title:       fmt.Sprintf("All %d GitHub Achievements: Tiers, Milestones & Guide", len(catalog.Achievements)),
+			Description: "Complete directory of all 15 GitHub profile achievements and badge tiers. Learn unlock requirements, milestone thresholds, and track your developer progress.",
 			Heading:     "",
 			Content:     "list.html",
 			Crumbs:      nil,
+			JSONLD: []template.JS{
+				collectionPageLD(all.URL),
+				breadcrumbLD([]webui.Crumb{home, {Name: "Explore Achievements", URL: all.URL}}),
+			},
 			Data: map[string]interface{}{"Groups": listGroups(views), "Highlights": catalog.Highlights, "Verified": catalog.LastVerified,
 				"Summary": kindSummary(), "Install": webui.Install},
 		},
 		{
 			Path: "methodology/index.html", URL: webui.SiteURL + "methodology/",
-			Title:       "How accurate is GitVerse? Data sources & limits",
-			Description: "Where GitVerse gets each number: GitHub's own badge history, calibration against named milestones, and the limits of GitHub's API.",
+			Title:       "GitHub Achievement Verification Methodology · GitVerse",
+			Description: "How GitVerse verifies GitHub achievements: official profile history, calibration against named milestones, and GraphQL/REST API limits.",
 			Heading:     "How accurate is GitVerse?",
 			Content:     "methodology.html",
 			Crumbs:      []webui.Crumb{home, {Name: "How accurate is it", URL: webui.SiteURL + "methodology/"}},
+			JSONLD: []template.JS{
+				techArticleLD("GitHub Achievement Calculation Methodology and Verification Accuracy",
+					"Technical methodology explaining GitHub achievement scraping, tier calibration against official milestone history, and API boundaries.",
+					webui.SiteURL+"methodology/"),
+				breadcrumbLD([]webui.Crumb{home, {Name: "Methodology", URL: webui.SiteURL + "methodology/"}}),
+			},
 			Data:        map[string]interface{}{"Paras": methodology, "Verified": catalog.LastVerified},
 		},
 		{
 			Path: "check/index.html", URL: webui.SiteURL + "check/",
-			Title:       "Track your GitHub achievements · GitVerse",
-			Description: "Sign in with GitHub or type a username to see every achievement, the tier and how far to the next one.",
+			Title:       "Track GitHub Achievements & Badges Online · GitVerse",
+			Description: "Check and track your GitHub profile achievements online. Inspect pull requests, stars, and unlock milestones for public and private repositories in real time.",
 			Heading:     "", Content: "check.html",
 			Crumbs: nil,
+			JSONLD: []template.JS{
+				ld(map[string]interface{}{
+					"@context": "https://schema.org",
+					"@type":    "WebApplication",
+					"name":     "GitVerse Achievement Tracker",
+					"url":      webui.SiteURL + "check/",
+					"applicationCategory": "DeveloperApplication",
+					"browserRequirements": "Requires JavaScript",
+					"operatingSystem": "All",
+					"offers": map[string]interface{}{"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+				}),
+				breadcrumbLD([]webui.Crumb{home, {Name: "Track Profile", URL: webui.SiteURL + "check/"}}),
+			},
 		},
 		{
 			Path: "auth/callback/index.html", URL: webui.SiteURL + "auth/callback/", Title: "Checking… · GitVerse",
@@ -270,7 +373,10 @@ func sitePages() (map[string][]byte, error) {
 			Heading:     v.Name,
 			Content:     "badge.html",
 			Crumbs:      crumbs,
-			JSONLD:      []template.JS{breadcrumbLD(crumbs)},
+			JSONLD: []template.JS{
+				breadcrumbLD(crumbs),
+				techArticleLD(fmt.Sprintf("%s GitHub Achievement: How to Get It, Tiers & Milestones", v.Name), v.Details, url),
+			},
 			Data:        map[string]interface{}{"B": v, "Install": webui.Install, "Verified": catalog.LastVerified},
 		}
 		if len(v.FAQ) > 0 {

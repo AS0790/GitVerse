@@ -19,10 +19,10 @@ type trustPage struct {
 
 var trustPages = []trustPage{
 	{
-		Slug: "about", Title: "About GitVerse: why it exists, architecture & author",
+		Slug: "about", Title: "About GitVerse: Architecture, Data Trust & Author · GitVerse",
 		Heading:     "About GitVerse",
 		Eyebrow:     "Architecture & Philosophy",
-		Description: "A developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements.",
+		Description: "GitVerse is an open-source GitHub achievement intelligence suite and Go CLI by Vicky Patel. Architecture, privacy model, and methodology.",
 		Lede:        "A modern, developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements.",
 		Paras: []para{
 			{
@@ -64,10 +64,10 @@ var trustPages = []trustPage{
 		},
 	},
 	{
-		Slug: "privacy", Title: "Privacy policy · GitVerse",
+		Slug: "privacy", Title: "GitVerse Privacy Policy: Zero Stored Data & Ephemeral OAuth",
 		Heading:     "Privacy",
 		Eyebrow:     "Data & Security Standards",
-		Description: "GitVerse collects no personal data, stores no passwords or tokens, and runs without a database.",
+		Description: "GitVerse collects no personal data, stores no tokens or passwords, and runs completely without databases. Read our strict zero-persistence policy.",
 		Lede:        "GitVerse is built on a fundamental principle: your developer data belongs exclusively to you. No databases, no persistent storage, and zero tracking.",
 		Paras: []para{
 			{Heading: "Our Privacy Commitment", Text: "GitVerse is built on a fundamental principle: your developer data belongs exclusively to you. " +
@@ -168,7 +168,9 @@ func markdownPages() map[string]string {
 			}
 		}
 		if a.Kind == catalog.Earnable {
-			fmt.Fprintf(&b, "\nCheck your progress: `gitverse` or %s\n", link("check/"))
+			fmt.Fprintf(&b, "\nCheck your progress: `gitverse` or [%s](%s). Methodology: [%s](%s).\n", link("check/"), link("check/"), link("methodology/"), link("methodology/"))
+		} else {
+			fmt.Fprintf(&b, "\nAudit profile history: [%s](%s). Methodology: [%s](%s).\n", link("check/"), link("check/"), link("methodology/"), link("methodology/"))
 		}
 		b.WriteString(markdownFooter())
 		pages["achievements/"+a.Slug+"/"] = b.String()
@@ -179,14 +181,15 @@ func markdownPages() map[string]string {
 	for _, p := range methodology {
 		fmt.Fprintf(&m, "\n## %s\n\n%s\n", p.Heading, p.Text)
 	}
-	fmt.Fprintf(&m, "\nLast verified %s.\n", catalog.LastVerified)
+	fmt.Fprintf(&m, "\nLast verified %s.\n\nTrack your profile at [%s](%s) or view all badges in the [Achievements Directory](%s).\n", catalog.LastVerified, link("check/"), link("check/"), link("achievements/"))
 	m.WriteString(markdownFooter())
 	pages["methodology/"] = m.String()
 
 	pages["check/"] = "# Check your GitHub achievements\n\n" +
 		"Type a username at " + link("check/") + " for public data, or sign in with GitHub to include private contributions. " +
 		"A public report has a shareable address: " + link("result?u=<username>") + ".\n\n" +
-		"In a terminal: `" + webui.Install + "`, then `gitverse [username]` (add `--json` for machine-readable output).\n" +
+		"In a terminal: `" + webui.Install + "`, then `gitverse [username]` (add `--json` for machine-readable output).\n\n" +
+		"Explore all badge criteria in the [Achievements Directory](" + link("achievements/") + ") or review our [Accuracy Methodology](" + link("methodology/") + ").\n" +
 		markdownFooter()
 
 	for _, tp := range trustPages {

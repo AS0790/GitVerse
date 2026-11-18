@@ -5,7 +5,7 @@
 - Tiers: 2 · 8 · 16 · 32
 - Progress in GitVerse: count of accepted answers
 
-Galaxy Brain counts your GitHub Discussions answers that were marked as the accepted answer. Since 2024-02-06 answers in GitHub's own Community Discussions (github.com/orgs/community) no longer count.
+Galaxy Brain recognizes developers who provide helpful technical mentorship by having their answers marked as accepted in GitHub Discussions. Milestone tiers are reached at 2, 8, 16, and 32 accepted solutions.
 
 | Tier | Needed |
 |---|---|
@@ -18,13 +18,17 @@ Galaxy Brain counts your GitHub Discussions answers that were marked as the acce
 
 ### How many accepted answers do you need for Galaxy Brain?
 
-2 for the base badge, 8 for x2, 16 for x3 and 32 for x4.
+2 accepted answers for base (x1), 8 for bronze (x2), 16 for silver (x3), and 32 for gold (x4).
 
 ### Do answers in GitHub Community Discussions count for Galaxy Brain?
 
-Not since 2024-02-06, when GitHub stopped awarding achievements there to counter spam. Answers in other repositories' discussions still count.
+Not since February 6, 2024, when GitHub paused achievement qualification in github.com/orgs/community to deter automated spam. Answers in all other open-source repository discussions count normally.
 
-Check your progress: `gitverse` or https://mygitverse.vercel.app/check/
+### Who can mark an answer as accepted in GitHub Discussions?
+
+The original discussion author or any repository maintainer with triage or write permissions can click "Mark as answer".
+
+Check your progress: `gitverse` or [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/). Methodology: [https://mygitverse.vercel.app/methodology/](https://mygitverse.vercel.app/methodology/).
 
 ---
 

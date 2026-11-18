@@ -30,6 +30,8 @@ The CLI uses the credentials gh already stores (or GH_TOKEN). Without them it fa
 
 Last verified 2026-10-17.
 
+Track your profile at [https://mygitverse.vercel.app/check/](https://mygitverse.vercel.app/check/) or view all badges in the [Achievements Directory](https://mygitverse.vercel.app/achievements/).
+
 ---
 
 [GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
