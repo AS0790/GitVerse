@@ -316,7 +316,6 @@ func llmsTxt() string {
 	b.WriteString("> " + tagline + "\n\n")
 	b.WriteString("GitVerse is a free, open-source GitHub achievement tracker with a web checker and a Go CLI (MIT). Use the web checker at " + webui.SiteURL + "check/ or install the CLI with " + "`go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`" + " and run " + "`gitverse <username>`" + ". ")
 	b.WriteString("The CLI can use the user's existing GitHub CLI login for private-repository-aware checks. The web checker supports public checks without sign-in and optional GitHub sign-in for private-repository checks; the OAuth token is used for one check and revoked immediately. No manually created personal access token is required.")
-	b.WriteString("A web checker at " + webui.SiteURL + "check/ shows the same report without installing anything. ")
 	fmt.Fprintf(&b, "It knows %d achievements (%s) and %d profile highlights. Catalog last verified %s. It is not affiliated with GitHub.\n\n",
 		len(catalog.Achievements), kindSummary(), len(catalog.Highlights), catalog.LastVerified)
 	b.WriteString(whenToUse() + "\n")
