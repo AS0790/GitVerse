@@ -6,8 +6,8 @@
 
 # GitVerse - GitHub Achievement Intelligence Platform
 
-**Deterministic Milestone Visibility & Real-Time Achievement Verification.**  
-*Know exactly where you stand. Turn opaque badges into actionable developer milestones.*
+**A free, open-source GitHub achievement tracker and progress checker for profile badges, tiers, and milestone history.**  
+*Track your GitHub achievements with a web app or Go CLI, using GitHub's own profile data.*
 
 <br />
 
