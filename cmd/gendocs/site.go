@@ -160,7 +160,7 @@ func view(a catalog.Achievement) badgeView {
 
 func sitePages() (map[string][]byte, error) {
 	home := webui.Crumb{Name: "GitVerse", URL: webui.SiteURL}
-	all := webui.Crumb{Name: "All GitHub achievements", URL: webui.SiteURL + "achievements/"}
+	all := webui.Crumb{Name: "Explore", URL: webui.SiteURL + "achievements/"}
 	var views []badgeView
 	for _, a := range catalog.Achievements {
 		views = append(views, view(a))
@@ -196,11 +196,11 @@ func sitePages() (map[string][]byte, error) {
 		},
 		{
 			Path: "achievements/index.html", URL: all.URL,
-			Title:       fmt.Sprintf("All %d GitHub Achievements: list, tiers & how to get them", len(catalog.Achievements)),
-			Description: "The complete list of GitHub profile achievements, with tier thresholds, how to earn each one and whether it can still be earned.",
-			Heading:     "All GitHub achievements",
+			Title:       fmt.Sprintf("Explore All %d GitHub Achievements: list, tiers & how to get them", len(catalog.Achievements)),
+			Description: "The complete directory of GitHub profile achievements, tier milestones, and badge requirements.",
+			Heading:     "Explore",
 			Content:     "list.html",
-			Crumbs:      []webui.Crumb{home, all},
+			Crumbs:      nil,
 			Data: map[string]interface{}{"Groups": listGroups(views), "Highlights": catalog.Highlights, "Verified": catalog.LastVerified,
 				"Summary": kindSummary(), "Install": webui.Install},
 		},
@@ -215,10 +215,10 @@ func sitePages() (map[string][]byte, error) {
 		},
 		{
 			Path: "check/index.html", URL: webui.SiteURL + "check/",
-			Title:       "Check your GitHub achievements · GitVerse",
+			Title:       "Track your GitHub achievements · GitVerse",
 			Description: "Sign in with GitHub or type a username to see every achievement, the tier and how far to the next one.",
-			Heading:     "Check your GitHub achievements", Content: "check.html",
-			Crumbs: []webui.Crumb{home, {Name: "Check yours", URL: webui.SiteURL + "check/"}},
+			Heading:     "", Content: "check.html",
+			Crumbs: nil,
 		},
 		{
 			Path: "auth/callback/index.html", URL: webui.SiteURL + "auth/callback/", Title: "Checking… · GitVerse",

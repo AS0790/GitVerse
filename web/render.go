@@ -28,8 +28,8 @@ type ErrorView struct {
 // RenderErrorPage renders the check form with one message.
 func RenderErrorPage(status int, reason, message, user string) ([]byte, error) {
 	return webui.Render(webui.Page{
-		Path: "result", URL: webui.SiteURL + "check/", Title: "Check your GitHub achievements · GitVerse",
-		Description: message, Heading: "Check your GitHub achievements", Content: "check.html", NoIndex: true,
+		Path: "result", URL: webui.SiteURL + "check/", Title: "Track your GitHub achievements · GitVerse",
+		Description: message, Heading: "", Content: "check.html", NoIndex: true,
 		Data: ErrorView{Status: status, Reason: reason, Message: message, User: user},
 	})
 }

@@ -25,13 +25,19 @@
   </div>
 </section>
 
-<h2>Prefer the terminal?</h2>
-<div class="install">
-  <pre><code>{{.Install}}
+<section class="terminal-section">
+  <header class="terminal-intro">
+    <p class="terminal-eyebrow">COMMAND LINE</p>
+    <h2>Prefer the terminal?</h2>
+    <p>Run a lightweight check directly in your shell with our official Go CLI.</p>
+  </header>
+  <div class="install">
+    <pre><code>{{.Install}}
 gitverse &lt;username&gt;</code></pre>
-  <button type="button" class="btn small" data-copy="{{.Install}}">Copy install</button>
-</div>
-<p class="meta">Requires Go 1.25+. Public profiles work without a token; use <a href="https://cli.github.com/">GitHub CLI</a> and <code>gh auth login</code> only to include private data.</p>
+    <button type="button" class="btn small" data-copy="{{.Install}}">Copy install</button>
+  </div>
+  <p class="meta">Requires Go 1.25+. Public profiles work without a token; use <a href="https://cli.github.com/">GitHub CLI</a> and <code>gh auth login</code> only to include private data.</p>
+</section>
 
 <section class="clarity" aria-labelledby="clarity-title">
   <header class="clarity-intro">
