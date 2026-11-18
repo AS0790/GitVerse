@@ -234,7 +234,7 @@ var Achievements = []Achievement{
 	{
 		Slug: "proxima-pioneer", Name: "Proxima Pioneer", Kind: Internal, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "GitHub staff: contributed to the Proxima proof of concept",
-		Details: "Proxima Pioneer is an exclusive internal achievement awarded to GitHub staff who participated in early architecture and proof-of-concept development for Proxima.",
+		Details:   "Proxima Pioneer is an exclusive internal achievement awarded to GitHub staff who participated in early architecture and proof-of-concept development for Proxima.",
 		FAQ: []QA{
 			{"Can public developers earn Proxima Pioneer?",
 				"No. Proxima Pioneer is strictly an internal employee badge issued exclusively to GitHub staff."},
@@ -245,7 +245,7 @@ var Achievements = []Achievement{
 	{
 		Slug: "proxima-staffshipper", Name: "Proxima Staffshipper", Kind: Internal, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "GitHub staff: shipped the Proxima staffship instance",
-		Details: "Proxima Staffshipper is an internal achievement awarded to GitHub employees who successfully deployed production services into the Proxima staffship environment.",
+		Details:   "Proxima Staffshipper is an internal achievement awarded to GitHub employees who successfully deployed production services into the Proxima staffship environment.",
 		FAQ: []QA{
 			{"Can public contributors earn Proxima Staffshipper?",
 				"No. Proxima Staffshipper is reserved strictly for internal GitHub engineering teams."},
@@ -254,7 +254,7 @@ var Achievements = []Achievement{
 	{
 		Slug: "proxima-staffuser", Name: "Proxima Staffuser", Kind: Internal, Tiers: []int{1}, Counter: CounterNone,
 		HowToEarn: "GitHub staff: your team was onboarded to Proxima",
-		Details: "Proxima Staffuser is an internal employee recognition badge granted to GitHub staff members whose engineering teams were onboarded into Proxima.",
+		Details:   "Proxima Staffuser is an internal employee recognition badge granted to GitHub staff members whose engineering teams were onboarded into Proxima.",
 		FAQ: []QA{
 			{"Can external developers unlock Proxima Staffuser?",
 				"No. It is an internal employee milestone restricted to verified GitHub staff accounts."},

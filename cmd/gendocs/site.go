@@ -307,7 +307,7 @@ func sitePages() (map[string][]byte, error) {
 					webui.SiteURL+"methodology/"),
 				breadcrumbLD([]webui.Crumb{home, {Name: "Methodology", URL: webui.SiteURL + "methodology/"}}),
 			},
-			Data:        map[string]interface{}{"Paras": methodology, "Verified": catalog.LastVerified},
+			Data: map[string]interface{}{"Paras": methodology, "Verified": catalog.LastVerified},
 		},
 		{
 			Path: "check/index.html", URL: webui.SiteURL + "check/",
@@ -317,14 +317,14 @@ func sitePages() (map[string][]byte, error) {
 			Crumbs: nil,
 			JSONLD: []template.JS{
 				ld(map[string]interface{}{
-					"@context": "https://schema.org",
-					"@type":    "WebApplication",
-					"name":     "GitVerse Achievement Tracker",
-					"url":      webui.SiteURL + "check/",
+					"@context":            "https://schema.org",
+					"@type":               "WebApplication",
+					"name":                "GitVerse Achievement Tracker",
+					"url":                 webui.SiteURL + "check/",
 					"applicationCategory": "DeveloperApplication",
 					"browserRequirements": "Requires JavaScript",
-					"operatingSystem": "All",
-					"offers": map[string]interface{}{"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+					"operatingSystem":     "All",
+					"offers":              map[string]interface{}{"@type": "Offer", "price": "0", "priceCurrency": "USD"},
 				}),
 				breadcrumbLD([]webui.Crumb{home, {Name: "Track Profile", URL: webui.SiteURL + "check/"}}),
 			},
@@ -377,7 +377,7 @@ func sitePages() (map[string][]byte, error) {
 				breadcrumbLD(crumbs),
 				techArticleLD(fmt.Sprintf("%s GitHub Achievement: How to Get It, Tiers & Milestones", v.Name), v.Details, url),
 			},
-			Data:        map[string]interface{}{"B": v, "Install": webui.Install, "Verified": catalog.LastVerified},
+			Data: map[string]interface{}{"B": v, "Install": webui.Install, "Verified": catalog.LastVerified},
 		}
 		if len(v.FAQ) > 0 {
 			p.JSONLD = append(p.JSONLD, faqLD(v.FAQ))
