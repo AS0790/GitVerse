@@ -1279,30 +1279,41 @@ ul + h2 {
   text-align: center;
 }
 
-.track-hero .choice .btn.big {
-  width: 100%;
-  justify-content: center;
-  padding: 14px 28px;
-  font-size: 1rem;
-  margin-bottom: 12px;
-}
-
-.track-hero .choice .meta {
-  font-size: 0.82rem;
-  color: var(--ink-3);
-  text-align: center;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.track-hero .choice .or {
-  margin: 16px 0;
-  width: 100%;
-}
-
 .track-hero .choice #check-form {
   width: 100%;
   max-width: 480px;
+  margin-bottom: 20px;
+}
+
+.track-hero .signin {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.track-hero .signin-link,
+.signin-link {
+  color: var(--ink) !important;
+  font-weight: 700;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(255, 255, 255, 0.45) !important;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.track-hero .signin-link:hover,
+.signin-link:hover {
+  color: #fff !important;
+  text-decoration-color: #fff !important;
+}
+
+.track-hero .signin-sub {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
 }
 
 .track-terminal {
