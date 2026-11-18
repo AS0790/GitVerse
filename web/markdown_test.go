@@ -24,7 +24,6 @@ func TestMarkdown_servesEveryPageTwin(t *testing.T) {
 		"/achievements/pull-shark/": "# Pull Shark (GitHub achievement)",
 		"methodology/":              "# How accurate is GitVerse?",
 		"about/":                    "# About GitVerse",
-		"contact":                   "# Contact",
 		"privacy/":                  "# Privacy",
 	} {
 		w := serveMarkdown("GET", path)

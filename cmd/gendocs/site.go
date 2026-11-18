@@ -198,7 +198,7 @@ func sitePages() (map[string][]byte, error) {
 			Path: "achievements/index.html", URL: all.URL,
 			Title:       fmt.Sprintf("Explore All %d GitHub Achievements: list, tiers & how to get them", len(catalog.Achievements)),
 			Description: "The complete directory of GitHub profile achievements, tier milestones, and badge requirements.",
-			Heading:     "Explore",
+			Heading:     "",
 			Content:     "list.html",
 			Crumbs:      nil,
 			Data: map[string]interface{}{"Groups": listGroups(views), "Highlights": catalog.Highlights, "Verified": catalog.LastVerified,
@@ -231,7 +231,7 @@ func sitePages() (map[string][]byte, error) {
 		crumbs := []webui.Crumb{home, {Name: tp.Heading, URL: url}}
 		pages = append(pages, webui.Page{
 			Path: tp.Slug + "/index.html", URL: url, Title: tp.Title, Description: tp.Description,
-			Heading: tp.Heading, Content: "prose.html", Crumbs: crumbs,
+			Heading: tp.Heading, Content: "prose.html", Crumbs: nil,
 			JSONLD: []template.JS{breadcrumbLD(crumbs)},
 			Data:   map[string]interface{}{"Paras": tp.Paras, "ShowStar": tp.Slug == "about"},
 		})

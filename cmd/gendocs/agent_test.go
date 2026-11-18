@@ -57,7 +57,7 @@ func TestLlmsTxt_saysWhenAndHowToUseIt(t *testing.T) {
 	txt := llmsTxt()
 	for _, want := range []string{"## When to use GitVerse", "## How an agent should call it",
 		"gitverse <username> --json", webui.SiteURL + "achievements.json", "Accept: text/markdown",
-		webui.SiteURL + "about/", webui.SiteURL + "contact/", webui.SiteURL + "privacy/"} {
+		webui.SiteURL + "about/", webui.SiteURL + "privacy/"} {
 		if !strings.Contains(txt, want) {
 			t.Errorf("llms.txt lacks %q", want)
 		}

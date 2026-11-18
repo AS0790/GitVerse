@@ -40,7 +40,6 @@
         <a href="/check/">Track</a>
         <a href="/achievements/">Explore</a>
         <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
         <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
         <button type="button" class="nav-link-btn" data-consent-reset hidden aria-hidden="true">Settings</button>
       </nav>
@@ -70,7 +69,13 @@
     <p class="signin">Want to access private repositories? <a href="/auth/login" data-signin class="signin-link"><strong>Sign in with GitHub</strong></a></p>
     <p class="signin-sub">Token is used for one check, then revoked. Nothing is stored.</p>
   </div>
-  <p class="meta track-terminal">Prefer the terminal? Install with <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>, then run <code>gitverse &lt;username&gt;</code>. <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button></p>
+  <div class="track-terminal">
+    <span class="track-terminal-label">Prefer the terminal?</span>
+    <div class="terminal-pill">
+      <code>go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest</code>
+      <button type="button" class="btn small" data-copy="go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest">Copy</button>
+    </div>
+  </div>
 </section>
 
   </main>

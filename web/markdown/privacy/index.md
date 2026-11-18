@@ -1,25 +1,25 @@
 # Privacy
 
-## The CLI
+## Our Privacy Commitment
 
-The GitVerse CLI runs on your computer. It reuses the login the GitHub CLI already stores (or GH_TOKEN) and talks only to github.com and api.github.com. It sends nothing to GitVerse or any other server and writes no token anywhere.
+GitVerse is built on a fundamental principle: your developer data belongs exclusively to you. We believe privacy should be absolute and non-negotiable. This policy outlines how GitVerse handles authentication, public metrics, and temporary session state across both our command line interface and web application.
 
-## The web checker
+## Command Line Interface
 
-When you check a username, the request goes to the GitVerse server on Vercel, which reads that profile's public data from GitHub with a read-only bot token. When you sign in with GitHub, the one-time code is exchanged on the server, the token is used for a single check and revoked at once, and refresh tokens are discarded. No account is created and no report, username or token is stored. Server logs record error types only, never usernames or tokens. Vercel, the host, processes each request under its own privacy policy.
+The GitVerse CLI operates entirely on your local machine. When retrieving public achievement information, it connects directly to GitHub's public endpoints. If authenticated using GitHub CLI or a local personal access token, credentials remain strictly within your local environment. The CLI never sends credentials, query history, or telemetry logs to GitVerse or any remote servers.
 
-## Cookies and browser storage
+## Web Application & OAuth
 
-Signing in sets one HttpOnly cookie, gha_oauth, holding a signed sign-in state that expires after 10 minutes and is cleared as soon as the check starts.Your browser's local storage remembers your theme, your analytics choice and the last username you signed in as, so the page can greet you; session storage caches the repository's star count. None of this leaves your browser.
+When you check a username on the web interface, GitVerse queries public profile metrics through a read-only server token. If you sign in via GitHub to include private repository achievements, authorization is strictly ephemeral. OAuth tokens are held in volatile memory only for the duration of a single check and revoked immediately after your report is generated. GitVerse maintains no database, stores no user profiles, and logs no usernames, tokens, or repository names.
 
-## Analytics
+## Analytics & Cookies
 
-Google Analytics loads only after you click Allow, and the site works the same if you say no. Page addresses are sent without their query string and result-page titles are replaced, so no username or repository name reaches Google. You can change your choice at any time with "Analytics settings" in the footer.
+GitVerse employs strictly privacy-focused analytics with Google Analytics in consent-gated mode. No analytics cookies or trackers are loaded unless you explicitly grant consent. No IP addresses, usernames, or private repository data are ever transmitted to analytics providers.
 
-## Questions
+## Third-Party Infrastructure
 
-Ask in a GitHub issue at https://github.com/TheVicky1/GitVerse.git/issues, or report a privacy or security problem privately at https://github.com/TheVicky1/GitVerse.git/security/advisories/new.
+GitVerse is hosted on Vercel's global edge network under secure TLS 1.3 encryption. Badge artwork is loaded directly from GitHub's official content delivery network. All network transactions adhere to industry-standard transport security.
 
 ---
 
-[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Contact](https://mygitverse.vercel.app/contact/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

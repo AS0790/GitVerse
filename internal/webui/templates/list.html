@@ -1,5 +1,9 @@
 {{define "content"}}
-<p class="lede">Explore every known GitHub achievement, tier milestone, and developer profile badge. Documented with precision and verified against live profiles ({{.Summary}}).</p>
+<section class="explore-hero hero">
+  <div class="hero-eyebrow">GitHub Achievement Catalog</div>
+  <h1>Explore</h1>
+  <p class="lede">Explore every known GitHub achievement, tier milestone, and developer profile badge. Documented with precision and verified against live profiles ({{.Summary}}).</p>
+</section>
 {{range .Groups}}
 <h2>{{.Heading}}</h2>
 <p class="hint">{{.Note}}</p>

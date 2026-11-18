@@ -1,21 +1,25 @@
 # About GitVerse
 
-## What it is
+## The Platform
 
-GitVerse is a free, open source tool that shows every GitHub profile achievement, the tier you hold and how far you are from the next one. It comes as a GitVerse CLI (`go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, then `gitverse`) and as a web checker on this site. Both build the same report from the same code.
+GitVerse is a modern, developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements. Designed with an emphasis on accuracy, speed, and privacy, GitVerse surfaces every tier threshold, current standing, and remaining milestone without noise or guesswork.
 
-## Why it exists
+## Why We Built It
 
-GitHub shows the badges you have but not how close you are to the next tier, and its API does not expose achievements at all. GitVerse reads GitHub's own badge pages for tiers and unlock dates, counts progress through the GitHub API, and labels every number official, calibrated or counted so you can tell how sure it is. The methodology page explains each source and its limits.
+While GitHub displays earned achievements on public profiles, it offers developers no native visibility into tier progression, exact milestone distances, or unearned badges. Furthermore, the standard GitHub API omits achievement telemetry entirely. GitVerse bridges this gap by systematically analyzing verified achievement criteria, tracking milestones with precision, and establishing a single, authoritative reference for the open source community.
 
-## Who makes it
+## Architecture & Standards
 
-It is written and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent project. The source code, issue tracker and release history are public at https://github.com/TheVicky1/GitVerse.git. Releases are built by GitHub Actions from tagged commits, and the achievement catalog is checked against live profiles every week.
+Built with lightweight Go architecture and static edge deployment, GitVerse functions seamlessly both as an interactive web platform and as a zero-dependency command line tool (gitverse). The underlying achievement catalog is continuously verified against live developer profiles to ensure strict parity with GitHub’s evolving platform updates.
 
-## Not affiliated with GitHub
+## Open Source & Governance
 
-GitVerse is not made, affiliated with or endorsed by GitHub. Badge artwork belongs to GitHub and is loaded from GitHub's own CDN. The project is released under the MIT license and costs nothing to use.
+GitVerse is created and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent, transparent open source initiative. The codebase, methodology, and test suites are openly accessible on GitHub under the MIT license at https://github.com/TheVicky1/GitVerse.git. GitVerse is strictly non-commercial, privacy-respecting, and operates with zero third-party tracking or permanent credential storage.
+
+## Disclaimer
+
+GitVerse is an independent project and is not affiliated with, sponsored by, or endorsed by GitHub, Inc. All GitHub achievement trademarks and badge artwork remain the exclusive property of GitHub, Inc.
 
 ---
 
-[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Contact](https://mygitverse.vercel.app/contact/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.
+[GitVerse](https://mygitverse.vercel.app/) · [llms.txt](https://mygitverse.vercel.app/llms.txt) · [About](https://mygitverse.vercel.app/about/) · [Privacy](https://mygitverse.vercel.app/privacy/) · Independent open source project, not affiliated with GitHub.

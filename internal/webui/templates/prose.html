@@ -1,8 +1,10 @@
 {{define "content"}}
 <div class="prose">
 {{range .Paras}}
-<h2>{{.Heading}}</h2>
-<p>{{.Text}}</p>
+  <section class="prose-section">
+    <h2>{{.Heading}}</h2>
+    <p>{{.Text}}</p>
+  </section>
 {{end}}
 </div>
 {{if .ShowStar}}{{template "star-banner" "about"}}{{end}}

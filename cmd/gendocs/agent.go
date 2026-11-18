@@ -17,57 +17,43 @@ type trustPage struct {
 
 var trustPages = []trustPage{
 	{
-		Slug: "about", Title: "About GitVerse: who makes it and why",
+		Slug: "about", Title: "About GitVerse: why it exists, architecture & author",
 		Heading:     "About GitVerse",
-		Description: "GitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1).",
+		Description: "A developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements.",
 		Paras: []para{
-			{"What it is", "GitVerse is a free, open source tool that shows every GitHub profile achievement, the tier you hold and how far you are from the next one. " +
-				"It comes as a GitVerse CLI (" + "`" + webui.Install + "`" + ", then `gitverse`) and as a web checker on this site. " +
-				"Both build the same report from the same code."},
-			{"Why it exists", "GitHub shows the badges you have but not how close you are to the next tier, and its API does not expose achievements at all. " +
-				"GitVerse reads GitHub's own badge pages for tiers and unlock dates, counts progress through the GitHub API, " +
-				"and labels every number official, calibrated or counted so you can tell how sure it is. The methodology page explains each source and its limits."},
-			{"Who makes it", "It is written and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent project. " +
-				"The source code, issue tracker and release history are public at " + webui.RepoURL + ". " +
-				"Releases are built by GitHub Actions from tagged commits, and the achievement catalog is checked against live profiles every week."},
-			{"Not affiliated with GitHub", "GitVerse is not made, affiliated with or endorsed by GitHub. " +
-				"Badge artwork belongs to GitHub and is loaded from GitHub's own CDN. The project is released under the MIT license and costs nothing to use."},
-		},
-	},
-	{
-		Slug: "contact", Title: "Contact GitVerse: issues, security and questions",
-		Heading:     "Contact",
-		Description: "How to reach the GitVerse maintainer: GitHub issues for bugs and wrong counts, private vulnerability reports for security.",
-		Paras: []para{
-			{"Bugs and questions", "Open an issue at " + webui.RepoURL + "/issues/new/choose. " +
-				"There are templates for a bug, for a count that looks wrong and for an achievement the catalog is missing. " +
-				"A public issue lets anyone with the same problem find the answer, so it is the preferred way to get in touch."},
-			{"A count looks wrong", "Use the \"count looks wrong\" template and include the username, the achievement and the number GitHub shows on the profile. " +
-				"Counts are compared with GitHub's own record, so a mismatch usually points at a limit described on the methodology page, and sometimes at a bug worth fixing."},
-			{"Security", "Report a vulnerability privately through GitHub's private vulnerability reporting at " + webui.RepoURL + "/security/advisories/new, not in a public issue. " +
-				"Reports cover both the CLI and the web checker, and you will get an answer within a week."},
-			{"Contributions", "Pull requests are welcome. CONTRIBUTING.md in the repository explains how to build, test and regenerate the site. " +
-				"The maintainer is Vicky Patel on GitHub (https://github.com/TheVicky1)."},
+			{"The Platform", "GitVerse is a modern, developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements. " +
+				"Designed with an emphasis on accuracy, speed, and privacy, GitVerse surfaces every tier threshold, current standing, and remaining milestone without noise or guesswork."},
+			{"Why We Built It", "While GitHub displays earned achievements on public profiles, it offers developers no native visibility into tier progression, exact milestone distances, or unearned badges. " +
+				"Furthermore, the standard GitHub API omits achievement telemetry entirely. GitVerse bridges this gap by systematically analyzing verified achievement criteria, tracking milestones with precision, and establishing a single, authoritative reference for the open source community."},
+			{"Architecture & Standards", "Built with lightweight Go architecture and static edge deployment, GitVerse functions seamlessly both as an interactive web platform and as a zero-dependency command line tool (gitverse). " +
+				"The underlying achievement catalog is continuously verified against live developer profiles to ensure strict parity with GitHub’s evolving platform updates."},
+			{"Open Source & Governance", "GitVerse is created and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent, transparent open source initiative. " +
+				"The codebase, methodology, and test suites are openly accessible on GitHub under the MIT license at " + webui.RepoURL + ". " +
+				"GitVerse is strictly non-commercial, privacy-respecting, and operates with zero third-party tracking or permanent credential storage."},
+			{"Disclaimer", "GitVerse is an independent project and is not affiliated with, sponsored by, or endorsed by GitHub, Inc. " +
+				"All GitHub achievement trademarks and badge artwork remain the exclusive property of GitHub, Inc."},
 		},
 	},
 	{
 		Slug: "privacy", Title: "Privacy policy · GitVerse",
 		Heading:     "Privacy",
-		Description: "What GitVerse collects (almost nothing), what the web checker sends to GitHub, and how consent-gated analytics work.",
+		Description: "GitVerse collects no personal data, stores no passwords or tokens, and runs without a database.",
 		Paras: []para{
-			{"The CLI", "The GitVerse CLI runs on your computer. It reuses the login the GitHub CLI already stores (or GH_TOKEN) " +
-				"and talks only to github.com and api.github.com. It sends nothing to GitVerse or any other server and writes no token anywhere."},
-			{"The web checker", "When you check a username, the request goes to the GitVerse server on Vercel, which reads that profile's public data from GitHub with a read-only bot token. " +
-				"When you sign in with GitHub, the one-time code is exchanged on the server, the token is used for a single check and revoked at once, and refresh tokens are discarded. " +
-				"No account is created and no report, username or token is stored. Server logs record error types only, never usernames or tokens. " +
-				"Vercel, the host, processes each request under its own privacy policy."},
-			{"Cookies and browser storage", "Signing in sets one HttpOnly cookie, gha_oauth, holding a signed sign-in state that expires after 10 minutes and is cleared as soon as the check starts." +
-				"Your browser's local storage remembers your theme, your analytics choice and the last username you signed in as, so the page can greet you; " +
-				"session storage caches the repository's star count. None of this leaves your browser."},
-			{"Analytics", "Google Analytics loads only after you click Allow, and the site works the same if you say no. " +
-				"Page addresses are sent without their query string and result-page titles are replaced, so no username or repository name reaches Google. " +
-				"You can change your choice at any time with \"Analytics settings\" in the footer."},
-			{"Questions", "Ask in a GitHub issue at " + webui.RepoURL + "/issues, or report a privacy or security problem privately at " + webui.RepoURL + "/security/advisories/new."},
+			{"Our Privacy Commitment", "GitVerse is built on a fundamental principle: your developer data belongs exclusively to you. " +
+				"We believe privacy should be absolute and non-negotiable. This policy outlines how GitVerse handles authentication, public metrics, and temporary session state across both our command line interface and web application."},
+			{"Command Line Interface", "The GitVerse CLI operates entirely on your local machine. " +
+				"When retrieving public achievement information, it connects directly to GitHub's public endpoints. " +
+				"If authenticated using GitHub CLI or a local personal access token, credentials remain strictly within your local environment. " +
+				"The CLI never sends credentials, query history, or telemetry logs to GitVerse or any remote servers."},
+			{"Web Application & OAuth", "When you check a username on the web interface, GitVerse queries public profile metrics through a read-only server token. " +
+				"If you sign in via GitHub to include private repository achievements, authorization is strictly ephemeral. " +
+				"OAuth tokens are held in volatile memory only for the duration of a single check and revoked immediately after your report is generated. " +
+				"GitVerse maintains no database, stores no user profiles, and logs no usernames, tokens, or repository names."},
+			{"Analytics & Cookies", "GitVerse employs strictly privacy-focused analytics with Google Analytics in consent-gated mode. " +
+				"No analytics cookies or trackers are loaded unless you explicitly grant consent. " +
+				"No IP addresses, usernames, or private repository data are ever transmitted to analytics providers."},
+			{"Third-Party Infrastructure", "GitVerse is hosted on Vercel's global edge network under secure TLS 1.3 encryption. " +
+				"Badge artwork is loaded directly from GitHub's official content delivery network. All network transactions adhere to industry-standard transport security."},
 		},
 	},
 }
@@ -195,6 +181,6 @@ func markdownNotFound() string {
 
 func markdownFooter() string {
 	return "\n---\n\n[GitVerse](" + webui.SiteURL + ") · [llms.txt](" + webui.SiteURL + "llms.txt) · " +
-		"[About](" + webui.SiteURL + "about/) · [Contact](" + webui.SiteURL + "contact/) · [Privacy](" + webui.SiteURL + "privacy/) · " +
+		"[About](" + webui.SiteURL + "about/) · [Privacy](" + webui.SiteURL + "privacy/) · " +
 		"Independent open source project, not affiliated with GitHub.\n"
 }

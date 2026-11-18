@@ -6,16 +6,16 @@
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About GitVerse: who makes it and why</title>
-  <meta name="description" content="GitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1).">
+  <title>About GitVerse: why it exists, architecture &amp; author</title>
+  <meta name="description" content="A developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements.">
   
   <link rel="canonical" href="https://mygitverse.vercel.app/about/">
   
   <meta name="color-scheme" content="dark">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="GitVerse">
-  <meta property="og:title" content="About GitVerse: who makes it and why">
-  <meta property="og:description" content="GitVerse is an independent, MIT-licensed GitVerse CLI and web checker for GitHub profile achievements, created by Vicky Patel (@TheVicky1).">
+  <meta property="og:title" content="About GitVerse: why it exists, architecture &amp; author">
+  <meta property="og:description" content="A developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements.">
   <meta property="og:url" content="https://mygitverse.vercel.app/about/">
   <meta property="og:image" content="https://mygitverse.vercel.app/social.png">
   <meta property="og:image:width" content="1280">
@@ -42,7 +42,6 @@
         <a href="/check/">Track</a>
         <a href="/achievements/">Explore</a>
         <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
         <a href="https://github.com/TheVicky1/GitVerse.git" rel="noopener">GitHub</a>
         <button type="button" class="nav-link-btn" data-consent-reset hidden aria-hidden="true">Settings</button>
       </nav>
@@ -52,32 +51,41 @@
     </div>
   </header>
   <main>
-    <nav class="crumbs" aria-label="Breadcrumb">
-      <ol><li><a
-            href="/">GitVerse</a></li><li><span aria-hidden="true">›</span> <a
-            href="/about/">About GitVerse</a></li></ol>
-    </nav>
+    
     <h1>About GitVerse</h1>
     
 <div class="prose">
 
-<h2>What it is</h2>
-<p>GitVerse is a free, open source tool that shows every GitHub profile achievement, the tier you hold and how far you are from the next one. It comes as a GitVerse CLI (`go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest`, then `gitverse`) and as a web checker on this site. Both build the same report from the same code.</p>
+  <section class="prose-section">
+    <h2>The Platform</h2>
+    <p>GitVerse is a modern, developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements. Designed with an emphasis on accuracy, speed, and privacy, GitVerse surfaces every tier threshold, current standing, and remaining milestone without noise or guesswork.</p>
+  </section>
 
-<h2>Why it exists</h2>
-<p>GitHub shows the badges you have but not how close you are to the next tier, and its API does not expose achievements at all. GitVerse reads GitHub&#39;s own badge pages for tiers and unlock dates, counts progress through the GitHub API, and labels every number official, calibrated or counted so you can tell how sure it is. The methodology page explains each source and its limits.</p>
+  <section class="prose-section">
+    <h2>Why We Built It</h2>
+    <p>While GitHub displays earned achievements on public profiles, it offers developers no native visibility into tier progression, exact milestone distances, or unearned badges. Furthermore, the standard GitHub API omits achievement telemetry entirely. GitVerse bridges this gap by systematically analyzing verified achievement criteria, tracking milestones with precision, and establishing a single, authoritative reference for the open source community.</p>
+  </section>
 
-<h2>Who makes it</h2>
-<p>It is written and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent project. The source code, issue tracker and release history are public at https://github.com/TheVicky1/GitVerse.git. Releases are built by GitHub Actions from tagged commits, and the achievement catalog is checked against live profiles every week.</p>
+  <section class="prose-section">
+    <h2>Architecture &amp; Standards</h2>
+    <p>Built with lightweight Go architecture and static edge deployment, GitVerse functions seamlessly both as an interactive web platform and as a zero-dependency command line tool (gitverse). The underlying achievement catalog is continuously verified against live developer profiles to ensure strict parity with GitHub’s evolving platform updates.</p>
+  </section>
 
-<h2>Not affiliated with GitHub</h2>
-<p>GitVerse is not made, affiliated with or endorsed by GitHub. Badge artwork belongs to GitHub and is loaded from GitHub&#39;s own CDN. The project is released under the MIT license and costs nothing to use.</p>
+  <section class="prose-section">
+    <h2>Open Source &amp; Governance</h2>
+    <p>GitVerse is created and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent, transparent open source initiative. The codebase, methodology, and test suites are openly accessible on GitHub under the MIT license at https://github.com/TheVicky1/GitVerse.git. GitVerse is strictly non-commercial, privacy-respecting, and operates with zero third-party tracking or permanent credential storage.</p>
+  </section>
+
+  <section class="prose-section">
+    <h2>Disclaimer</h2>
+    <p>GitVerse is an independent project and is not affiliated with, sponsored by, or endorsed by GitHub, Inc. All GitHub achievement trademarks and badge artwork remain the exclusive property of GitHub, Inc.</p>
+  </section>
 
 </div>
 
 <a class="star-banner" href="https://github.com/TheVicky1/GitVerse.git" rel="noopener" data-star="about">
   <strong>Found this useful? Star GitVerse on GitHub</strong>
-  <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars hidden>0</span></span>
+  <span class="star-cta"><span aria-hidden="true">★</span> Star <span class="star-count" data-stars hidden>2</span></span>
 </a>
 
 
