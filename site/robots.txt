@@ -6,8 +6,8 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-# OpenAI model-training crawler (separate from search indexing)
+# OpenAI model crawler (separate from search indexing)
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 Sitemap: https://mygitverse.vercel.app/sitemap.xml
