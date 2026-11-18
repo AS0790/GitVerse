@@ -747,6 +747,7 @@ function renderConnectPage(error = null) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Connect GitHub Profile · GitVerse</title>
+<meta name="description" content="Connect your GitHub profile to include private repositories, pull requests, and milestone progression securely.">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/gitverse-favicon.png">
 <script src="/theme.js"></script>
@@ -766,67 +767,71 @@ function renderConnectPage(error = null) {
   </div>
 </header>
 <main>
-  <div style="max-width: 640px; margin: 40px auto; padding: 0 16px;">
-    <div class="hero-eyebrow" style="text-align: center; margin-bottom: 12px;">Private Repository Intelligence</div>
-    <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; text-align: center; margin-bottom: 16px;">Connect GitHub Profile</h1>
-    <p class="lede" style="text-align: center; margin: 0 auto 36px; max-width: 520px; font-size: 0.95rem; color: var(--ink-2);">
-      Sign in to include your private repositories, private pull requests, and inaccessible milestone history. Your credentials are used in memory for this check only.
-    </p>
+  <div class="auth-page">
+    <section class="hero auth-hero">
+      <div class="hero-eyebrow">Private Repository Intelligence</div>
+      <h1>Connect Profile</h1>
+      <p class="lede">Include your private repositories, pull requests, and milestone progress. Credentials are held strictly in transient memory for this single check and never stored.</p>
+    </section>
 
     ${error ? `<div class="notice error" style="margin-bottom: 24px;"><p>${error}</p></div>` : ''}
 
     <!-- Method 1: Instant Personal Access Token -->
-    <div style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; margin-bottom: 24px;">
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--gold-2);"></span>
-        <h3 style="font-size: 1.15rem; margin: 0;">Instant Connect with GitHub Token</h3>
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <span class="auth-badge gold">Direct Token</span>
+        <h2 class="auth-card-title">Personal Access Token</h2>
       </div>
-      <p style="font-size: 0.86rem; color: var(--ink-2); line-height: 1.6; margin-bottom: 18px;">
-        Paste a GitHub token with <code>repo</code> scope to instantly calculate your full private achievements. No app setup required.
+      <p class="auth-card-desc">
+        Paste a GitHub token with <code>repo</code> scope to immediately calculate your full private achievements. No OAuth application setup required.
       </p>
-      <form action="/auth/token" method="post" style="display: flex; flex-direction: column; gap: 14px;">
-        <div>
-          <label style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--ink-3); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;">Personal Access Token</label>
-          <input type="password" name="token" required placeholder="ghp_... or gho_..." style="width: 100%; padding: 12px 16px; border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); font-family: monospace; font-size: 0.92rem;">
+      <form action="/auth/token" method="post" class="auth-form">
+        <div class="auth-field">
+          <label class="auth-label" for="token">Personal Access Token</label>
+          <input type="password" id="token" name="token" required placeholder="ghp_... or gho_..." class="auth-input">
         </div>
-        <button type="submit" class="btn primary" style="justify-content: center; padding: 13px; font-weight: 700; width: 100%;">Calculate Private Achievements</button>
+        <button type="submit" class="btn primary auth-btn">Calculate Private Achievements</button>
       </form>
-      <p style="font-size: 0.8rem; color: var(--ink-3); margin-top: 14px; margin-bottom: 0;">
-        Need a token? <a href="https://github.com/settings/tokens/new?scopes=repo&description=GitVerse%20Private%20Check" target="_blank" rel="noopener" style="color: var(--gold-2); text-decoration: underline;">Generate one on GitHub (pre-selected with repo scope) →</a>
-      </p>
+      <div class="auth-card-footer">
+        Need a token? <a href="https://github.com/settings/tokens/new?scopes=repo&description=GitVerse%20Private%20Check" target="_blank" rel="noopener">Generate one on GitHub (pre-configured with repo scope) →</a>
+      </div>
     </div>
 
     <!-- Method 2: GitHub OAuth App -->
-    <div style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px;">
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--silver);"></span>
-        <h3 style="font-size: 1.15rem; margin: 0;">One-Click GitHub OAuth App</h3>
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <span class="auth-badge silver">OAuth App</span>
+        <h2 class="auth-card-title">GitHub OAuth Application</h2>
       </div>
-      <p style="font-size: 0.86rem; color: var(--ink-2); line-height: 1.6; margin-bottom: 18px;">
-        Configure your GitHub OAuth App to authorize directly through GitHub's OAuth consent screen:
+      <p class="auth-card-desc">
+        Authorize via GitHub's official consent screen using your own registered OAuth Application credentials:
       </p>
-      <form action="/auth/save-oauth" method="post" style="display: flex; flex-direction: column; gap: 14px;">
-        <div>
-          <label style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--ink-3); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;">Client ID</label>
-          <input type="text" name="clientId" value="${devClientId}" required placeholder="e.g. Ov23li..." style="width: 100%; padding: 12px 16px; border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); font-family: monospace; font-size: 0.92rem;">
+      <form action="/auth/save-oauth" method="post" class="auth-form">
+        <div class="auth-field">
+          <label class="auth-label" for="clientId">Client ID</label>
+          <input type="text" id="clientId" name="clientId" value="${devClientId}" required placeholder="e.g. Ov23li..." class="auth-input">
         </div>
-        <div>
-          <label style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--ink-3); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;">Client Secret</label>
-          <input type="password" name="clientSecret" required placeholder="GitHub client secret" style="width: 100%; padding: 12px 16px; border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); font-family: monospace; font-size: 0.92rem;">
+        <div class="auth-field">
+          <label class="auth-label" for="clientSecret">Client Secret</label>
+          <input type="password" id="clientSecret" name="clientSecret" required placeholder="GitHub client secret" class="auth-input">
         </div>
-        <button type="submit" class="btn" style="justify-content: center; padding: 13px; font-weight: 700; width: 100%;">Save & Launch GitHub OAuth Screen</button>
+        <button type="submit" class="btn auth-btn">Save &amp; Launch GitHub Consent</button>
       </form>
-      <p style="font-size: 0.8rem; color: var(--ink-3); margin-top: 14px; margin-bottom: 0;">
-        Create an OAuth App at <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener" style="color: var(--gold-2); text-decoration: underline;">GitHub Developer Settings</a> with callback URL <code>http://localhost:5173/auth/callback</code>.
-      </p>
+      <div class="auth-card-footer">
+        Register an OAuth App at <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">GitHub Developer Settings</a> with callback URL: <code>https://mygitverse.vercel.app/auth/callback</code>
+      </div>
     </div>
 
+    <!-- Security Guarantee Banner -->
+    <div class="auth-security-note">
+      <p><strong>Zero Persistence Guarantee</strong>: GitVerse operates completely database-free. OAuth and personal tokens are held only in volatile RAM for the seconds needed to compile the achievement report, and are immediately revoked upon completion.</p>
+    </div>
   </div>
 </main>
 <footer class="aurora-footer">
   <div class="aurora-footer-top">
     <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
-    <span class="footer-copyright">© 2026 GITVERSE · GITHUB ACHIEVEMENT INTELLIGENCE</span>
+    <span class="footer-copyright">© 2026 Vicky Patel. All Rights Reserved.</span>
   </div>
   <div class="aurora-footer-watermark" aria-hidden="true">
     <span>GITVERSE</span>
