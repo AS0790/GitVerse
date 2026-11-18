@@ -1,12 +1,9 @@
-# GitVerse crawler policy
 User-agent: *
 Allow: /
 
-# ChatGPT Search discovery
 User-agent: OAI-SearchBot
 Allow: /
 
-# OpenAI model crawler (separate from search indexing)
 User-agent: GPTBot
 Allow: /
 
