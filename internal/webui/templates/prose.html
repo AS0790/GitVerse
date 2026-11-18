@@ -1,11 +1,11 @@
 {{define "content"}}
 <div class="prose">
-{{range .Paras}}
+  {{range .Paras}}
   <section class="prose-section">
     <h2>{{.Heading}}</h2>
     <p>{{.Text}}</p>
   </section>
-{{end}}
+  {{end}}
 </div>
 {{if .ShowStar}}{{template "star-banner" "about"}}{{end}}
 {{end}}

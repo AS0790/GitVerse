@@ -54,6 +54,7 @@ var trustPages = []trustPage{
 				"No IP addresses, usernames, or private repository data are ever transmitted to analytics providers."},
 			{"Third-Party Infrastructure", "GitVerse is hosted on Vercel's global edge network under secure TLS 1.3 encryption. " +
 				"Badge artwork is loaded directly from GitHub's official content delivery network. All network transactions adhere to industry-standard transport security."},
+			{"Contact & Inquiries", "If you have any questions, issues, or privacy inquiries, please reach out directly to Vicky Patel at vicky.patel.work@gmail.com."},
 		},
 	},
 }
