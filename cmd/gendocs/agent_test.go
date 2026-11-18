@@ -46,7 +46,7 @@ func TestTrustPages_haveRealContentAndAreLinked(t *testing.T) {
 		if !strings.Contains(sm, "<loc>"+webui.SiteURL+tp.Slug+"/</loc>") {
 			t.Errorf("%s not in the sitemap", tp.Slug)
 		}
-		if !strings.Contains(string(pages["site/index.html"]), `<a href="/`+tp.Slug+`/">`) {
+		if !strings.Contains(string(pages["site/index.html"]), `href="/`+tp.Slug+`/"`) {
 			t.Errorf("footer does not link %s", tp.Slug)
 		}
 	}

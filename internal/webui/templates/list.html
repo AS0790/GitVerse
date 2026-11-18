@@ -9,14 +9,18 @@
 {{end}}</ul>
 {{end}}
 
-<h2>Profile highlights</h2>
-<p>Highlights appear below the achievements on a profile. They are not tiered.</p>
-<ul>
-{{range .Highlights}}<li><strong>{{.Name}}</strong>: {{.HowToEarn}}.</li>
-{{end}}</ul>
+<section class="list-highlights">
+  <h2>Profile highlights</h2>
+  <p>Highlights appear below the achievements on a profile. They are not tiered.</p>
+  <ul>
+  {{range .Highlights}}<li><strong>{{.Name}}</strong>: {{.HowToEarn}}.</li>
+  {{end}}</ul>
+</section>
 
-<h2>Check your own progress</h2>
-<pre><code>{{.Install}}
+<section class="list-install">
+  <h2>Check your own progress</h2>
+  <pre><code>{{.Install}}
 gitverse &lt;username&gt;</code></pre>
-<p class="meta">Verified against live profiles on <time datetime="{{.Verified}}">{{.Verified}}</time>. Also available as <a href="../achievements.json">achievements.json</a>.</p>
+  <p class="meta">Verified against live profiles on <time datetime="{{.Verified}}">{{.Verified}}</time>. Also available as <a href="../achievements.json">achievements.json</a>.</p>
+</section>
 {{end}}

@@ -473,8 +473,9 @@ body { padding-top: 86px; }
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 2px;
-  margin: 60px 0 20px;
+  margin: 60px auto 20px;
   padding: 0;
+  justify-items: center;
 }
 
 .medal {
@@ -575,7 +576,6 @@ body { padding-top: 86px; }
 .feature-card:hover::before { opacity: 1; }
 .feature-card:hover .feature-num { color: #d8e2eb; }
 .feature-card:hover h3 { color: #fff; }
-}
 
 .feature-num {
   font-size: 0.72rem;
@@ -722,6 +722,56 @@ body { padding-top: 86px; }
 
 .notice.error { border-color: rgba(239,68,68,0.3); }
 .notice p:last-child { margin: 0; }
+
+/* ─── Achievement list page section headings ──────────────── */
+/* Page-level h1 injected by layout (outside hero) is scoped here */
+main > h1 {
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  margin-bottom: 20px;
+}
+
+/* The hero section overrides back to full size */
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+}
+
+/* Spacing for "Profile highlights" and "Check your own progress" h2 on list page */
+.medal-grid + h2,
+ul + h2 {
+  margin-top: 56px;
+}
+
+/* List page section wrappers */
+.list-highlights,
+.list-install {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-2);
+}
+
+.list-highlights h2,
+.list-install h2 {
+  margin-bottom: 16px;
+}
+
+.list-highlights ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-highlights li {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+.list-install pre {
+  margin: 20px 0 16px;
+}
 
 /* ─── Breadcrumbs ─────────────────────────────────────────── */
 .crumbs {
@@ -906,6 +956,56 @@ table tbody tr:hover td {
   text-transform: uppercase;
 }
 
+/* ─── Achievement list page section headings ──────────────── */
+/* Page-level h1 injected by layout (outside hero) is scoped here */
+main > h1 {
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  margin-bottom: 20px;
+}
+
+/* The hero section overrides back to full size */
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+}
+
+/* Spacing for "Profile highlights" and "Check your own progress" h2 on list page */
+.medal-grid + h2,
+ul + h2 {
+  margin-top: 56px;
+}
+
+/* List page section wrappers */
+.list-highlights,
+.list-install {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-2);
+}
+
+.list-highlights h2,
+.list-install h2 {
+  margin-bottom: 16px;
+}
+
+.list-highlights ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-highlights li {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+.list-install pre {
+  margin: 20px 0 16px;
+}
+
 /* ─── Breadcrumbs ─────────────────────────────────────────── */
 
 /* ─── Medal Grid (achievements page) ─────────────────────── */
@@ -1065,10 +1165,20 @@ table tbody tr:hover td {
 .choice {
   max-width: 480px;
   margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.choice .lede { margin-bottom: 24px; }
-.choice .btn.big { margin-bottom: 10px; }
+.choice .lede {
+  margin-bottom: 24px;
+  text-align: center;
+  max-width: 42ch;
+}
+.choice .btn.big { margin-bottom: 10px; width: 100%; justify-content: center; }
+.choice .meta { text-align: center; }
+.choice #check-form { width: 100%; }
 .or {
   position: relative;
   text-align: center;
