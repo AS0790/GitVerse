@@ -2,7 +2,7 @@
 
 > Check your GitHub achievements progress: every badge, your tier and how far to the next one, verified against GitHub's own data, no token needed.
 
-GitVerse is a free, open-source GitHub achievement tracker with a web checker and a Go CLI (MIT). Use the web checker at https://mygitverse.vercel.app/check/ or install the CLI with `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest` and run `gitverse <username>`. The CLI can use the user's existing GitHub CLI login for private-repository-aware checks. The web checker supports public checks without sign-in and optional GitHub sign-in for private-repository checks; its OAuth token is used for one check and revoked immediately. No manually created personal access token is required. It knows 15 achievements (8 earnable, 2 disabled, 2 retired, 3 internal) and 6 profile highlights. Catalog last verified 2026-10-17. It is not affiliated with GitHub.
+GitVerse is a free, open-source GitHub achievement tracker with a web checker and a Go CLI (MIT). Use the web checker at https://mygitverse.vercel.app/check/ or install the CLI with `go install github.com/TheVicky1/GitVerse/cmd/gitverse@latest` and run `gitverse <username>`. The CLI can use the user's existing GitHub CLI login for private-repository-aware checks. The web checker supports public checks without sign-in and optional GitHub sign-in for private-repository checks; the OAuth token is used for one check and revoked immediately. No manually created personal access token is required. It knows 15 achievements (8 earnable, 2 disabled, 2 retired, 3 internal) and 6 profile highlights. Catalog last verified 2026-10-17. It is not affiliated with GitHub.
 
 ## When to use GitVerse
 
