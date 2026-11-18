@@ -126,7 +126,7 @@ func generate() (map[string][]byte, error) {
 	for path, body := range verificationFiles() {
 		files[path] = body
 	}
-	files["site/robots.txt"] = []byte("User-agent: *\nAllow: /\n\nSitemap: " + webui.SiteURL + "sitemap.xml\n")
+	files["site/robots.txt"] = []byte("User-agent: *\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nSitemap: " + webui.SiteURL + "sitemap.xml\n")
 	files["site/sitemap.xml"] = []byte(sitemap())
 	files["site/.nojekyll"] = []byte{}
 
@@ -314,8 +314,8 @@ func llmsTxt() string {
 	var b strings.Builder
 	b.WriteString("# GitVerse\n\n")
 	b.WriteString("> " + tagline + "\n\n")
-	b.WriteString("GitVerse is an open source GitVerse CLI (MIT). Install with `" + webui.Install + "`, run `gitverse [username]`. ")
-	b.WriteString("It reads tiers, unlock dates and milestone history from GitHub's own profile pages and counts progress with the user's existing gh login, so no personal access token is created. The web checker signs in with GitHub on a GitVerse server on Vercel, uses the token for one check and revokes it. ")
+	b.WriteString("GitVerse is a free, open-source GitHub achievement tracker with a web checker and a Go CLI (MIT). Check public GitHub profiles for achievement badges, current tiers, unlock history and available progress counters. ")
+	b.WriteString("The CLI can use the user's existing GitHub CLI login for private-repository-aware checks. The web checker supports public checks without sign-in and optional GitHub sign-in for private-repository checks; the OAuth token is used for one check and revoked immediately. No manually created personal access token is required.")
 	b.WriteString("A web checker at " + webui.SiteURL + "check/ shows the same report without installing anything. ")
 	fmt.Fprintf(&b, "It knows %d achievements (%s) and %d profile highlights. Catalog last verified %s. It is not affiliated with GitHub.\n\n",
 		len(catalog.Achievements), kindSummary(), len(catalog.Highlights), catalog.LastVerified)
