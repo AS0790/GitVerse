@@ -182,7 +182,7 @@ func sitePages() (map[string][]byte, error) {
 		{
 			Path: "index.html", URL: webui.SiteURL,
 			Title:       "GitHub Achievements Checker: tiers & progress · GitVerse",
-			Description: "See every GitHub achievement, your tier and how far you are from the next one. A free GitVerse CLI, verified against GitHub, no token needed.",
+			Description: "Free GitHub achievement tracker and checker. See badges, current tiers and available milestones for any public GitHub profile. Web app and Go CLI.",
 			Heading:     "", // the hero holds the <h1>
 			Content:     "home.html",
 			JSONLD: []template.JS{
