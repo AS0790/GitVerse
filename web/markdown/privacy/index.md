@@ -1,5 +1,7 @@
 # Privacy
 
+GitVerse is built on a fundamental principle: your developer data belongs exclusively to you. No databases, no persistent storage, and zero tracking.
+
 ## Our Privacy Commitment
 
 GitVerse is built on a fundamental principle: your developer data belongs exclusively to you. We believe privacy should be absolute and non-negotiable. This policy outlines how GitVerse handles authentication, public metrics, and temporary session state across both our command line interface and web application.
@@ -23,6 +25,7 @@ GitVerse is hosted on Vercel's global edge network under secure TLS 1.3 encrypti
 ## Contact & Inquiries
 
 If you have any questions, issues, or privacy inquiries, please reach out directly to Vicky Patel at vicky.patel.work@gmail.com.
+
 
 ---
 

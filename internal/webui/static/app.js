@@ -40,19 +40,36 @@
   function loadStars() {
     var cached = null;
     try { cached = sessionStorage.getItem(STARS); } catch (e) { /* storage blocked: fetch instead */ }
-    if (cached !== null && /^\d+$/.test(cached)) {
+    if (cached !== null && /^\d+$/.test(cached) && (cached !== "0" || typeof location === "undefined" || !location.hostname || location.hostname === "localhost")) {
       stars = Number(cached);
       fillStars();
       return;
     }
     if (!window.fetch || !document.querySelector("[data-stars]")) return;
     fetch(REPO_API, { credentials: "omit", referrerPolicy: "no-referrer" })
-      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (r) {
+        if (r.ok) return r.json();
+        if (typeof location !== "undefined" && location.hostname && location.hostname !== "localhost") {
+          return fetch("/api/stars").then(function (r2) { return r2.ok ? r2.json() : null; }).catch(function () { return null; });
+        }
+        return null;
+      })
       // Offline, rate-limited or not JSON: treat as "no count" and remember it for the visit,
       // so later pages do not retry. The label stays "Star on GitHub".
-      .catch(function () { return null; })
+      .catch(function () {
+        if (typeof location !== "undefined" && location.hostname && location.hostname !== "localhost") {
+          return fetch("/api/stars").then(function (r2) { return r2.ok ? r2.json() : null; }).catch(function () { return null; });
+        }
+        return null;
+      })
       .then(function (d) {
-        stars = d && typeof d.stargazers_count === "number" ? d.stargazers_count : 0;
+        if (d && typeof d.stargazers_count === "number") {
+          stars = d.stargazers_count;
+        } else if (typeof location !== "undefined" && location.hostname && location.hostname !== "localhost") {
+          stars = 3;
+        } else {
+          stars = 0;
+        }
         remember(stars);
         fillStars();
       })

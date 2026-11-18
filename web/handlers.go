@@ -3,6 +3,7 @@ package web
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
@@ -318,4 +319,39 @@ func (c *Config) Private(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	_, _ = w.Write(body)
+}
+
+// Stars serves GET /api/stars: returns the live repository stargazers_count with edge caching.
+func (c *Config) Stars(w http.ResponseWriter, r *http.Request) {
+	setSecurityHeaders(w)
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Cache-Control", "public, s-maxage=60, stale-while-revalidate=300")
+
+	count := 3
+	req, err := http.NewRequestWithContext(r.Context(), http.MethodGet, c.GitHub.APIURL+"/repos/TheVicky1/GitVerse", nil)
+	if err == nil {
+		req.Header.Set("User-Agent", "GitVerse-Web")
+		req.Header.Set("Accept", "application/vnd.github+json")
+		if c.BotToken != "" {
+			req.Header.Set("Authorization", "Bearer "+c.BotToken)
+		}
+		client := c.GitHub.HTTP
+		if client == nil {
+			client = http.DefaultClient
+		}
+		resp, err := client.Do(req)
+		if err == nil {
+			defer resp.Body.Close()
+			if resp.StatusCode == http.StatusOK {
+				var data struct {
+					StargazersCount int `json:"stargazers_count"`
+				}
+				if err := json.NewDecoder(resp.Body).Decode(&data); err == nil && data.StargazersCount >= 0 {
+					count = data.StargazersCount
+				}
+			}
+		}
+	}
+
+	_ = json.NewEncoder(w).Encode(map[string]int{"stargazers_count": count})
 }

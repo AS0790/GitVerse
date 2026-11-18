@@ -1,24 +1,35 @@
 # About GitVerse
 
+A modern, developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements.
+
 ## The Platform
 
-GitVerse is a modern, developer-first intelligence suite engineered to provide complete transparency into GitHub profile achievements. Designed with an emphasis on accuracy, speed, and privacy, GitVerse surfaces every tier threshold, current standing, and remaining milestone without noise or guesswork.
+- **Zero Guesswork**: Surfaces verified tier thresholds, current standings, and precise distances to your next milestone without estimation.
+- **Universal Access**: Functions seamlessly as an interactive, real-time web intelligence dashboard and as a zero-dependency CLI binary.
+- **Live Telemetry**: Synchronized directly against GitHub’s live achievement models, tier badges, and developer profile specifications.
 
 ## Why We Built It
 
-While GitHub displays earned achievements on public profiles, it offers developers no native visibility into tier progression, exact milestone distances, or unearned badges. Furthermore, the standard GitHub API omits achievement telemetry entirely. GitVerse bridges this gap by systematically analyzing verified achievement criteria, tracking milestones with precision, and establishing a single, authoritative reference for the open source community.
+- **Native Visibility Gaps**: While GitHub highlights earned badges on profiles, it provides developers no native visibility into progress pacing or remaining milestone requirements.
+- **Omitted API Telemetry**: The official GitHub REST and GraphQL APIs omit achievement metrics, unlock histories, and tier progression entirely.
+- **Authoritative Reference**: Establishes a single, verified open source standard documenting all 15 earnable, disabled, retired, and internal achievements.
 
-## Architecture & Standards
+## Architecture & Security
 
-Built with lightweight Go architecture and static edge deployment, GitVerse functions seamlessly both as an interactive web platform and as a zero-dependency command line tool (gitverse). The underlying achievement catalog is continuously verified against live developer profiles to ensure strict parity with GitHub’s evolving platform updates.
+- **Ephemeral Execution**: OAuth tokens for private checks are held only in volatile memory during compilation and immediately revoked upon completion.
+- **Zero Persistence**: GitVerse operates strictly without databases, credential storage, IP tracking, or persistent profile telemetry.
+- **Edge Infrastructure**: Hosted globally on Vercel's edge network under TLS 1.3 encryption, serving lightning-fast reports and badge artwork.
 
 ## Open Source & Governance
 
-GitVerse is created and maintained by Vicky Patel (https://github.com/TheVicky1) as an independent, transparent open source initiative. The codebase, methodology, and test suites are openly accessible on GitHub under the MIT license at https://github.com/TheVicky1/GitVerse.git. GitVerse is strictly non-commercial, privacy-respecting, and operates with zero third-party tracking or permanent credential storage.
+- **Independent Initiative**: Created and maintained by Vicky Patel (https://github.com/TheVicky1) as a transparent, public-benefit developer utility.
+- **MIT Licensed**: The entire codebase, test suites, and documentation are openly accessible on GitHub under the permissive MIT license at https://github.com/TheVicky1/GitVerse.git.
+- **Strict Neutrality**: GitVerse is strictly independent and is not affiliated with, sponsored by, or endorsed by GitHub, Inc.
 
 ## Disclaimer
 
 GitVerse is an independent project and is not affiliated with, sponsored by, or endorsed by GitHub, Inc. All GitHub achievement trademarks and badge artwork remain the exclusive property of GitHub, Inc.
+
 
 ---
 

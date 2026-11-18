@@ -1,9 +1,19 @@
 {{define "content"}}
+<section class="hero prose-hero">
+  <div class="hero-eyebrow">{{.Eyebrow}}</div>
+  <h1>{{.Heading}}</h1>
+  <p class="lede">{{.Lede}}</p>
+</section>
 <div class="prose">
   {{range .Paras}}
   <section class="prose-section">
     <h2>{{.Heading}}</h2>
-    <p>{{.Text}}</p>
+    {{if .Text}}<p>{{.Text}}</p>{{end}}
+    {{if .Bullets}}
+    <ul class="prose-bullets">
+      {{range .Bullets}}<li><strong>{{.Label}}</strong>: {{.Desc}}</li>{{end}}
+    </ul>
+    {{end}}
   </section>
   {{end}}
 </div>
