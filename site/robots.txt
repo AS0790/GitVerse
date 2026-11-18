@@ -1,4 +1,13 @@
+# GitVerse crawler policy
 User-agent: *
 Allow: /
+
+# ChatGPT Search discovery
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI model-training crawler (separate from search indexing)
+User-agent: GPTBot
+Disallow: /
 
 Sitemap: https://mygitverse.vercel.app/sitemap.xml
